@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+5725-C09 
+(C) Copyright IBM Corp
+US Government Users Restricted Rights - Use, duplication disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<feature
+      id="com.ibm.bigdata.biginsights.platform.feature"
+      label="%Bundle-name"
+      version="5.0.0"
+      provider-name="%Bundle-vendor">
+
+   <description>
+      %General
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %licenseText
+   </license>
+
+   <plugin
+         id="com.ibm.bigdata.tasklauncher"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Testing
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.resultdifferences.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.ibm.biginsights.textanalytics.resultdifferences.test.Activator
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.4",
+ com.ibm.biginsights.textanalytics.runtime;bundle-version="1.0.0",
+ org.junit4;bundle-version="4.3.1",
+ com.ibm.biginsights.thirdparty,
+ com.ibm.biginsights.textanalytics.resultdifferences;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.nature;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

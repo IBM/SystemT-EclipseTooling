@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.resultviewer.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: IBM
+Fragment-Host: com.ibm.biginsights.textanalytics.resultviewer;bundle-version="1.0.0.qualifier"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.4",
+ com.ibm.biginsights.textanalytics.runtime;bundle-version="1.0.0",
+ org.junit4;bundle-version="4.3.1",
+ com.ibm.biginsights.thirdparty,
+ com.ibm.biginsights.textanalytics.resultdifferences;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.nature;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy

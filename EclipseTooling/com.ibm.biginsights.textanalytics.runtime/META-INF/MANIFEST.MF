@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AQL Runtime
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.runtime;singleton:=true
+Bundle-Version: 5.0.0
+Bundle-Activator: com.ibm.biginsights.textanalytics.runtime.Activator
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ com.ibm.biginsights.thirdparty;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: plugin.jar
+Export-Package: com.ibm.biginsights.textanalytics.runtime,
+ com.ibm.biginsights.textanalytics.runtime.util
+Import-Package: com.ibm.biginsights.textanalytics.util.common,
+ org.eclipse.debug.core,
+ org.eclipse.jface.preference,
+ org.eclipse.jface.resource,
+ org.eclipse.jface.viewers,
+ org.eclipse.swt.graphics,
+ org.eclipse.ui

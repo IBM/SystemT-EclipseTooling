@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plugin Utilities
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.util
+Bundle-Version: 5.0.0
+Bundle-Activator: com.ibm.biginsights.textanalytics.util.Activator
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.eclipse.debug.core,
+ org.eclipse.core.filesystem,
+ org.eclipse.jdt.core,
+ org.eclipse.ui.editors,
+ com.ibm.biginsights.thirdparty;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.preferences;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.ibm.biginsights.textanalytics.util,
+ com.ibm.biginsights.textanalytics.util.common,
+ com.ibm.biginsights.textanalytics.util.common.ui,
+ com.ibm.biginsights.textanalytics.util.log,
+ com.ibm.biginsights.textanalytics.util.provenance
+Import-Package: org.eclipse.core.filebuffers,
+ org.eclipse.core.resources

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Plug-in
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.aqleditor.test
+Bundle-Version: 1.0.0
+Bundle-Activator: com.ibm.biginsights.textanalytics.aqleditor.test.Activator
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.ibm.biginsights.textanalytics.aqleditor
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: com.ibm.avatar.aql,
+ com.ibm.biginsights.textanalytics.aql.editor,
+ com.ibm.biginsights.textanalytics.aql.library,
+ com.ibm.biginsights.textanalytics.nature.prefs,
+ com.ibm.biginsights.textanalytics.nature.run,
+ com.ibm.biginsights.textanalytics.nature.utils,
+ org.eclipse.core.filebuffers,
+ org.eclipse.core.resources,
+ org.eclipse.jface.text,
+ org.junit

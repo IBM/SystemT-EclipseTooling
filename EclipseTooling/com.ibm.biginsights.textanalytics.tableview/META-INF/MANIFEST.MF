@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AQL Result View
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.tableview;singleton:=true
+Bundle-Version: 5.0.0
+Bundle-Activator: com.ibm.biginsights.textanalytics.tableview.Activator
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.editors,
+ org.eclipse.jface.text,
+ com.ibm.biginsights.thirdparty;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.util;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.provenance;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.resultmodel;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.resultviewer.util;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.ibm.biginsights.textanalytics.tableview,
+ com.ibm.biginsights.textanalytics.tableview.model,
+ com.ibm.biginsights.textanalytics.tableview.model.impl,
+ com.ibm.biginsights.textanalytics.tableview.view
+Import-Package: com.ibm.biginsights.textanalytics.runtime.util

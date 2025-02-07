@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+5725-C09 
+(C) Copyright IBM Corp 
+US Government Users Restricted Rights - Use, duplication disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<feature
+      id="com.ibm.biginsights.feature"
+      label="%Bundle-name"
+      version="5.0.0"
+      provider-name="%Bundle-vendor">
+
+   <description>
+      %General
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %licenseText
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="com.ibm.biginsights.textanalytics.runtime" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="com.ibm.biginsights.textanalytics.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.preferences" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.aqllibrary" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.explain" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.filesystem" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.core.filebuffers"/>
+      <import plugin="com.ibm.biginsights.textanalytics.treeviewer" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="com.ibm.biginsights.textanalytics.tableview" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.resultviewer" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.resultmodel" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.project" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.resultviewer.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.ant"/>
+      <import plugin="org.eclipse.ui.views.properties.tabbed"/>
+      <import plugin="com.ibm.biginsights.textanalytics.aqleditor" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="com.ibm.biginsights.textanalytics.provenance" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.expressions" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.ui.navigator"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.equinox.security" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="com.ibm.icu" version="3.8.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.core" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.search"/>
+      <import plugin="org.eclipse.ui.browser" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.expressions" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.project.help" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.debug.ui" version="3.3.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.help.ui" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.ui" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.4.4" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.nature" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.core" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.launching" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.goldstandard" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.workflow" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.migration" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.regex" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.4.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.search" version="3.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.3.1" match="greaterOrEqual"/>
+      <import plugin="com.ibm.bigdata.tasklauncher" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.indexer" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.biginsights.textanalytics.refactor" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.browser" version="3.3.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.6.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.debug.ui" version="3.5.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.jface" version="3.6.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.forms" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.cheatsheets" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.databinding" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text" version="3.6.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ltk.core.refactoring" version="3.5.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ltk.ui.refactoring" version="3.5.0" match="greaterOrEqual"/>
+      <import feature="com.ibm.bigdata.biginsights.platform.feature" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.aqleditor"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.aqllibrary"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.explain"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.nature"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.preferences"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.provenance"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.regex"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.resultmodel"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.resultviewer"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.resultviewer.util"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.runtime"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.tableview"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.tooling.help"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.treeviewer"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.util"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.project"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.patterndiscovery"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.resourcechange"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.wizards"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.goldstandard"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.workflow"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.extensions"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.resultdifferences"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.migration"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.project.help"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.tasklauncher"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.tasklauncher"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.indexer"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.biginsights.textanalytics.refactor"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.bigdata.tasklauncher"
+         download-size="0"
+         install-size="0"
+         version="5.0.0"
+         unpack="false"/>
+
+</feature>

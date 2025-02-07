@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: com.ibm.biginsights.tasklauncher;singleton:=true
+Bundle-Version: 5.0.0
+Bundle-Activator: com.ibm.biginsights.tasklauncher.Activator
+Bundle-Vendor: %Bundle-Vendor
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui,
+ com.ibm.bigdata.tasklauncher;bundle-version="1.0.0";visibility:=reexport,
+ com.ibm.biginsights.project;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin

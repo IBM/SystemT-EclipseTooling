@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.provenance.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: IBM
+Fragment-Host: com.ibm.biginsights.textanalytics.provenance;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit4;bundle-version="4.3.1"
+Import-Package: com.ibm.biginsights.textanalytics.nature.prefs,
+ com.ibm.biginsights.textanalytics.nature.utils,
+ org.junit

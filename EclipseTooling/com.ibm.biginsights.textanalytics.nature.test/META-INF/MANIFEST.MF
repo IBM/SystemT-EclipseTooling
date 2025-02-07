@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Plug-in
+Bundle-SymbolicName: com.ibm.biginsights.textanalytics.nature.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.ibm.biginsights.textanalytics.nature.test.Activator
+Bundle-Vendor: IBM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.ibm.biginsights.textanalytics.aqleditor;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.nature;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.provenance;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.regex;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.resultviewer;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.runtime;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.tableview;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.tooling.help;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.treeviewer;bundle-version="1.0.0",
+ com.ibm.biginsights.textanalytics.util;bundle-version="1.0.0",
+ org.junit4,
+ org.eclipse.core.resources,
+ org.eclipse.debug.core,
+ com.ibm.biginsights.textanalytics.preferences;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
