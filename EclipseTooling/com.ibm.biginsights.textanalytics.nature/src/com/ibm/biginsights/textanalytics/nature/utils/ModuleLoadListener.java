@@ -1,0 +1,47 @@
+/*******************************************************************************
+* Copyright IBM
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*******************************************************************************/
+package com.ibm.biginsights.textanalytics.nature.utils;
+
+/**
+ * A listener interface with call back method to notify the implementing listener about the completion of module
+ * metadata load operation
+ * 
+ * 
+ */
+public interface ModuleLoadListener
+{
+
+  public static final String _COPYRIGHT = "Licensed Materials - Property of IBM\n(C) Copyright IBM Corp\n" + //$NON-NLS-1$
+    "US Government Users Restricted Rights - Use, duplication disclosure restricted by GSA ADP Schedule Contract with IBM Corp.";//$NON-NLS-1$
+
+  /**
+   * intimates the registered listener that the metadata of a given set of modules were loaded by the
+   * ModuleMetadataLoader
+   * 
+   * @param moduleNames list of modules that were loaded by the ModuleMetadataLoader
+   * @throws Exception while load operation notification
+   */
+  public void moduleLoaded (String[] moduleNames) throws Exception;
+
+  /**
+   * notifies the registered listeners that the metadata of a given set of modules were loaded by the
+   * ModuleMetadataLoader
+   * 
+   * @param moduleToUnload module name of the module that is unloaded
+   * @throws Exception while removing entry in the cache
+   */
+  public void moduleUnLoaded (String moduleToUnload) throws Exception;
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+   <extension
+         point="com.ibm.bigdata.tasklauncher.solution">
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.overview.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.overview">
+         <usecase
+               image="platform:/plugin/org.eclipse.ui.ide/icons/full/obj16/prj_obj.gif"
+               label="Open Project Explorer"
+               rank="10">
+            <showViewAction
+                  viewId="org.eclipse.ui.navigator.ProjectExplorer">
+            </showViewAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.overview.learnmore"
+            solutionId="com.ibm.bigdata.tasklauncher.overview">
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.textanalytics.tasklauncher/icons/globe.gif"
+               label="IBM big data on the Web"
+               rank="10">
+            <showWebPageAction
+                  url="http://www.ibm.com/software/data/infosphere/bigdata-analytics.html">
+            </showWebPageAction>
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/developWorks_20.png"
+               label="IBM big data community"
+               rank="20">
+            <showWebPageAction
+                  url="http://www.ibm.com/developerworks/data/products/bigdata/index.html">
+            </showWebPageAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.accelerate.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.accelerate">
+         <usecase
+               image="platform:/plugin/org.eclipse.ui.ide/icons/full/obj16/prj_obj.gif"
+               label="Open Project Explorer"
+               rank="10">
+            <showViewAction
+                  viewId="org.eclipse.ui.navigator.ProjectExplorer">
+            </showViewAction>
+         </usecase>
+      </usecases>
+
+
+
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.develop.tasks"
+            solutionId="com.ibm.bigdata.tasklauncher.develop">
+         <usecase
+               description="Follow a step-by-step wizard to create a text extractor (including generating regular expressions), visualize the results of running the extractor, and evaluate extractor quality. Discover patterns in text, view differences in the results of two extraction runs, and interpret the lineage of extractor results."
+               image="platform:/plugin/com.ibm.biginsights.textanalytics.tasklauncher/icons/createTextExtractor_50x.png"
+               label="Create a text extractor"
+               rank="50">
+            <commandAction
+                  commandId="com.ibm.biginsights.textanalytics.workflow.commands.newExtractorCommand">
+            </commandAction>
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.textanalytics.tasklauncher/help/crt_an_extractor_w_workflow_ui.html"></showHelpAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.develop.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.develop">
+         <usecase
+               image="platform:/plugin/org.eclipse.ui.ide/icons/full/obj16/prj_obj.gif"
+               label="Open Project Explorer"
+               rank="10">
+            <showViewAction
+                  viewId="org.eclipse.ui.navigator.ProjectExplorer">
+            </showViewAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.develop.learnmore"
+            solutionId="com.ibm.bigdata.tasklauncher.develop">
+         <usecase
+               label="AQL reference"
+               image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/edit_20.png"
+               rank="30">
+            <showWebPageAction
+                  url="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/biginsights_aqlref_con_aql-overview.html">
+            </showWebPageAction>
+         </usecase>
+      </usecases>      
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.deployandrun.tasks"
+            solutionId="com.ibm.bigdata.tasklauncher.deployandrun">
+         <usecase
+               description="Run your extractor and view the results to verify them."
+               image="platform:/plugin/com.ibm.biginsights.textanalytics.tasklauncher/icons/runVerifyExtractor_50x.png"
+               label="Run an extractor and verify text analytics results from a cluster"
+               rank="50">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.textanalytics.tasklauncher/help/open_workflow_within_exisiting_project.html"></showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.textanalytics.workflow.commands.loadExistingCommand">
+            </commandAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.deployandrun.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.deployandrun">
+         <usecase
+               image="platform:/plugin/org.eclipse.ui.ide/icons/full/obj16/prj_obj.gif"
+               label="Open Project Explorer"
+               rank="10">
+            <showViewAction
+                  viewId="org.eclipse.ui.navigator.ProjectExplorer">
+            </showViewAction>
+         </usecase>
+      </usecases>
+
+
+
+   </extension>
+
+</plugin>

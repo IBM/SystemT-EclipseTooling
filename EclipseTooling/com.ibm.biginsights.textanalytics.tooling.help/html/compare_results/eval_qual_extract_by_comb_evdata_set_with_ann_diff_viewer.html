@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Evaluating the quality of an extractor by combining the labeled data collection with the Annotation Difference Viewer" />
+<meta name="abstract" content="You can evaluate the quality of an extractor by comparing the results of one extractor run to a labeled data collection. By comparing the results, you can determine the accuracy and completeness of an extractor against a standard that you establish." />
+<meta name="Description" content="You can evaluate the quality of an extractor by comparing the results of one extractor run to a labeled data collection. By comparing the results, you can determine the accuracy and completeness of an extractor against a standard that you establish." />
+<meta name="DC.Relation" scheme="URI" content="../../html/compare_results/comparing_results.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common.css" />
+<link rel="Start" href="../../html/compare_results/comparing_results.html" />
+<title>Evaluating the quality of an extractor by combining the labeled data collection with the Annotation Difference Viewer</title>
+</head>
+<body role="main" id="eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer">
+<h1 class="title topictitle1">Evaluating the quality of an extractor by combining the labeled
+data collection with the Annotation Difference Viewer</h1>
+<div class="body taskbody"><p class="shortdesc">You can evaluate the quality of an extractor by comparing
+the results of one extractor run to a labeled data collection. By
+comparing the results, you can determine the accuracy and completeness
+of an extractor against a standard that you establish.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><ul class="ul"><li class="li"><a class="xref" href="creating_an_evaluation_dataset.html" title="A labeled data collection is the standard way to evaluate the accuracy and completeness of an extractor.">Create a labeled
+data collection</a></li>
+<li class="li"><a class="xref" href="configuring_the_goldstandard.html" title="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part.">Configure labeled
+data collection</a> </li>
+</ul>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Run the extractor that you want to evaluate.</span> <p class="p">The
+results of the run are saved in a new subdirectory named <span class="ph filepath">result-<var class="keyword varname">system-timestamp</var></span> in
+the <span class="ph filepath">results</span> directory.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Under the Results directory, right-click the result-system-timestamp
+subdirectory, and select <span class="ph menucascade"><span class="ph uicontrol">Compare Text Analytics
+Result With</span> &gt; <span class="ph uicontrol">Labeled Collection</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Select the labeled data collection, and click <span class="ph uicontrol">OK</span>.</span> <p class="p">The comparison is shown in the <a class="xref" href="../tool_ref/results/annotation_difference_viewer.html" title="The Annotation Difference Viewer displays a side-by-side comparison of the extracted results from the same input file. You can use the Annotation Difference Viewer to understand how modifying the AQL statements in an extractor affects the results, and how the results compare with a labeled data collection.">Annotation
+Difference Viewer </a>.</p>
+<div class="note note"><span class="notetitle">Note:</span> The comparison is shown only for
+those annotation types that are common between the results folder
+and the labeled collection (view name and attribute name). For example,
+if the results have annotation types <var class="keyword varname">Person.name</var> and <var class="keyword varname">Phone.num</var>,
+but the labeled data collection has only the type <var class="keyword varname">Person.name</var>,
+the comparison is only shown for <var class="keyword varname">Person.name</var>.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Evaluate the quality of your extractor.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Evaluate the accuracy of your extractor.</span> <p class="p">The
+precision measure is a reflection of the accuracy of your extractor.
+Your goal is to create an extractor that is as precise as possible.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Evaluate the completeness of your extractor.</span> <p class="p">The
+recall measure is a reflection of the completeness, or coverage, of
+your extractor. </p>
+</li>
+</ol>
+<p class="p">Labeled collection details apply only when you are comparing
+the results of an extractor run to a labeled data collection. The
+measures that are described in <a class="xref" href="../tool_ref/results/annotation_difference_viewer.html#annotationdifferenceviewer" title="The Annotation Difference Viewer displays a side-by-side comparison of the extracted results from the same input file. You can use the Annotation Difference Viewer to understand how modifying the AQL statements in an extractor affects the results, and how the results compare with a labeled data collection.">Annotation Difference Viewer</a> are
+the standard measures that are used in natural language processing.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer__gold_standard_measures" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Labeled Collection measures</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d5889e112">Column</th>
+<th class="entry" valign="bottom" id="d5889e114">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d5889e112 ">Resource</td>
+<td class="entry" valign="top" headers="d5889e114 ">Name of the output view. Nested beneath are
+the following rows:<dl class="dl"><dt class="dt dlterm">Exact</dt>
+<dd class="dd">An exact calculation of the precision, recall, and F-measure.<p class="p">Overlapping
+results that are identified as incorrect.</p>
+</dd>
+<dt class="dt dlterm">Partial</dt>
+<dd class="dd">The calculation of the precision, recall, and F-measure of overlapping
+results are counted as partially correct.<p class="p">For example, if 8 of the
+13 characters in a result are overlapping, the result might be counted
+as <samp class="ph systemoutput">8/13</samp> or <samp class="ph systemoutput">0.62</samp></p>
+</dd>
+<dt class="dt dlterm">Relaxed</dt>
+<dd class="dd">The calculation of the precision, recall, and F-measure when the
+overlapping results are counted as correct.</dd>
+</dl>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d5889e112 ">Precision</td>
+<td class="entry" valign="top" headers="d5889e114 ">The percentage of the results that the extractor
+identified as correct that are correct according to the labeled data
+collection. The higher the precision, the better the extractor is
+at extracting results that are annotated in the labeled data collection. <p class="p">For
+example, the extractor extracted five phone numbers from an input
+file, but only four of them are correct based on the labeled data
+collection. The precision is <samp class="ph systemoutput">4/5</samp> or <samp class="ph systemoutput">80%</samp>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d5889e112 ">Recall</td>
+<td class="entry" valign="top" headers="d5889e114 ">Compared to the number of results that are in
+the labeled data collection, the percentage of the extracted results
+that is correct.<p class="p">For example, according to the labeled data collection,
+there are 8 correct phone numbers. The extractor extracted 5 phone
+numbers. However, only 4 of those 5 numbers are correct. The recall
+is <samp class="ph systemoutput">4/8</samp> or <samp class="ph systemoutput">50%</samp>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d5889e112 ">F-Measure</td>
+<td class="entry" valign="top" headers="d5889e114 ">A weighted average of the precision and recall
+measures, computed as <pre class="pre codeblock"><code>2 x Precision x Recall / (Precision + Recall)</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/compare_results/comparing_results.html" title="You can compare the extracted results from the same input file by using the Annotation Difference Viewer. You can also compare the results of one extractor run to a labeled data collection to evaluate the quality of an extractor.">Comparing results</a></div>
+</div>
+</div></body>
+</html>

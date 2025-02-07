@@ -1,0 +1,19 @@
+$Document =
+$DocScan;
+
+$Numbers =
+Project(
+  (
+    "num" => "num"
+  ),
+  FastRegex(/\d{1,4}/, (0 => "num"), "DOTALL", "D.text",
+    Project(
+      (
+        "text" => "D.text"
+      ),
+      $Document
+    )
+  )
+);
+
+Output: $Numbers;

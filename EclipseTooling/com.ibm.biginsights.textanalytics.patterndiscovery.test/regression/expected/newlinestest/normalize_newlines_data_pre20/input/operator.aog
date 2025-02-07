@@ -1,0 +1,19 @@
+$Document =
+$DocScan;
+
+$context =
+Project(
+  (
+    "match" => "match"
+  ),
+  FastRegex(/123[^(123)]+123/, (0 => "match"), "DOTALL", "R.text",
+    Project(
+      (
+        "text" => "R.text"
+      ),
+      $Document
+    )
+  )
+);
+
+Output: $context;

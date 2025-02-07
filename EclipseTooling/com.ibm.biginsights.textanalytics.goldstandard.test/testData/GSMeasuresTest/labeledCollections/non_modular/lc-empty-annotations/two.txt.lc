@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:systemTComputationResult xmlns:ns2="http://www.ibm.com/systemt/result" gsComplete="false">
+    <documentID>two.txt</documentID>
+    <inputTextID>540782768</inputTextID>
+    <textMap>
+        <entry>
+            <key>540782768</key>
+            <value>Current year is 2011&#xD;
+Lowest 4 digit number is 1000&#xD;
+999 is the highest 3 digit number</value>
+        </entry>
+    </textMap>
+</ns2:systemTComputationResult>

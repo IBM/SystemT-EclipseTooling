@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating AQL Modules or Scripts" />
+<meta name="abstract" content="" />
+<meta name="Description" content="" />
+<meta name="DC.subject" content="AQL modules, AQL scripts, rules" />
+<meta name="keywords" content="AQL modules, AQL scripts, rules" />
+<meta name="DC.Relation" scheme="URI" content="../../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CreateAQLfile" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common.css" />
+<link rel="Start" href="../../html/CreateTextAnalyticsApps.html" />
+<title>Creating AQL Modules or Scripts</title>
+</head>
+<body role="main" id="CreateAQLfile">
+<h1 class="title topictitle1">Creating AQL Modules or Scripts</h1>
+<div class="body taskbody"><p class="shortdesc"></p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>The Extraction Tasks and Extraction Plan that are part of the Eclipse <span class="ph">Text Analytics Workflow perspective</span> create and manage your extractor. Use the AQL rules and the templates that are automatically generated based on your rule selection to design how to extract information. At a high level, a rule is a requirement that is built by using AQL constructs. For example, <var class="keyword varname">BandMember followed within 30 characters by Instrument</var> is a rule that can be built in the AQL extractor. </div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Eclipse workbench, right-click a resource in the <span class="ph uicontrol">Package
+Explorer</span>, and select <span class="ph menucascade"><span class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">Other</span></span>. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Depending on what you want to do, complete one of the following
+set of actions:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d6767e39-option" valign="bottom" align="left">Option</th>
+<th id="d6767e39-desc" valign="bottom" align="left">Description</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d6767e39-option" id="d6767e41" class="stentry choption"><strong>Creating AQL Modules</strong></td>
+<td valign="top" headers="d6767e39-desc d6767e41" class="stentry chdesc"><p class="p">In its source form, an <dfn class="term">AQL module</dfn> is a collection of AQL script files, dictionary files, or binary UDF JAR files that are grouped under a folder with the same name as the module. In its compiled form, an AQL module is represented by <span class="ph filepath">&lt;moduleName&gt;.tam</span> files. The TAM file contains the compiled operator graph, compiled dictionaries (if any), UDF JAR files (if any), and module metadata. <dfn class="term">AQL modules</dfn> facilitate modularity and reusability of AQL code. <dfn class="term">AQL modules</dfn> help build reusable text extractors that can compose complex Text Analytics applications. </p>
+<div class="p">This feature can be used
+only for modular projects.<ol class="ol" type="a"><li class="li">In the <span class="keyword wintitle">Select a wizard</span> window, click <span class="ph menucascade"><span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">AQL Module</span></span>, then click <span class="ph uicontrol">Next</span>. </li>
+<li class="li">In the <span class="keyword wintitle">New AQL module</span> window, select a project, specify a module name, and click <span class="ph uicontrol">Finish</span>. The new module appears in the Text Analytics source directory of the selected project in the Project Explorer and Package Explorer. This action does not create any AQL files inside the new AQL module. To start adding rules to the AQL module, you must create an AQL script file. </li>
+</ol>
+</div>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d6767e39-option" id="d6767e84" class="stentry choption"><strong>Creating AQL Scripts</strong></td>
+<td valign="top" headers="d6767e39-desc d6767e84" class="stentry chdesc"><p class="p"> An <dfn class="term">AQL script</dfn> is an AQL file that contains AQL statements. An AQL script is often called an AQL file. An extractor can consist of one or more AQL files and associated dictionaries and UDF JAR files. AQL files can only reside in AQL modules. </p>
+<div class="p">To create AQL scripts:<ul class="ul"><li class="li">In the <span class="ph uicontrol">Select a wizard</span> window, click <span class="ph menucascade"><span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">AQL Script</span></span>, and click <span class="ph uicontrol">Next</span>. </li>
+<li class="li">For non-modular projects, in the <span class="keyword wintitle">New AQL Script</span> window,
+select a folder to contain the new AQL file, specify a file name with
+an <span class="ph filepath">.aql</span> extension, and click <span class="ph uicontrol">Finish</span>.
+The new AQL file displays in the selected project in the Project Explorer
+and Package Explorer.</li>
+<li class="li">For modular projects, in the <span class="keyword wintitle">New AQL Script </span> window, select a project and specify a module name and file name with an <span class="ph filepath">.aql</span> extension, and click <span class="ph uicontrol">Finish</span>.  If the module that you specify does not exist, this action creates the module. The new AQL file displays in the selected module in the Project Explorer and Package Explorer.</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>For more information about the AQL editing environment, see
+the <a class="xref" href="../tool_ref/extractors/AQLEditor.html" title="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics.">AQL Editor</a>.
+For more information about writing AQL code, see the <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html" target="_blank" title="(Opens in a new tab or window)">AQL Reference</a>.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
+</div>
+</div></body>
+</html>

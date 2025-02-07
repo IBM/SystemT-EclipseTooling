@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+
+  
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.textanalytics.treeview.view.AQLResultTreeView"
+            icon="icons/treeViewer.gif"
+            id="com.ibm.system.treeview.view.AQLResultTreeView"
+            name="Result Tree"
+            restorable="false">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Commands for the Tree View"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            name="TreeView">
+      </category>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Show All Docs"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.ShowAllDocs"
+            name="Show All Docs">
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Show All Docs With Annotations"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.ShowAllDocsWithAnnotations"
+            name="Show All Docs With Annotations">
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Go To Next Annotation"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.GoToNextAnnot"
+            name="Go To Next Annotation">
+            <commandParameter
+                id="com.ibm.biginsights.textanalytics.treeview.GoToNextAnnotPullDown"
+                name="Go To Next Pulldown"
+                optional="true">
+            </commandParameter>
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Go To Previous Annotation"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.GoToPreviousAnnot"
+            name="Go To Previous Annotation">
+            <commandParameter
+                id="com.ibm.biginsights.textanalytics.treeview.GoToPreviousAnnotPullDown"
+                name="Go To Previous Pulldown"
+                optional="true">
+            </commandParameter>
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Show Next"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.ShowNext"
+            name="Show Next">
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Show Previous"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.ShowPrevious"
+            name="Show Previous">
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Go To Document"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.GoToDoc"
+            name="Go To Document">
+             <commandParameter
+               	id="com.ibm.biginsights.textanalytics.treeview.gotodocpulldown"
+               	name="Go To Doc Pulldown"
+               	optional="true">
+	          </commandParameter>
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Show Next With Annot"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.ShowNextWithAnnot"
+            name="Show Next With Annot">
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Show Previous With Annot"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.ShowPreviousWithAnnot"
+            name="Show Previous With Annot">
+      </command>
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.treeview.commands.category"
+            description="Close All Tree Views"
+            id="com.ibm.biginsights.textanalytics.treeview.commands.CloseAll"
+            name="Close All Tree Views">
+      </command>
+</extension>
+
+<!--
+   // TODO : Given below is a work around for Eclipse 4.2.2 bugs: 401709 and 366528.
+Corresponding tooling defect is RTC-48707.
+Description: After migrating to eclipse 4.2.2, due to above defects in eclipse, tool bars were not appearing in ResultTree view, 
+as a work-arond below code to add tool bars are commented out and tool bars now added through programatically in createDynamicToolBarIcons()
+in AQLResultTreeView.java.
+The code between begin and end workarounds should be revisited later when above elcipse defects are fixed.
+We need to uncomment the code below and remove the above API.
+//Begin: workaround -->
+
+   <!--
+      <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowAllDocs"
+               icon="icons/tb_showAllDocs.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.ShowAllDocs"
+               label="Show All Documents That Are Annotated"
+               mnemonic="t"
+               style="push"
+               tooltip="Show All Documents That Are Annotated">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowAllDocsWithAnnotations"
+               icon="icons/tb_showAllDocs_Anno.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.ShowAllDocsWithAnnotations"
+               label="Show All Documents with Selected Annotations" 
+               mnemonic="t"
+               style="push"
+               tooltip="Show All Documents with Selected Annotations">
+         </command>
+      </menuContribution> 
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToPreviousAnnot"
+               icon="icons/tb_upArrow.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.GoToPreviousAnnot"
+               label="Go To Previous Annotation" 
+               mnemonic="t"
+               style="pulldown"
+               tooltip="Previous Annotation in This Document">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToNextAnnot"
+               icon="icons/tb_downArrow.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.GoToNextAnnot"
+               label="Go To Next Annotation" 
+               mnemonic="t"
+               style="pulldown"
+               tooltip="Next Annotation in this Document">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowPrevious"
+               icon="icons/tb_previous.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.ShowPrevious"
+               label="Show Previous Document That Is Annotated" 
+               mnemonic="t"
+               style="push"
+               tooltip="Show Previous Document That Is Annotated">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowNext"
+               icon="icons/tb_next.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.ShowNext"
+               label="Show Next Document That Is Annotated" 
+               mnemonic="t"
+               style="push"
+               tooltip="Show Next Document That Is Annotated">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowPreviousWithAnnot"
+               icon="icons/tb_showPrevDoc_Anno.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.ShowPreviousWithAnnot"
+               label="Show Previous Document With Selected Annotation"
+               mnemonic="t"
+               style="push"
+               tooltip="Show Previous Document With Selected Annotation">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowNextWithAnnot"
+               icon="icons/tb_showNextDoc_Anno.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.ShowNextWithAnnot"
+               label="Show Next Document With Selected Annotation"
+               mnemonic="t"
+               style="push"
+               tooltip="Show Next Document With Selected Annotation">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToDoc"
+               icon="icons/tb_gotoDoc.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.GoToDocPulldown"
+               label="Go To Document" 
+               mnemonic="t"
+               style="pulldown"
+               tooltip="Go To Document">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:com.ibm.system.treeview.view.AQLResultTreeView?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.treeview.commands.CloseAll"
+               icon="icons/treeViews_closeAll.gif"
+               id="com.ibm.biginsights.textanalytics.treeview.CloseAll"
+               label="Close All Tree Views" 
+               mnemonic="t"
+               style="push"
+               tooltip="Close All Tree Views">
+         </command>
+      </menuContribution>
+   </extension>
+//End: workaround -->
+
+<extension
+	point="org.eclipse.ui.editors.markerAnnotationSpecification">
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot1"
+      colorPreferenceKey="highlight.color1"
+      colorPreferenceValue="255,222,173"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background1"
+      highlightPreferenceValue="true"
+      label="annot1"
+      overviewRulerPreferenceKey="highlight.rulers.overview1"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="1"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text1"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical1"
+      verticalRulerPreferenceValue="true">
+</specification >
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot2"
+      colorPreferenceKey="highlight.color2"
+      colorPreferenceValue="238,130,238"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background2"
+      highlightPreferenceValue="true"
+      label="annot2"
+      overviewRulerPreferenceKey="highlight.rulers.overview2"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="2"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text2"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical2"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot3"
+      colorPreferenceKey="highlight.color3"
+      colorPreferenceValue="100,149,237"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background3"
+      highlightPreferenceValue="true"
+      label="annot3"
+      overviewRulerPreferenceKey="highlight.rulers.overview3"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="3"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text3"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical3"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot4"
+      colorPreferenceKey="highlight.color4"
+      colorPreferenceValue="0,255,255"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background4"
+      highlightPreferenceValue="true"
+      label="annot4"
+      overviewRulerPreferenceKey="highlight.rulers.overview4"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="4"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text4"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical4"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot5"
+      colorPreferenceKey="highlight.color5"
+      colorPreferenceValue="152,251,152"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background5"
+      highlightPreferenceValue="true"
+      label="annot5"
+      overviewRulerPreferenceKey="highlight.rulers.overview5"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="5"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text5"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical5"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot6"
+      colorPreferenceKey="highlight.color6"
+      colorPreferenceValue="147,112,219"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background6"
+      highlightPreferenceValue="true"
+      label="annot6"
+      overviewRulerPreferenceKey="highlight.rulers.overview6"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="6"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text6"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical6"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot7"
+      colorPreferenceKey="highlight.color7"
+      colorPreferenceValue="238,221,130"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background7"
+      highlightPreferenceValue="true"
+      label="annot7"
+      overviewRulerPreferenceKey="highlight.rulers.overview7"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="7"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text7"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical7"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot8"
+      colorPreferenceKey="highlight.color8"
+      colorPreferenceValue="255,160,122"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background8"
+      highlightPreferenceValue="true"
+      label="annot8"
+      overviewRulerPreferenceKey="highlight.rulers.overview8"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="8"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text8"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical8"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot9"
+      colorPreferenceKey="highlight.color9"
+      colorPreferenceValue="255,105,180"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background9"
+      highlightPreferenceValue="true"
+      label="annot9"
+      overviewRulerPreferenceKey="highlight.rulers.overview9"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="9"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text9"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical9"
+      verticalRulerPreferenceValue="true">
+</specification>
+
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot10"
+      colorPreferenceKey="highlight.color10"
+      colorPreferenceValue="135,206,250"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background10"
+      highlightPreferenceValue="true"
+      label="annot10"
+      overviewRulerPreferenceKey="highlight.rulers.overview10"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="10"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text10"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical10"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot11"
+      colorPreferenceKey="highlight.color11"
+      colorPreferenceValue="255,255,0"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background11"
+      highlightPreferenceValue="true"
+      label="annot11"
+      overviewRulerPreferenceKey="highlight.rulers.overview11"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="11"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text11"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical11"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot12"
+      colorPreferenceKey="highlight.color12"
+      colorPreferenceValue="255,0,255"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background12"
+      highlightPreferenceValue="true"
+      label="annot12"
+      overviewRulerPreferenceKey="highlight.rulers.overview12"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="12"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text12"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical12"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot13"
+      colorPreferenceKey="highlight.color13"
+      colorPreferenceValue="178,255,102"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background13"
+      highlightPreferenceValue="true"
+      label="annot13"
+      overviewRulerPreferenceKey="highlight.rulers.overview13"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="13"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text13"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical13"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot14"
+      colorPreferenceKey="highlight.color14"
+      colorPreferenceValue="0,255,0"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background14"
+      highlightPreferenceValue="true"
+      label="annot14"
+      overviewRulerPreferenceKey="highlight.rulers.overview14"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="14"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text14"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical14"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot15"
+      colorPreferenceKey="highlight.color15"
+      colorPreferenceValue="255,0,0"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background15"
+      highlightPreferenceValue="true"
+      label="annot15"
+      overviewRulerPreferenceKey="highlight.rulers.overview15"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="15"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text15"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical15"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot16"
+      colorPreferenceKey="highlight.color16"
+      colorPreferenceValue="193,193,193"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background16"
+      highlightPreferenceValue="true"
+      label="annot16"
+      overviewRulerPreferenceKey="highlight.rulers.overview16"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="16"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text16"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical16"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot17"
+      colorPreferenceKey="highlight.color17"
+      colorPreferenceValue="113,198,113"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background17"
+      highlightPreferenceValue="true"
+      label="annot17"
+      overviewRulerPreferenceKey="highlight.rulers.overview17"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="17"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text17"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical17"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot18"
+      colorPreferenceKey="highlight.color18"
+      colorPreferenceValue="255,127,36"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background18"
+      highlightPreferenceValue="true"
+      label="annot18"
+      overviewRulerPreferenceKey="highlight.rulers.overview18"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="18"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text18"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical18"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot19"
+      colorPreferenceKey="highlight.color19"
+      colorPreferenceValue="139,101,8"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background19"
+      highlightPreferenceValue="true"
+      label="annot19"
+      overviewRulerPreferenceKey="highlight.rulers.overview19"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="19"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text19"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical19"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot20"
+      colorPreferenceKey="highlight.color20"
+      colorPreferenceValue="255,215,0"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background20"
+      highlightPreferenceValue="true"
+      label="annot20"
+      overviewRulerPreferenceKey="highlight.rulers.overview20"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="20"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text20"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical20"
+      verticalRulerPreferenceValue="true">
+</specification>
+<specification
+      annotationType="com.ibm.biginsights.textanalytics.aql.annot-document-marker"
+      colorPreferenceKey="highlight.color"
+      colorPreferenceValue="255,140,0"
+      contributesToHeader="false"
+      highlightPreferenceKey="highlight.background"
+      highlightPreferenceValue="true"
+      label="annot-document-marker"
+      overviewRulerPreferenceKey="highlight.rulers.overview"
+      overviewRulerPreferenceValue="true"
+      presentationLayer="21"
+      symbolicIcon="info"
+      textPreferenceKey="highlight.text"
+      textPreferenceValue="true"
+      textStylePreferenceKey="highlight.text.style"
+      textStylePreferenceValue="BOX"
+      verticalRulerPreferenceKey="highlight.rulers.vertical"
+      verticalRulerPreferenceValue="true">
+</specification>
+</extension>
+<extension
+      point="org.eclipse.ui.startup">
+   <startup
+         class="com.ibm.biginsights.textanalytics.treeview.control.ResultEditorListener">
+   </startup>
+</extension>
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowAllDocsHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowAllDocs">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowAllDocsWithSelectedOutputViewsHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowAllDocsWithAnnotations">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowNextAnnotHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToNextAnnot">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowPrevAnnotHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToPreviousAnnot">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowNextDocHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowNext">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowPrevDocHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowPrevious">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowThisDocHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToDoc">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowNextDocWithAnnotHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowNextWithAnnot">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.ShowPrevDocWithAnnotHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.ShowPreviousWithAnnot">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.treeview.view.CloseAllTreeViewsHandler"
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.CloseAll">
+      </handler>
+	</extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToNextAnnot"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+SHIFT+.">
+      </key>
+      <key
+            commandId="com.ibm.biginsights.textanalytics.treeview.commands.GoToPreviousAnnot"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+SHIFT+,">
+      </key>
+   </extension>
+
+</plugin>

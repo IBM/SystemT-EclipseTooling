@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.ibm.bigdata.tasklauncher.solution" name="Quick Launch" schema="schema/com.ibm.bigdata.tasklauncher.solution.exsd"/>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.ibm.bigdata.quick.launch.ui.help.action"
+            label="%help.TaskLauncher.name"
+            visible="true">
+         <action
+               class="com.ibm.datatools.quick.launch.ui.actions.OpenQuickLaunchEditor"
+               icon="icons/Task_Launcher.png"
+               id="com.ibm.bigdata.quick.launch.ui.actions.ShowSolutionCommandAction"
+               label="%help.TaskLauncher.name"
+               menubarPath="help/group.intro.ext">
+         </action>
+      </actionSet>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.editors"
+         name="%Extension.name"
+         id="QuickLaunchEditor">
+	</extension>
+    <extension
+         point="org.eclipse.ui.elementFactories">
+      <factory
+            class="com.ibm.datatools.quick.launch.ui.internal.editor.QuickLaunchInputFactory"
+            id="com.ibm.bigdata.tasklauncher.editor.QuickLaunchInputFactory">
+      </factory>
+    </extension>
+    
+
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+         <initializer class="com.ibm.datatools.quick.launch.ui.internal.pref.QuickLaunchPreferenceInitializer"/>
+    </extension>
+	
+
+ <extension
+       point="com.ibm.bigdata.tasklauncher.solution">
+    <solution
+          id="com.ibm.bigdata.tasklauncher.overview"
+          image=""
+          label="Overview"
+          rank="10">
+       <group
+             id="com.ibm.bigdata.tasklauncher.overview.firststeps"
+             label="First Steps"
+             rank="10"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.overview.tasks"
+             label="Tasks"
+             rank="20"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.overview.learnmore"
+             label="Learn More"
+             rank="30"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.overview.quicklinks"
+             label="Quick Links"
+             rank="40"
+             vspace="8">
+       </group>
+    </solution>
+    <solution
+          id="com.ibm.bigdata.tasklauncher.accelerate"
+          image=""
+          label="Accelerate"
+          rank="20">
+       <group
+             id="com.ibm.bigdata.tasklauncher.accelerate.tasks"
+             label="Tasks"
+             rank="10"
+             rowspan="2"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.accelerate.quicklinks"
+             label="Quick Links"
+             rank="20"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.accelerate.learnmore"
+             label="Learn More"
+             rank="30"
+             vspace="8">
+       </group>
+    </solution>
+    <solution
+          id="com.ibm.bigdata.tasklauncher.design"
+          image=""
+          label="Design"
+          rank="30">
+       <group
+             id="com.ibm.bigdata.tasklauncher.design.learnmorestreams"
+             label="Learn more about analyzing data in motion using Streams"
+             rank="10"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.design.learnmorebiginsights"
+             label="Learn more about analyzing data at rest using BigInsights"
+             rank="30"
+             vspace="8">
+       </group>
+    </solution>
+    <solution
+          id="com.ibm.bigdata.tasklauncher.develop"
+          image=""
+          label="Develop"
+          rank="40">
+       <group
+             id="com.ibm.bigdata.tasklauncher.develop.tasks"
+             label="Tasks"
+             rank="10"
+             rowspan="2"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.develop.quicklinks"
+             label="Quick Links"
+             rank="20"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.develop.learnmore"
+             label="Learn More"
+             rank="30"
+             vspace="8">
+       </group>
+    </solution>
+    <solution
+          id="com.ibm.bigdata.tasklauncher.deployandrun"
+          image=""
+          label="Publish and run"
+          rank="50">
+       <group
+             id="com.ibm.bigdata.tasklauncher.deployandrun.tasks"
+             label="Tasks"
+             rank="10"
+             rowspan="2"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.deployandrun.quicklinks"
+             label="Quick Links"
+             rank="20"
+             vspace="8">
+       </group>
+       <group
+             id="com.ibm.bigdata.tasklauncher.deployandrun.learnmore"
+             label="Learn More"
+             rank="30"
+             vspace="8">
+       </group>
+    </solution>
+    <usecases
+          groupId="com.ibm.bigdata.tasklauncher.overview.tasks"
+          solutionId="com.ibm.bigdata.tasklauncher.overview">
+       <usecase
+             description="Leverage sample applications, toolkits and other assets and resources to jump-start your development. Customizable source code and customization assistance provided."
+             image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/accelerate_50x.png"
+             label="Accelerate"
+             rank="10">
+          <showSolutionAction
+                solutionId="com.ibm.bigdata.tasklauncher.accelerate">
+          </showSolutionAction>
+       </usecase>
+       <usecase
+             description="Learn More resources describe considerations and provide resources to help you design the right programs and applications for your analytics tasks."
+             image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/design_50x.png"
+             label="Design"
+             rank="20">
+          <showSolutionAction
+                solutionId="com.ibm.bigdata.tasklauncher.design">
+          </showSolutionAction>
+       </usecase>
+       <usecase
+             description="Develop code to query and analyze text, big data at rest, or streams of big data in motion."
+             image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/develop_50x.png"
+             label="Develop"
+             rank="30">
+          <showSolutionAction
+                solutionId="com.ibm.bigdata.tasklauncher.develop">
+          </showSolutionAction>
+       </usecase>
+       <usecase
+             description="Publish your applications and configure them to run in a cluster. Run and monitor your applications from the BigInsights console."
+             image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/publishRun_50x.png"
+             label="Publish and Run"
+             rank="40">
+          <showSolutionAction
+                solutionId="com.ibm.bigdata.tasklauncher.deployandrun">
+          </showSolutionAction>
+       </usecase>
+    </usecases>
+ </extension>
+
+</plugin>

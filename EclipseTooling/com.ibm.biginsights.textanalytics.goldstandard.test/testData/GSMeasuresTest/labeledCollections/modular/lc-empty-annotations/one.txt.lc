@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:systemTComputationResult xmlns:ns2="http://www.ibm.com/systemt/result" gsComplete="false">
+    <documentID>one.txt</documentID>
+    <inputTextID>1245263769</inputTextID>
+    <textMap>
+        <entry>
+            <key>1245263769</key>
+            <value>The only even prime number is 2&#xD;
+99 is the highest two digit number&#xD;
+Square of 11 is 121&#xD;
+Square of ten is 100</value>
+        </entry>
+    </textMap>
+</ns2:systemTComputationResult>

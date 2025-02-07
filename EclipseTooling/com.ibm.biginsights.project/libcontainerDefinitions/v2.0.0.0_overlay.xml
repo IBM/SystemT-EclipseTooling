@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<container version="2.0.0.0 overlay1" isdefault="false">
+	<bundles>					    
+		<bundle id="com.ibm.hadoop" version="0.20.999.o1">
+			<file>hadoop-core.jar</file>
+			<file>/lib/*.jar</file>
+		</bundle>
+		<bundle id="com.ibm.biginsights.jaql.lib" version="1.2.0">
+			<file>/lib/jaql.jar</file>
+			<file>/lib/jaql-launcher.jar</file>
+			<file>/lib/antlr.jar</file>
+			<file>/conf/</file>
+		</bundle>		
+		<bundle id="com.ibm.hbase.core.bin" version="0.90.999.o1">
+			<file>hbase.jar</file>
+			<file>/lib/zookeeper.jar</file>
+			<file isRuntime="true">/lib/jruby-complete*.jar</file>
+			<file isRuntime="true">/lib/protobuf-java*.jar</file>			
+		</bundle>	
+		<bundle id="com.ibm.biginsights.hive.lib" version="1.2.0">
+			<file>/lib/hive-exec*.jar</file>
+		</bundle>		
+		<bundle id="com.ibm.pig" version="0.10.0">
+			<file>/lib/pig*.jar</file>
+			<file isRuntime="true">/lib/jackson*.jar</file>
+			<file isRuntime="true">/lib/jline*.jar</file>
+			<file isRuntime="true">/lib/antlr-runtime*.jar</file>
+			<file isRuntime="true">/lib/guava*.jar</file>
+		</bundle>					
+		<bundle id="com.ibm.biginsights.thirdparty" version="3.0.0">			
+			<file isRuntime="true">/lib/commons-cli*.jar</file>
+			<file isRuntime="true">/lib/commons-lang*.jar</file>			
+			<file isRuntime="true">/lib/icu4j*.jar</file>
+			<file>/lib/derby.jar</file>
+			<file isRuntime="true">/lib/derbyclient.jar</file>
+			<file>/lib/bigsheets/bigsheets.jar</file>
+			<file>/lib/machine-learning/SystemML.jar</file>
+			<file>/lib/credstore.jar</file>			
+			<!-- BEGIN: Text Analytics libraries-->
+			<file>/lib/text-analytics/systemT.jar</file>
+			<file isRuntime="true">/lib/LanguageWare-7.2.0.2/an_dlt.jar</file>
+			<file isRuntime="true">/lib/LanguageWare-7.2.0.2/dlt.jar</file>
+			<file isRuntime="true">/lib/uima-2.3.0/uima-core.jar</file>
+			<file isRuntime="true">/lib/htmlparser-2.0/htmllexer.jar</file>
+			<file isRuntime="true">/lib/htmlparser-2.0/htmlparser.jar</file>
+			<!-- END: Text Analytics libraries-->
+		</bundle>		
+	</bundles>
+</container>

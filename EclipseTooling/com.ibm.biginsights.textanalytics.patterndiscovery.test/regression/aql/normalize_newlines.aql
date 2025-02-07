@@ -1,0 +1,13 @@
+-- created by:
+-- date:
+-- description:
+
+-- Start writing your AQL here
+
+create view context as
+extract regex /123[^(123)]+123/ 
+	on R.text as match
+from Document R; 
+
+
+output view context;

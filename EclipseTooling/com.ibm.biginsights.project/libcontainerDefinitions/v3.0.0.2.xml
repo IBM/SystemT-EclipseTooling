@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+-->
+<container version="3.0.0.2" isdefault="false">
+	<bundles>	
+		<bundle id="com.ibm.psmrclient" version="6.1.1">
+			<file isRuntime="true" runtimeVendor="psmr">/lib/*.jar</file>			
+			<file isRuntime="true" runtimeVendor="psmr">/mapreduce/lib/*.jar</file>
+		</bundle>				
+		<bundle id="com.ibm.hadoop" version="2.2.0">
+			<file runtimeVendor="ibm">hadoop-core-*.jar</file>				
+			<file>/lib/*.jar</file>		
+			<file>/share/hadoop/common/lib/*.jar</file>			
+			<file>/share/hadoop/hdfs/lib/*.jar</file>
+			<file>/share/hadoop/mr1/lib/*.jar</file>
+			<file>/share/hadoop/tools/lib/*.jar</file>
+			<file isRuntime="true">/conf/</file>
+		</bundle>
+		<bundle id="com.ibm.biginsights.jaql.lib" version="1.5.0">
+			<file>/lib/jaql.jar</file>
+			<file>/lib/jaql-launcher.jar</file>
+			<file>/lib/antlr.jar</file>
+			<file>/conf/</file>
+		</bundle>
+		<bundle id="com.ibm.hbase.core.bin" version="0.96.0">
+			<file>hbase.jar</file>
+			<file>/lib/zookeeper*.jar</file>
+			<file>/lib/guava*.jar</file>
+			<file>/lib/metrics-core*.jar</file>
+			<file>/lib/protobuf-java*.jar</file>
+			<file>/lib/activation*.jar</file>
+			<file>/lib/avro*.jar</file>
+			<file>/lib/avro-ipc*.jar</file>
+			<file>/lib/high-scale-lib*.jar</file>
+			<file>/lib/htrace-core*.jar</file>
+			<file>/lib/httpclient*.jar</file>
+			<file>/lib/httpcore*.jar</file>
+			<file>/lib/jackson-jaxrs*.jar</file>
+			<file>/lib/jackson-xc*.jar</file>
+			<file>/lib/jamon-runtime*.jar</file>
+			<file>/lib/jaxb-api*.jar</file>
+			<file>/lib/jaxb-impl*.jar</file>
+			<file>/lib/jettison*.jar</file>
+			<file>/lib/jruby-complete*.jar</file>
+			<file>/lib/jsp*.jar</file>
+			<file>/lib/jsp-api*.jar</file>
+			<file>/lib/jsr305*.jar</file>
+			<file>/lib/libthrift*.jar</file>
+			<file>/lib/netty*.jar</file>
+			<file>/lib/snappy-java*.jar</file>
+			<file>/lib/stax-api*.jar</file>
+			<file>/lib/velocity*.jar</file>
+			<file>/lib/xml-ibm*.jar</file>
+			<file isRuntime="true">/lib/jruby-complete*.jar</file>
+		</bundle>		
+		<bundle id="com.ibm.biginsights.hive.lib" version="1.5.0">
+			<file>/lib/hive-exec*.jar</file>
+		</bundle>
+		<bundle id="com.ibm.pig" version="0.12.0">
+			<file>/lib/pig*.jar</file>
+			<file isRuntime="true">/lib/*.jar</file>
+		</bundle>		
+		<bundle id="com.ibm.biginsights.thirdparty" version="3.3.0">			
+			<file>/lib/commons-cli*.jar</file>
+			<file>/lib/commons-lang*.jar</file>			
+			<file>/lib/icu4j*.jar</file>
+			<file>/lib/derby.jar</file>
+			<file>/lib/derbyclient.jar</file>
+			<file>/lib/bigsheets/bigsheets.jar</file>
+			<file>/lib/machine-learning/SystemML.jar</file>	
+			<file>/lib/credstore.jar</file>
+			<file>/lib/JSON4J.jar</file>
+			<file>/lib/opencsv-2.3/opencsv-2.3.jar</file>
+			<!-- BEGIN: Text Analytics libraries-->
+			<file>/lib/text-analytics/systemT.jar</file>
+			<file>/lib/multilingual/an_dlt.jar</file>
+			<file>/lib/multilingual/dlt.jar</file>
+			<file>/lib/multilingual/tokenizer.jar</file>
+			<file>/lib/uima-2.3.0/uima-core.jar</file>
+			<file>/lib/htmlparser-2.0/htmllexer.jar</file>
+			<file>/lib/htmlparser-2.0/htmlparser.jar</file>
+			<!-- END: Text Analytics libraries-->
+		</bundle>		
+	</bundles>
+</container>

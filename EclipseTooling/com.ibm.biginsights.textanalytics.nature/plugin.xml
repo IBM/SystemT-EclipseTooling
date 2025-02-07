@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+
+<!-- =========================================================================== -->
+<!--  Define AQL nature			                                             	 -->
+<!-- =========================================================================== -->
+
+   <extension
+         id="com.ibm.biginsights.textanalytics.nature"
+         name="AQL Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.ibm.biginsights.textanalytics.nature.AQLNature">
+         </run>
+      </runtime>
+      <builder
+            id="com.ibm.biginsights.textanalytics.nature.AQLBuilder">
+      </builder>
+   </extension>
+   
+<!-- =========================================================================== -->
+<!--  Text Analytics Project property page                                     	 -->
+<!-- =========================================================================== -->
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            category="com.ibm.biginsights.project.projectProperties"
+            class="com.ibm.biginsights.textanalytics.nature.prefs.SystemTProjectPreferences"
+            id="com.ibm.biginsights.textanalytics.nature.prefs"
+            name="Text Analytics">
+         <enabledWhen>
+		     <adapt type="org.eclipse.core.resources.IProject">
+		          <test property="org.eclipse.core.resources.projectNature" value="com.ibm.biginsights.textanalytics.nature"/>
+		     </adapt>         
+         </enabledWhen>
+      </page>
+   </extension>
+   
+<!-- =========================================================================== -->
+<!--  AQL Builder                                             	 				 -->
+<!-- =========================================================================== -->   
+   <extension
+         id="com.ibm.biginsights.textanalytics.nature.AQLBuilder"
+         name="AQL Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="com.ibm.biginsights.textanalytics.nature.AQLBuilder">
+         </run>
+      </builder>
+   </extension>
+   
+<!-- =========================================================================== -->
+<!--  Run AQL: Launch Configuration Type                                       	 -->
+<!-- =========================================================================== -->
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+	        name="Text Analytics"
+	        delegate="com.ibm.biginsights.textanalytics.launch.SystemTLaunchConfigurationDelegate"
+	        modes="run"               
+	        id="com.ibm.biginsights.textanalytics.nature.systemTApplication">        
+	    </launchConfigurationType>
+  
+	    <launchConfigurationType
+	        name="Text Analytics"
+	        delegate="com.ibm.biginsights.textanalytics.profile.SystemTProfileLaunchConfigurationDelegate"
+	        modes="profile"               
+	        id="com.ibm.biginsights.textanalytics.profile.systemTApplication">      
+	    </launchConfigurationType>
+
+  	</extension>
+
+<!-- =========================================================================== -->
+<!--  Run AQL: Launch Configuration Icon                                       	 -->
+<!-- =========================================================================== -->   
+
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/full/etool16/runTextAnalytics.gif"
+	        configTypeID="com.ibm.biginsights.textanalytics.nature.systemTApplication"
+	        id="com.ibm.biginsights.textanalytics.nature.launchConfigurationTypeImage.systemT">
+	    </launchConfigurationTypeImage>
+
+	    <launchConfigurationTypeImage
+	        icon="icons/full/etool16/profiler.gif"
+	        configTypeID="com.ibm.biginsights.textanalytics.profile.systemTApplication"
+	        id="com.ibm.biginsights.textanalytics.profile.launchConfigurationTypeImage.systemT">
+	    </launchConfigurationTypeImage>
+
+	    <launchConfigurationTypeImage
+	        icon="icons/full/etool16/runTextAnalytics.gif"
+	        configTypeID="com.ibm.biginsights.textanalytics.launch.systemTClusterApp"
+	        id="com.ibm.biginsights.textanalytics.nature.launchConfigurationTypeImage.systemT">
+	    </launchConfigurationTypeImage>
+	</extension>
+	
+<!-- =========================================================================== -->
+<!--  Run AQL: Launch Configuration Tab Group                                    -->
+<!-- =========================================================================== -->
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="com.ibm.biginsights.textanalytics.nature.systemTApplication"
+	        class="com.ibm.biginsights.textanalytics.launch.SystemTApplicationTabGroup"
+	        id="com.ibm.biginsights.textanalytics.nature.launchConfigurationTabGroup.systemT">
+		    <launchMode
+	                  mode="run"
+	                  description="Run Text Analytics Application">
+	        </launchMode>
+	    </launchConfigurationTabGroup>
+	    
+	    <launchConfigurationTabGroup
+	        type="com.ibm.biginsights.textanalytics.profile.systemTApplication"
+	        class="com.ibm.biginsights.textanalytics.profile.SystemTProfileTabGroup"
+	        id="com.ibm.biginsights.textanalytics.profile.launchConfigurationTabGroup.systemT">
+		    <launchMode
+	                  mode="profile"
+	                  description="Profile Text Analytics Application">
+	        </launchMode>
+	    </launchConfigurationTabGroup>
+
+	    <launchConfigurationTabGroup
+	        type="com.ibm.biginsights.textanalytics.launch.systemTClusterApp"
+	        class="com.ibm.biginsights.textanalytics.launch.SystemTClusterAppTabGroup"
+	        id="com.ibm.biginsights.textanalytics.launch.launchConfigurationTabGroup.systemTClusterApp">
+		    <launchMode
+	                  mode="run"
+	                  description="Run Text Analytics Application on Cluster">
+	        </launchMode>
+	    </launchConfigurationTabGroup>
+	</extension>
+   
+<!-- =========================================================================== -->
+<!-- AOG Exporter                                                     			 -->
+<!-- =========================================================================== -->
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+	     name="Text Analytics"
+	     id="com.ibm.biginsights.textanalytics.export.TextAnalytics">
+	  </category>
+      <wizard
+            name="Export Text Analytics Extractor"
+            icon="icons/full/etool16/export_AOG.gif"
+            class="com.ibm.biginsights.textanalytics.export.ExportAOGWizard"
+            category="com.ibm.biginsights.textanalytics.export.TextAnalytics"
+            id="com.ibm.biginsights.textanalytics.export.ExportAOGWizard">
+         <description>
+            Export annotator
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IResource">
+         </selection>
+         <keywordReference id="com.ibm.biginsights.textanalytics.wizards.aogExport"/>
+      </wizard>
+
+   </extension>
+   
+<!-- =========================================================================== -->
+<!-- Text Analytics nature as Big Insight contribution                           -->
+<!-- =========================================================================== -->   
+   <extension
+         point="com.ibm.biginsights.contributions">
+      <contribution
+            NatureId="com.ibm.biginsights.textanalytics.nature">
+      </contribution>
+   </extension>
+
+<!-- =========================================================================== -->
+<!-- Keywords                                                     			 	 -->
+<!-- =========================================================================== -->
+   <extension
+   		point="org.eclipse.ui.keywords">
+   		<keyword
+            label="Extractor"
+            id="com.ibm.biginsights.textanalytics.wizards.aogExport"/>
+   </extension>
+
+<!-- =========================================================================== -->
+<!-- Views                                                     			 	 	 -->
+<!-- =========================================================================== -->   
+   <extension
+         id="com.ibm.biginsights.textanalytics.profile.views"
+         point="org.eclipse.ui.views">
+         
+         <view
+            allowMultiple="true"
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.textanalytics.profile.ProfileView"
+            icon="icons/full/etool16/profiler.gif"
+            id="com.ibm.biginsights.textanalytics.profile.view"
+            name="Profiler"
+            restorable="false">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=biginsights.separator">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.nature.migrateTAProperties"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=biginsights.separator">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.nature.migrateTAProperties"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.views.ResourceNavigator?after=biginsights.separator">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.nature.migrateTAProperties"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.ibm.biginsights.textanalytics.nature.migrateTAProperties"
+            name="Migrate Text Analytics Properties">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.ibm.biginsights.textanalytics.nature.prefs.TextAnalyticsPropertiesMigrationCommandHandler"
+            commandId="com.ibm.biginsights.textanalytics.nature.migrateTAProperties">
+      </handler>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="com.ibm.biginsights.textanalytics.workflow.import"
+            class="com.ibm.biginsights.textanalytics.aqlimport.ImportExtractorWizard"
+            icon="icons/full/etool16/import_AOG.gif"
+            id="com.ibm.biginsights.textanalytics.nature.ImportExtractor"
+            name="Text Analytics Extractor">
+      </wizard>
+      <category
+            id="com.ibm.biginsights.textanalytics.importextractor.category"
+            name="BigInsights">
+      </category>
+   </extension>
+
+</plugin>

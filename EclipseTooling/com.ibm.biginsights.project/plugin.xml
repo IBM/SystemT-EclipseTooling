@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.ibm.biginsights.contributions" name="%extension-point.name" schema="schema/com.ibm.biginsights.contributions.exsd"/>
+   <extension-point id="com.ibm.biginsights.artifacts.run" name="%extension-point.name.run.configs" schema="schema/com.ibm.biginsights.artifacts.run.exsd"/>
+   <extension-point id="com.ibm.biginsights.artifacts.create" name="%extension-point.name.create.programs" schema="schema/com.ibm.biginsights.artifacts.create.exsd"/>
+   <extension-point id="com.ibm.biginsights.artifacts.shells" name="%extension-point.name.shells" schema="schema/com.ibm.biginsights.artifacts.shells.exsd"/>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.ibm.biginsights.project.category"
+            name="%category.name">
+      </category>
+      <wizard
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.project.wizard.NewBIProjectWizard"
+            hasPages="true"
+            icon="icons/bigInsight_gen.gif"
+            id="com.ibm.biginsights.project.wizard"
+            name="%ta.wizard.name"
+            project="true">
+      </wizard>
+   </extension>  
+  
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.ibm.biginsights.project.category"
+            name="%category.name">
+      </category>
+   </extension>  
+  
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.ibm.biginsights.project.PerspectiveFactory"
+            icon="icons/bigInsight_gen.gif"
+            id="com.ibm.biginsights.project.perspective"
+            name="%PERSPECTIVE_NAME">
+      </perspective>
+   </extension>
+
+   <extension
+         id="com.ibm.biginsights.projectNature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.ibm.biginsights.project.ProjectNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="com.ibm.biginsights.project.prefs.ProjectProperties"
+            id="com.ibm.biginsights.project.projectProperties"
+            name="%page.name">
+         <enabledWhen>
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+               <test
+                     property="org.eclipse.core.resources.projectNature"
+                     value="com.ibm.biginsights.projectNature">
+               </test>
+            </adapt>
+         </enabledWhen>
+      </page>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+            class="com.ibm.biginsights.project.BigInsightsLibraryContainerInitializer"
+            id="com.ibm.biginsights.project.BIGINSIGHTS_LIBS_CONTAINER">
+      </classpathContainerInitializer>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="com.ibm.biginsights.project.wizard.BigInsightsLibraryContainerPage"
+            id="com.ibm.biginsights.project.BIGINSIGHTS_LIBS_CONTAINER"
+            name="%CLASSPATH_CONTAINER_NAME">
+      </classpathContainerPage>
+   </extension>
+   
+    <!-- BI locations -->
+ 
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.ibm.biginsights.project.prefs.BigInsightsPreferencesMainPage"
+            id="com.ibm.biginsights.project.preferences"
+            name="%PREFERENCES_NAME">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true">
+      </toc>                                    
+   </extension>
+   <extension
+         point="org.eclipse.jdt.launching.runtimeClasspathEntryResolvers">
+      <runtimeClasspathEntryResolver
+            class="com.ibm.biginsights.project.RuntimeClasspathEntryResolver1"
+            container="com.ibm.biginsights.project.BIGINSIGHTS_LIBS_CONTAINER"
+            id="com.ibm.biginsights.project.runtimeClasspathEntryResolver1">
+      </runtimeClasspathEntryResolver>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+    <decorator
+    id="com.ibm.biginsights.project.decorator.TextAnalyticsFolderDecorator"
+    label="%decorator.label.TA.folder"
+    state="true"
+    class= "com.ibm.biginsights.project.util.TextAnalyticsFolderDecorator"
+  objectClass="org.eclipse.core.resources.IFolder"
+    adaptable="true">
+  </decorator> 
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="com.ibm.biginsights.project.PropertyTester"
+            id="com.ibm.biginsights.project.propertyTester"
+            namespace="com.ibm.biginsights.project"
+            properties="isMigrationRequired"
+            type="org.eclipse.core.resources.IProject">
+      </propertyTester>
+      <propertyTester
+            class="com.ibm.biginsights.project.PropertyTester"
+            id="com.ibm.biginsights.project.propertyTester1"
+            namespace="com.ibm.biginsights.project"
+            properties="isMigrationRequired"
+            type="org.eclipse.jdt.core.IJavaProject">
+      </propertyTester>
+      <propertyTester
+            class="com.ibm.biginsights.project.PropertyTester"
+            id="com.ibm.biginsights.project.propertyTester2"
+            namespace="com.ibm.biginsights.project"
+            properties="isBigInsightsProject"
+            type="org.eclipse.jdt.core.IJavaElement">
+      </propertyTester>
+      <propertyTester
+            class="com.ibm.biginsights.project.PropertyTester"
+            id="com.ibm.biginsights.project.propertyTester3"
+            namespace="com.ibm.biginsights.project"
+            properties="isBigInsightsProject"
+            type="org.eclipse.core.resources.IResource">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=biginsights.separator">
+         <command
+               commandId="com.ibm.biginsights.project.migrateProjectCommand"
+               label="%migrate.action.label"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+                   <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <and>
+                        <adapt
+                              type="org.eclipse.core.resources.IProject">
+  	                          <test
+		                              property="org.eclipse.core.resources.projectNature"
+		                              value="com.ibm.biginsights.projectNature">
+		                      </test>
+                        </adapt>
+                        <test
+                              property="com.ibm.biginsights.project.isMigrationRequired"
+                              value="true">
+                        </test>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <separator
+               name="biginsights.separator"
+               visible="true">
+         </separator>
+         <command
+               commandId="com.ibm.biginsights.project.addNatureCommand"
+               label="%action.label"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+                   <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+						<adapt
+                              type="org.eclipse.core.resources.IProject">
+                        </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.ibm.biginsights.project.MigrateProject"
+            id="com.ibm.biginsights.project.migrateProjectCommand"
+            name="%migrate.action.label">
+         <commandParameter
+               id="com.ibm.biginsights.project.migrateProjectCommand.performEnabledCheck"
+               name="%commandParameter.name.performEnabledCheck"
+               optional="true">
+         </commandParameter>
+      </command>
+      <command
+            defaultHandler="com.ibm.biginsights.project.ProjectSupport"
+            id="com.ibm.biginsights.project.addNatureCommand"
+            name="%action.label">
+      </command>
+      <command
+            defaultHandler="com.ibm.biginsights.project.commands.CreateRunConfigCommand"
+            id="com.ibm.biginsights.project.createRunConfigCommand"
+            name="%createRunConfig.label">
+      </command>
+      <command
+            defaultHandler="com.ibm.biginsights.project.commands.CreateProgramCommand"
+            id="com.ibm.biginsights.project.createProgramCommand"
+            name="%createProgram.label">
+      </command>
+      <command
+            defaultHandler="com.ibm.biginsights.project.commands.ImportProjectCommand"
+            id="com.ibm.biginsights.project.importProjectCommand"
+            name="%command.name.import.sample.project">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.ibm.biginsights.project.perspective">
+         <newWizardShortcut
+               id="com.ibm.biginsights.project.wizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>
+</plugin>

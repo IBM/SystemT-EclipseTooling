@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Creating or modifying an extractor by using the Text Analytics Workflow perspective" />
+<meta name="abstract" content="Create or modify an extractor by using the Text Analytics workflow perspective in your Eclipse development environment to extract information from unstructured and semistructured data. Extractors help you analyze large volumes of text and produce annotated documents that provide valuable insights into unconventional data." />
+<meta name="Description" content="Create or modify an extractor by using the Text Analytics workflow perspective in your Eclipse development environment to extract information from unstructured and semistructured data. Extractors help you analyze large volumes of text and produce annotated documents that provide valuable insights into unconventional data." />
+<meta name="DC.subject" content="data collection, text snippet, labels, extractor" />
+<meta name="keywords" content="data collection, text snippet, labels, extractor" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="creating_or_modifying_extractor" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../swg_info_common.css" />
+<title>Creating or modifying an extractor by using the Text Analytics Workflow perspective</title>
+</head>
+<body role="main">
+<div class="nested0" id="creating_or_modifying_extractor"><h1 class="title topictitle1">Creating or modifying an extractor by using the <span class="ph">Text Analytics Workflow perspective</span></h1>
+<div class="body conbody"><p class="shortdesc">Create or modify an extractor by using the Text Analytics
+workflow perspective in your Eclipse development environment to extract
+information from unstructured and semistructured data. Extractors
+help you analyze large volumes of text and produce annotated documents
+that provide valuable insights into unconventional data.</p>
+<p class="p">The included examples and code snippets are from the <span class="ph filepath">sampleTextAnalyticsExtractor_eclipse.zip</span> project.</p>
+<p class="p">The <span class="ph">Text Analytics Workflow perspective</span> has
+six steps:</p>
+<ul class="ul"><li class="li"><a class="xref" href="#step1_select_documents">Step 1: Select documents</a></li>
+<li class="li"><a class="xref" href="#labelingstep2_examplesandclues">Step 2: Label examples
+and clues</a></li>
+<li class="li"><a class="xref" href="#step3_developingtheextractor">Step 3: Develop the
+extractor</a></li>
+<li class="li"><a class="xref" href="#step4_testingyourextractor">Step 4: Test the extractor</a></li>
+<li class="li"><a class="xref" href="#step5_evaluateandimprovetheperformanceoftheextractor">Step
+5: Evaluate and improve the performance of the extractor</a></li>
+<li class="li"><a class="xref" href="#step6_exportingtheextractor">Step 6: Export the extractor</a></li>
+</ul>
+<p class="p">To improve performance, you should complete steps 2-4 in an iterative
+fashion. Each time that you perform these steps, your results are
+refined.</p>
+<p class="p">This tutorial is based mainly on the <span class="keyword">InfoSphere® BigInsights™</span> version
+2.x Eclipse development environment. For a comparison with older versions,
+see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.product.doc/doc/whatsnew.html" target="_blank" title="(Opens in a new tab or window)">What's New in InfoSphere BigInsights</a>.</p>
+</div>
+<div class="related-links"></div><div class="topic task nested1" xml:lang="en-us" id="step1_select_documents"><h2 class="title topictitle2">Step 1: Select documents</h2>
+<div class="body taskbody"><div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Select a data collection.</span> A data collection
+is the set of documents from which you want to annotate or extract
+results. For information about valid collection formats, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_input-coll-format.html" target="_blank" title="(Opens in a new tab or window)">Data collection formats</a>.<ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Select a collection.</span></li>
+<li class="li substep"><span class="ph cmd">Select the language for the collection.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Select the files that you want to work with.</span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Open the initial set of documents that you want to annotate.
+Select the files, and click <span class="ph uicontrol">Open</span>.</span></li>
+</ol>
+</li>
+</ol>
+<div class="example" id="step1_select_documents__example_select_documents"><h3 class="title sectiontitle">Example: Select documents</h3><div class="p">Suppose
+that you want to identify financial metrics from fourth quarter results,
+published in five files in the <span class="ph filepath">data/ibmQuarterlyReports</span> directory.
+These files comprise the data collection.<dl class="dl"><dt class="dt dlterm"><span class="ph filepath">4Q2006.txt</span></dt>
+<dd class="dd">2006 fourth quarter results</dd>
+<dt class="dt dlterm"><span class="ph filepath">4Q2007.txt</span></dt>
+<dd class="dd">2007 fourth quarter results</dd>
+<dt class="dt dlterm"><span class="ph filepath">4Q2008.txt</span></dt>
+<dd class="dd">2008 fourth quarter results</dd>
+<dt class="dt dlterm"><span class="ph filepath">4Q2009.txt</span></dt>
+<dd class="dd">2009 fourth quarter results</dd>
+<dt class="dt dlterm"><span class="ph filepath">4Q2010.txt</span></dt>
+<dd class="dd">2010 fourth quarter results</dd>
+</dl>
+</div>
+<p class="p">You want to create the extractor in the <span class="keyword option">FinancialIndicator</span> project.</p>
+<ol class="ol"><li class="li">Click <span class="ph menucascade"><span class="ph uicontrol">Browse Workspace</span> &gt; <span class="ph uicontrol">FinancialIndicator</span> &gt; <span class="ph uicontrol">data</span> &gt; <span class="ph uicontrol">ibmQuarterlyReports</span></span>, and click <span class="ph uicontrol">OK</span>.</li>
+<li class="li">Click <span class="ph filepath">4Q2010.txt</span>, and click <span class="ph uicontrol">OK</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="topic concept nested0" xml:lang="en-us" id="labelingstep2_examplesandclues"><h1 class="title topictitle1">Step 2: Label examples and clues</h1>
+<div class="body conbody"><p class="p">A text snippet is a sentence or phrase. Label the text snippets
+to identify what to extract.</p>
+<div class="p">Labels are meaningful identifiers of text that you want to extract.
+Labels also categorize various clues, which are used when you develop
+an extractor. There are two types of labels:<dl class="dl"><dt class="dt dlterm">Top-level</dt>
+<dd class="dd">Top-level identifier of the text snippets that you want to extract.
+An example of a top-level identifier is <kbd class="ph userinput">Indicator</kbd>,
+financial indicators that include financial metrics and amounts.</dd>
+<dt class="dt dlterm">Clues</dt>
+<dd class="dd">Extraction clues are meaningful pieces of information that help
+you develop and organize your extractor. A clue label is nested inside
+a top-level label. Examples are the <kbd class="ph userinput">Metric</kbd> and <kbd class="ph userinput">Amount</kbd> clue
+labels.</dd>
+</dl>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="en-us" id="labeling_snippets_of_interest"><h2 class="title topictitle2">Label snippets of interest</h2>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h3 class="sectiontitle tasklabel">Before you begin</h3></div><p class="p">Ensure that you complete step 1 in the <span class="ph">Text Analytics Workflow perspective</span> and
+that the <span class="ph filepath">4Q2010.txt</span> file is open in the editor.</p>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Right-click the text snippet of interest.</span></li>
+<li class="li step" id="labeling_snippets_of_interest__step2_lbl_snippets"><span class="ph cmd">Choose <span class="ph uicontrol">Add Example with
+New Label</span> and type a label in the <span class="ph uicontrol">Label Name</span> field.
+Leave the <span class="ph uicontrol">Parent Label</span> field empty if the new
+label is a top-level label, or select an existing label as the parent.
+Click <span class="ph uicontrol">Finish</span>. </span></li>
+<li class="li step"><span class="ph cmd">If this snippet is for an existing label, select <span class="ph uicontrol">Label
+Example As</span>, and choose a label.</span></li>
+</ol>
+<div class="example"><h3 class="title sectiontitle">Example: Label snippets of interest</h3><div class="p">The <span class="ph filepath">4Q2010.txt</span> file
+contains 2010 fourth quarter results. Here is a portion of the file:<pre class="pre codeblock"><code>Record revenue of $29.0 billion, up 7 percent as reported and adjusting for currency; 
+Record net income of $5.3 billion, up 9 percent; 
+Pre-tax income of $7 billion, up 9 percent; 
+Gross profit margin of 49 percent, up 0.8 points; </code></pre>
+</div>
+<p class="p">To
+identify financial indicators from the fourth quarter results, examine
+the <span class="ph filepath">4Q2010.txt</span> file to determine the financial
+indicators that you want to extract.</p>
+<ol class="ol"><li class="li">Select the following text: <pre class="pre codeblock"><code>revenue of $29.0 billion</code></pre>
+ and
+right click.</li>
+<li class="li">Choose <span class="ph uicontrol">Add Example with New Label</span> and type <kbd class="ph userinput">Indicator</kbd> in
+the <span class="ph uicontrol">Label Name</span> field.<p class="p">The Indicator label
+is displayed to the right in the extraction plan.</p>
+</li>
+<li class="li">Select the following text: <pre class="pre codeblock"><code>net income of $5.3 billion</code></pre>
+ and
+right click.</li>
+<li class="li">Choose <span class="ph uicontrol">Label Example As</span>, and select <kbd class="ph userinput">Indicator</kbd>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="en-us" id="labelingextractionclues"><h2 class="title topictitle2">Label extraction clues</h2>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h3 class="sectiontitle tasklabel">Before you begin</h3></div><p class="p">Ensure that you labeled the snippets of interest in the
+open document.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel">About this task</h3></div><div class="p">Extraction clues divide an extraction task into smaller
+subtasks in a top-down approach. Take the following indicator snippet
+from the sample project: <samp class="ph codeph">revenue of $29.0 billion</samp>.
+One way of dividing this snippet is into these two parts or clues: <ul class="ul"><li class="li"><samp class="ph codeph">Revenue</samp></li>
+<li class="li"><samp class="ph codeph">$29.0 billion</samp></li>
+</ul>
+</div>
+<div class="p">Clues can be categorized across two dimensions:<dl class="dl"><dt class="dt dlterm">Inside or outside</dt>
+<dd class="dd">Categorizes if the clue is inside or outside of the labeled text.<dl class="dl"><dt class="dt dlterm">Inside</dt>
+<dd class="dd">The clue is included in or part of the labeled text.<div class="p">Suppose
+that you want to extract absolute dollar amounts from the following
+text snippets. In this example, <samp class="ph codeph">$8.7 billion</samp>, <samp class="ph codeph">$5.3
+billion</samp>, <samp class="ph codeph">2 percent</samp>, and <samp class="ph codeph">11 percent</samp> are
+labeled as Amount.<pre class="pre codeblock"><code>cash flow of $8.7 billion
+net income was $5.3 billion
+revenues increased 2 percent
+revenue excluding divested PLM operations up 11 percent</code></pre>
+</div>
+<div class="p">The
+following are inside clues:<ul class="ul"><li class="li">Numbers: 8.7, 5.3, 2, and 11</li>
+<li class="li">Units: billion, percent</li>
+<li class="li">Currency: $</li>
+</ul>
+</div>
+</dd>
+<dt class="dt dlterm">Outside</dt>
+<dd class="dd">The clue is excluded from or not part of the text.<p class="p">Outside clues
+are words such as: <span class="keyword option">of</span>, <span class="keyword option">was</span>, <span class="keyword option">increased</span>,
+and <span class="keyword option">up</span>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Positive or negative</dt>
+<dd class="dd">Categorizes if the clue indicates a valid candidate for extraction
+or a candidate that must not be extracted.<dl class="dl"><dt class="dt dlterm">Positive</dt>
+<dd class="dd">The clue indicates a valid candidate for extraction.<p class="p">In the
+preceding example, positive clues are the words: <span class="keyword option">of</span> and <span class="keyword option">was</span>.
+These words precede mentions of absolute dollar amounts.</p>
+</dd>
+<dt class="dt dlterm">Negative</dt>
+<dd class="dd">The clue indicates a candidate that must not be extracted.<p class="p">In
+the preceding example, negative clues are the words: <span class="keyword option">increased</span> and <span class="keyword option">up</span>.
+These words precede mentions of percentages, not absolute dollar amounts.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="p">Suppose that you want to label the extraction
+clues in the text snippets that are displayed in the extraction plan.
+The following snippets are in the extraction plan:<ul class="ul"><li class="li"><samp class="ph systemoutput">Record revenue of $29.0 billion</samp></li>
+<li class="li"><samp class="ph systemoutput">Record net income of $5.3 billion</samp></li>
+</ul>
+</div>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Select the word: <samp class="ph systemoutput">Revenue</samp>,
+and right click.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Choose <span class="ph uicontrol">Add Example with New Label</span>,
+type <kbd class="ph userinput">Metric</kbd> in the <span class="ph uicontrol">Label Name</span> field,
+and choose Indicator from the <span class="ph uicontrol">Parent Label</span> menu.
+Click <span class="ph uicontrol">Finish</span>.</span> <p class="p">The label
+is displayed in the extraction plan.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Select: <samp class="ph systemoutput">$29.0 billion</samp>, type <kbd class="ph userinput">Amount</kbd> in
+the <span class="ph uicontrol">Label Name</span> field, and choose Indicator
+from the <span class="ph uicontrol">Parent Label</span> menu.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="topic concept nested0" xml:lang="en-us" id="step3_developingtheextractor"><h1 class="title topictitle1">Step 3: Develop the extractor</h1>
+<div class="body conbody"><div class="p">To develop an extractor, create AQL statements that extract mentions
+that are similar to the example text under the labels in the extraction
+plan.<div class="note tip"><span class="tiptitle">Tip:</span> Create AQL statements to extract the example
+text for the labels at the broadest level first. Then create AQL statements
+for the next highest level, and so on.</div>
+</div>
+<p class="p">There are four categories of AQL statements. Create them in the
+following order. This order is a best practices approach to developing
+an extractor.</p>
+<dl class="dl"><dt class="dt dlterm"><a class="xref" href="#creatingbasicfeaturerules" title="Basic feature rules define the basic features of an extractor.">Creating basic feature rules</a></dt>
+<dd class="dd">Commonly used statements that define regular expressions, dictionaries,
+and parts of speech, which are the basic features for extraction.</dd>
+<dt class="dt dlterm"><a class="xref" href="#examplebasicfeaturerules">Creating candidate generation rules</a></dt>
+<dd class="dd">Commonly used statements that combine basic features into complete
+candidates.</dd>
+<dt class="dt dlterm"><a class="xref" href="#creatingfilterandconsolidationrules" title="You can create commonly used statements that filter and consolidate candidates to remove mistakes.">Creating filter and consolidation rules</a></dt>
+<dd class="dd">Commonly used statements that filter and consolidate candidates
+to remove mistakes.</dd>
+<dt class="dt dlterm"><a class="xref" href="#creatingothertypesofrules">Creating other types of rules</a></dt>
+<dd class="dd">Other types of rules can be created by adding the rule directly
+into the AQL files for the extractor. </dd>
+</dl>
+</div>
+<div class="topic task nested1" xml:lang="en-us" id="creatingbasicfeaturerules"><h2 class="title topictitle2">Creating basic feature rules</h2>
+<div class="body taskbody"><p class="shortdesc">Basic feature rules define the basic features of an extractor.</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the extraction plan, select a label for which the basic
+feature rule is created.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Right-click <span class="ph uicontrol">New AQL Statement</span>, and
+select <span class="ph uicontrol">Basic Feature AQL Statement</span>.</span> <div class="note tip"><span class="tiptitle">Tip:</span> Instead of right-clicking the label, you can also right-click
+the <span class="ph uicontrol">BasicFeatures</span> or its <span class="ph filepath">AQL Statement</span> folder
+and select <span class="ph uicontrol">Basic Feature AQL Statement</span>.</div>
+<div class="note tip"><span class="tiptitle">Tip:</span> Other types of statements can define basic features. See <a class="xref" href="#creatingothertypesofrules">Creating other types of rules</a>.</div>
+<ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">View Name</span> field, type
+the name of the view.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">AQL Module</span> field, select
+the module.</span> <div class="note tip"><span class="tiptitle">Tip:</span> You do not need to create
+AQL modules. Four AQL modules are created automatically for each top-level
+label, one for each rule category.</div>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Select a file in the <span class="ph uicontrol">AQL Script</span> field,
+or type the name of a new AQL script.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Select <span class="ph uicontrol">Regular expression</span>, <span class="ph uicontrol">Dictionary</span>,
+or <span class="ph uicontrol">Part of speech</span> from the <span class="ph uicontrol">Type</span> menu.</span></li>
+<li class="li substep substepexpand">Optional: <span class="ph cmd">Select <span class="ph uicontrol">Output View</span> to
+see the results of this rule. Select <span class="ph uicontrol">Export View</span> to
+make the rule available for other modules.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span> A statement
+template is inserted in the selected AQL script in the selected AQL
+module.</li>
+<li class="li substep substepexpand"><span class="ph cmd">Complete the template.</span></li>
+</ol>
+ <p class="p">For more information, see the following topics:</p>
+<ul class="ul"><li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/regular-expressions.html" target="_blank" title="(Opens in a new tab or window)">Regular expressions</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/dictionaries.html" target="_blank" title="(Opens in a new tab or window)">Dictionaries</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/create-dictionary-statement.html" target="_blank" title="(Opens in a new tab or window)">The create dictionary statement</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/parts-of-speech.html" target="_blank" title="(Opens in a new tab or window)">Part of speech</a></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="crt_regular_expression"><h3 class="title topictitle3">Example: Creating a regular expression</h3>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h4 class="sectiontitle tasklabel">Before you begin</h4></div><p class="p">Ensure that the AQL script is open in the editor.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to identify numeric amounts such
+as <samp class="ph systemoutput">11</samp>, including optional decimal numbers
+such as <samp class="ph systemoutput">.1</samp>.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Assume that you added a regular expression statement named <var class="keyword varname">Number</var>.
+Complete the regular expression template as in the following example:</span> <pre class="pre codeblock"><code>create view Number as
+extract regex /\d+(\.\d+)?/ 
+on R.text as match
+from Document R; </code></pre>
+<p class="p">This rule identifies matches of the
+regular expression in the input text. For more information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/regular-expressions.html" target="_blank" title="(Opens in a new tab or window)">Regular expressions</a> and <a class="xref" href="../../html/dev_extractors/write_code/GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generating
+regular expressions</a>. </p>
+</div>
+</div>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="creating_a_dictionary"><h3 class="title topictitle3">Example: Creating a dictionary</h3>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h4 class="sectiontitle tasklabel">Before you begin</h4></div><p class="p">Ensure that the AQL script is open in the editor.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to identify monetary units such
+as million, billion, and so on.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Assume that you added a dictionary statement named <var class="keyword varname">Unit</var>.
+Complete the dictionary statement template as in the following example.</span> <pre class="pre codeblock"><code>create dictionary UnitDict
+from file 'dictionaries/unit.dict'
+with language as 'en';
+
+create view Unit as
+extract dictionary 'UnitDict' 
+	on R.text as match
+from Document R;</code></pre>
+ <p class="p">This rule defines a
+dictionary of terms and identifies all matches of that dictionary
+in the input text. For more information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/create-dictionary-statement.html" target="_blank" title="(Opens in a new tab or window)">Create dictionary</a> and <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/dictionaries.html" target="_blank" title="(Opens in a new tab or window)">Dictionaries</a>.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Create a dictionary file that contains at least the following
+entries:</span> <pre class="pre codeblock"><code>million
+billion</code></pre>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save the dictionary file.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="en-us" id="examplebasicfeaturerules"><h2 class="title topictitle2">Creating candidate generation rules</h2>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel">About this task</h3></div>Create a candidate generation rule to combine basic features
+into complete candidates.</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the extraction plan, select a label for the new candidate
+generation rule.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Right-click <span class="ph uicontrol">New AQL Statement</span>, and
+select <span class="ph uicontrol">Candidate Generation AQL Statement</span>. </span> <div class="note tip"><span class="tiptitle">Tip:</span> Instead of right-clicking the label, you can
+also right-click the <span class="ph uicontrol">CandidateGeneration</span> or
+its <span class="ph filepath">AQL Statement</span> folder and select <span class="ph uicontrol">Candidate
+Generation AQL Statement</span>.</div>
+<ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">In the <span class="ph uicontrol">View Name</span> field, type
+the name of the view.</span></li>
+<li class="li substep"><span class="ph cmd">In the <span class="ph uicontrol">AQL Module</span> field, select
+the module.</span></li>
+<li class="li substep"><span class="ph cmd">Select a file in the <span class="ph uicontrol">AQL Script</span> field,
+or type the name of a new AQL script.</span></li>
+<li class="li substep"><span class="ph cmd">Choose <span class="ph uicontrol">Pattern</span> <span class="ph uicontrol">Union
+All</span> <span class="ph uicontrol">Block</span>, or <span class="ph uicontrol">Select</span> from
+the <span class="ph uicontrol">Type</span> menu.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Select <span class="ph uicontrol">Output View</span> to
+see the results of this rule. Select <span class="ph uicontrol">Export View </span> to
+make the rule available for other modules.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span> A statement
+template is inserted in the selected AQL script in the selected AQL
+module.</li>
+<li class="li substep"><span class="ph cmd">Complete the template.</span></li>
+</ol>
+ <p class="p">For more information, see the following topics:</p>
+<ul class="ul"><li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/sequence-patterns.html" target="_blank" title="(Opens in a new tab or window)">Sequence patterns</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/create-view-statement.html" target="_blank" title="(Opens in a new tab or window)">The create view statement</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/blocks.html" target="_blank" title="(Opens in a new tab or window)">Blocks</a></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="creatingapatterngenerationrule"><h3 class="title topictitle3">Example: Creating a pattern candidate generation rule</h3>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to identify absolute amounts such as <samp class="ph systemoutput">$7 billion</samp> and <samp class="ph systemoutput">$11.52</samp>.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Assume that you added a pattern statement named <var class="keyword varname">AmountAbsolute</var> and
+defined views named <var class="keyword varname">Number</var> and <var class="keyword varname">Unit</var>.
+Complete the template as follows.</span> <pre class="pre codeblock"><code>create view AmountAbsolute as
+extract pattern /\$/ &lt;N.match&gt; &lt;U.match&gt;
+return group 0 as match
+from Number N, Unit U;</code></pre>
+<p class="p">This rule identifies a pattern
+that consists of the <kbd class="ph userinput">$</kbd> character followed by
+a number and unit. For more information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/sequence-patterns.html" target="_blank" title="(Opens in a new tab or window)">Sequence patterns</a>.</p>
+</div>
+</div>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="creatingauniongenerationrule"><h3 class="title topictitle3">Example: Creating a union candidate generation rule</h3>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to group or join all of the amount
+candidates, including absolute amounts and percentage amounts.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Assume that you added a union statement named <var class="keyword varname">AmountCandidate</var> and
+defined views named <var class="keyword varname">AmountAbsolute</var> and <var class="keyword varname">AmountPercent</var>.
+Complete the rule template as follows.</span> <pre class="pre codeblock"><code>create view AmountCandidate as
+(select R.* from AmountAbsolute R)
+union all
+(select R.* from AmountPercent R); </code></pre>
+<p class="p">This rule joins
+mentions that are identified by other rules. For more information,
+see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/create-view-statement.html" target="_blank" title="(Opens in a new tab or window)">create view statement</a>.</p>
+</div>
+</div>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="examplecreatingaselectgenerationrule"><h3 class="title topictitle3">Example: Creating a select candidate generation rule</h3>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to select indicator candidates,
+where an indicator is formed by a metric that is followed by an amount
+within 0 to 10 tokens.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Assume that you added a select rule named <var class="keyword varname">IndicatorCandidate</var> and
+defined views named <var class="keyword varname">Metric</var> and <var class="keyword varname">Amount</var>.
+Complete the rule template as follows.</span> <pre class="pre codeblock"><code>create view IndicatorCandidate as
+select M.match as metric, A.match as amount, CombineSpans(M.match, A.match) as match 
+from Metric M, Amount A
+where FollowsTok(M.match, A.match, 0, 10); </code></pre>
+<p class="p">For more
+information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/select-statement.html" target="_blank" title="(Opens in a new tab or window)">select statement</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="en-us" id="creatingfilterandconsolidationrules"><h2 class="title topictitle2">Creating filter and consolidation rules</h2>
+<div class="body taskbody"><p class="shortdesc">You can create commonly used statements that filter and
+consolidate candidates to remove mistakes.</p>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the extraction plan, select a label for which the filter
+and consolidate rule is created.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Right-click <span class="ph uicontrol">New AQL Statement</span>, and
+select <span class="ph uicontrol">Filter</span> and <span class="ph uicontrol">Consolidate AQL
+statement</span>. </span> <div class="note tip"><span class="tiptitle">Tip:</span> Instead of right-clicking
+the label, you can also right-click <span class="ph uicontrol">FilterConsolidate</span> or
+its <span class="ph uicontrol">AQL Statement</span> folder and select <span class="ph uicontrol">Filter</span> and <span class="ph uicontrol">Consolidate
+AQL Statement</span>.</div>
+<ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">In the <span class="ph uicontrol">View Name</span> field, type
+the name of the view.</span></li>
+<li class="li substep"><span class="ph cmd">Select the module in the <span class="ph uicontrol">AQL Module</span> field.</span></li>
+<li class="li substep"><span class="ph cmd">Select a file in the <span class="ph uicontrol">AQL Script</span> field,
+or type in the name of a new AQL script.</span></li>
+<li class="li substep"><span class="ph cmd">Select <span class="ph uicontrol">Predicate-based Filter</span>, <span class="ph uicontrol">Set-based
+Filter</span> or <span class="ph uicontrol">Consolidate</span> from the <span class="ph uicontrol">Type</span> menu.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Select <span class="ph uicontrol">Output View</span> to
+see the results of this rule. Select <span class="ph uicontrol">Export View </span> to
+make the rule available for other modules.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span> A statement
+template is inserted in the selected AQL script in the selected AQL
+module.</li>
+</ol>
+ <p class="p">For more information, see the following topic:</p>
+<ul class="ul"><li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/create-view-statement.html" target="_blank" title="(Opens in a new tab or window)">Third form of the Create view statement (minus)</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/built-in-functions.html" target="_blank" title="(Opens in a new tab or window)">Built-in functions</a></li>
+<li class="li"><a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/consolidate-clause.html" target="_blank" title="(Opens in a new tab or window)">The consolidate clause</a></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="creatingapredicate-basedfilter"><h3 class="title topictitle3">Example: Creating a predicate-based filter</h3>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to remove relative amounts, such
+as percentages. Relative amounts are preceded by a negative clue.
+For more information about negative clues, see <a class="xref" href="#labelingextractionclues">Label extraction clues</a>.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Add a rule that is similar to the following one:</span> <pre class="pre codeblock"><code>create view Amount as
+select R.match 
+from AmountCandidate R
+where Not(MatchesDict('AmountNegativeClueDict', LeftContextTok(R.match,1))); </code></pre>
+<p class="p">This
+rule retains the Amount candidates whose immediate left context does
+not contain a match of a negative clue. The rule uses the <span class="keyword apiname">LeftContextTok()</span> built-in
+scalar function to compute the immediate left context of a span and
+the <span class="keyword apiname">MatchesDict()</span> built-in predicate for verifying
+if a span contains a dictionary clue. For more information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/built-in-functions.html" target="_blank" title="(Opens in a new tab or window)">Built-in functions</a>.</p>
+</div>
+</div>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="creatingaset-basedfilter"><h3 class="title topictitle3">Example: Creating a set-based filter</h3>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div>Suppose that you want to remove invalid indicators, and assume
+that you defined a view <var class="keyword varname">IndicatorInvalid</var> to capture
+all invalid Indicator candidates. For more information about negative
+clues, see <a class="xref" href="#labelingextractionclues">Label extraction clues</a>.</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Add a filter that is similar to the following one:</span> <pre class="pre codeblock"><code>create view IndicatorAll as
+(select R.metric, R.amount, R.match from IndicatorCandidate R)
+minus
+(select R.metric, R.amount, R.match from IndicatorInvalid R);  </code></pre>
+<p class="p">This
+rule removes a set of invalid Indicator candidates from the set of
+all candidates. For more information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/create-view-statement.html" target="_blank" title="(Opens in a new tab or window)">Third form of the Create view statement (minus)</a>.</p>
+</div>
+</div>
+</div>
+<div class="topic task nested2" xml:lang="en-us" id="creatingaconsolidationrule"><h3 class="title topictitle3">Example: Creating a consolidation rule</h3>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h4 class="sectiontitle tasklabel">About this task</h4></div><p class="p">Suppose that you want to consolidate overlapping indicators
+and retain the indicators that are not contained in longer mentions.</p>
+</div>
+<div class="tasklabel"><h4 class="sectiontitle tasklabel">Procedure</h4></div><div class="li step"><span class="ph cmd">Add a rule that is similar to the following one:</span> <pre class="pre codeblock"><code>create view Indicator as
+select R.metric, R.amount, R.match
+from IndicatorAll R
+consolidate on R.match using 'NotContainedWithin';  </code></pre>
+<p class="p">For
+more information, see the <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/consolidate-clause.html" target="_blank" title="(Opens in a new tab or window)">consolidate clause</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic task nested1" xml:lang="en-us" id="creatingothertypesofrules"><h2 class="title topictitle2">Creating other types of rules</h2>
+<div class="body taskbody"><div class="section context"><div class="tasklabel"><h3 class="sectiontitle tasklabel">About this task</h3></div><p class="p">Other types of rules can be created by adding the rule
+directly into the AQL files for the extractor. See the <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html" target="_blank" title="(Opens in a new tab or window)">AQL Reference</a> for a list of all the rules.</p>
+</div>
+<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Write the rule in the editor.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Select the name of the view in the <samp class="ph codeph">create view</samp> statement.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Drag the name to the appropriate node in the extraction
+plan.</span> <p class="p">You can add the rule as a basic feature, candidate
+generation, or filter and consolidation rule.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="topic task nested0" xml:lang="en-us" id="step4_testingyourextractor"><h1 class="title topictitle1">Step 4: Test the extractor</h1>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">Ensure that you complete steps 1-3 in the <span class="ph">Text Analytics Workflow perspective</span>.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><div class="p">You can test your extractor on any of the following documents:<ul class="ul"><li class="li">The entire data collection</li>
+<li class="li">Documents that you select in the <span class="ph uicontrol">Open a subset of documents
+to work with</span> field</li>
+<li class="li">Labeled documents</li>
+</ul>
+You can test any module that is created by an extraction plan
+for top-level labels on the these sets of documents.</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand" id="step4_testingyourextractor__step1"><span class="ph cmd">To run the extractor, right-click any node in
+the extraction plan, and select one of the run options: </span> <ul class="ul"><li class="li"><span class="ph uicontrol">Run the extraction plan on the entire data collection</span></li>
+<li class="li"><span class="ph uicontrol">Run the extraction plan on the set of selected documents</span> </li>
+<li class="li"><span class="ph uicontrol">Run the extraction plan on the set of documents that
+are labeled</span></li>
+</ul>
+ <p class="p">Results are displayed in the Annotation
+Explorer.</p>
+<div class="p">To run the module, right-click a category node of
+a top-level label, which is named as <var class="keyword varname">&lt;label-name&gt;_&lt;category-name&gt;</var>,
+and choose a Run Module option: <ul class="ul"><li class="li"><span class="ph uicontrol">Run module <var class="keyword varname">&lt;module-name&gt;</var> on the
+entire data collection</span></li>
+<li class="li"><span class="ph uicontrol">Run module <var class="keyword varname">&lt;module-name&gt;</var> on the
+set of selected documents</span> </li>
+<li class="li"><span class="ph uicontrol">Run module <var class="keyword varname">&lt;module-name&gt;</var> on the
+set of documents that are labeled</span></li>
+</ul>
+</div>
+</li>
+<li class="li step stepexpand" id="step4_testingyourextractor__step2"><span class="ph cmd">Identify mistakes in the extracted results.</span> <div class="p">Look for:<dl class="dl"><dt class="dt dlterm">False positives</dt>
+<dd class="dd">Results that are incorrectly identified by the extractor.<p class="p">Use
+the Provenance View to identify the rules that cause false positives.
+For more information, see <a class="xref" href="../tool_ref/results/ProvenanceViewer.html">Provenance View</a>. </p>
+</dd>
+<dt class="dt dlterm">False negatives</dt>
+<dd class="dd">Results that were not identified by the extractor.</dd>
+</dl>
+</div>
+</li>
+<li class="li step stepexpand" id="step4_testingyourextractor__step3"><span class="ph cmd">Go back to the <a class="xref" href="#labelingstep2_examplesandclues">Step 2: Label examples and clues</a>, and <a class="xref" href="#step3_developingtheextractor">Step 3: Develop the extractor</a> steps in the <span class="ph">Text Analytics Workflow perspective</span> to
+write new rules or refine your existing ones.</span></li>
+<li class="li step stepexpand" id="step4_testingyourextractor__step4"><span class="ph cmd">Repeat steps <a class="xref" href="#step4_testingyourextractor__step2">2</a> through <a class="xref" href="#step4_testingyourextractor__step4">4</a> until you are satisfied
+with the results.</span></li>
+</ol>
+</div>
+</div>
+<div class="topic task nested0" xml:lang="en-us" id="step5_evaluateandimprovetheperformanceoftheextractor"><h1 class="title topictitle1">Step 5: Evaluate and improve the performance of the extractor</h1>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">Ensure that steps 1-4 in the <span class="ph">Text Analytics Workflow perspective</span> are
+complete.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">After you are satisfied with the quality of your extractor, you can evaluate its performance. Use the Profiler View to evaluate and improve the runtime performance of the extractor.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Remove all output view statements added in step <a class="xref" href="#step4_testingyourextractor__step3">3</a> for testing your
+extractor, and keep only those that are necessary to generate the
+final outputs of your extractor.</span> Ideally, these output
+views exist only in the <span class="ph filepath"><var class="keyword varname">&lt;label-name&gt;</var>_Finals</span> modules.</li>
+<li class="li step"><span class="ph cmd">Evaluate the performance of the extractor. For more information
+about performance, see the <a class="xref" href="../tool_ref/results/ProfilerView.html">Profiler View</a>.</span></li>
+<li class="li step"><span class="ph cmd">If necessary, tune the extractor. See <a class="xref" href="../tool_ref/results/help_txtan_profrep.html" title="In some cases, the Text Analytics optimizer cannot choose the most efficient execution plan. When that is the case, you can use the AQL Profiler to identify which portion of the plan can be improved through manual tuning. The AQL Profiler is included in the InfoSphere BigInsights Eclipse Tooling.">AQL Profiler reports</a> for instructions
+about tuning the extractor.</span></li>
+</ol>
+</div>
+</div>
+<div class="topic task nested0" xml:lang="en-us" id="step6_exportingtheextractor"><h1 class="title topictitle1">Step 6: Export the extractor</h1>
+<div class="body taskbody"><div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">Ensure that steps 1-5 in the <span class="ph">Text Analytics Workflow perspective</span> are
+complete.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">After you are satisfied with the quality and performance
+of your extractor, you can export the extractor or its modules to
+a file or a directory so it can be used by other extractors.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Right-click the project of the extractor to be exported,
+and select <span class="ph uicontrol">Export</span>.</span></li>
+<li class="li step"><span class="ph cmd">In the Export wizard, select <span class="ph menucascade"><span class="ph uicontrol">BigInsights </span> &gt; <span class="ph uicontrol">Export Text Analytics Extractor</span> &gt; <span class="ph uicontrol">Next</span></span>.</span> The Extractor Export Specification
+wizard page opens.</li>
+<li class="li step"><span class="ph cmd">For a modular project, you can select the modules to be
+exported. Specify <span class="ph uicontrol">Export dependent modules</span> to
+export the dependent modules for the selected module. For a non-modular
+project, you can export only the entire extractor.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Browse workspace</span> or <span class="ph uicontrol">Browse
+file system</span> to select the directory to which you want
+to export. </span></li>
+<li class="li step">Optional: <span class="ph cmd">Select <span class="ph uicontrol">Export to destination
+directory</span> to export the selected modules to the selected
+directory, or select <span class="ph uicontrol">Export to a jar or zip archive under
+the destination directory</span> to bundle the selected module
+into a JAR or ZIP archive. </span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to export the modules.</span></li>
+</ol>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,617 @@
+/*
+(c) Copyright IBM Corp All Rights Reserved.
+(c) Copyright Platform Computing Corp. 2011 All Rights Reserved.
+	Last update: 29 April 2011 Platform ID: changed font size to pixels
+	                           colors to Platform GUI visual design    
+ */
+ 
+ /* Link styles */
+ a:link {color: #505050; text-decoration: none; font-weight: bold;}
+ a:visited {color: #757575; text-decoration: none; font-weight: bold;}
+ a:hover {color: #363636; text-decoration: underline; font-weight: bold;}
+ a:active {color: #363636; text-decoration: none; font-weight: bold;} 
+
+ .parentlink a {color: #006600; text-decoration: underline; }
+ .parentlink a:visited {color: #79BA64; text-decoration: underline; }
+ .parentlink a:hover {color: #3F922D; text-decoration: underline; }
+ .parentlink a:active {color: #3F922D; text-decoration: underline; } 
+ 
+ .ulchildlink a {color: #79BA64; text-decoration: underline; }
+ .ulchildlink a:visited {color: #006600; text-decoration: underline; }
+ .ulchildlink a:hover {color: #3F922D; text-decoration: underline; }
+ .ulchildlink a:active {color: #3F922D; text-decoration: underline; } 
+
+.familylinks {font-weight: regular;}
+ 
+ /* element definitions */
+
+body
+{
+	font-family: Arial,Verdana,sans-serif;
+	font-size: 12px;
+}
+
+H1
+{
+	color: #006600;
+	font-weight: bold;
+	font-size: 21px;
+	margin-top: 0em; 
+	margin-bottom: 0em;
+}
+
+H2
+{
+	color: #006600;
+	margin-top: 1pc; 
+	margin-bottom: .45em; 
+	font-size: 14px; 
+	margin-top: 0em; 
+	margin-bottom: 0em;
+}
+
+H3
+{
+	color: #006600;
+	font-size: 12px; 
+	margin-top: 0em; 
+	margin-bottom: 0em;
+}
+
+H4
+{
+	color: #006600;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 11px; 
+	margin-top: 0em; 
+	margin-bottom: 0em;
+}
+
+pre { 
+    font-size: 11px; 
+	font-family: Courier New, Courier, monospace; 
+}
+
+
+/* table styles */
+
+table
+{	
+	font-size: 12px;
+	border:none;
+	border-color:#FFFFFF;
+	border-bottom:thin;
+	border-bottom-style: solid;
+	border-bottom-color: #C2C2C2;
+	border-bottom-width: thin;
+	border-left: none;
+	border-right: none;
+}
+
+th
+{
+	border-left: none;
+	border-right: none;
+}
+
+td
+{
+	border-top:thin;
+	border-top-style: solid;
+	border-top-color: #C2C2C2;
+	border-top-width: thin;
+	border-left: none;
+	border-right: none;
+}
+
+/* code tables without borders */
+div.tablenoborder table
+{
+	font-size: 12px;
+	border:none;
+	border-color:#FFFFFF;
+	border-bottom:thin;
+	border-bottom-style: none;
+	border-bottom-color: #C2C2C2;
+	border-bottom-width: thin;
+	border-left: none;
+	border-right: none;
+}
+
+div.tablenoborder table td
+{
+	border-top:none;
+	border-top-style: none;
+	border-top-color: red;
+	border-top-width: thin;
+	border-left: none;
+	border-right: none;
+}
+
+tr
+{	
+}
+
+thead
+{
+	color: #006600;
+	background-color:#F2F2F2;
+}
+
+tbody
+{
+}
+
+.unresolved { background-color: skyblue; }
+.noTemplate { background-color: yellow; }
+
+.base { background-color: #ffffff; }
+
+/* Add space for top level topics */
+.nested0 { margin-top : 1em;}
+
+/* div with class=p is used for paragraphs that contain blocks, to keep the XHTML valid */
+.p {margin-top: 0em; margin-bottom: 0em;}
+
+.ul
+{margin-top: 0em; margin-bottom: 0em;
+}
+
+.li
+{
+}
+
+/* Default of italics to set apart figure captions */
+.figcap { font-style: italic }
+.figdesc { font-style: normal }
+
+/* Use @frame to create frames on figures */
+.figborder { border-style: solid; padding-left : 3px; border-width : 2px; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.figsides { border-left : 2px solid; padding-left : 3px; border-right : 2px solid; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.figtop { border-top : 2px solid; margin-top: 1em; border-color : Silver;}
+.figbottom { border-bottom : 2px solid; border-color : Silver;}
+.figtopbot { border-top : 2px solid; border-bottom : 2px solid; margin-top: 1em; border-color : Silver;}
+
+/* Most link groups are created with <div>. Ensure they have space before and after. */
+.ullinks {list-style-type: none }
+.ulchildlink {margin-top: 1em; margin-bottom: 1em }
+.olchildlink { margin-top: 1em; margin-bottom: 1em }
+.linklist { margin-bottom: 1em }
+.linklistwithchild { margin-left: 1.5em; margin-bottom: 1em  }
+.sublinklist { margin-left: 1.5em; margin-bottom: 1em  }
+.relconcepts { margin-top: 1em; margin-bottom: 1em }
+.reltasks { margin-top: 1em; margin-bottom: 1em }
+.relref { margin-top: 1em; margin-bottom: 1em }
+.relinfo { margin-top: 1em; margin-bottom: 1em }
+.breadcrumb {color: #f60b0b;  font-size : smaller; margin-bottom: 1em }
+.prereq { margin-left : 20px;}
+
+/* Set heading sizes, getting smaller for deeper nesting */
+.topictitle1 { margin-top: 0pc; margin-bottom: .1em; font-size: 21px; font-weight: bold; color: #006600;}
+.topictitle2 { margin-top: 1pc; margin-bottom: .45em; font-size: 14px; color: #006600;}
+.topictitle3 { margin-top: 1pc; margin-bottom: .17em; font-size: 12px; font-weight: bold; color: #006600;}
+.topictitle4 { margin-top: .83em; font-size: 11px; font-weight: bold; font-style: italic; color: #006600;}
+.topictitle5 { font-size: 11px; font-weight: bold; color: #006600;}
+.topictitle6 { font-size: 11px; font-style: italic; color: #006600;}
+.sectiontitle { margin-top: 1em; margin-bottom: 0em; font-size: 12px; color: #006600;}
+.section { margin-top: 1em; margin-bottom: 1em; }
+.example { margin-top: 1em; margin-bottom: 1em; font-family: Courier New, Courier, monospace; }
+
+/* handle nested section titles */
+h1.sectiontitle { margin-top: 0pc; margin-bottom: .1em; font-size: 21px; font-weight: bold; color: #006600;
+}
+h2.sectiontitle { margin-top: 0pc; margin-bottom: .1em; font-size: 14px; font-weight: bold; color: #006600;
+}
+h3.sectiontitle { margin-top: 0pc; margin-bottom: .1em; font-size: 12px; font-weight: bold; color: #006600;
+}
+h4.sectiontitle { margin-top: 0pc; margin-bottom: .1em; font-size: 11px; font-weight: bold; font-style: italic; color: #006600;
+}
+
+/* Handle pagebreak and pagewide output class on headings */
+h1.pagewide { margin-top: 0pc; margin-bottom: .1em; font-size: 21px; font-weight: bold; color: #006600;
+}
+h2.pagewide { margin-top: 0pc; margin-bottom: .1em; font-size: 14px; font-weight: bold;	color: #006600;
+}
+h3.pagewide { margin-top: 0pc; margin-bottom: .1em; font-size: 12px; font-weight: bold;	color: #006600;
+}
+h4.pagewide { margin-top: 0pc; margin-bottom: .1em; font-size: 11px; font-weight: bold;	color: #006600;
+}
+
+h1.pagebreak { margin-top: 0pc; margin-bottom: .1em; font-size: 21px; font-weight: bold; color: #006600;
+}
+h2.pagebreak { margin-top: 0pc; margin-bottom: .1em; font-size: 14px; font-weight: bold; color: #006600;
+}
+h3.pagebreak { margin-top: 0pc; margin-bottom: .1em; font-size: 12px; font-weight: bold; color: #006600;
+}
+h4.pagebreak { margin-top: 0pc; margin-bottom: .1em; font-size: 11px; font-weight: bold; color: #006600;
+}
+
+/* All note formats have the same default presentation */
+.note {
+	margin-top: 1em;
+	margin-bottom : 1em;
+	border-top-color: #C2C2C2;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #C2C2C2;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636;
+	font-size: 12px;
+}
+.notetitle { font-weight: bold; color: #006600; }
+.notelisttitle { font-weight: bold; color: #006600; }
+
+.tip {
+	margin-top: 1em;
+	margin-bottom : 1em;
+	margin-top: 1em;
+	margin-bottom : 1em;
+	border-top-color: #C2C2C2;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #C2C2C2;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636;
+	font-size: 12px;
+}
+.tiptitle { font-weight: bold; color: #006600;}
+
+/* old tip with green text and rulings
+
+.tip { margin-top: 1em; margin-bottom : 1em; 
+	border-top-color: #C2C2C2;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #C2C2C2;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636;
+	font-size: 12px;
+}
+.tiptitle { font-weight: bold; color: #006600;}
+*/
+.fastpath { margin-top: 1em; margin-bottom : 1em;
+	border-top-color: #C2C2C2;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #C2C2C2;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636;
+	font-size: 12px;
+}
+.fastpathtitle { font-weight: bold; color: #006600; }
+
+.important {
+	margin-top: 1em;
+	margin-bottom : 1em;
+	border-top-color: #CC0000;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #CC0000;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636;
+	font-size: 12px;
+}
+.importanttitle {
+	font-weight: bold;
+	color: #CC0000;
+	text-transform: uppercase;
+}
+
+.remember { margin-top: 1em; margin-bottom : 1em; 
+	border-top-color: #C2C2C2;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #C2C2C2;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636;
+	font-size: 12px;
+}
+.remembertitle { font-weight: bold; color: #006600; }
+
+.restriction { margin-top: 1em; margin-bottom : 1em; 
+	border-top-color: #C2C2C2;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #C2C2C2;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636; 
+	font-size: 12px;
+}
+.restrictiontitle { font-weight: bold; color: #CC0000; }
+
+.attention { margin-top: 1em; margin-bottom : 1em; 
+	border-top-color: #CC0000;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #CC0000;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #003456; 
+	font-size: 12px;
+}
+.attentiontitle { 	font-weight: bold;
+	color: #CC0000;
+	text-transform: uppercase;
+ }
+
+.danger { font-weight: bold; margin-top: 1em; margin-bottom : 1em; 
+	border-top-color: #CC0000;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #CC0000;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636; 
+	font-size: 12px;
+}
+.dangertitle { 	font-weight: bold;
+	color: #CC0000;
+	text-transform: uppercase;
+ }
+
+.caution { font-weight: bold; margin-bottom : 1em; 
+	border-top-color: #CC0000;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-color: #CC0000;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	color: #363636; 
+	font-size: 12px;
+}
+.cautiontitle { 	font-weight: bold;
+	color: #CC0000;
+	text-transform: uppercase;
+ }
+
+/* Simple lists do not get a bullet */
+ul.simple { list-style-type: none }
+
+ul.check
+{
+	list-style-type: square;
+}
+
+/* Used on the first column of a table, when rowheader="firstcol" is used */
+.firstcol { font-weight : bold;}
+
+/* Various basic phrase styles */
+.bold { font-weight: bold; }
+.boldItalic { font-weight: bold; font-style: italic; }
+.italic { font-style: italic; }
+.underlined { text-decoration: underline; }
+.uicontrol { font-weight: bold; }
+.parmname { font-weight: bold; }
+.kbd { font-size: 11px; font-family: Courier New, Courier, monospace; }
+.kwd { font-weight: bold; font-family: Courier New, Courier, monospace; }
+.defkwd { font-weight: bold; text-decoration: underline; }
+.var { font-style : italic;}
+.shortcut { text-decoration: underline; }
+.userinput { font-size: 11px; font-weight: bold; font-family: Courier New, Courier, monospace; }
+.sysout { font-size: 11px; font-family: Courier New, Courier, monospace; }
+.synph { font-size: 11px; font-family: Courier New, Courier, monospace; }
+.codeph { font-size: 11px; font-family: Courier New, Courier, monospace; }
+.option { font-size: 11px; font-family: Courier New, Courier, monospace; }
+.filepath { font-size: 11px; font-family: Courier New, Courier, monospace; }
+.cmdname { font-size: 11px; font-family: Courier New, Courier, monospace;  }
+
+/* Default of bold for definition list terms */
+.dlterm { font-weight: bold; }
+
+/* Use CSS to expand lists with @compact="no" */
+.li { margin-top: 1em; margin-bottom: 1em;}
+.dltermexpand { font-weight: bold; margin-top: 1em; }
+*[compact="yes"]>li { margin-top: 0em;}
+*[compact="no"]>li { margin-top: .53em;}	
+.liexpand { margin-top: 0em; margin-bottom: 1em }
+.sliexpand { margin-top: 0em; margin-bottom: 1em }
+.dlexpand { margin-top: 0em; margin-bottom: 1em }
+.ddexpand { margin-top: 0em; margin-bottom: 1em }
+.stepexpand { margin-top: 0em; margin-bottom: 1em }
+.substepexpand { margin-top: 0em; margin-bottom: 1em }
+
+/* Align images based on @align on topic/image */
+div.imageleft { text-align: left }
+div.imagecenter { text-align: center }
+div.imageright { text-align: right }
+div.imagejustify { text-align: justify }
+
+pre.screen { padding: 5px 5px 5px 5px; border: outset; background-color: #F2F2F2; margin-top: 2px; margin-bottom : 2px; white-space: pre}
+
+/*
+ | (c) Copyright IBM Corp All Rights Reserved.
+ 
+ Change history:
+ 2007.08.31 jsmith@platform.com: added element defintions adapted from Platform doc styles
+ 
+ */
+
+/* element definitions */
+
+body
+{
+	font-family: Arial,Verdana,sans-serif;
+}
+
+li { margin-top: 0em;}
+
+/* class definitions */
+
+.unresolved	{ background-color: skyblue;
+		}
+
+.noTemplate	{ background-color: yellow;
+		}
+
+.sidebar     {background: silver
+             }
+
+.toc         {font-size: small;
+			  font-family: Arial,Verdana,sans-serif;
+		}
+
+.base		{ background-color: #ffffff;
+		}
+
+.figborder   { border-style: double;
+               border-color: black;
+               border-width: 3;
+             }
+
+
+/* the nested mappings provide the opportunity to manipulate things at the topic level */
+/* no function here for now; nested topics don't indent incrementally */
+.nested1	{ 
+		}
+
+.nested2	{ 
+		}
+
+.nested3	{ 
+		}
+
+.nested4	{ 
+		}
+
+.nested5	{ 
+		}
+
+.nested6	{ 
+		}
+
+
+
+/* the topictitle mappings provide nesting-specific title control */
+/* equivalent to FO xsl attribute sets for nested titles */
+
+.topictitle1 { margin-top: 0pc;
+		  margin-bottom: 1.4pt;
+		  font-family: Arial,Verdana,sans-serif; 
+		  }
+
+.topictitle2 { margin-top: 1pc;
+               margin-bottom: 5pt;
+               }
+
+.topictitle3 { margin-top: 1pc;
+               margin-bottom: 2pt;
+               font-weight: bold;
+             }
+
+.topictitle4 { margin-top: 10pt;
+               font-weight: bold;
+             }
+
+
+.topictitle5 { font-weight: bold;
+             }
+
+.topictitle6 { font-style: italic;
+             }
+
+/* some class settings tied to generated divs */
+div.notetitle { margin-top: 1em; font-weight: bold }
+div.notebody { margin-left: 2em }
+
+div.attention { margin-top: 1em }
+span.attentiontitle { font-weight: bold }
+div.dangertitle { margin-top: 1em; font-weight: bold }
+div.danger { padding: 5px 5px 5px 5px; border: solid; border-width: thin; font-weight: bold; margin-top: 2px }
+div.cautiontitle { margin-top: 1em; font-weight: bold }
+div.caution { font-weight: bold }
+
+div.tiptitle { margin-top: 1em; font-weight: bold }
+div.tipbody { margin-left: 2em }
+div.fastpathtitle { margin-top: 1em; font-weight: bold }
+div.fastpathbody { margin-left: 2em }
+div.importanttitle { margin-top: 1em; font-weight: bold }
+div.importantbody { margin-left: 2em }
+div.remembertitle { margin-top: 1em; font-weight: bold }
+div.rememberbody { margin-left: 2em }
+div.restrictiontitle { margin-top: 1em; font-weight: bold }
+div.restrictionbody { margin-left: 2em }
+
+div.imageleft { text-align: left }
+div.imagecenter { text-align: center }
+div.imageright { text-align: right }
+div.imagejustify { text-align: justify }
+
+
+
+/* format-specific */
+
+.bold		{ font-weight: bold;
+		}
+
+.boldItalic	{ font-weight: bold;
+		  font-style: italic;
+		}
+
+.italic		{ font-style: italic;
+		}
+
+		
+.underlined  { text-decoration: underline;
+		}
+
+.ptocH1      {font-size: x-small;
+		}
+
+.ptocH2      {font-size: x-small;
+		}
+
+.smallCaps   { text-transform: uppercase; 
+		  font-size: smaller;
+		}
+
+.stitle      { font-style: italic;
+		  text-decoration: underline;
+             }
+
+.nte		{}
+
+.defListHead	{ font-weight: bold;
+		  text-decoration: underline;
+		}
+
+.parmListKwd	{ font-weight: bold;
+		}
+
+.parmListVar	{ font-style: italic;
+		}
+
+.xxlines		{
+	white-space: pre;
+	font-family : serif;
+	font-size : 100%;
+}
+
+.pk          { font-weight: bold;
+		  text-decoration: underline;
+		}
+
+.sectiontitle {margin-top: 1em;
+               margin-bottom: 0em;
+               color: black;
+               font-weight: bold;
+              }
+
+
+*[compact="yes"]>li {
+  margin-top: 0pt;
+}
+
+*[compact="no"]>li {
+  margin-top: 6pt;
+}
+
+
+

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Annotation Explorer" />
+<meta name="abstract" content="The Annotation Explorer shows extracted fields in the Span Attribute Value column. You can also see the text from the left and right of the extracted text, which is known as the left and right context." />
+<meta name="Description" content="The Annotation Explorer shows extracted fields in the Span Attribute Value column. You can also see the text from the left and right of the extracted text, which is known as the left and right context." />
+<meta name="DC.subject" content="span type, results" />
+<meta name="keywords" content="span type, results" />
+<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="AnnotationExplorer" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
+<title>Annotation Explorer</title>
+</head>
+<body role="main" id="AnnotationExplorer">
+<h1 class="title topictitle1">Annotation Explorer</h1>
+<div class="body conbody"><p class="shortdesc"> The Annotation Explorer shows extracted fields in the
+Span Attribute Value column. You can also see the text from the left
+and right of the extracted text, which is known as the left and right
+context. </p>
+<div class="p">Results are displayed in the <span class="ph uicontrol">Annotation Explorer</span> in
+five columns:<dl class="dl"><dt class="dt dlterm">Input Document</dt>
+<dd class="dd">The file name of the data collection, which can be the actual
+file name or an internally used identifier. </dd>
+<dt class="dt dlterm">Left Context</dt>
+<dd class="dd">The 50 characters before the span value. </dd>
+<dt class="dt dlterm">Span Attribute Value</dt>
+<dd class="dd">The actual text of the span. <p class="p">A <samp class="ph codeph">span</samp> is a built-in
+type of Text Analytics. The <dfn class="term">span type</dfn> represents a contiguous
+range of characters in a text field of the document. For example,
+the Span output, <var class="keyword varname">Document.text[1665-1673]: '466-9196'</var>,
+represents <span class="keyword option">Characters 1665-1673 of the text field of Document</span>.
+This range of characters corresponds to the string <var class="keyword varname">466-9196</var> in
+the original document. </p>
+</dd>
+<dt class="dt dlterm">Right Context</dt>
+<dd class="dd">The 50 characters after the span value. </dd>
+<dt class="dt dlterm">Span Attribute Name</dt>
+<dd class="dd">The name of the output view and the field name of the span, separated
+by a period. </dd>
+</dl>
+</div>
+<div class="p">From the <span class="ph uicontrol">Annotation Explorer</span>, you can: <ul class="ul"><li class="li"><a class="xref" href="../../view_results/ViewResults.html" title="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer.">Display results
+in a table or a tree</a></li>
+<li class="li"><a class="xref" href="../../view_results/SortResults.html" title="You can sort results in the Annotation Explorer or Result Table View.">Sort results</a></li>
+<li class="li"><a class="xref" href="../../view_results/FilterResults.html" title="Analyze the specific results you want by filtering results in the Annotation Explorer.">Filter results</a></li>
+<li class="li"><a class="xref" href="../../view_results/ExportResults.html" title="From the Annotation Explorer and Result Table Viewer, you can export the results to an HTML or a comma-separated values (CSV) file for further analysis.">Export results</a></li>
+<li class="li"><a class="xref" href="ResultEditor.html" title="By using the Result Editor you can visualize results in the input data or data collection. For each attribute type that you select in the Result tree view, the Result Editor shows all of the annotations. The Result Editor is opened whenever the Result Tree is opened.">Open the selected span in an input
+document</a></li>
+<li class="li"><a class="xref" href="../../view_results/OpenViewDefinition.html" title="By opening a View Definition, you can navigate to the View Definition of the selected view in results. For any row in the result table, you can navigate to the corresponding View Definition.">Open the
+View Definition</a></li>
+</ul>
+</div>
+<div class="section"><h2 class="title sectiontitle">Pagination in Annotation Explorer</h2><p class="p">You can
+display the results in <span class="ph uicontrol">Annotation Explorer</span> as
+a set of pages. Pagination is based on the number of input documents
+whose results must be displayed in a page. Pagination can be set from
+a projet <span class="keyword wintitle">Properties</span> window by right-clicking
+on a project, and then clicking <span class="ph menucascade"><span class="ph uicontrol">Properties</span> &gt; <span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">Text Analytics</span></span>.</p>
+<div class="p">Page information is displayed at the top of
+the <span class="ph uicontrol">Annotation Explorer</span> view. There are two
+fields:<dl class="dl"><dt class="dt dlterm">Number of rows</dt>
+<dd class="dd">The number of rows on the page, displayed in the format <var class="keyword varname">&lt;x&gt;/&lt;y&gt;</var>,
+where <var class="keyword varname">x</var> is the number of rows that are visible
+when a filter is active, and <var class="keyword varname">y</var> is the number of
+rows available in that page.</dd>
+<dt class="dt dlterm">Showing page x of y</dt>
+<dd class="dd">Showing the page <var class="keyword varname">x</var> of <var class="keyword varname">y</var>,
+in this case, <var class="keyword varname">x</var> is the current page number and <var class="keyword varname">y</var> is
+the total number of pages.</dd>
+</dl>
+</div>
+<p class="p">Page navigation controls are available in the
+upper right section of the view. </p>
+<p class="p">► Go to next page</p>
+<p class="p">◄
+Go to previous page</p>
+<p class="p">Page navigation is synchronized across annotation
+explorers and any open result table views. Changing the page in any
+of these views also causes a page change in the other views too. Any
+open result tree views are closed.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
+</div>
+</div></body>
+</html>

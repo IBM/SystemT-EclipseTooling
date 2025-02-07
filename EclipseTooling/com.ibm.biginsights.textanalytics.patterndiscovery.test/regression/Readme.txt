@@ -1,0 +1,1 @@
+Running the Pattern Discovery tests with any other JVM that IBM Java 6 might produce unexpected results due to hashing.

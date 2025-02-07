@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+
+	<extension
+		point="org.eclipse.ui.startup">
+      <startup
+            class="com.ibm.biginsights.textanalytics.aql.editor.Activator"></startup>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="AQL Editor"
+            extensions="aql"
+            icon="icons/aqlEditor.gif"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="com.ibm.biginsights.textanalytics.aql.editor.AQLEditor"
+            id="com.ibm.biginsights.textanalytics.editor.ui.AQLEditor">
+      </editor>
+      <editor
+            name="Dictionary Editor"
+            extensions="dict"
+            icon="icons/dictionaryEditor.gif"
+            class="com.ibm.biginsights.textanalytics.aql.editor.DictionaryEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            id="com.ibm.biginsights.textanalytics.editor.ui.DictEditor">
+      </editor>
+   </extension>
+   
+   	<extension point="org.eclipse.ui.perspectiveExtensions">
+    	<perspectiveExtension targetID="*">
+			<showInPart id="org.eclipse.ui.navigator.ProjectExplorer"/>
+			<showInPart id="org.eclipse.ui.views.ResourceNavigator"/>
+			<showInPart id="org.eclipse.team.ui.GenericHistoryView"/>
+    	</perspectiveExtension>
+ 	</extension>
+ 
+ 
+   <extension
+         id="com.ibm.biginsights.textanalytics.aql.editor.command"
+         name="Text Analytics Commands"
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="com.ibm.biginsights.textanalytics.aql.editor.command.category"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.comment"
+            name="AQL block comment command">
+      </command>
+      <command
+            name="Open View in AQL Editor"
+            description="Open View in AQL Editor"
+            categoryId="org.eclipse.ui.category.navigate"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.openViewInAQLEditor">
+            <commandParameter
+				id="com.ibm.biginsights.textanalytics.aql.editor.commandParam.viewName"
+				name="command.showViewInEditor"
+				optional="false">
+			</commandParameter>
+			<commandParameter
+				id="com.ibm.biginsights.textanalytics.aql.editor.commandParam.currProject"
+				name="command.currentProject"
+				optional="false">
+			</commandParameter>
+      </command>
+      <!--
+      <command
+      		defaultHandler="com.ibm.biginsights.textanalytics.aql.editor.outline.SortOutline"
+      		id="com.ibm.biginsights.textanalytics.aql.editor.sortOutline"
+      		name="Sort">
+   			<state
+         		class="org.eclipse.ui.handlers.RegistryToggleState:true"
+              	id="org.eclipse.ui.commands.toggleState">
+   			</state>
+	  </command>
+      -->
+      <command
+            name="Open Declaration"
+            description="Open the Implementation in the Super Type"
+            categoryId="org.eclipse.ui.category.navigate"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.navigate">
+      </command>
+      <command
+            name="Open Parent Hierarchy"
+            description="Open Parent Hierarchy"
+            categoryId="com.ibm.biginsights.textanalytics.aql.editor.command.category"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.parentHierarchy">
+      </command>
+      <command
+            name="Open Child Hierarchy"
+            description="Open Child Hierarchy"
+            categoryId="com.ibm.biginsights.textanalytics.aql.editor.command.category"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.childHierarchy">
+      </command>
+      <category
+            description="Commands for working with AQL scripts and Text Analytics"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.category"
+            name="AQL Commands">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.commands.CommentBlockHandler"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.comment">
+      </handler>
+      <!--
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.outline.SortOutline"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.sortoutline">
+      </handler>
+      -->
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.navigate.OpenViewHandler"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.openViewInAQLEditor">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.navigate.NavigationHandler"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.navigate">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.assist.ActivateContentAssistHandler"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.contentassist">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.ParentHierarchyHandler"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.parentHierarchy">
+      </handler>
+      <handler
+            class="com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.ChildHierarchyHandler"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.childHierarchy">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.comment"
+            contextId="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+/">
+      </key>
+      <key
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.navigate"
+            contextId="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="F3">
+      </key>
+      <key
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.parentHierarchy"
+            contextId="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Alt+D">
+      </key>
+      <key
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.childHierarchy"
+            contextId="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Alt+R">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            id="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            name="AQL Editor Context"
+            parentId="org.eclipse.ui.textEditorScope">
+      </context>
+   </extension>
+   
+   <extension point="org.eclipse.ui.actionSets">
+	<actionSet
+			label="AQL Open Actions"
+            description="Action set containing open actions for AQL"
+            visible="false"
+            id="com.ibm.aql.editor.commands.OpenActionSets">
+		<action
+            definitionId="com.ibm.biginsights.textanalytics.aql.editor.command.navigate"
+            label="Open"
+            tooltip="Open Declaration"
+            retarget="true"
+            menubarPath="navigate/open.ext"
+            allowLabelUpdate="true"
+			id="com.ibm.biginsights.textanalytics.aql.editor.command.navigateID">
+		</action>
+	</actionSet>
+	</extension>
+	
+	<extension
+         point="org.eclipse.ui.editors.templates">
+      <contextType
+      		class="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType"
+            name="AQL"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"/>         
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create view statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.createView"
+            name="create view">
+         <pattern>
+create view ${name} as 
+${statement}
+from ${arguments} ${alias}
+where ${condition};
+         </pattern>
+      </template>
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Output view statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.outputView"
+            name="output view">
+         <pattern>
+output view ${name};
+         </pattern>
+      </template>
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Output view statement with alias"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.outputViewWithAlias"
+            name="output view with alias">
+         <pattern>
+output view ${name} as '${alias}';
+         </pattern>
+      </template>
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Include statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.include"
+            name="include">
+         <pattern>
+include '${file}';
+         </pattern>
+      </template> 
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create dictionary statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.dictionary"
+            name="create dictionary">
+         <pattern>
+create dictionary ${name}
+[with] [language as ${language_codes}]
+[and] [case &lt;exact | insensitive&gt;]
+as
+(
+	${cursor}
+);
+         </pattern>
+      </template>   
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create table statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.table"
+            name="create table">
+         <pattern>
+create table ${name}(${arguments})
+as values
+(
+    ${cursor}
+);
+        </pattern>
+      </template>  
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Select statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.select"
+            name="select">
+         <pattern>
+select ${name}
+into ${outputViewName}
+from ${arguments}
+where ${condition};
+        </pattern>
+      </template>  
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Detag statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.detag"
+            name="detag">
+         <pattern>
+detag ${document} as ${alias}
+annotate
+	element ${name} as ${elementAlias};
+	     </pattern>
+      </template> 
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create function statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.function"
+            name="create function">
+         <pattern>
+create function ${name}(${arguments})
+return ${type}
+external_name '${udfName}'
+language java;
+	     </pattern>
+      </template>   
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create external view statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.extView"
+            name="create external view">
+         <pattern>
+create external view ${name}(${arguments})
+external_name ${extName};
+	     </pattern>
+      </template> 
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.statements"
+            description="testing"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.testing"
+            name="testing">
+         <pattern>
+create external view ${name}(${arguments})
+external_name ${extName};
+	     </pattern>
+      </template>
+      <template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Import module statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModule"
+            name="import module">
+         <pattern>
+import module ${name};
+         </pattern>
+      </template>
+	<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Export view statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.exportView"
+            name="export view">
+         <pattern>
+export view ${name};
+         </pattern>
+      </template>
+	<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Export table statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.exportTable"
+            name="export table">
+         <pattern>
+export table ${name};
+         </pattern>
+      </template>
+	<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Export function statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.exportFunction"
+            name="export function">
+         <pattern>
+export function ${name};
+         </pattern>
+      </template>
+	<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Export dictionary statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.exportDictionary"
+            name="export dictionary">
+         <pattern>
+export dictionary ${name};
+         </pattern>
+      </template>
+ <!--	This needs to be taken care later on..  -->  
+	<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Require document schema statement"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.RequireDocument"
+            name="require document with columns">
+         <pattern>
+require document with columns
+&lt;column-name&gt; &lt;type&gt;
+[and &lt;column-name&gt; &lt;type&gt;]*;
+         </pattern>
+      </template>	
+	<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create external dictionary"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.createExtDictionary"
+            name="create external dictionary">
+         <pattern>
+create external dictionary ${name}
+&lt;allow_empty | required&gt; &lt;true | false&gt;
+[with] [language as ${language_codes}]
+[and] [case &lt;exact | insensitive&gt;];
+         </pattern>
+      </template>		  
+<template
+            autoinsert="false"
+            contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+            description="Create external table"
+            id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.createExtFunction"
+            name="create external table">
+         <pattern>
+create external table ${name}
+(&lt;column-name&gt; &lt;type&gt; 
+[,&lt;column-name&gt; &lt;type&gt;]* )) 
+&lt;allow_empty | required&gt; &lt;true | false&gt;;
+         </pattern>
+      </template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Create dictionary from file"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.dictionaryFile"
+      name="create dictionary from file">
+   <pattern>
+      create dictionary  ${name}
+from file ${file_name} 
+[with] [language as ${language_codes}]
+[and] [case &lt;exact | insensitive&gt;];
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Create dictionary from table"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.dictionaryTable"
+      name="create dictionary from table">
+   <pattern>
+      create dictionary ${name}
+from table ${table_name}
+with entries from ${column_name}
+[and] [language as ${language_codes}]
+[and] [case &lt;exact | insensitive&gt;];
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s view"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleView"
+      name="import view from module">
+   <pattern>
+      import view ${viewName}
+from module ${moduleName};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s dictionary"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleDictionary"
+      name="import dictionary from module">
+   <pattern>
+      import dictionary ${dictionaryName}
+from module ${moduleName};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s table"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleTable"
+      name="import table from module">
+   <pattern>
+      import table ${tableName}
+from module ${moduleName};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s function"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleFunction"
+      name="import function from module">
+   <pattern>
+      import function ${functionName}
+from module ${moduleName};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s view with alias"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleViewWithAlias"
+      name="import view from module with alias">
+   <pattern>
+      import view ${viewName} 
+from module ${moduleName} as ${alias};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s dictionary with alias"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleDictionaryWithAlias"
+      name="import dictionary from module with alias">
+   <pattern>
+      import dictionary ${dictionaryName} 
+from module ${moduleName} as ${alias};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s table with alias"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleTableWithAlias"
+      name="import table from module with alias">
+   <pattern>
+      import table ${tableName} 
+from module ${moduleName} as ${alias};
+   </pattern>
+</template>
+<template
+      autoinsert="false"
+      contextTypeId="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql"
+      description="Import module&apos;s function with alias"
+      id="com.ibm.biginsights.textanalytics.aql.editor.assist.AQLContextType.aql.importModuleFunctionWithAlias"
+      name="import function from module with alias">
+   <pattern>
+      import function ${functionaName} 
+from module ${moduleName} as ${alias};
+   </pattern>
+</template>	  
+      
+      
+	</extension>
+
+	 <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.DependencyHierarchyView"
+            icon="icons/dependsOn.gif"
+            id="com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.DependencyHierarchyView.view"
+            name="AQL Dependency Hierarchy"
+            restorable="false">
+      </view>
+      <view
+            allowMultiple="false"
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.ReferenceHierarchyView"
+            icon="icons/dependedOnBy.gif"
+            id="com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.ReferenceHierarchyView.view"
+            name="AQL Reference Hierarchy"
+            restorable="false">
+      </view>
+   </extension>
+   
+   <extension
+      id="mymarker"
+      point="org.eclipse.core.resources.markers" />
+   <extension
+      id="parseerror"
+      name ="AQL Problem"
+      point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="com.ibm.biginsights.textanalytics.aqleditor.mymarker"/>
+      <persistent value="true" />
+   </extension>
+   
+   <extension
+      id="compileerror"
+      name ="AQL Problem"
+      point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="com.ibm.biginsights.textanalytics.aqleditor.mymarker"/>
+      <persistent value="true" />
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            class="com.ibm.biginsights.textanalytics.aql.editor.ui.EditorDecorator"
+            id="com.ibm.biginsights.textanalytics.aqleditor.decorator.error"
+            label="AQL with errors"
+            lightweight="false"
+            state="true">
+      </decorator>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.DependencyHierarchyView.view">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.aql.editor.command.openViewInAQLEditor"
+               label="Open view definition in editor"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.ibm.biginsights.textanalytics.aql.editor.callhierarchy.ReferenceHierarchyView.view">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.aql.editor.command.openViewInAQLEditor"
+               label="Open view definition in editor"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.ibm.biginsights.textanalytics.editor.ui.AQLEditor">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.aql.editor.command.parentHierarchy"
+               icon="icons/dependsOn.gif"
+               label="Open Dependency Hierarchy"
+               style="push">
+         </command>
+         <command
+               commandId="com.ibm.biginsights.textanalytics.aql.editor.command.childHierarchy"
+               icon="icons/dependedOnBy.gif"
+               label="Open Reference Hierarchy"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   
+
+   <!--
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.views.ContentOutline?after=additions">
+         <command
+               commandId="com.ibm.biginsights.textanalytics.aql.editor.sortOutline"
+               disabledIcon="icons/sort.gif"
+               icon="icons/sort.gif"
+               id="com.ibm.biginsights.textanalytics.aql.editor.sortbutton"
+               label="Sort"
+               style="toggle"
+               tooltip="Sort outline view">
+         </command>      
+      </menuContribution>
+	</extension>
+   -->
+   
+</plugin>

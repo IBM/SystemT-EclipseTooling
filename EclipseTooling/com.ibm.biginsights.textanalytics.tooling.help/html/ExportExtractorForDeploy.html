@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Deploying and running an extractor" />
+<meta name="abstract" content="Text Analytics Module (TAM) files are created when a module that contains AQL files is built by the project builder. To analyze the text in InfoSphere BigInsights cluster nodes, export and deploy the TAM files from your Text Analytics project and reference the TAM files from the InfoSphere BigInsights Jaql Text Analytics module." />
+<meta name="Description" content="Text Analytics Module (TAM) files are created when a module that contains AQL files is built by the project builder. To analyze the text in InfoSphere BigInsights cluster nodes, export and deploy the TAM files from your Text Analytics project and reference the TAM files from the InfoSphere BigInsights Jaql Text Analytics module." />
+<meta name="DC.subject" content="run time component, TAM files" />
+<meta name="keywords" content="run time component, TAM files" />
+<meta name="DC.Relation" scheme="URI" content="../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="ExportExtractorForDeploy" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<link rel="Start" href="../html/CreateTextAnalyticsApps.html" />
+<title>Deploying and running an extractor</title>
+</head>
+<body role="main" id="ExportExtractorForDeploy">
+<h1 class="title topictitle1">Deploying and running an extractor</h1>
+<div class="body taskbody"><p class="shortdesc">Text Analytics Module <span class="ph filepath">(TAM)</span> files
+are created when a module that contains AQL files is built by the
+project builder. To analyze the text in <span class="keyword">InfoSphere® BigInsights™</span> cluster
+nodes, export and deploy the <span class="ph filepath">TAM</span> files from your
+Text Analytics project and reference the <span class="ph filepath">TAM</span> files
+from the <span class="keyword">InfoSphere BigInsights</span> Jaql
+Text Analytics module.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>For details about working with the Jaql Text Analytics module,
+writing Jaql programs, and running these programs on a cluster, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.analyze.doc/doc/r0057884.html" target="_blank" title="(Opens in a new tab or window)">Text Analytics Module</a>.</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Export an extractor from the Eclipse workbench:  </span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Right-click the project that contains the modules, and
+select <span class="ph uicontrol">Export</span>.</span></li>
+<li class="li substep"><span class="ph cmd">In the <span class="keyword wintitle">Export</span> wizard, select <span class="ph menucascade"><span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">Text Analytics Extractor</span></span>, and click <span class="ph uicontrol">Next</span>. The <span class="keyword wintitle">Extractor
+Export Specification</span> wizard page opens. </span></li>
+<li class="li substep"><span class="ph cmd">Specify <span class="ph uicontrol">Export dependent modules</span> to
+export the dependent modules for the selected module. In a modular
+project, you can select the modules in a project to be exported. </span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Browse workspace</span> or <span class="ph uicontrol">Browse
+file system</span> to select the directory to which you want
+to export the dependent modules.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Select <span class="ph uicontrol">Export to destination
+directory</span> to export the selected modules to the selected
+directory or select <span class="ph uicontrol">Export to a jar or zip archive under
+the destination directory</span> to bundle the selected module
+into a <span class="ph filepath">JAR</span> or <span class="ph filepath">ZIP</span> archive. </span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to export the modules.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Deploy <span class="ph filepath">TAM</span> files in one of two ways,
+depending on how you want to run the extractor. To deploy <span class="ph filepath">TAM</span> files,
+complete one of the following tasks: </span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d1880e116-option" valign="bottom" align="left">Option</th>
+<th id="d1880e116-desc" valign="bottom" align="left">Description</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d1880e116-option" id="d1880e118" class="stentry choption"><strong>To run the extractor by using a Jaql module</strong></td>
+<td valign="top" headers="d1880e116-desc d1880e118" class="stentry chdesc">Upload the <span class="ph filepath">TAM</span> files to the distributed
+file system (DFS) by using <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.admin.doc/doc/bi_admin_administer_filesystem_console.html " target="_blank" title="(Opens in a new tab or window)"> <span class="keyword">InfoSphere BigInsights Console</span></a> or
+the Hadoop command.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d1880e116-option" id="d1880e136" class="stentry choption"><strong>To run the extractor by using an Oozie Workflow</strong></td>
+<td valign="top" headers="d1880e116-desc d1880e136" class="stentry chdesc">publish the <span class="ph filepath">TAM</span> files by using the <span class="keyword">InfoSphere BigInsights</span> Application
+Publish wizard.</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Run a deployed extractor:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d1880e153-option" valign="bottom" align="left">Option</th>
+<th id="d1880e153-desc" valign="bottom" align="left">Description</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d1880e153-option" id="d1880e155" class="stentry choption"><strong>To run the extractor by using the <span class="keyword apiname">SystemT</span> Jaql
+module, use the <span class="keyword apiname">annotateDocument()</span> function and
+reference the uploaded <span class="ph filepath">TAM</span> file by using the
+standard URL for a DFS file, for example: <samp class="ph codeph">hdfs://server.company.com:9000/user/tams/extractor.tam</samp>.</strong></td>
+<td valign="top" headers="d1880e153-desc d1880e155" class="stentry chdesc"><p class="p">The following parameters are needed by the function <span class="keyword apiname">annotateDocument()</span>: </p>
+<dl class="dl parml"><dt class="dt pt dlterm">document</dt>
+<dd class="dd pd">The DFS location of the input document.</dd>
+<dt class="dt pt dlterm">moduleNames</dt>
+<dd class="dd pd">A JSON array of module names.</dd>
+<dt class="dt pt dlterm">modulePath</dt>
+<dd class="dd pd">An array of paths to directories or <span class="ph filepath">JAR</span> or <span class="ph filepath">ZIP</span> files
+where the <span class="ph filepath">TAM</span> files that are referenced in the
+input modules are found.</dd>
+</dl>
+<p class="p">The following parameters are optional:</p>
+<dl class="dl parml"><dt class="dt pt dlterm">spanOutputPolicy</dt>
+<dd class="dd pd">The type of output. There are three options:<dl class="dl"><dt class="dt dlterm">toJsonSpan</dt>
+<dd class="dd">The result contains only span values, in other words, the beginning
+and ending offsets of annotations.</dd>
+<dt class="dt dlterm">toJsonString</dt>
+<dd class="dd">The result contains only the annotated texts.</dd>
+<dt class="dt dlterm">toJsonRecord</dt>
+<dd class="dd">The result contains the span values, annotated texts, and the
+original annotated document.</dd>
+</dl>
+</dd>
+<dt class="dt pt dlterm">tokenizer</dt>
+<dd class="dd pd">The tokenizer to use. The tokenizer can be Standard, Multilingual,
+or a custom tokenizer.</dd>
+<dt class="dt pt dlterm">language</dt>
+<dd class="dd pd">The language of the input document.</dd>
+<dt class="dt pt dlterm">externalDictionaries</dt>
+<dd class="dd pd">A JSON record with key-value pairs. The key is the name of the
+external dictionary that is qualified with the module name (&lt;moduleName&gt;.&lt;dictionaryName&gt;)
+and the value is an array of strings, where each string in an entry
+of the dictionary.<div class="p">For example: <pre class="pre codeblock"><code>{ "Person.Dict1": ["entry1", "entry2",...], "Person.Dict2": ["entry1", "entry2",...] }</code></pre>
+.</div>
+</dd>
+<dt class="dt pt dlterm">externalTables</dt>
+<dd class="dd pd">A JSON record with key-value pairs. The key is the name of the
+external table that is qualified with the module name (&lt;moduleName&gt;.&lt;tableName&gt;)
+and the value is the URI of a CSV file that contains the table contents.</dd>
+<dt class="dt pt dlterm">externalViews</dt>
+<dd class="dd pd">A JSON record with key-value pairs. The key is the name of the
+external view, and the value is an array of records, where each record
+encapsulates a tuple of the view.</dd>
+<dt class="dt pt dlterm">outputViews</dt>
+<dd class="dd pd">A JSON array of names of the views to output, or null to produce
+all outputs. The output view names must be fully qualified by module
+name.</dd>
+</dl>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d1880e153-option" id="d1880e260" class="stentry choption"><strong>To run the extractor as a workflow, such as Oozie, use the <span class="keyword">InfoSphere BigInsights</span> Application
+Publish wizard to publish the <span class="ph filepath">TAM</span> files. You
+can then use the <span class="keyword">InfoSphere BigInsights Console</span> to
+deploy the workflow application and run it. The following information
+is required to run the extractor:</strong></td>
+<td valign="top" headers="d1880e153-desc d1880e260" class="stentry chdesc"><dl class="dl parml"><dt class="dt pt dlterm">Input Data</dt>
+<dd class="dd pd">The location of input data. It can be a file or a directory.</dd>
+<dt class="dt pt dlterm">Output View</dt>
+<dd class="dd pd">The output view to run. You can select <span class="ph uicontrol">ALL</span> to
+run all of the output views. </dd>
+<dt class="dt pt dlterm">Output Directory</dt>
+<dd class="dd pd">The location to which the output result is written. Optionally,
+you can select the <span class="ph uicontrol">Advance options</span> check box
+for more configurations.</dd>
+<dt class="dt pt dlterm">Input Format</dt>
+<dd class="dd pd">The format of the input data. A Text Analytics application can run only with data in these formats: text,  CSV with header (the first row contains column names,) new-line delimited, and JSON. For details on each format, see  <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_input-coll-format.html">Data collection formats</a>.</dd>
+<dt class="dt pt dlterm">Delimiter Character</dt>
+<dd class="dd pd">The delimiter character that is used for CSV types. For other
+types, this field is ignored.</dd>
+<dt class="dt pt dlterm">Output Type</dt>
+<dd class="dd pd">The type of output. There are three options:<dl class="dl"><dt class="dt dlterm">Span</dt>
+<dd class="dd">The result contains only span values. The beginning and ending
+offsets of annotations.</dd>
+<dt class="dt dlterm">Text</dt>
+<dd class="dd">The result contains only the annotated texts.</dd>
+<dt class="dt dlterm">Span and Text</dt>
+<dd class="dd">The result contains span values, annotated texts, and the original
+annotated document.</dd>
+</dl>
+</dd>
+<dt class="dt pt dlterm">Language</dt>
+<dd class="dd pd">A two-character abbreviation that represents the language of the
+input document. The default value is <span class="keyword option">en</span> for English.</dd>
+</dl>
+</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><p class="p">The extractor produces information about external tables
+and dictionaries that is used by the extractor at deploy time.</p>
+<div class="p">The
+run time component of the extractor follows this scenario:<ol class="ol"><li class="li">The AQL module is fed into the Text Analytics Optimizer, which
+compiles an execution plan for the views in the extractor. </li>
+<li class="li">This execution plan is fed into the run time component of the
+system. The Text Analytics run time component has a document-at-a-time
+execution model. </li>
+<li class="li">The run time component receives a stream of documents, annotating
+each in turn and producing the relevant annotations as output tuples. </li>
+<li class="li">For each document, the run-time component populates the Document
+relation with a single tuple that represents the fields of the document.
+The tuple has two fields: label (usually the name of the input document)
+and text (the textual content of the document). </li>
+<li class="li">The run time component evaluates all views that are necessary
+to produce the output views. The contents of the output views become
+the outputs of the extractor for the current document.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
+</div>
+</div></body>
+</html>

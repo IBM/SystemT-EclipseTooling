@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Running HBase programs" />
+<meta name="abstract" content="HBase programs can be ran directly from your Eclipse development environment." />
+<meta name="Description" content="HBase programs can be ran directly from your Eclipse development environment." />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="runHbase" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<title>Running HBase programs</title>
+</head>
+<body role="main" id="runHbase">
+<h1 class="title topictitle1">Running HBase programs</h1>
+<div class="body taskbody"><p class="shortdesc">HBase programs can be ran directly from your Eclipse development environment.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">You can use the HBase module through <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.analyze.doc/doc/r0057923.html" target="_blank" title="(Opens in a new tab or window)">Jaql</a>, write and run Java™ programs that use the HBase API, and run
+simple queries with the <a class="xref" href="launchhbase.html" title="You can start an HBase shell from the InfoSphere BigInsights Tools for Eclipse to run HBase commands.">HBase shell</a>. </p>
+<div class="p">To run the HBase
+shell as the user that registered the <span class="keyword">InfoSphere BigInsights</span> server:<ul class="ul"><li class="li">Ensure that the user of the operating system from which you start
+the HBase shell is the same as the BigInsights user.</li>
+<li class="li">Configure the operating system user ID to run on behalf of the BigInsights user. For more
+information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.admin.doc/doc/bi_admin_configure_proxyusers.html" target="_blank" title="(Opens in a new tab or window)">Configuring proxy users for your Hadoop File System</a>.</li>
+</ul>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Write your HBase Java application in the Java editor.</span></li>
+<li class="li step"><span class="ph cmd">Right-click the Java main class for the program that you
+want to run. Select <span class="ph menucascade"><span class="ph uicontrol">Run As</span> &gt; <span class="ph uicontrol">Run Configurations</span></span>.</span></li>
+<li class="li step"><span class="ph cmd">Select BigInsights Java Programs and create a configuration. </span></li>
+<li class="li step"><span class="ph cmd">Complete the fields for the project name and the main class.
+ </span></li>
+<li class="li step"><span class="ph cmd">Specify the <span class="keyword">InfoSphere BigInsights</span> server
+where the program runs. </span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Run</span>. A new console window
+opens that shows the output of the program.</span></li>
+</ol>
+</div>
+<div class="related-links"></div></body>
+</html>

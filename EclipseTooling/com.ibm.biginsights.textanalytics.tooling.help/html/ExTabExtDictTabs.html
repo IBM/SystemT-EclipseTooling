@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="External Tables and External Dictionaries tabs in Text Analytics run configuration" />
+<meta name="abstract" content="When external tables and external dictionaries are defined in AQL code or in imported modules, the Text Analytics run configuration allows them to be mapped to appropriate files before you run the extractor over a data collection." />
+<meta name="Description" content="When external tables and external dictionaries are defined in AQL code or in imported modules, the Text Analytics run configuration allows them to be mapped to appropriate files before you run the extractor over a data collection." />
+<meta name="DC.Relation" scheme="URI" content="../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="ExTabExtDictTabs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<link rel="Start" href="../html/CreateTextAnalyticsApps.html" />
+<title>External Tables and External Dictionaries tabs in Text Analytics run configuration</title>
+</head>
+<body role="main" id="ExTabExtDictTabs">
+<h1 class="title topictitle1">External Tables and External Dictionaries tabs in Text Analytics
+run configuration</h1>
+<div class="body conbody"><p class="shortdesc">When external tables and external dictionaries are defined
+in AQL code or in imported modules, the Text Analytics run configuration
+allows them to be mapped to appropriate files before you run the extractor
+over a data collection.</p>
+<div class="p"> In addition to the <span class="ph uicontrol">Main</span> tab, the Run configuration
+page has two tabs: <dl class="dl"><dt class="dt dlterm">External Tables tab</dt>
+<dd class="dd">Lists all of the external tables that are defined in the selected
+modules in the <span class="ph uicontrol">Main</span> tab, and all imported modules
+that are required by the selected modules. By using this tab, you
+can map these tables to <span class="ph filepath">CSV</span> files that are present
+in the workspace or in the local file system.</dd>
+<dt class="dt dlterm">External Dictionaries tab</dt>
+<dd class="dd">This tab lists all of the external dictionaries that are defined
+in modules, selected in the <span class="ph uicontrol">Main</span> tab, and the
+imported modules that are required by the selected modules. By using
+this tab, you can map these dictionaries to dictionary files that
+are present in the workspace or in the local file system.</dd>
+</dl>
+</div>
+<p class="p">For any external artifacts that are defined as not being allowed
+to be empty, a red asterisk is marked against them if files are not
+mapped to them. The <span class="ph uicontrol">Run</span> is disabled for such
+configurations. When files are assigned to such artifacts, the red
+asterisk is replaced by a black asterisk. The <span class="ph uicontrol">Run</span> is
+enabled after all of these artifacts are assigned a file. </p>
+<p class="p">The <span class="ph uicontrol">External Tables</span> and <span class="ph uicontrol">External
+Dictionaries</span> tabs are not relevant to non-modular Text
+Analytics projects and are disabled when such projects are selected
+in the <span class="ph uicontrol">Main</span> tab of the Run configuration.</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
+</div>
+</div></body>
+</html>

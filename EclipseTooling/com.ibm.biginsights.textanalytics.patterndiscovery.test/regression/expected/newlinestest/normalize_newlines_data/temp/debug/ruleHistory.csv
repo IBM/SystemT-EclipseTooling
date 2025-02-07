@@ -1,0 +1,2 @@
+"123 some text  /n  more text 123","DROP 123 IF [123, text]","{123;text}","{text}"
+"123 /n   some text 123","DROP 123 IF [123, text]","{123;text}","{text}"

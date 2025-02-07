@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Migrating the Text Analytics properties to InfoSphere BigInsights Version 2 (all releases) and moving existing AQL files" />
+<meta name="abstract" content="" />
+<meta name="Description" content="" />
+<meta name="DC.Relation" scheme="URI" content="../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="migrateProps" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
+<link rel="Start" href="../html/CreateTextAnalyticsApps.html" />
+<title>Migrating the Text Analytics properties to InfoSphere BigInsights Version 2 (all releases) and moving existing AQL files</title>
+</head>
+<body role="main" id="migrateProps">
+<h1 class="title topictitle1">Migrating the Text Analytics properties to  <span class="keyword">InfoSphere BigInsights</span> Version
+2 (all releases) and moving existing AQL files</h1>
+<div class="body taskbody"><p class="shortdesc"></p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the <span class="keyword">InfoSphere® BigInsights™</span> Eclipse
+environment, open the properties of your <span class="keyword">InfoSphere BigInsights</span> project. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Under <span class="ph uicontrol">BigInsights</span> click <span class="ph menucascade"><span class="ph uicontrol">Text Analytics</span> &gt; <span class="ph uicontrol">General</span></span>, then click <span class="ph uicontrol">Migrate</span>.</span> <p class="p">After
+this step is done, the Text Analytics Version 1 (all releases) properties
+(that consist of the location of a main AQL file and the data path
+to search included AQL files, dictionaries and UDF JAR files) are
+migrated to modular Text Analytics properties. The modular Text Analytics
+properties consist of the location of source AQL modules, which is,
+by default, <span class="ph filepath">/textAnalytics/src</span> in the root directory
+of the project, and the location of compiled Text Analytics modules
+(<span class="ph filepath">TAM</span>) files, which are, by default, <span class="ph filepath">/textAnalytics/bin</span> in
+the root directory of the project. </p>
+<div class="p">However, the AQL code is
+not automatically moved from the previous location to the new in <span class="ph filepath">textAnalytics/src</span> directory.
+You must do this operation manually. <div class="cautiontitle">CAUTION:</div><div class="note caution">The migration
+of Text Analytics properties is irreversible. It is recommended that
+you back up your project. </div>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Move the AQL v1.x source into the <span class="ph filepath">textAnalytics/src</span> folder
+within the migrated <span class="keyword">InfoSphere BigInsights</span> project.</span> By following the design that is established in <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_migrating-modular-aql-2.0.html" target="_blank" title="(Opens in a new tab or window)">Migrating Text Analytics extractors from AQL 1.x
+to modular AQL</a>, create new AQL modules, create new AQL files
+within each module, or move existing AQL files to a module. <ul class="ul"><li class="li">To create an AQL module, click <span class="ph menucascade"><span class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">AQL Module</span></span>.</li>
+<li class="li">To create an AQL file, click <span class="ph menucascade"><span class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">AQL Script</span></span>. </li>
+<li class="li">Move AQL source files into an existing module and fix any compilation
+errors. For example, you might be required to add a module statement
+at the beginning of each AQL file, and remove any <samp class="ph codeph">include</samp> statements. </li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Validate the migration by running regression tests and
+ensuring that the extraction results are the same before migration
+and after migration. </span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
+</div>
+</div></body>
+</html>

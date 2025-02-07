@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="TextAnalyticsWizards"
+            id="com.ibm.biginsights.textanalytics.wizards">
+      </category>
+      <wizard
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLWizard"
+            icon="icons/aqlfile.gif"
+            id="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLWizard"
+            name="AQL script"
+            project="false">
+      </wizard>
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="TextAnalyticsWizards"
+            id="com.ibm.biginsights.textanalytics.wizards">
+      </category>
+      <wizard
+            category="com.ibm.biginsights.project.category"
+            class="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLModuleWizard"
+            icon="icons/Module.png"
+            id="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLModuleWizard"
+            name="AQL Module"
+            project="false">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.ibm.biginsights.project.perspective">
+         <newWizardShortcut
+               id="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLModuleWizard">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLWizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonWizard
+            menuGroupId="com.ibm.biginsights.wizards.new"
+            type="new"
+            wizardId="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLModuleWizard">
+         <enablement>
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+                  <test
+                          property="org.eclipse.core.resources.projectNature"
+                          value="com.ibm.biginsights.projectNature">
+                  </test>
+            </adapt>
+         </enablement>
+      </commonWizard>
+      <commonWizard
+            menuGroupId="com.ibm.biginsights.wizards.new"
+            type="new"
+            wizardId="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLWizard">
+         <enablement>
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+                  <test
+                          property="org.eclipse.core.resources.projectNature"
+                          value="com.ibm.biginsights.projectNature">
+                  </test>
+            </adapt>
+         </enablement>
+      </commonWizard>      
+   </extension>
+   
+   <!--
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:new?after=additions">
+         <command
+               commandId="org.eclipse.ui.newWizard"
+               icon="icons/aqlfile.gif"
+               label="AQL script"
+               style="push"
+               tooltip="Create New AQL script">
+            <parameter
+                  name="newWizardId"
+                  value="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLWizard">
+            </parameter>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="true"
+            locationURI="menu:null?after=additions">
+         <command
+               commandId="org.eclipse.ui.newWizard"
+               icon="icons/aqlfile.gif"
+               label="AQL script"
+               style="push"
+               tooltip="Create New AQL script">
+            <parameter
+                  name="newWizardId"
+                  value="com.ibm.biginsights.textanalytics.wizards.ui.NewAQLWizard">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+	-->
+	
+</plugin>

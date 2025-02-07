@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taeDescription xmlns="http://uima.apache.org/resourceSpecifier">
+   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+   <primitive>true</primitive>
+   <annotatorImplementationName>com.ibm.langware.annotator.jFrostLexAnnotator</annotatorImplementationName>
+   <analysisEngineMetaData>
+      <name>LanguageWare Annotator</name>
+      <description>This annotator provides access to LanguageWare Lexical Analysis and Language Id.</description>
+      <version>7.1.1.1</version>
+      <vendor>IBM Corporation</vendor>
+      
+      <!-- ======================================================== -->
+      <!--             Configuration Parameter Section              -->
+      <!-- ======================================================== -->
+      <configurationParameters defaultGroup="xx" searchStrategy="language_fallback">
+      
+      <!-- Sofa Related Parameters -->	
+         <configurationParameter>
+            <name>SofaNames</name>
+            <description>
+               The Sofa names the annotator should work on. If no 
+               names are specified, the annotator works on the
+               default sofa.
+            </description>
+            <type>String</type>
+            <multiValued>true</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+      <!-- OF Specific Parameters -->
+         <configurationParameter>
+            <name>QueryProcessingMode</name>
+            <description>
+               Determines the type of Lexical analysis session. 
+               If this is true, OF stopword dictionary is used.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>true</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>DoSegmentation4RBBI</name>
+            <description>
+               If true a token annotation is created for each 
+               segment of RBBI based tokens.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>DoMWUProcessing</name>
+            <description>
+               If Generic annotations creation is ON, setting this to true will trigger MWU processing;
+               otherwise, it depends on the presence of the com.ibm.dlt.uimatypes.MWU in the result spec.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>DoURISegmentation</name>
+            <description>If true a token annotation is created for each segment of Email Addresses and URLs.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+      <!-- Resources Related Parameters -->
+         <configurationParameter>
+            <name>LWDataSubdir</name>
+            <description>
+					The name of the directory under the UIMA data directory in
+					which the LanguageWare resources are located
+            </description>
+            <type>String</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>BreakIteratorSpec</name>
+				<description>BreakIterator to be used.</description>
+            <type>String</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>UseExplicitDicts</name>
+				<description>Dictionaries to be used are specified explicitly in this config file.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>PreloadLanguages</name>
+            <description>
+					A list of all languages which should be pre-loaded at
+					init-time in the form xx-YY (xx=lang, YY=sublang/country)
+            </description>
+            <type>String</type>
+            <multiValued>true</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>DefaultLanguage</name>
+            <description>
+               The language to use in processing when the document language is not set
+               before the annotator processing.
+			</description>
+            <type>String</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>DictionaryCacheSize</name>
+				<description>Maximum number of dictionaries held in cache</description>
+            <type>Integer</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>ProcessLanguagesWithNoDictionaries</name>
+            <description>
+               If true the annotator will not throw an error when no dictionaries 
+					can be found for language. Only basic tokenization will be possible
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+      
+      <!-- tokenization Related Parameters -->
+         <configurationParameter>
+            <name>UseFirstMatchPolicy</name>
+            <description>
+               If true lookup stops after the first match in any dictionary (DLTCM_POLICY_FIRST) 
+               otherwise all matches from all dictionaries are found (DLTCM_POLICY_ALL)
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+			<name>UseStrictCaseMode</name>
+            <description>
+			   If true, the strict-case mode is turned 'ON'. That means Case information will be respected when
+			   doing lookup in lowercase dictionaries. otherwise, it will set strict-case mode to 'OFF' and a match
+			   will be returned even if the case doesn't match.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>DoOOVProcessing</name>
+				<description>Switch to turn on/off OOV processing.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>UseRelativeTokenAndSentenceNumbers</name>
+				<description>If true token and sentence numbers are reset to 1 for each new sentence/paragraph</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+	        <name>AnnotateMWConstituentTokens</name>
+            <description>
+                If true,  MWU annotations will created for Multi-Word entries and Token Annotations will be created
+                for their constituent words; otherwise, Only MWU annotations will be created.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>IgnorePunctuationTokens</name>
+            <description>If true, punctuation tokens are ignored</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>AggressiveSentenceBreaks</name>
+            <description>If true, an end-of-line will be considered end-of-sentence</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+      <!-- Decomposition Related Parameters -->
+         <configurationParameter>
+            <name>CrossDictionaryDecomposition</name>
+            <description>
+               If true a decomposition is performed across dictionaries 
+               i.e. words from several dictionaries may be combined into one compound
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>BOFAOnlyDecomposition</name>
+            <description>
+               If true a decomposition is performed basing on BOFA values only.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>JapaneseDecomposition</name>
+            <description>
+               If true decomposition is done for Japanese documents without 
+               regard to the result specification
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>JapaneseDeepWordBreak</name>
+            <description>If true returns Japanese word suffixes separated from their stems</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>CreateCompoundPartsInsteadOfToken</name>
+            <description>
+               If true then compound parts are created not as type uima.tt.CompPartAnnotation but 
+               as uima.tt.TokenAnnotation. The annotations for a compound parts of a complex word 
+               are created instead of (not in addition to) the token for the whole complex word.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>true</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>ReturnOnlyFirstLevelOfCompoundBreakdown</name>
+            <description>
+               If true then for compounds which have several decompositions are only the first 
+               (longest match) decomposition is returned. E.g. for the German "Segelschullehrer" only
+               "Segelschul"+"lehrer" is returned and not also "Segel" + "schul"+ "lehrer"
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>CreateDecompStructure</name>
+            <description>Not Supported!.
+                If true then full decomp analysis structure is created. 
+                This option is intended to be used mutually exclusively with the previous two.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>BreakOnHyphens</name>
+            <description>If true then we will try to break unknown words if it contains a hyphen</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+                                      
+      <!-- Unknown processing Related Parameters -->
+         <configurationParameter>
+            <name>DoTypes4Regex</name>
+            <description>
+               If true specific annotation types are created for
+               FilePaths, URLs, Email addresses, Numbers, Dates, Times, Telephone
+               numbers, Currency and Acronyms. See the typesystem.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+         
+         <configurationParameter>
+            <name>DoLookupVariant</name>
+            <description>If true lookup unknown word in variant dictionary.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>         
+
+         <configurationParameter>
+            <name>DoRuleBasedNormalization4All</name>
+            <description>If true lookup a variant with rulebased normalization for all unknown word.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>DoRuleBasedNormalization4Katakana</name>
+            <description>If true lookup a variant with rulebased normalization only for katakana word.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+      <!-- Generic Annotations Related Parameters -->
+         <configurationParameter>
+            <name>CreateGenericAnnotations</name>
+            <description>Create Generic annotations if annotate glosses availables.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>CheckGenericTypes</name>
+            <description>Check the types when writing the feature values for generic annotations.</description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+      <!-- Other Parameters -->
+      <!-- general: param to switch between language id and lexical analysis -->
+         <configurationParameter>
+            <name>SessionTypeIsLangID</name>
+            <description>
+               Determines the type of session. As this is a dedicated descriptor for Lexical Analysis only a value of "false"
+               is supported.
+            </description>
+            <type>Boolean</type>
+            <multiValued>false</multiValued>
+            <mandatory>true</mandatory>
+         </configurationParameter>
+
+         <configurationParameter>
+            <name>GlossComparatorClassname</name>
+            <description>The full name of the class implementation for the Comparator interface to be used for sorting gloss collections.</description>
+            <type>String</type>
+            <multiValued>false</multiValued>
+            <mandatory>false</mandatory>
+         </configurationParameter>
+
+      <!-- Dictionaries Configuration Group Specification section -->
+         <commonParameters>
+            <configurationParameter>
+               <name>LexicalDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>SynonymDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>MultiWordDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>OOVDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>VariantDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>SpellCorrectionDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+			<configurationParameter>
+				<name>PartOfSpeechDict</name>
+				<description>File name of dictionary for the Part-of-Speech Tagging</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>false</mandatory>
+			</configurationParameter>
+
+			<configurationParameter>
+				<name>PostLemmaEntryHandling</name>
+				<description>Post LemmaEntries handling policy</description>
+				<type>String</type>
+				<multiValued>false</multiValued>
+				<mandatory>false</mandatory>
+			</configurationParameter>
+
+            <configurationParameter>
+               <name>SpellMatchDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>QuerySynDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>BoostTermDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+
+            <configurationParameter>
+               <name>StopwordDicts</name>
+               <description />
+               <type>String</type>
+               <multiValued>true</multiValued>
+               <mandatory>false</mandatory>
+            </configurationParameter>
+         </commonParameters>
+         <configurationGroup names="default ar cs da de el en es fi fr it ja ko nb nl nn pl pt ru sv zh xx" />
+      </configurationParameters>
+
+      <!-- ======================================================== -->
+      <!--          Configuration Parameter Setting Section         -->
+      <!-- ======================================================== -->
+      <configurationParameterSettings>
+      
+      <!-- OF Specific Parameters -->
+         <nameValuePair>
+            <name>QueryProcessingMode</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>DoSegmentation4RBBI</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>DoMWUProcessing</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>DoURISegmentation</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+         
+      <!-- Resources Related Parameters -->
+         <nameValuePair>
+            <name>LWDataSubdir</name>
+            <value>
+                <string>LanguageWare-7.1.1.4/dicts</string>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>UseExplicitDicts</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+         
+         <nameValuePair>
+            <name>PreloadLanguages</name>
+            <value>
+               <array>
+                  <string>en</string>
+               </array>
+            </value>
+         </nameValuePair>
+         
+         <nameValuePair>
+            <name>DictionaryCacheSize</name>
+            <value>
+               <integer>4</integer>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>ProcessLanguagesWithNoDictionaries</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+         
+      <!-- tokenization Related Parameters -->
+         <nameValuePair>
+            <name>UseFirstMatchPolicy</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+			<name>UseStrictCaseMode</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>DoOOVProcessing</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>UseRelativeTokenAndSentenceNumbers</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>AnnotateMWConstituentTokens</name>
+            <value>
+                <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+         
+         <nameValuePair>
+            <name>IgnorePunctuationTokens</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+         
+      <!-- Decomposition Related Parameters -->
+         <nameValuePair>
+             <name>CrossDictionaryDecomposition</name>
+             <value>
+                 <boolean>true</boolean>
+             </value>
+         </nameValuePair>
+         
+         <nameValuePair>
+            <name>BOFAOnlyDecomposition</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>JapaneseDecomposition</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+         
+         <nameValuePair>
+            <name>JapaneseDeepWordBreak</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>CreateCompoundPartsInsteadOfToken</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>ReturnOnlyFirstLevelOfCompoundBreakdown</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>CreateDecompStructure</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+        
+         <nameValuePair>
+            <name>BreakOnHyphens</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+         
+      <!-- Unknown processing Related Parameters -->         
+         <nameValuePair>
+            <name>DoTypes4Regex</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>DoLookupVariant</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+
+         <!-- you can turn that parameter on for more precise tokenization,
+           but the performance impact is really high, so it's tunred of by default. -->
+         <nameValuePair>
+            <name>DoRuleBasedNormalization4All</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>DoRuleBasedNormalization4Katakana</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+
+      <!-- Generic Annotations Related Parameters -->
+         <nameValuePair>
+            <name>CreateGenericAnnotations</name>
+            <value>
+               <boolean>true</boolean>
+            </value>
+         </nameValuePair>
+
+         <nameValuePair>
+            <name>CheckGenericTypes</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+      <!-- Other Parameters -->  
+         <nameValuePair>
+            <name>GlossComparatorClassname</name>
+            <value>
+               <string>com.ibm.es.nuvo.tokenizer.uima.GlossComparator</string>
+            </value>
+         </nameValuePair>
+<!--
+         <nameValuePair>
+            <name>GlossComparatorClassname</name>
+            <value>
+               <String>com.ibm.langware.annotator.GlossComparator</String>
+            </value>
+         </nameValuePair>
+-->
+
+         <!-- Parameters from the Base jFrostAnnotator -->
+         <nameValuePair>
+            <name>SessionTypeIsLangID</name>
+            <value>
+               <boolean>false</boolean>
+            </value>
+         </nameValuePair>
+
+         <!-- Dictionaries Configuration Parameters -->
+         <!-- Language Independant -->
+         <settingsForGroup name="default">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>OF_normalization_tcr.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Arabic -->
+         <settingsForGroup name="ar">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>ar-XX-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Czech -->
+         <settingsForGroup name="cs">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>cs-CZ-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Danish -->
+         <settingsForGroup name="da">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>da-DK-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>da-DK-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- German -->
+         <settingsForGroup name="de">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>de-XX-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>StopwordDicts</name>
+               <value>
+                  <array>
+                     <string>de-Stw.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>de-XX-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+            <nameValuePair>
+               <name>PartOfSpeechDict</name>
+               <value>
+                  <string>de-XX-TSimplified-7001.dic</string>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Greek -->
+         <settingsForGroup name="el">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>el-GR-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>el-GR-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- English -->
+         <settingsForGroup name="en">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>en-XX-Lex.dic</string>
+                     <!-- Disable the tokenizer rules; they just cause problems
+                     <string>wtfrost7112.rule.en.dic</string>
+                     -->
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>StopwordDicts</name>
+               <value>
+                  <array>
+                     <string>en-Stw.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>en-XX-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+            <nameValuePair>
+                <name>PartOfSpeechDict</name>
+                <value>
+                    <string>en-XX-tagger.dic</string>
+                </value>
+            </nameValuePair>
+            <nameValuePair>
+                <name>PostLemmaEntryHandling</name>
+                <value>
+                    <string>UNIQUE_LEMMA_STRING</string>
+                </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Spanish -->
+         <settingsForGroup name="es">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>es-ES-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>StopwordDicts</name>
+               <value>
+                  <array>
+                     <string>es-Stw.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>es-ES-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+            <nameValuePair>
+               <name>PartOfSpeechDict</name>
+               <value>
+                  <string>es-ES-TSimplified-7002.dic</string>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Finnish -->
+         <settingsForGroup name="fi">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>fi-FI-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>fi-FI-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- French -->
+         <settingsForGroup name="fr">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>fr-XX-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>StopwordDicts</name>
+               <value>
+                  <array>
+                     <string>fr-Stw.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>fr-XX-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+            <nameValuePair>
+               <name>PartOfSpeechDict</name>
+               <value>
+                  <string>fr-XX-TSimplified-7001.dic</string>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Italian -->
+         <settingsForGroup name="it">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>it-IT-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--nameValuePair>
+               <name>PartOfSpeechDict</name>
+               <value>
+                  <string>it-IT-TSimplified-7000.dic</string>
+               </value>
+            </nameValuePair-->
+            <!--
+            <nameValuePair>
+               <name>StopwordDicts</name>
+               <value>
+                  <array>
+                     <string>it-Stw.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>it-IT-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Japan -->
+         <settingsForGroup name="ja">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>ja-JP-Lex.dic</string>
+                     <string>wtfrost7112.rule.ja.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>ja-JP-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>VariantDicts</name>
+               <value>
+                  <array>
+                     <string>ja-JP-Var-NFKC.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+            <nameValuePair>
+                <name>PartOfSpeechDict</name>
+                    <value>
+                        <string>ja-JP-tagger.dic</string>
+                    </value>
+                </nameValuePair>
+                <nameValuePair>
+                <name>PostLemmaEntryHandling</name>
+                <value>
+                    <string>UNIQUE_LEMMA_STRING</string>
+                </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Korean -->
+         <settingsForGroup name="ko">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>ko-KR-Lex.dic</string>
+                     <string>wtfrost7112.rule.ja.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Norwegian (Bokmal) -->
+         <settingsForGroup name="nb">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>nb-NO-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>nb-NO-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Dutch -->
+         <settingsForGroup name="nl">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>nl-NL-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>nl-NL-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Norwegian (Nynorsk) -->
+         <settingsForGroup name="nn">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>nn-NO-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Polish -->
+         <settingsForGroup name="pl">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>pl-PL-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>pl-PL-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Portugese -->
+         <settingsForGroup name="pt">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>pt-XX-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>StopwordDicts</name>
+               <value>
+                  <array>
+                     <string>pt-Stw.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>pt-XX-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Russian -->
+         <settingsForGroup name="ru">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>ru-RU-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>ru-RU-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Swedish -->
+         <settingsForGroup name="sv">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>sv-SE-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <!--
+            <nameValuePair>
+               <name>SpellCorrectionDicts</name>
+               <value>
+                  <array>
+                     <string>sv-SE-Rules.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            -->
+         </settingsForGroup>
+
+         <!-- Chinese (simplified (zh-CN Mainland China)  and traditional (zh-TW Taiwan) ) -->
+         <settingsForGroup name="zh">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>zh-XX-Lex.dic</string>
+                     <string>wtfrost7112.rule.ja.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+            <nameValuePair>
+                <name>PartOfSpeechDict</name>
+                    <value>
+                        <string>zh-XX-TCpos-7000.dic</string>
+                    </value>
+                </nameValuePair>
+                <nameValuePair>
+                <name>PostLemmaEntryHandling</name>
+                <value>
+                    <string>UNIQUE_LEMMA_STRING</string>
+                </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- Unspecified language (e.g. Hungarian) -->
+         <settingsForGroup name="xx">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>x-unspecified-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+         <!-- The other way of saying "unspecified language" -->
+         <settingsForGroup name="x">
+            <nameValuePair>
+               <name>LexicalDicts</name>
+               <value>
+                  <array>
+                     <string>x-unspecified-Lex.dic</string>
+                     <string>wtfrost7112.rule.dic</string>
+                  </array>
+               </value>
+            </nameValuePair>
+         </settingsForGroup>
+
+      </configurationParameterSettings>
+
+      <!-- TypeSystem Definition -->
+      <typeSystemDescription>
+         <imports>
+         <import location="dlt_extension_typesystem.xml" />
+         </imports>
+      </typeSystemDescription>
+
+      <capabilities>
+         <capability>
+            <inputs />
+            <outputs>
+               <type>uima.tt.TokenAnnotation</type>
+               <type>uima.tt.SentenceAnnotation</type>
+               <type>uima.tt.ParagraphAnnotation</type>
+
+               <feature>uima.tt.TokenAnnotation:lemma</feature>
+               <feature>uima.tt.TokenAnnotation:lemmaEntries</feature>
+               <feature>uima.tt.TokenAnnotation:frost_TokenType</feature>
+            </outputs>
+            <languagesSupported>
+               <language>x-unspecified</language>
+            </languagesSupported>
+         </capability>
+         <capability>
+            <inputs />
+            <outputs>
+                <!-- Disable the CompPartAnnotation output type
+                     as a workaround for the broken German tokenizer. 
+               <type>uima.tt.CompPartAnnotation</type>
+               -->
+               <type>uima.tt.TokenAnnotation</type>
+               <type>uima.tt.Lemma</type>
+               <feature>uima.tt.TokenAnnotation:lemma</feature>
+               <feature>uima.tt.TokenAnnotation:lemmaEntries</feature>
+               <!-- For POS tagging -->
+               <feature>uima.tt.Lemma:frost_ExtendedPOS</feature>
+               <feature>uima.tt.Lemma:frost_MorphBitMasks</feature>
+               <feature>uima.tt.Lemma:partOfSpeech</feature>
+               <feature>uima.tt.Lemma:isDeterminer</feature>
+            </outputs>
+            <languagesSupported>
+               <language>ar</language><!-- Arabic -->
+               <language>cs</language><!-- Czech -->
+               <language>da</language><!-- Danish -->
+               <language>de</language><!-- German -->
+               <language>el</language><!-- Greek -->
+               <language>en</language><!-- English -->
+               <language>es</language><!-- Spanish -->
+               <language>fi</language><!-- Finnish -->
+               <language>fr</language><!-- French -->
+               <language>it</language><!-- Italian -->
+               <language>ja</language><!-- Japanese -->
+               <language>ko</language><!-- Korean -->
+               <language>nb</language><!-- Norwegian (Bokmal)  -->
+               <language>nl</language><!-- Dutch -->
+               <language>nn</language><!-- Norwegian (Nynorsk) -->
+               <language>pl</language><!-- Polish -->
+               <language>pt</language><!-- Portugese -->
+               <language>ru</language><!-- Russian -->
+               <language>sv</language><!-- Swedish -->
+               <language>zh</language><!-- Chinese (Mainland China, Taiwan)  -->
+            </languagesSupported>
+         </capability>
+         <capability>
+            <inputs />
+            <outputs>
+               <!-- For POS tagging -->
+                <feature>uima.tt.TokenAnnotation:posTag</feature>
+                <feature>uima.tt.TokenAnnotation:dictionaryMatch</feature>
+            </outputs>
+            <languagesSupported>
+               <language>en</language><!-- English -->
+               <language>ja</language>
+               <language>de</language>
+               <language>fr</language>
+               <language>es</language>
+               <language>zh</language>
+            </languagesSupported>
+         </capability>
+      </capabilities>
+
+   </analysisEngineMetaData>
+	<resourceManagerConfiguration>
+	<externalResources>
+		<externalResource>
+			<name>ResourcesFile</name>
+			<description>Location of Resources</description>
+			<fileLanguageResourceSpecifier>
+                            <fileUrlPrefix>LanguageWare-7.1.1.4/POS/</fileUrlPrefix>
+                            <fileUrlSuffix>/</fileUrlSuffix>
+			</fileLanguageResourceSpecifier>
+		</externalResource>
+	</externalResources>
+	<externalResourceBindings>
+		<externalResourceBinding>
+			<key>Resources</key>
+			<resourceName>ResourcesFile</resourceName>
+		</externalResourceBinding>
+	</externalResourceBindings>
+  </resourceManagerConfiguration>
+</taeDescription>

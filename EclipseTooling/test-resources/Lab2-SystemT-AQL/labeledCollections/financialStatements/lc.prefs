@@ -1,0 +1,4 @@
+#Thu Apr 02 23:53:33 PDT 2015
+detectWordBoundaries=true
+annotationTypes={RevenueByDivision,RevenueByDivision,true,0};{RevenueByDivision,RevenueOfDivision,true,1};{RevenueByDivision,AmountWithUnit,true,2};{RevenueOfDivision,match,true,3};{RevenueOfDivision,division,true,4};
+language=en

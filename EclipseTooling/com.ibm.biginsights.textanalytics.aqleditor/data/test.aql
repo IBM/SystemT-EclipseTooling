@@ -1,0 +1,8 @@
+-- a comment
+
+include stuff;
+
+create view test;
+
+/********************** /
+**************************/

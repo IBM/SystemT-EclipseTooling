@@ -1,0 +1,2 @@
+# DROP seqY: {text} (1) IF seqY: {text} (1) c=3 AND seqX: {123} (0) c=4 measure: 4.754887502163468E8 co-occurrence: 6
+DROP 1 IF 1 AND 0

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!--
+Licensed Materials - Property of IBM
+5725-C09 
+(C) Copyright IBM Corp 
+US Government Users Restricted Rights - Use, duplication disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<!-- General build file for jars to export to other projects. -->
+<project name="System T" default="copy">
+
+	<property name="lib.dir" location="${basedir}/lib" />
+
+	<!-- Assuming all SystemT tooling plugins projects have been loaded
+	     using the option "Browse the components and select the folders to be loaded".	
+	    
+	     The workspace directory should contain the following directories:
+	     - Runtime (contains all SystemT jars and required libs)
+	     - Text_Analytics (contains all SystemT tooling plugins)   
+	-->
+	<property name="defaultSystemTRuntimeDir" value="../../Runtime"/>
+
+	<!-- Assuming all SystemT tooling plugins projects have been loaded
+		 using the option "Find and load Eclipse projects".
+		 
+		 The workspace directory should contain the following directories:
+	     - Runtime (contains all SystemT jars and required libs)
+	 	 - com.ibm.biginsights.textanalytics.aqleditor
+	     - com.ibm.biginsights.textanalytics.runtime  
+	     - ... (all other plugins folders) 	     
+	-->
+	<property name="backupSystemTRuntimeDir" value="../Runtime"/>
+	
+	<!-- The structure of the EclipseTooling component became even more complex,
+	     so we can also encounter the following directory structure:
+			 
+		- Runtime (contains all SystemT jars and required libs)
+	    - EclipseTooling/Text_Analytics (contains all SystemT tooling plugins)  	     
+	-->
+	<property name="backup2SystemTRuntimeDir" value="../../../Runtime"/>
+
+	<!-- Check the existence of the default Runtime directory -->
+	<target name="dir.check">
+		<condition property="dir.exists">
+			<available file="${defaultSystemTRuntimeDir}" type="dir"/>
+		</condition>
+	</target>
+	
+	<!-- Check the existence of the backup Runtime directory -->
+		<target name="backup.dir.check">
+			<condition property="backup.dir.exists">
+				<available file="${backupSystemTRuntimeDir}" type="dir"/>
+			</condition>
+		</target>
+	
+	<!-- Check the existence of the second backup Runtime directory -->
+		<target name="backup2.dir.check">
+			<condition property="backup2.dir.exists">
+				<available file="${backup2SystemTRuntimeDir}" type="dir"/>
+			</condition>
+		</target>
+
+	<!-- The default Runtime directory exists -->
+	<target name="defaultSystemTRuntimeDirExists" depends="dir.check" if="dir.exists">
+		<echo>${directory} exists</echo>
+
+		<property name="systemt.dir" location="${defaultSystemTRuntimeDir}" />
+	</target>
+
+	<!-- The default Runtime directory does not exist.
+	     Setting to the backup location. -->
+	<target name="defaultSystemTRuntimeDirMissing" depends="backup.dir.check" if="backup.dir.exists">
+		<echo>Runtime project not found at default location ${defaultSystemTRuntimeDir}. 
+	    	  Trying backup location ${backupSystemTRuntimeDir} instead."
+	    </echo>
+
+		<property name="systemt.dir" location="${backupSystemTRuntimeDir}" />
+	</target>
+	
+	
+	<!-- The backup Runtime directory does not exist.
+		     Setting to the backup location. -->
+	<target name="backupSystemTRuntimeDirMissing" depends="backup2.dir.check" if="backup2.dir.exists">
+		<echo>Runtime project not found at backup location ${backupSystemTRuntimeDir}. 
+		    Trying second backup location ${backup2SystemTRuntimeDir} instead."
+		</echo>
+
+		<property name="systemt.dir" location="${backup2SystemTRuntimeDir}" />
+	</target>
+
+	<!-- Copy required libraries from the SystemT_Runtime project. -->
+	<target name="copy" depends="clean,defaultSystemTRuntimeDirExists,defaultSystemTRuntimeDirMissing,backupSystemTRuntimeDirMissing,systemt">
+		
+		<echo>Looking for Runtime project at ${systemt.dir}.</echo>
+		
+		<property name="systemt.lib.dir" value="${systemt.dir}/lib" />
+
+		<property name="systemt.build.dir" location="${systemt.dir}/build" />
+
+		<property name="langware.lib.dir" location="${systemt.lib.dir}/multilingual" />
+
+		<!--
+		<copy todir="lib">
+			<fileset dir="${systemt.dir}/build">
+				<filename name="systemT.jar" />
+			</fileset>
+			<fileset dir="${langware.lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${systemt.lib.dir}/commons-codec-1.3">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${systemt.lib.dir}/htmlparser-2.0">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${systemt.lib.dir}/uima">
+				<include name="uima-core.jar" />
+			</fileset>
+			<fileset dir="${systemt.lib.dir}/apache-ant-1.7.1">
+				<include name="ant.jar" />
+			</fileset>
+		</copy>
+		-->
+	</target>
+
+	<target name="clean">
+		<delete>
+			<fileset dir="lib">
+				<include name="*.jar"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<!-- Build the systemt.jar by invoking the build script in the Runtime project-->
+	<target name="systemt">
+		<echo message="Building systemt.jar"/>
+		<ant antfile="${systemt.dir}/build/build.xml" target="jars" inheritall="false" />
+	</target>
+
+</project>

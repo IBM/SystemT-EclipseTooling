@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.ibm.bigdata.tasklauncher.solution">
+      <startup
+            productId="com.ibm.streams.studio"
+            solutionId="com.ibm.bigdata.tasklauncher.tab.overview">
+      </startup>
+         <usecases
+               groupId="com.ibm.bigdata.tasklauncher.overview.firststeps"
+               solutionId="com.ibm.bigdata.tasklauncher.overview">
+            <usecase
+                  description="Interactively explore a graphic to learn how InfoSphere BigInsights enables you to accomplish goals. Drill down on roles and tasks to discover how to use the tools most effectively for your needs."
+                  label="Learn about BigInsights"
+                  image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/LearnBITools_50x.png"
+                  rank="80">
+               <showWebPageAction
+                     url="http://pic.dhe.ibm.com/infocenter/bigins/v2r1m2/topic/com.ibm.swg.im.infosphere.biginsights.product.doc/doc/c0057605.html">
+               </showWebPageAction>
+            </usecase>
+            <usecase
+                  description="You must connect to a BigInsights server before you can upload data to a cluster, use the BigInsights console, or publish and run an application in a cluster."
+                  label="Create a BigInsights server connection"
+                  image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createServerConn_50x.png"
+                  rank="90">
+             <showHelpAction
+                   helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_crt_server_connection_help.html"/>
+             <action
+                   class="com.ibm.biginsights.project.locations.actions.LocationNewAction">
+             </action>                  
+            </usecase>
+            <usecase
+                  description="Before creating code, create a BigInsights project to contain it."
+                  label="Create a new BigInsights project"
+                  image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createBIproject_50x.png"
+                  rank="99">
+             <showHelpAction
+                   helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_crt_biginsights_project_help.html"/>
+             <showNewWizardAction
+                   wizardId="com.ibm.biginsights.project.wizard"/>                  
+            </usecase>
+         </usecases>
+         <usecases
+               groupId="com.ibm.bigdata.tasklauncher.overview.quicklinks"
+               solutionId="com.ibm.bigdata.tasklauncher.overview">
+            <usecase
+                  image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/openAdminConsole_20x.png"
+                  label="Open the BigInsights console"
+                  rank="40">
+               <action
+                     class="com.ibm.biginsights.project.locations.actions.LocationWelcomeAction">
+               </action>
+            </usecase>
+	         <usecase
+	               label="Switch to the BigInsights perspective"
+	               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/bigInsight_gen.gif"
+	               rank="50">
+             <switchPerspectiveAction
+                   perspectiveId="com.ibm.biginsights.project.perspective">
+             </switchPerspectiveAction>
+	         </usecase>          
+         </usecases>
+
+
+
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.overview.learnmore"
+            solutionId="com.ibm.bigdata.tasklauncher.overview">
+         <usecase
+               label="InfoSphere BigInsights support"
+               image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/wrench_20.png"
+               rank="50">
+            <showWebPageAction
+                  url="https://www.ibm.com/account/userservices/jsp/login.jsp?persistPage=true&amp;page=/support/entry/myportal/Overview/Software/Information_Management/InfoSphere_BigInsights">
+            </showWebPageAction>
+         </usecase>
+          	<usecase
+         		label="InfoSphere BigInsights Information Center"
+         		image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/edit_20.png"
+         		rank="60" >
+              <showWebPageAction
+                    url="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.welcome.doc/doc/welcome.html">
+              </showWebPageAction>
+         	</usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.accelerate.tasks"
+            solutionId="com.ibm.bigdata.tasklauncher.accelerate">
+         <usecase
+               description="Select sample applications to import into your workspace."
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/importApps_50x.png"
+               label="Import Eclipse projects containing BigInsights sample applications"
+               rank="40">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_import_sample_apps_help.html">
+            </showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.project.importProjectCommand">
+            </commandAction>
+         </usecase>
+         <usecase
+               description="If you have installed the IBM Accelerator for Machine Data Analytics, you can import the source of the applications to customize them."
+               label="Import Eclipse projects containing application source for machine data analytics"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/ImportMachineData_50x.png"
+               rank="50">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_import_MDA_app_source.html">
+            </showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.project.importMDAProjectCommand">
+            </commandAction>
+         </usecase>
+         
+      
+          <usecase
+               description="If you have installed the IBM Accelerator for Social Data Analytics, you can import the source of the applications to customize them."
+               label="Import Eclipse projects containing application source for social data analytics"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/ImportSocialData_50x.png"
+               rank="60">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_import_SDA_app_source.html">
+            </showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.project.importSDAProjectCommand">
+            </commandAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.accelerate.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.accelerate">
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/downloadDataSample_20x.png"
+               label="Download machine or social sample data"
+               rank="40">
+            <commandAction
+                  commandId="com.ibm.biginsights.project.OpenDataAcquisitionAppCommand">
+            </commandAction>
+         </usecase>
+         <usecase
+               label="Create a new BigInsights project"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createBIproject_20x.png"
+               rank="50">
+             <showNewWizardAction
+                   wizardId="com.ibm.biginsights.project.wizard"/>                  
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/openAdminConsole_20x.png"
+               label="Open the BigInsights console"
+               rank="60">
+            <action
+                  class="com.ibm.biginsights.project.locations.actions.LocationWelcomeAction">
+            </action>
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/switchBIproject_20x.png"
+               label="Switch to the BigInsights perspective"
+               rank="70">
+            <switchPerspectiveAction
+                  perspectiveId="com.ibm.biginsights.project.perspective">
+            </switchPerspectiveAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.accelerate.learnmore"
+            solutionId="com.ibm.bigdata.tasklauncher.accelerate">
+         <usecase
+               label="Watch machine data analytics in action"
+               image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/video_20x.png"
+               rank="60">
+            <showWebPageAction
+                  url="http://pic.dhe.ibm.com/infocenter/bigins/v2r1m2/topic/com.ibm.swg.im.infosphere.biginsights.product.doc/doc/acc_mda_video.html">
+            </showWebPageAction>
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/edit_20.png"
+               label="Customize machine data analytics applications"
+               rank="70">
+            <showWebPageAction
+                  url="http://pic.dhe.ibm.com/infocenter/bigins/v2r1m2/topic/com.ibm.swg.im.infosphere.biginsights.dev.doc/doc/acc_mda_customize.html">
+            </showWebPageAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.design.learnmorebiginsights"
+            solutionId="com.ibm.bigdata.tasklauncher.design">
+         <usecase
+               description="Learn how to use Eclipse-based tools for BigInsights to expedite application development, package your application for publication in a web-based catalog, and deploy your application."
+               label="Developing, publishing, and deploying your first BigInsights application"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/customizeMDA_50x.png"
+               rank="10">
+            <showWebPageAction
+                  url="http://www.ibm.com/developerworks/data/library/techarticle/dm-1209bigdatabiginsights/index.html">
+            </showWebPageAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.develop.tasks"
+            solutionId="com.ibm.bigdata.tasklauncher.develop">
+         <usecase
+               description="Create a Jaql script or module, a BigSheets function or reader, a BigInsights Java program, a Java MapReduce program, a SQL script, or a Pig file."
+               label="Create a BigInsights program"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createProgram_50x.png"
+               rank="60">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_crt_prog_help.dita.html">
+            </showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.project.createProgramCommand">
+            </commandAction>
+         </usecase>
+         <usecase
+               description="Create a configuration to run a Jaql, Pig, Java MapReduce, or Java program."
+               label="Create a configuration and run a BigInsights program"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createConfigRunProgram_50x.png"
+               rank="70">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_crt_config_prog_help.html">
+            </showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.project.createRunConfigCommand">
+            </commandAction>
+         </usecase>
+         <usecase
+               description="Open the BigInsights console to monitor jobs running in the cluster."
+               label="Monitor BigInsights jobs running in a cluster"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/monitorJobs_50x.png"
+               rank="80">
+               <showHelpAction
+                     helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_monitor_mapreduce_job_status_help.html">
+               </showHelpAction>
+               <action
+                     class="com.ibm.biginsights.project.locations.actions.LocationJobDetailsAction">
+               </action>               
+         </usecase>         
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.develop.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.develop">
+         <usecase
+               label="Switch to the BigInsights perspective"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/switchBIproject_20x.png"
+               rank="50">
+             <switchPerspectiveAction
+                   perspectiveId="com.ibm.biginsights.project.perspective">
+             </switchPerspectiveAction>               
+         </usecase>
+         <usecase
+               label="Create a new BigInsights project"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createBIproject_20x.png"
+               rank="60">
+             <showNewWizardAction
+                   wizardId="com.ibm.biginsights.project.wizard"/>                  
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/openAdminConsole_20x.png"
+               label="Open the BigInsights console"
+               rank="70">
+            <action
+                  class="com.ibm.biginsights.project.locations.actions.LocationWelcomeAction">
+            </action>
+         </usecase>
+         <usecase
+               label="Import a published or deployed application"
+         		image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/importDeployedApp_20x.png"
+         		rank="80" >
+           		<action class="com.ibm.biginsights.project.locations.actions.ImportAppAction" />               
+         </usecase>
+         <usecase
+               label="Launch a shell (Pig, Jaql, or HBase)"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/launchShell_20x.png" >
+            <commandAction
+                  commandId="com.ibm.biginsights.project.openShellCommand">
+            </commandAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.develop.learnmore"
+            solutionId="com.ibm.bigdata.tasklauncher.develop">
+         <usecase
+               label="Jaql reference"
+               image="platform:/plugin/com.ibm.bigdata.tasklauncher/icons/edit_20.png"
+               rank="40">
+            <showWebPageAction
+                  url="http://pic.dhe.ibm.com/infocenter/bigins/v2r1m2/topic/com.ibm.swg.im.infosphere.biginsights.jaql.doc/doc/c0057749.html">
+            </showWebPageAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.deployandrun.tasks"
+            solutionId="com.ibm.bigdata.tasklauncher.deployandrun">
+         <usecase
+               description="Create a new BigInsights application for publishing to the cluster."
+               label="Create a BigInsights application"
+         		image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createBIapp_50x.png"
+         		rank="60" >
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_crt_biginsights_app.html">
+            </showHelpAction>
+            <showNewWizardAction
+                  wizardId="com.ibm.biginsights.workflow.actions.newWorkflowFile">
+            </showNewWizardAction>
+         </usecase>
+         <usecase
+               description="After creating application in the BigInsights tooling environment, publish your application on the server in preparation for deployment in the cluster."
+               label="Publish a BigInsights application"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/publish_50x.png"
+               rank="70">
+         		<showHelpAction helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_pub_app_help.html" />
+           		<action class="com.ibm.biginsights.project.locations.actions.ExportAppAction" />
+         </usecase>
+         <usecase
+               description="After publishing an application, you must deploy it before users can run it. Open the BigInsights console to deploy a published application."
+               label="Deploy a BigInsights application"
+			   image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/deploy_50x.png"
+               rank="80">
+         		<showHelpAction helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_deploy_app_help.html" />
+           <commandAction
+                 commandId="com.ibm.biginsights.project.deployAppCommand">
+           </commandAction>
+         </usecase>
+         <usecase
+               description="After it is deployed in the cluster, open the BigInsights console to run an application and monitor it."
+               label="Run and monitor a BigInsights application"
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/run_50x.png"
+               rank="90">
+            <showHelpAction
+                  helpURL="/com.ibm.biginsights.tasklauncher/help/tsk_launcher_run_biginsights_app.html">
+            </showHelpAction>
+            <commandAction
+                  commandId="com.ibm.biginsights.project.runAppCommand">
+            </commandAction>
+         </usecase>
+      </usecases>
+      <usecases
+            groupId="com.ibm.bigdata.tasklauncher.deployandrun.quicklinks"
+            solutionId="com.ibm.bigdata.tasklauncher.deployandrun">
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/switchBIproject_20x.png"
+               label="Switch to the BigInsights perspective"
+               rank="50">
+            <switchPerspectiveAction
+                  perspectiveId="com.ibm.biginsights.project.perspective">
+            </switchPerspectiveAction>
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/createBIproject_20x.png"
+               label="Create a new BigInsights project"
+               rank="60">
+            <showNewWizardAction
+                  wizardId="com.ibm.biginsights.project.wizard">
+            </showNewWizardAction>
+         </usecase>
+         <usecase
+               image="platform:/plugin/com.ibm.biginsights.tasklauncher/icons/openAdminConsole_20x.png"
+               label="Open the BigInsights console"
+               rank="70">
+            <action
+                  class="com.ibm.biginsights.project.locations.actions.LocationWelcomeAction">
+            </action>
+         </usecase>
+      </usecases>
+
+
+
+   </extension>
+
+</plugin>

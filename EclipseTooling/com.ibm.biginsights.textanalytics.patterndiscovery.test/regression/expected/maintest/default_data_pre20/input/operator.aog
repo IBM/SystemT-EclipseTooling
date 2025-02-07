@@ -1,0 +1,36 @@
+$Document =
+$DocScan;
+
+$Comment_1 =
+Project(
+  (
+    "D.text" => "text",
+    "boundary" => "boundary"
+  ),
+  FastRegex(/[\n\r]+/, (0 => "boundary"), "DOTALL", "D.text",
+    Project(
+      (
+        "text" => "D.text"
+      ),
+      $Document
+    )
+  )
+);
+
+$Comment =
+Project(
+  (
+    "match" => "match"
+  ),
+  Split("B.text", "B.boundary", 0, "match",
+    Project(
+      (
+        "text" => "B.text",
+        "boundary" => "B.boundary"
+      ),
+      $Comment_1
+    )
+  )
+);
+
+Output: $Comment;

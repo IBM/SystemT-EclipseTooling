@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Pattern discovery scenarios" />
+<meta name="abstract" content="Given an input corpus and an initial extractor, the Pattern discovery, a feature included in the InfoSphere BigInsights Eclipse tooling, groups input contexts with similar semantics and distills patterns from them. You can then decide which of the patterns needs to be implemented in the extractor." />
+<meta name="Description" content="Given an input corpus and an initial extractor, the Pattern discovery, a feature included in the InfoSphere BigInsights Eclipse tooling, groups input contexts with similar semantics and distills patterns from them. You can then decide which of the patterns needs to be implemented in the extractor." />
+<meta name="DC.subject" content="pattern discovery" />
+<meta name="keywords" content="pattern discovery" />
+<meta name="DC.Relation" scheme="URI" content="../../../html/dev_extractors/write_code/DiscoverPatterns.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="help_txtan_aboutpatdis" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="Start" href="../../../html/dev_extractors/write_code/DiscoverPatterns.html" />
+<title>Pattern discovery scenarios</title>
+</head>
+<body role="main" id="help_txtan_aboutpatdis">
+<h1 class="title topictitle1">Pattern discovery scenarios</h1>
+<div class="body conbody"><p class="shortdesc">Given an input corpus and an initial extractor,
+the Pattern discovery, a feature included in the <span class="keyword">InfoSphere® BigInsights™</span> Eclipse
+tooling, groups input contexts with similar semantics and distills
+patterns from them. You can then decide which of the patterns needs
+to be implemented in the extractor.</p>
+<p class="p">By using AQL, you can write rules to extract structured information
+from unstructured text. However, to identify the rules to accurately
+extract the information,  you must manually sift through a potentially
+large data collection, a time consuming and error-prone process.</p>
+<div class="section"><h2 class="title sectiontitle">Example of usage</h2><div class="p">Consider the following
+simple <span class="keyword apiname">phone</span> extractor:<pre class="pre codeblock"><code>create view PhoneCandidate as
+extract
+ 	regexes /\d{3}-\d{3}-\d{4}/
+	    on D.text as num
+from Document D;   
+
+output view PhoneCandidate;  </code></pre>
+</div>
+<p class="p">This rule captures
+many valid telephone numbers that have the form <var class="keyword varname">xxx-xxx-xxxx</var>.
+It also captures invalid phone numbers, such as fax numbers, which
+are specified using the same format. However, it does not capture
+many other phone numbers, such as international numbers or extension
+numbers.</p>
+<div class="p">You can use Pattern discovery to find patterns in the
+vicinity of a telephone number candidate. Based on these patterns,
+you can then write additional rules to refine the <span class="keyword apiname">phone</span> extractor.
+You can see in the following example that the left context can usually
+reveal whether the candidate is valid or invalid: <dl class="dl"><dt class="dt dlterm">Valid candidate (telephone number)</dt>
+<dd class="dd"><pre class="pre codeblock"><code>'Call me at 555-123-4567'</code></pre>
+</dd>
+<dt class="dt dlterm">Invalid candidate (fax number, not a telephone number)</dt>
+<dd class="dd"><pre class="pre codeblock"><code>'Fax#: 555-123-4567'</code></pre>
+</dd>
+</dl>
+</div>
+<div class="p">If you used Pattern discovery on these contexts,
+it automatically finds such negative and positive clues. The following
+examples are patterns that the algorithm might discover, along with
+suggestions for using these patterns to develop additional rules to
+improve the precision and recall of the <span class="keyword apiname">phone</span> extractor.
+In the example coding, the Pattern Discovery algorithm is invoked
+on the context of length 4 tokens immediately preceding a phone annotation.<dl class="dl"><dt class="dt dlterm">Example 1: <var class="keyword varname">'fax'</var></dt>
+<dd class="dd"><div class="p">This pattern indicates that the keyword <var class="keyword varname">fax</var> commonly
+precedes a telephone number candidate. It is a negative clue that
+can be used to improve the precision of the <span class="keyword apiname">phone</span> extractor
+by filtering out invalid candidates, such as in the following example:<pre class="pre codeblock"><code> create dictionary FaxClueDict as (
+		'fax'
+	);
+	
+	create view PhoneSimple as
+	extract
+ 	regexes /\+?\(\d{3}\) ?\d{3}-\d{4}/ and /\+?\d{3}-\d{3}-\d{4}/ 
+	    on D.text as num
+	from Document D
+having Not(ContainsDict('FaxClueDict', LeftContextTok(num, 4)));</code></pre>
+</div>
+</dd>
+<dt class="dt dlterm">Example 2: <var class="keyword varname">'phone'</var> or <var class="keyword varname">'call;at'</var></dt>
+<dd class="dd"><p class="p">these patterns indicate that the keyword <var class="keyword varname">phone</var> and
+the keywords <var class="keyword varname">call</var> and <var class="keyword varname">at</var> (in
+this order) commonly occur in the vicinity of a telephone number candidate. </p>
+<div class="p">They
+are positive clues that improve the precision of the <span class="keyword apiname">PhoneSimple</span> rule
+by returning only those matches for the regular expression that are
+preceded within a number of tokens by one of these clues:<pre class="pre codeblock"><code> create dictionary PhoneClueDict as (
+		'phone', 'call', 'at'
+	);
+	
+	create view PhoneSimpleStrong as
+	select P.*
+	from PhoneSimple P
+where ContainsDict('PhoneClueDict', LeftContextTok(num, 4));</code></pre>
+</div>
+</dd>
+<dd class="dd"><div class="p">You can also use these positive clues to improve the recall
+of the <span class="keyword apiname">Phone</span> extractor by discovering other telephone
+number patterns not yet captured by the <span class="keyword apiname">PhoneSimple</span> rule.
+For example, in the following AQL snippet, the view <var class="keyword varname">PhoneClueRightContext</var> selects
+the context immediately succeeding a telephone number clue identified
+by the Pattern Discovery algorithm such as <var class="keyword varname">phone</var>, <var class="keyword varname">call</var>,
+or <var class="keyword varname">at</var> that contains at least 3 consecutive digits
+but not a known telephone number candidate.<pre class="pre codeblock"><code> create view PhoneClue as 
+	extract dictionary 'PhoneClueDict' on D.text as clue
+	from Document D; 
+
+	-- Right context of a phone clue containing digits
+	create view PhoneClueContextAll as
+	select P.clue as clue, RightContextTok(P.clue, 15) as rightCtx
+	from PhoneClue P
+	where ContainsRegex(/\d{3}/, RightContextTok(P.clue, 15)); 
+	
+	-- Right context of a phone clue with a known phone candidate
+	create view PhoneClueContextKnownPhone as
+	select P.*
+	from PhoneClueContextAll P, PhoneSimple Ph
+	where Contains(P.rightCtx, Ph.num);
+	
+	-- Right context of a phone clue without an already identified phone candidate
+	create view PhoneClueRightContext as
+	(select * from PhoneClueContextAll)
+	minus
+	(select * from PhoneClueContextKnownPhone);
+	
+output view PhoneClueRightContext;</code></pre>
+</div>
+<div class="p">Depending on
+the data collection, the view <var class="keyword varname">PhoneClueRightContext</var> selects
+contexts that contain valid telephone numbers in other formats not
+yet captured by the <span class="keyword apiname">PhoneSimple</span> view, such as <var class="keyword varname">[Lorraine
+Becker at] x31680</var> or <var class="keyword varname">[Lorraine's phone] is x-1680</var>.
+You can then select example telephone numbers and use them as input
+to the Regular Expression Generator component to generate one or more
+regular expressions and capture these new telephone number formats
+in the <span class="keyword apiname">PhoneSimple</span> view:<pre class="pre codeblock"><code>	create view PhoneSimple as
+	extract
+ 	regexes /\+?\(\d{3}\) ?\d{3}-\d{4}/ and /\+?\d{3}-\d{3}-\d{4}/ and /x-?\d{4,5}/
+	    on D.text as num
+	from Document D;</code></pre>
+</div>
+</dd>
+<dt class="dt dlterm">Example 3: <var class="keyword varname">'phone;&lt;PhoneSimple.num&gt;'</var></dt>
+<dd class="dd"><p class="p">This pattern indicates that a <var class="keyword varname">&lt;PhoneSimple.num&gt;</var> match
+and the keyword <dfn class="term">phone</dfn>	commonly occur in the vicinity
+of a telephone number candidate. </p>
+<p class="p">This pattern is distilled
+from contexts such as <samp class="ph codeph">'Reach me at 555-123-4567 or '</samp> where
+the occurrence of <var class="keyword varname">555-123-4567</var> is replaced by the
+corresponding entity marker <var class="keyword varname">&lt;PhoneSimple.num&gt;</var>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Other scenarios for Pattern Discovery</h2><div class="p">Pattern
+Discovery is also useful in these contexts:<dl class="dl"><dt class="dt dlterm">Known Entity Summarization</dt>
+<dd class="dd"><p class="p">When you develop an extractor, you might have access to a list
+of known instances of an entity.  You can use Pattern Discovery to
+identify common patterns that help you write more general rules to
+capture matches of the entity. The following actions illustrate this
+scenario:</p>
+<p class="p">You are developing an organization extractor, and
+you have access to a list of Fortune 1000 organizations. By using
+Pattern Discovery, you can identify a list of common organization
+suffixes from the Fortune 1000 organization list, such as <var class="keyword varname">'Co.'</var> and <var class="keyword varname">'Corporation'</var>.
+Create a dictionary of these strong organization suffixes. Use that
+dictionary in a rule to identify candidate organizations as one or
+more capitalized tokens followed by a  match for the suffix in the
+dictionary.</p>
+</dd>
+<dt class="dt dlterm">Relationship extractor</dt>
+<dd class="dd"><p class="p">When you write an extractor to identify relationships between
+entities, you can use Pattern Discovery to identify strong clues that
+are indicative of relationships in the input data set. The following
+actions illustrate this scenario:</p>
+<p class="p">Assume that you are developing
+an extractor to extract relationships between Person and Organization
+mentions. By using Pattern Discovery on the context between two mentions
+of these entities, you can discover common patterns, such as <samp class="ph codeph">'works
+for'</samp>, or <samp class="ph codeph">'is employed by'</samp>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/dev_extractors/write_code/DiscoverPatterns.html" title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">Discovering patterns in text input</a></div>
+</div>
+</div></body>
+</html>

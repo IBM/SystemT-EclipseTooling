@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+  <extension
+     point="org.eclipse.ltk.core.refactoring.renameParticipants">
+   	<renameParticipant
+        class="com.ibm.biginsights.textanalytics.refactor.participants.FileRenameParticipant"
+        id="com.ibm.biginsights.textanalytics.refactor.participants.fileRenameParticipant"
+        name="IFile Rename">
+     <enablement>
+     	<and>
+	        <with
+	              variable="element">
+	           <instanceof
+	                 value="org.eclipse.core.resources.IFile">
+	           </instanceof>
+	        </with>
+	        <adapt
+                 type="org.eclipse.core.resources.IFile">
+              <test
+                    property="org.eclipse.core.resources.projectNature"
+                    value="com.ibm.biginsights.textanalytics.nature">
+              </test>
+           </adapt>
+	    </and>
+     </enablement>
+  </renameParticipant>
+  
+  <renameParticipant
+        class="com.ibm.biginsights.textanalytics.refactor.participants.ModuleRenameParticipant"
+        id="com.ibm.biginsights.textanalytics.refactor.participants.moduleRenameParticipant"
+        name="IModule Rename">
+     <enablement>
+     	<and>
+	        <with
+	              variable="element">
+	           <instanceof
+	                 value="org.eclipse.core.resources.IFolder">
+	           </instanceof>
+	        </with>
+        	<adapt
+                 type="org.eclipse.core.resources.IFolder">
+              <test
+                    property="org.eclipse.core.resources.projectNature"
+                    value="com.ibm.biginsights.textanalytics.nature">
+              </test>
+           </adapt>
+        </and>
+     </enablement>
+  </renameParticipant>
+  
+  <renameParticipant
+        class="com.ibm.biginsights.textanalytics.refactor.participants.ProjectRenameParticipant"
+        id="com.ibm.biginsights.textanalytics.refactor.participants.projectRenameParticipant"
+        name="IProject Rename">
+     <enablement>
+     	<and>
+	        <with
+	              variable="element">
+	           <instanceof
+	                 value="org.eclipse.core.resources.IProject">
+	           </instanceof>
+	        </with>
+        	<adapt
+                 type="org.eclipse.core.resources.IProject">
+              <test
+                    property="org.eclipse.core.resources.projectNature"
+                    value="com.ibm.biginsights.textanalytics.nature">
+              </test>
+           </adapt>
+        </and>
+     </enablement>
+  </renameParticipant>
+   
+   </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+ 
+      <command
+            description="Open Rename AQL Element Dialog"
+            id="com.ibm.biginsights.textanalytics.refactor.openRenameDialog"
+            name="Open Rename AQL Element Dialog">
+            <commandParameter
+				id="com.ibm.biginsights.textanalytics.refactor.openRenameDialog.aqlFile"
+				name="openRenameDialog.aqlFile"
+				optional="false">
+			</commandParameter>
+            <commandParameter
+				id="com.ibm.biginsights.textanalytics.refactor.openRenameDialog.lineNumber"
+				name="openRenameDialog.lineNumber"
+				optional="false">
+			</commandParameter>
+            <commandParameter
+				id="com.ibm.biginsights.textanalytics.refactor.openRenameDialog.viewOffset"
+				name="openRenameDialog.viewOffset"
+				optional="false">
+			</commandParameter>
+            <commandParameter
+				id="com.ibm.biginsights.textanalytics.refactor.openRenameDialog.viewName"
+				name="openRenameDialog.viewName"
+				optional="false">
+			</commandParameter>
+      </command>
+      
+      <!-- Command to open AQL Rename dialog..-->
+      <command
+            name="Rename AQL Element"
+            description="Opens the dialog for AQL element rename"
+            categoryId="com.ibm.biginsights.textanalytics.aql.editor.command.category"
+            id="com.ibm.biginsights.textanalytics.aql.editor.command.elementrename">
+      </command>
+
+  </extension>
+
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+            class="com.ibm.biginsights.textanalytics.refactor.ui.actions.OpenRenameDialogHandler"
+            commandId="com.ibm.biginsights.textanalytics.refactor.openRenameDialog">
+     </handler>
+    
+     <handler
+            class="com.ibm.biginsights.textanalytics.refactor.ui.actions.AQLElementRename"
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.elementrename">
+      </handler>
+  </extension>  
+  
+  <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.ibm.biginsights.textanalytics.aql.editor.command.elementrename"
+            contextId="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+Shift+R">
+      </key>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            id="com.ibm.biginsights.textanalytics.aqlEditorScope"
+            name="AQL Editor Context"
+            parentId="org.eclipse.ui.textEditorScope">
+      </context>
+   </extension>
+     
+</plugin>

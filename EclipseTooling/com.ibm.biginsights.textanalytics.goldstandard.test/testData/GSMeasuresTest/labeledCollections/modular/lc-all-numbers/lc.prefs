@@ -1,0 +1,4 @@
+#Sun Feb 26 18:46:43 IST 2012
+detectWordBoundaries=true
+annotationTypes={GSModule.Numbers,num,true,0};
+language=en

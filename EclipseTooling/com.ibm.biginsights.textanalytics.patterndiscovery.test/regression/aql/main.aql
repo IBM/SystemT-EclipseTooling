@@ -1,0 +1,18 @@
+create view Boundary as 
+extract regex /[\n\r]+/ on D.text as match
+from Document D;
+
+create view Comment as 
+extract 
+    split using B.boundary 
+        on B.text
+        as match
+from 
+(
+	extract D.text as text,
+		regex /[\n\r]+/ 
+			on D.text as boundary
+	from Document D
+) B;
+
+output view Comment;

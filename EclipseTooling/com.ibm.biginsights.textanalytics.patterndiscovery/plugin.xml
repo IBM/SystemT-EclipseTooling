@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<plugin>
+	<extension
+         id="com.ibm.biginsights.textanalytics.prefuseview.views"
+         point="org.eclipse.ui.views">
+         
+         <view
+               category="com.ibm.biginsights.project.category"
+               allowMultiple="true"
+               class="com.ibm.biginsights.textanalytics.patterndiscovery.views.PatternDiscoveryView"
+               icon="icons/patternDiscovery.gif"
+               id="com.ibm.biginsights.textanalytics.patterndiscoveryview"
+               name="Pattern Discovery"
+               restorable="false">
+      	</view>
+         <view
+               category="com.ibm.biginsights.project.category"
+               allowMultiple="true"
+               class="com.ibm.biginsights.textanalytics.patterndiscovery.views.PatternDiscoveryTableView"
+               icon="icons/patternDiscoveryTable.gif"
+               id="com.ibm.biginsights.textanalytics.patterndiscoverytableview"
+               name="Pattern Discovery Table"
+               restorable="false">
+      	</view>
+         <view
+               allowMultiple="false"
+               category="com.ibm.biginsights.project.category"
+               class="com.ibm.biginsights.textanalytics.patterndiscovery.ruleshistory.RulesHitoryView"
+               icon="icons/rulesHistory.gif"
+               id="com.ibm.biginsights.textanalytics.ruleshistory.view"
+               name="Rules History"
+               restorable="false">
+         </view>
+         <view
+               allowMultiple="true"
+               category="com.ibm.biginsights.project.category"
+               class="com.ibm.biginsights.textanalytics.patterndiscovery.views.CommonSignatureTableView"
+               icon="icons/pattern_explorer_view.gif"
+               id="com.ibm.biginsights.textanalytics.commonsignaturetableview"
+               name="Pattern Context"
+               restorable="false">
+         </view>
+         <view
+               allowMultiple="true"
+               category="com.ibm.biginsights.project.category"
+               class="com.ibm.biginsights.textanalytics.patterndiscovery.views.SemanticSignatureTableView"
+               icon="icons/patterns_root_obj.gif"
+               id="com.ibm.biginsights.textanalytics.semanticsignaturetableview"
+               name="Expanded Pattern Context"
+               restorable="false">
+         </view>
+        
+        <!--view id="com.ibm.biginsights.textanalytics.tableview"
+             name="Table View Sajib"
+          class="com.ibm.biginsights.textanalytics.tableview.MyTableView">
+          </view-->
+	</extension>
+
+   
+<!-- =========================================================================== -->
+<!--  Launch Configuration Type                                       	 -->
+<!-- =========================================================================== -->
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+     <launchConfigurationType
+           delegate="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.SystemTPatternDiscoveryLaunchConfigurationDelegate"
+           id="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.systemTApplication"
+           modes="run"
+           name="Pattern Discovery">
+     </launchConfigurationType>
+	</extension>
+
+<!-- =========================================================================== -->
+<!--  Run AQL: Launch Configuration Icon                                       	 -->
+<!-- =========================================================================== -->   
+
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+     <launchConfigurationTypeImage
+           configTypeID="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.systemTApplication"
+           icon="icons/patternDiscovery.gif"
+           id="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.launchConfigurationTypeImage.systemT">
+     </launchConfigurationTypeImage>
+	</extension>
+	
+<!-- =========================================================================== -->
+<!--  Run AQL: Launch Configuration Tab Group                                    -->
+<!-- =========================================================================== -->
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+     <launchConfigurationTabGroup
+           class="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.SystemTPatternDiscoveryTabGroup"
+           description="Run Pattern Discovery"
+           id="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.launchConfigurationTabGroup.systemT"
+           type="com.ibm.biginsights.textanalytics.patterndiscovery.runconfig.systemTApplication">
+        <launchMode
+              description="Run Pattern Discovery"
+              mode="run">
+        </launchMode>
+     </launchConfigurationTabGroup>
+	</extension>
+
+</plugin>
+

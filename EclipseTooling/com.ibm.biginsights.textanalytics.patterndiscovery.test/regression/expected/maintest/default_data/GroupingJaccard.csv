@@ -1,0 +1,11 @@
+"2","-374551526","can be reached at her cell","""\input.txt-19:45#1""","{can;reached;be reached;at}","{can;reached;be reached;at}","... can be reached at
+ /n can be reached at her cell
+ /n can also be reached at
+ ..."
+"2","-374551526","can be reached at","""\input.txt-0:17#0""","{can;reached;be reached;at}","{can;reached;be reached;at}","... can be reached at
+ /n can be reached at her c ..."
+"1","1014569493","may be reached at her office","""\input.txt-71:99#3""","{be reached;at}","{be reached;at}","...  /n can also be reached at
+ /n may be reached at her office ..."
+"1","-710310973","can also be reached at","""\input.txt-47:69#2""","{can;be reached;at}","{can;be reached;at}","...  be reached at her cell
+ /n can also be reached at
+ /n may be reached at her o ..."

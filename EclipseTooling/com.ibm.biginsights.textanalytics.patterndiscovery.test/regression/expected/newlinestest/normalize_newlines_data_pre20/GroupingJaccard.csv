@@ -1,0 +1,13 @@
+"2","276207162","123
+  some text 123","""\input.txt-54:78#1""","{123;text}","{123;text}","... ext 123 some other text
+123
+	
+	  some text 123 ..."
+"2","276207162","123 some text 
+ more text 123","""\input.txt-0:36#0""","{123;text}","{123;text}","... 123 some text 
+
+  
+ more text 123 some other text
+123
+	
+ ..."

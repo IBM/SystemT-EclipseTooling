@@ -1,0 +1,4 @@
+Import the project /com.ibm.biginsights.textanalytics.indexer.test/testDataProject/TestWF2.zip
+to the JUnit workspace for testing.
+
+While running, Plz ensure to un-check the clear option in the main tab of launch configuration.

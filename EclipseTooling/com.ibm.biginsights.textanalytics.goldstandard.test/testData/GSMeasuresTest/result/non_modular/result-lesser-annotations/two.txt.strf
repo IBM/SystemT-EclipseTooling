@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:systemTComputationResult xmlns:ns2="http://www.ibm.com/systemt/result" gsComplete="false">
+    <documentID>\two.txt</documentID>
+    <inputTextID>130</inputTextID>
+    <outputViews>
+        <fieldNames>num</fieldNames>
+        <fieldTypes>SPAN</fieldTypes>
+        <name>Numbers</name>
+        <rows>
+            <spanVal parentSpanName="Document.text" sourceID="130" end="20" start="16"/>
+        </rows>
+        <rows>
+            <spanVal parentSpanName="Document.text" sourceID="130" end="30" start="29"/>
+        </rows>
+        <rows>
+            <spanVal parentSpanName="Document.text" sourceID="130" end="51" start="47"/>
+        </rows>
+        <rows>
+            <spanVal parentSpanName="Document.text" sourceID="130" end="56" start="53"/>
+        </rows>
+        <!--
+        <rows>
+            <spanVal parentSpanName="Document.text" sourceID="130" end="73" start="72"/>
+        </rows>
+        -->
+    </outputViews>
+    <textMap>
+        <entry>
+            <key>130</key>
+            <value>Current year is 2011&#xD;
+Lowest 4 digit number is 1000&#xD;
+999 is the highest 3 digit number</value>
+        </entry>
+    </textMap>
+</ns2:systemTComputationResult>

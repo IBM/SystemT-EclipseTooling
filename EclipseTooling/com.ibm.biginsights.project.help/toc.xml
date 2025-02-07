@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--
+ Copyright IBM
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+
+<toc label="BigInsights project help" link_to="../com.ibm.biginsights.project/toc.xml#biginsightsProjectAnchor">
+   
+   <topic href="html/help_crt_server_connection.html" label="Creating a BigInsights server connection" >
+   </topic>
+   <topic href="html/help_import_sample_app.html" label="Importing sample applications" link_to="../com.ibm.biginsights.project/toc.xml#biginsightsImportAnchor">
+   </topic>
+   <topic label="Working with BigInsights projects" link_to="../com.ibm.biginsights.project/toc.xml#biginsightsNewProjAnchor">
+      <topic href="html/CreateProj.html" label="Creating a new BigInsights project">
+      </topic>
+      <topic href="html/AddNatureToProj.html" label="Adding BigInsights nature to an existing project">
+      </topic>
+      <topic href="html/help_migrate_biginsights_project.html" label="Migrating a project to the current InfoSphere BigInsights version">
+      </topic>
+ </topic> 
+ <topic label = "Developing BigSheets extensions" link_to="../com.ibm.biginsights.project/toc.xml#biginsightsBigSheetsAnchor">
+      <topic href="html/bigsheets_create_function_reader.html" label= "Developing a BigSheets plug-in">
+      </topic>
+ </topic>
+<topic label="Developing HBase programs" link_to="../com.ibm.biginsights.project/toc.xml#biginsightsHbaseAnchor">
+    <topic href="html/launchhbase.html" label="Starting an HBase shell to run commands"></topic>
+    <topic href="html/runhbase.html" label="Running HBase programs"></topic>
+</topic>
+ 
+  
+</toc>
+
+
+

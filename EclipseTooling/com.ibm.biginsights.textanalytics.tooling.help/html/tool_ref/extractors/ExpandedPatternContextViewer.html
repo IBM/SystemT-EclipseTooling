@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Expanded Pattern Context View" />
+<meta name="abstract" content="" />
+<meta name="Description" content="" />
+<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="ExpandedPatternContextViewer" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
+<title>Expanded Pattern Context View</title>
+</head>
+<body role="main" id="ExpandedPatternContextViewer">
+<h1 class="title topictitle1">Expanded Pattern Context View</h1>
+<div class="body conbody"><p class="shortdesc"></p>
+<p class="p">The Expanded Pattern Context View displays results from <a class="xref" href="../../dev_extractors/write_code/DiscoverPatterns.html" title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">discovering
+patterns in text input</a>.</p>
+<p class="p">To help with rule identification, the view displays text snippets
+that surround the context value of the subgroup in the input data
+set. By default, the surrounding snippet consists of 25 characters
+to the left and right of the context. A different snippet can be specified
+in the <span class="ph uicontrol">Snippet Field Name</span> field of the <a class="xref" href="PatternDiscoveryConfig.html">Advanced Configuration</a> page.</p>
+<div class="p">The four snippets that surround <var class="keyword varname">'please call me at'</var> from
+the Pattern Discovery View in our example are shown in the <a class="xref" href="#ExpandedPatternContextViewer__snippet">Table 1</a> (a custom snippet
+of 10 tokens to the left and right of the input context is used).
+This view becomes useful when you notice that even though the four
+input contexts are the same, their surrounding snippet is different. <ul class="ul"><li class="li">Context: <var class="keyword varname">please call me at</var></li>
+<li class="li">Semantic Pattern: <var class="keyword varname">call;at</var></li>
+<li class="li">Common Pattern: <var class="keyword varname">at</var></li>
+</ul>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ExpandedPatternContextViewer__snippet" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Example snippet</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d13318e60">Snippet</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d13318e60 "><pre class="pre codeblock"><code>... if this is acceptable to you. You or Rosalee
+please call me at 713-758-2350 or send me a response ...</code></pre>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d13318e60 "><pre class="pre codeblock"><code>... LEMMONS
+12:15 - 1:00 RICK CAUSEY
+Please call me at 555-345-3189 if you have any questions. ...</code></pre>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d13318e60 "><pre class="pre codeblock"><code>... Lisa hasn't registered anywhere for gifts yet; please call me at 713-555-2390 or Lorraine Becker at x31680 ...</code></pre>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d13318e60 "><pre class="pre codeblock"><code>... Lorraine, if you have any other questions or concerns please call me at 713-555-6213 or Mark Lindsey at x31873 ...</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
+</div>
+</div></body>
+</html>

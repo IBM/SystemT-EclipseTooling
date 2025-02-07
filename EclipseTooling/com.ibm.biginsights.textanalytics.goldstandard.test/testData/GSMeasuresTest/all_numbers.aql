@@ -1,0 +1,6 @@
+create view Numbers as
+extract regexes /\d{1,4}/
+on D.text as num
+from Document D;
+
+output view Numbers;

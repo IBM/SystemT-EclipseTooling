@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taeDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>com.ibm.langware.annotator.jFrostLangIDAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>LanguageWare Annotator</name>
+    <description>This annotator provides access to LanguageWare Language Identification.</description>
+    <version>7.2.0.2</version>
+    <vendor>IBM Corporation</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>SofaNames</name>
+        <description>The Sofa names the annotator should work on. If no names are specified, the annotator works on the default sofa.</description>
+        <type>String</type>
+        <multiValued>true</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>LWDataSubdir</name>
+        <description>The name of the directory under the UIMA data directory in which the LanguageWare resources are located</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>LangIDDictName</name>
+        <description>The filename of the Language Identification dictionary. Located in the LWDataSubdir</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <!-- LangID config params -->
+      <configurationParameter>
+        <name>MaxCharsToExamine</name>
+        <description>The maximum numbers of (Unicode) characters to examine when trying to determine the language</description>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>MaxTopLanguages</name>
+        <description>The maximum numbers of best identified languages to be returned</description>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>TieDelta</name>
+        <description>If the heuristics finds two language candidates ranked by probability the two values are only being considered actually different if their difference is within a TieDelta percentage points of the whole range. -1 indicates not to attempt finding a tie at all.</description>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>UnknownProcessing</name>
+        <description>Toggle unknown processing, may have some improved performance</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>AcceptLanguage</name>
+        <description>The list of ISO name of the language, which the result of language identification is limited to. This parameter overrides the feature value of uima.tcas.DocumentAnnotation:acceptLanguage.</description>
+        <type>String</type>
+        <multiValued>true</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>FallbackLanguage</name>
+        <description>The ISO name of the fallback language. This parameter overrides the feature value of uima.tcas.DocumentAnnotation:fallbackLanguage.</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>UseTheFirstAcceptLangAsFallBack</name>
+        <description>Use the first language of AcceptLanguages list when LanguageWare cannot find any candidate languages in the AcceptLanguage list. If false, use "x-unspecified" or specified fallback language. The default value is false.</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>AcceptOnlyUnspecifiedInputLang</name>
+        <description>If true, LangID annotator will process only CASes that the document language is "x-unspecified" or empty. Other CASes will be ignored.</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>LWDataSubdir</name>
+        <value>
+          <string>LW</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>LangIDDictName</name>
+        <value>
+          <string>mul-XX-LangID-5318.dic</string>
+        </value>
+      </nameValuePair>
+      <!-- LangID settings -->
+      <nameValuePair>
+        <name>MaxCharsToExamine</name>
+        <value>
+          <integer>1024</integer>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>MaxTopLanguages</name>
+        <value>
+          <integer>0</integer>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>TieDelta</name>
+        <value>
+          <integer>-1</integer>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>UnknownProcessing</name>
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>AcceptOnlyUnspecifiedInputLang</name>
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <types>
+        <typeDescription>
+          <name>uima.tcas.DocumentAnnotation</name>
+          <description/>
+          <supertypeName>uima.tcas.Annotation</supertypeName>
+          <features>
+            <featureDescription>
+              <name>language</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>categories</name>
+              <description/>
+              <rangeTypeName>uima.cas.FSList</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>languageCandidates</name>
+              <description/>
+              <rangeTypeName>uima.cas.FSList</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>id</name>
+              <description>Document id, such as a URL</description>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>fallbackLanguage</name>
+              <description>The ISO name of the fallback language.</description>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>acceptLanguage</name>
+              <description>The list of ISO name of the language, which the result of language identification is limited to.</description>
+              <rangeTypeName>uima.cas.StringArray</rangeTypeName>
+            </featureDescription>
+          </features>
+        </typeDescription>
+        <typeDescription>
+          <name>uima.tt.LanguageConfidencePair</name>
+          <description/>
+          <supertypeName>uima.cas.TOP</supertypeName>
+          <features>
+            <featureDescription>
+              <name>languageConfidence</name>
+              <description>A number between 0 and 1 describing the confidence</description>
+              <rangeTypeName>uima.cas.Float</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>language</name>
+              <description>The ISO name of the language</description>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>languageID</name>
+              <description>The language as TAF number</description>
+              <rangeTypeName>uima.cas.Integer</rangeTypeName>
+            </featureDescription>
+          </features>
+        </typeDescription>
+      </types>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <!-- Lang ID capability -->
+          <feature>uima.tcas.DocumentAnnotation:language</feature>
+          <feature>uima.tcas.DocumentAnnotation:languageCandidates</feature>
+        </outputs>
+        <languagesSupported>
+          <!-- LangID language def. -->
+          <language>x-unspecified</language>
+        </languagesSupported>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</taeDescription>
