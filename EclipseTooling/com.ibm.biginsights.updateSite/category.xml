@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.ibm.biginsights.feature_5.0.1.qualifier.jar" id="com.ibm.biginsights.feature" version="5.0.1.qualifier">
+   <feature url="features/com.ibm.biginsights.feature_5.0.0.qualifier.jar" id="com.ibm.biginsights.feature" version="5.0.0.qualifier">
       <category name="com.ibm.biginsights"/>
    </feature>
-   <feature url="features/com.ibm.biginsights.lib.feature.v4105_5.0.1.qualifier.jar" id="com.ibm.biginsights.lib.feature.v4105" version="5.0.1.qualifier">
+   <feature url="features/com.ibm.biginsights.lib.feature.v4105_5.0.0.qualifier.jar" id="com.ibm.biginsights.lib.feature.v4105" version="5.0.0.qualifier">
       <category name="com.ibm.biginsights"/>
    </feature>
-   <feature url="features/com.ibm.biginsights.lib.common.feature.v4105_5.0.1.qualifier.jar" id="com.ibm.biginsights.lib.common.feature.v4105" version="5.0.1.qualifier">
+   <feature url="features/com.ibm.biginsights.lib.common.feature.v4105_5.0.0.qualifier.jar" id="com.ibm.biginsights.lib.common.feature.v4105" version="5.0.0.qualifier">
       <category name="com.ibm.biginsights"/>
    </feature>
-   <feature url="features/com.ibm.bigdata.biginsights.platform.feature_5.0.1.qualifier.jar" id="com.ibm.bigdata.biginsights.platform.feature" version="5.0.1.qualifier">
+   <feature url="features/com.ibm.bigdata.biginsights.platform.feature_5.0.0.qualifier.jar" id="com.ibm.bigdata.biginsights.platform.feature" version="5.0.0.qualifier">
       <category name="com.ibm.biginsights"/>
    </feature>
    <category-def name="com.ibm.biginsights" label="IBM InfoSphere BigInsights">

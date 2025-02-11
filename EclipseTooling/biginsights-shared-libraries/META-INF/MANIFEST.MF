@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.ibm.biginsights.thirdparty
 Bundle-SymbolicName: com.ibm.biginsights.thirdparty
-Bundle-Version: 5.0.1.qualifier
+Bundle-Version: 5.0.0.qualifier
 Eclipse-BundleShape: dir
 Eclipse-BuddyPolicy: registered
 Bundle-ClassPath: lib/JSON4J.jar,
