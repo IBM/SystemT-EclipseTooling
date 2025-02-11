@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.ibm.bigdata.tasklauncher;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: com.ibm.datatools.quick.launch.ui.Activator
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: com.ibm.datatools.quick.launch.ui,
