@@ -17,7 +17,7 @@
 <feature
       id="com.ibm.biginsights.lib.common.feature.v4105"
       label="%Bundle-name"
-      version="5.0.0.qualifier"
+      version="5.0.0"
       provider-name="%Bundle-vendor">
 
    <description>
@@ -36,7 +36,7 @@
          id="com.ibm.biginsights.thirdparty"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.0"
          unpack="true"/>
 
 </feature>
