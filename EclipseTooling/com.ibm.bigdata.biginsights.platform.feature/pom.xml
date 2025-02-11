@@ -4,10 +4,10 @@
   <parent>
     <groupId>com.ibm.ai.devtooling</groupId>
     <artifactId>EclipseTooling</artifactId>
-    <version>5.0.0-SNAPSHOT</version>
+    <version>5.0.0</version>
   </parent>
   <groupId>com.ibm.ai.devtooling</groupId>
   <artifactId>com.ibm.bigdata.biginsights.platform.feature</artifactId>
-  <version>5.0.0-SNAPSHOT</version>
+  <version>5.0.0</version>
   <packaging>eclipse-feature</packaging>
 </project>
