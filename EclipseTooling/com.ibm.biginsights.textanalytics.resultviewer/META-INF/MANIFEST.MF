@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Text Analytics Result Viewer
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.resultviewer;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.0-SNAPSHOT
 Bundle-Activator: com.ibm.biginsights.textanalytics.resultviewer.Activator
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,

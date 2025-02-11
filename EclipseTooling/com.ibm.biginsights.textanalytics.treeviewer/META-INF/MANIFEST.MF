@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Treeviewer Plug-in
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.treeviewer;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.0-SNAPSHOT
 Bundle-Activator: com.ibm.biginsights.textanalytics.treeview.Activator
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,
