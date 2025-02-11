@@ -26,7 +26,6 @@
   		<connection>scm:git:git@github.com:IBM/SystemT-EclipseTooling.git</connection>
   		<developerConnection>scm:git:git@github.com:IBM/SystemT-EclipseTooling.git</developerConnection>
   		<url>https://github.com/IBM/SystemT-EclipseTooling</url>
-  	  <tag>v5.0.0</tag>
   </scm>
   	
 	<repositories>
