@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Regex Editor and Learner
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.regex;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.1.qualifier
 Bundle-Activator: com.ibm.biginsights.textanalytics.regex.Activator
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,
