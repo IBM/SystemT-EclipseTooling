@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Pattern Discovery
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.patterndiscovery;singleton:=true
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.0.0
 Bundle-Activator: com.ibm.biginsights.textanalytics.patterndiscovery.Activator
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,

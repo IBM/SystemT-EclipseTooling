@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Preferences Plug-in
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.preferences;singleton:=true
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.0.0
 Bundle-Activator: com.ibm.biginsights.textanalytics.preferences.PreferencesPlugin
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,
