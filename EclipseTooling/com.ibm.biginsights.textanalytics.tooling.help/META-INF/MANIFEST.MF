@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.tooling.help;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: com.ibm.biginsights.textanalytics.help.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.core.runtime

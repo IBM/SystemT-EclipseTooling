@@ -16,7 +16,7 @@
 -->
 <container version="4.1.0.2" isdefault="true">
 	<bundles>
-		<bundle id="com.ibm.biginsights.thirdparty" version="5.0.0">
+		<bundle id="com.ibm.biginsights.thirdparty" version="5.0.0.qualifier">
 			<file>/lib/commons-cli*.jar</file>
 			<file>/lib/commons-lang*.jar</file>
 			<file>/lib/derby.jar</file>

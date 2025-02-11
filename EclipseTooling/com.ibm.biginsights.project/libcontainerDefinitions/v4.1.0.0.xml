@@ -16,7 +16,7 @@
 -->
 <container version="4.1.0.0" isdefault="false">
 	<bundles>
-		<bundle id="com.ibm.biginsights.thirdparty" version="5.0.0">
+		<bundle id="com.ibm.biginsights.thirdparty" version="5.0.0.qualifier">
 			<file>/lib/commons-cli*.jar</file>
 			<file>/lib/commons-lang*.jar</file>
 			<file>/lib/icu4j*.jar</file>
