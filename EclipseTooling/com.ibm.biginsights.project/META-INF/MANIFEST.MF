@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-Localization: plugin
 Bundle-SymbolicName: com.ibm.biginsights.project;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: com.ibm.biginsights.project.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
