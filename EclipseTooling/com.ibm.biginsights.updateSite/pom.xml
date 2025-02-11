@@ -7,7 +7,7 @@
     <version>5.0.0-SNAPSHOT</version>
   </parent>
   <groupId>com.ibm.ai.devtooling</groupId>
-  <artifactId>com.ibm.ai.devtooling.updateSite</artifactId>
+  <artifactId>com.ibm.watson.systemt.devtooling.updateSite</artifactId>
   <version>5.0.0-SNAPSHOT</version>
   <packaging>eclipse-repository</packaging>
 </project>
