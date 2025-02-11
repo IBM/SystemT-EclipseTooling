@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Aqllibrary
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.aqllibrary;singleton:=true
-Bundle-Version: 5.0.0
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: com.ibm.biginsights.textanalytics.aqllibrary.Activator
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,
