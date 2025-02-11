@@ -27,7 +27,8 @@
   		<developerConnection>scm:git:ssh://github.com:IBM/SystemT-EclipseTooling.git</developerConnection>
   		<url>https://github.com/IBM/SystemT-EclipseTooling</url>
 	  <tag>v5.0.0</tag>
-  </scm>
+  	</scm>
+  	
 	<repositories>
 	    <repository>
 	        <id>maven-central</id>
@@ -55,6 +56,23 @@
 			</releases>
 		</repository>
 	</repositories>
+	
+ 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<tycho-version>1.1.0</tycho-version>
+		
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss z</maven.build.timestamp.format>
+		
+		<maven.nexus.plugin.version>1.6.7</maven.nexus.plugin.version>
+		<maven.gpg.plugin.version>1.5</maven.gpg.plugin.version>
+		<maven.source.plugin.version>3.3.1</maven.source.plugin.version>
+		<maven.javadoc.plugin.version>3.0.0</maven.javadoc.plugin.version>
+		
+    </properties>
+    
 	<modules>
 		<module>biginsights-shared-libraries</module>
 		<module>com.ibm.bigdata.biginsights.platform.feature</module>
@@ -159,7 +177,7 @@
 			<plugin>
 			  <groupId>org.sonatype.plugins</groupId>
 			  <artifactId>nexus-staging-maven-plugin</artifactId>
-			  <version>1.6.7</version>
+			  <version>${maven.nexus.plugin.version}</version>
 			  <extensions>true</extensions>
 			  <configuration>
 			     <serverId>ossrh</serverId>
@@ -235,7 +253,4 @@
 	    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
 	  </snapshotRepository>
 	</distributionManagement>
-	<properties>
-		<tycho-version>1.1.0</tycho-version>
-	</properties>
 </project>
