@@ -9,7 +9,7 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
 <feature
       id="com.ibm.bigdata.biginsights.platform.feature"
       label="%Bundle-name"
-      version="5.0.0.qualifier"
+      version="5.0.1.qualifier"
       provider-name="%Bundle-vendor">
 
    <description>
@@ -28,7 +28,7 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
          id="com.ibm.bigdata.tasklauncher"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
 </feature>

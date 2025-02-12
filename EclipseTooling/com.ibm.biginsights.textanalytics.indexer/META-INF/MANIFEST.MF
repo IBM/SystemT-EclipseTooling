@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Indexer
 Bundle-SymbolicName: com.ibm.biginsights.textanalytics.indexer;singleton:=true
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 5.0.1.qualifier
 Bundle-Activator: com.ibm.biginsights.textanalytics.indexer.Activator
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.core.runtime,

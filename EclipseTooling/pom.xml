@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ibm.ai.devtooling</groupId>
 	<artifactId>EclipseTooling</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>5.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>SystemT Eclipse Tooling</name>
 	<description>Eclipse dev tooling for SystemT runtime.
@@ -26,7 +26,7 @@
   		<connection>scm:git:git@github.com:IBM/SystemT-EclipseTooling.git</connection>
   		<developerConnection>scm:git:git@github.com:IBM/SystemT-EclipseTooling.git</developerConnection>
   		<url>https://github.com/IBM/SystemT-EclipseTooling</url>
-  	  <tag>v5.0.0</tag>
+    <tag>HEAD</tag>
   </scm>
   	
 	<repositories>

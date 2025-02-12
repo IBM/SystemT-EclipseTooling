@@ -9,7 +9,7 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
 <feature
       id="com.ibm.biginsights.feature"
       label="%Bundle-name"
-      version="5.0.0.qualifier"
+      version="5.0.1.qualifier"
       provider-name="%Bundle-vendor">
 
    <description>
@@ -124,209 +124,209 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
          id="com.ibm.biginsights.textanalytics.aqleditor"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.aqllibrary"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.explain"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.nature"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.preferences"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.provenance"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.regex"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.resultmodel"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.resultviewer"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.resultviewer.util"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.runtime"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"/>
+         version="5.0.1.qualifier"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.tableview"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.tooling.help"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.treeviewer"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.util"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.project"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.patterndiscovery"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.resourcechange"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.wizards"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.goldstandard"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.workflow"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.extensions"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.resultdifferences"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.migration"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.project.help"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.tasklauncher"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.tasklauncher"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.indexer"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.biginsights.textanalytics.refactor"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.ibm.bigdata.tasklauncher"
          download-size="0"
          install-size="0"
-         version="5.0.0.qualifier"
+         version="5.0.1.qualifier"
          unpack="false"/>
 
 </feature>
