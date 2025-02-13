@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<taeDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<taeDescription
+	xmlns="http://uima.apache.org/resourceSpecifier">
 
 	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
 	<primitive>true</primitive>
 	<annotatorImplementationName>com.ibm.langware.annotator.jFrostLexAnnotator</annotatorImplementationName>
 	<analysisEngineMetaData>
 		<name>LanguageWare Lexical Annotator</name>
-		<description>This annotator provides access to LanguageWare Lexical Analysis.</description>
+		<description>This annotator provides access to LanguageWare Lexical
+			Analysis.</description>
 		<version>7.2.0.2</version>
 		<vendor>IBM Corporation</vendor>
 
-      <!-- ======================================================== -->
-      <!--             Configuration Parameter Section              -->
-      <!-- ======================================================== -->
-		<configurationParameters defaultGroup="xx" searchStrategy="language_fallback">
+		<!-- ======================================================== -->
+		<!-- Configuration Parameter Section -->
+		<!-- ======================================================== -->
+		<configurationParameters defaultGroup="xx"
+			searchStrategy="language_fallback">
 
-		<!-- Sofa Related Parameters -->
+			<!-- Sofa Related Parameters -->
 			<configurationParameter>
 				<name>SofaNames</name>
 				<description>
-					The Sofa names the annotator should work on. If no 
-					names are specified, the annotator works on the 
+					The Sofa names the annotator should work on. If no
+					names are specified, the annotator works on the
 					default sofa.
 				</description>
 				<type>String</type>
@@ -28,11 +31,12 @@
 				<mandatory>false</mandatory>
 			</configurationParameter>
 
-		<!-- Resources Related Parameters -->
+			<!-- Resources Related Parameters -->
 			<configurationParameter>
 				<name>LWDataSubdir</name>
 				<description>
-					The name of the directory under the UIMA data directory in 
+					The name of the directory under the UIMA data directory
+					in
 					which the LanguageWare resources are located
 				</description>
 				<type>String</type>
@@ -48,7 +52,8 @@
 			</configurationParameter>
 			<configurationParameter>
 				<name>UseExplicitDicts</name>
-				<description>Dictionaries to be used are specified explicitly in this config file.</description>
+				<description>Dictionaries to be used are specified explicitly in
+					this config file.</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
@@ -66,7 +71,8 @@
 			<configurationParameter>
 				<name>DefaultLanguage</name>
 				<description>
-					The language to use in processing when the document language is not set
+					The language to use in processing when the document
+					language is not set
 					before the annotator processing.
 				</description>
 				<type>String</type>
@@ -75,7 +81,8 @@
 			</configurationParameter>
 			<configurationParameter>
 				<name>DictionaryCacheSize</name>
-				<description>!Deprecated! Maximum number of dictionaries held in cache</description>
+				<description>!Deprecated! Maximum number of dictionaries held in
+					cache</description>
 				<type>Integer</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
@@ -83,20 +90,24 @@
 			<configurationParameter>
 				<name>ProcessLanguagesWithNoDictionaries</name>
 				<description>
-					If true the annotator will not throw an error when no dictionaries
-					can be found for language. Only basic tokenization will be possible
+					If true the annotator will not throw an error when no
+					dictionaries
+					can be found for language. Only basic tokenization will
+					be possible
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 
-		<!-- tokenization Related Parameters -->
+			<!-- tokenization Related Parameters -->
 			<configurationParameter>
 				<name>UseFirstMatchPolicy</name>
 				<description>
-					If true lookup stops after the first match in any dictionary (DLTCM_POLICY_FIRST)
-					otherwise all matches from all dictionaries are found (DLTCM_POLICY_ALL)
+					If true lookup stops after the first match in any
+					dictionary (DLTCM_POLICY_FIRST)
+					otherwise all matches from all
+					dictionaries are found (DLTCM_POLICY_ALL)
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -105,8 +116,11 @@
 			<configurationParameter>
 				<name>UseStrictCaseMode</name>
 				<description>
-					If true, the strict-case mode is turned 'ON'. That means Case information will be respected when
-					doing lookup in lowercase dictionaries. otherwise, it will set strict-case mode to 'OFF' and a match
+					If true, the strict-case mode is turned 'ON'. That
+					means Case information will be respected when
+					doing lookup in
+					lowercase dictionaries. otherwise, it will set strict-case mode to
+					'OFF' and a match
 					will be returned even if the case doesn't match.
 				</description>
 				<type>Boolean</type>
@@ -115,7 +129,8 @@
 			</configurationParameter>
 			<configurationParameter>
 				<name>UseRelativeTokenAndSentenceNumbers</name>
-				<description>If true token and sentence numbers are reset to 1 for each new sentence/paragraph</description>
+				<description>If true token and sentence numbers are reset to 1 for
+					each new sentence/paragraph</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
@@ -123,8 +138,10 @@
 			<configurationParameter>
 				<name>AnnotateMWConstituentTokens</name>
 				<description>
-					If true,  MWU annotations will created for Multi-Word entries and Token Annotations will be created
-					for their constituent words; otherwise, Only MWU annotations will be created.
+					If true, MWU annotations will created for Multi-Word
+					entries and Token Annotations will be created
+					for their constituent
+					words; otherwise, Only MWU annotations will be created.
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -133,7 +150,8 @@
 			<configurationParameter>
 				<name>MWBoundary</name>
 				<description>
-					This defines MWUs lookup boundaries. possible values for this parameter are:
+					This defines MWUs lookup boundaries. possible values
+					for this parameter are:
 					"Sentence", "Paragraph", or "Document".
 				</description>
 				<type>String</type>
@@ -149,18 +167,21 @@
 			</configurationParameter>
 			<configurationParameter>
 				<name>AggressiveSentenceBreaks</name>
-				<description>!Deprecated! If true, an end-of-line will be considered end-of-sentence</description>
+				<description>!Deprecated! If true, an end-of-line will be considered
+					end-of-sentence</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 
-		<!-- Decomposition Related Parameters -->
+			<!-- Decomposition Related Parameters -->
 			<configurationParameter>
 				<name>CrossDictionaryDecomposition</name>
 				<description>
-					If true a decomposition is performed across dictionaries
-					i.e. words from several dictionaries may be combined into one compound
+					If true a decomposition is performed across
+					dictionaries
+					i.e. words from several dictionaries may be combined
+					into one compound
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -169,7 +190,8 @@
 			<configurationParameter>
 				<name>BOFAOnlyDecomposition</name>
 				<description>
-					If true a decomposition is performed basing on BOFA values only.
+					If true a decomposition is performed basing on BOFA
+					values only.
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -178,10 +200,12 @@
 			<configurationParameter>
 				<name>FilterDecomposedGlosses</name>
 				<description>
-				  If true, the paradigms reported by decomposition for each component are filtered
-				  according to the decomposition rules, removing paradigms that are not valid in
-				  combination. Setting this to false may lead to better performance and recall
-				  at the expense of precision.  
+					If true, the paradigms reported by decomposition for each component
+					are filtered
+					according to the decomposition rules, removing paradigms that are not valid
+					in
+					combination. Setting this to false may lead to better performance and recall
+					at the expense of precision.
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -190,7 +214,8 @@
 			<configurationParameter>
 				<name>JapaneseDecomposition</name>
 				<description>
-					If true decomposition is done for Japanese documents without
+					If true decomposition is done for Japanese documents
+					without
 					regard to the result specification
 				</description>
 				<type>Boolean</type>
@@ -199,7 +224,8 @@
 			</configurationParameter>
 			<configurationParameter>
 				<name>JapaneseDeepWordBreak</name>
-				<description>If true returns Japanese word suffixes separated from their stems</description>
+				<description>If true returns Japanese word suffixes separated from
+					their stems</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
@@ -208,9 +234,13 @@
 			<configurationParameter>
 				<name>CreateCompoundPartsInsteadOfToken</name>
 				<description>
-					If true then compound parts are created not as type uima.tt.CompPartAnnotation but
-					as uima.tt.TokenAnnotation. The annotations for a compound parts of a complex word
-					are created instead of (not in addition to) the token for the whole complex word.
+					If true then compound parts are created not as type
+					uima.tt.CompPartAnnotation but
+					as uima.tt.TokenAnnotation. The
+					annotations for a compound parts of a complex word
+					are created
+					instead of (not in addition to) the token for the whole complex
+					word.
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -219,9 +249,12 @@
 			<configurationParameter>
 				<name>ReturnOnlyFirstLevelOfCompoundBreakdown</name>
 				<description>
-					If true then for compounds which have several decompositions are only the first
-					(longest match) decomposition is returned. E.g. for the German "Segelschullehrer" only
-					"Segelschul"+"lehrer" is returned and not also "Segel" + "schul"+ "lehrer"
+					If true then for compounds which have several
+					decompositions are only the first
+					(longest match) decomposition is
+					returned. E.g. for the German "Segelschullehrer" only
+					"Segelschul"+"lehrer" is returned and not also "Segel" + "schul"+
+					"lehrer"
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -230,8 +263,10 @@
 			<configurationParameter>
 				<name>CreateDecompStructure</name>
 				<description>
-					If true, then full decomp analysis structure is created.
-					This option is intended to be used mutually exclusively with the previous two.
+					If true, then full decomp analysis structure is
+					created.
+					This option is intended to be used mutually exclusively
+					with the previous two.
 				</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
@@ -240,13 +275,14 @@
 
 			<configurationParameter>
 				<name>BreakOnHyphens</name>
-				<description>!Deprecated! If true then we will try to break unknown words if it contains a hyphen</description>
+				<description>!Deprecated! If true then we will try to break unknown
+					words if it contains a hyphen</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 
-		<!-- Unknown processing Related Parameters -->
+			<!-- Unknown processing Related Parameters -->
 			<configurationParameter>
 				<name>DoLookupVariant</name>
 				<description>If true lookup unknown word in variant dictionary.</description>
@@ -256,53 +292,60 @@
 			</configurationParameter>
 			<configurationParameter>
 				<name>DoRuleBasedNormalization4All</name>
-				<description>If true lookup a variant with rulebased normalization for all unknown word.</description>
+				<description>If true lookup a variant with rulebased normalization
+					for all unknown word.</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 			<configurationParameter>
 				<name>DoRuleBasedNormalization4Katakana</name>
-				<description>If true lookup a variant with rulebased normalization only for katakana word.</description>
+				<description>If true lookup a variant with rulebased normalization
+					only for katakana word.</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 
-		<!-- Generic Annotations Related Parameters -->
+			<!-- Generic Annotations Related Parameters -->
 			<configurationParameter>
 				<name>CreateGenericAnnotations</name>
-				<description>Create Generic annotations if annotate glosses availables.</description>
+				<description>Create Generic annotations if annotate glosses
+					availables.</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 			<configurationParameter>
 				<name>CheckGenericTypes</name>
-				<description>Check the types when writing the feature values for generic annotations.</description>
+				<description>Check the types when writing the feature values for
+					generic annotations.</description>
 				<type>Boolean</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
 
-		<!-- Other Parameters -->
-                <!-- general: param to switch between language id and lexical analysis --> 
+			<!-- Other Parameters -->
+			<!-- general: param to switch between language id and lexical analysis -->
 			<configurationParameter>
 				<name>GlossComparatorClassname</name>
 				<description>
-					The full name of the class implementation for the Comparator interface
+					The full name of the class implementation for the
+					Comparator interface
 					to be used for sorting gloss collections.
 				</description>
 				<type>String</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
 			</configurationParameter>
-			
+
 			<configurationParameter>
 				<name>LemmaPoolingThreshold</name>
 				<description>
-					A threshold that is used to control lemma Pooling. Pooling enhance memory usage of
-					the annotator. It is good when processing large documents. Setting the value to 0 
+					A threshold that is used to control lemma Pooling.
+					Pooling enhance memory usage of
+					the annotator. It is good when
+					processing large documents. Setting the value to 0
 					means always enabled; while setting its value to -1 disables pooling.
 				</description>
 				<type>Integer</type>
@@ -314,42 +357,42 @@
 			<commonParameters>
 				<configurationParameter>
 					<name>LexicalDicts</name>
-					<description/>
+					<description />
 					<type>String</type>
 					<multiValued>true</multiValued>
 					<mandatory>false</mandatory>
 				</configurationParameter>
 				<configurationParameter>
 					<name>MultiWordDicts</name>
-					<description/>
+					<description />
 					<type>String</type>
 					<multiValued>true</multiValued>
 					<mandatory>false</mandatory>
 				</configurationParameter>
 				<configurationParameter>
 					<name>OOVDicts</name>
-					<description/>
+					<description />
 					<type>String</type>
 					<multiValued>true</multiValued>
 					<mandatory>false</mandatory>
 				</configurationParameter>
 				<configurationParameter>
 					<name>SynonymDicts</name>
-					<description/>
+					<description />
 					<type>String</type>
 					<multiValued>true</multiValued>
 					<mandatory>false</mandatory>
 				</configurationParameter>
 				<configurationParameter>
 					<name>VariantDicts</name>
-					<description/>
+					<description />
 					<type>String</type>
 					<multiValued>true</multiValued>
 					<mandatory>false</mandatory>
 				</configurationParameter>
 				<configurationParameter>
 					<name>SpellCorrectionDicts</name>
-					<description/>
+					<description />
 					<type>String</type>
 					<multiValued>true</multiValued>
 					<mandatory>false</mandatory>
@@ -399,12 +442,13 @@
 					<mandatory>false</mandatory>
 				</configurationParameter>
 			</commonParameters>
-			<configurationGroup names="default af ar ca cs da de el en es fi fr it ja ko nb nl nn pl pt ru sv zh xx"/>
+			<configurationGroup
+				names="default af ar ca cs da de el en es fi fr it ja ko nb nl nn pl pt ru sv zh xx" />
 		</configurationParameters>
 
-      <!-- ======================================================== -->
-      <!--          Configuration Parameter Setting Section         -->
-      <!-- ======================================================== -->
+		<!-- ======================================================== -->
+		<!-- Configuration Parameter Setting Section -->
+		<!-- ======================================================== -->
 		<configurationParameterSettings>
 			<nameValuePair>
 				<name>LWDataSubdir</name>
@@ -425,7 +469,7 @@
 				</value>
 			</nameValuePair>
 
-		<!-- tokenization Related Parameters -->
+			<!-- tokenization Related Parameters -->
 			<nameValuePair>
 				<name>UseFirstMatchPolicy</name>
 				<value>
@@ -463,7 +507,7 @@
 				</value>
 			</nameValuePair>
 
-			 <!-- Decomposition Related Parameters -->
+			<!-- Decomposition Related Parameters -->
 			<nameValuePair>
 				<name>CrossDictionaryDecomposition</name>
 				<value>
@@ -519,8 +563,8 @@
 					<boolean>true</boolean>
 				</value>
 			</nameValuePair>
-			<!-- you can turn that parameter on for more precise tokenization,
-          		 but the performance impact is really high, so it's turned off by default. -->
+			<!-- you can turn that parameter on for more precise tokenization, but 
+				the performance impact is really high, so it's turned off by default. -->
 			<nameValuePair>
 				<name>DoRuleBasedNormalization4All</name>
 				<value>
@@ -546,35 +590,27 @@
 					<boolean>false</boolean>
 				</value>
 			</nameValuePair>
-			<!-- Other Parameters --> 
-			 <nameValuePair>
-			    <name>GlossComparatorClassname</name>
-			    <value>
-			       <string>com.ibm.langware.annotator.GlossComparator</string>
-			    </value>
-			 </nameValuePair>
+			<!-- Other Parameters -->
+			<nameValuePair>
+				<name>GlossComparatorClassname</name>
+				<value>
+					<string>com.ibm.langware.annotator.GlossComparator</string>
+				</value>
+			</nameValuePair>
 
 			<!-- Dictionaries Configuration Parameters -->
 			<!-- Language Independant -->
 			<settingsForGroup name="default">
-			    <nameValuePair>
-			       <name>LexicalDicts</name>
-			       <value>
-				  <array>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			    <!--
-			    <nameValuePair>
-			       <name>SpellCorrectionDicts</name>
-			       <value>
-				  <array>
-				     <string>OF_normalization_tcr.dic</string>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			    -->
-			 </settingsForGroup>
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>OF_normalization_tcr.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
 
 			<!-- Arabic -->
 			<settingsForGroup name="ar">
@@ -587,14 +623,8 @@
 						</array>
 					</value>
 				</nameValuePair>
-				<!--<nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>ar-XX-OOV-7003.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!--<nameValuePair> <name>OOVDicts</name> <value> <array> <string>ar-XX-OOV-7003.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -603,19 +633,19 @@
 				</nameValuePair>
 			</settingsForGroup>
 			<!-- Czech -->
-		         <settingsForGroup name="cs">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>cs-CZ-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		         </settingsForGroup>
-			
-			
+			<settingsForGroup name="cs">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>cs-CZ-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
+
+
 			<!-- Danish -->
 			<settingsForGroup name="da">
 				<nameValuePair>
@@ -623,18 +653,12 @@
 					<value>
 						<array>
 							<string>da-DK-LLex-7004.dic</string>
-                    					<string>wtfrost7112.rule.dic</string>
+							<string>wtfrost7112.rule.dic</string>
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>da-DK-OOV-7002.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>da-DK-OOV-7002.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -642,7 +666,7 @@
 					</value>
 				</nameValuePair>
 			</settingsForGroup>
-			
+
 			<!-- German -->
 			<settingsForGroup name="de">
 				<nameValuePair>
@@ -654,14 +678,8 @@
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>de-XX-OOV-7002.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>de-XX-OOV-7002.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -670,29 +688,21 @@
 				</nameValuePair>
 			</settingsForGroup>
 
-			 <!-- Greek -->
-			 <settingsForGroup name="el">
-			    <nameValuePair>
-			       <name>LexicalDicts</name>
-			       <value>
-				  <array>
-				     <string>el-GR-LLex-7001.dic</string>
-				     <string>wtfrost7112.rule.dic</string>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			    <!--
-			    <nameValuePair>
-			       <name>SpellCorrectionDicts</name>
-			       <value>
-				  <array>
-				     <string>el-GR-Rules.dic</string>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			    -->
-			 </settingsForGroup>
-			
+			<!-- Greek -->
+			<settingsForGroup name="el">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>el-GR-LLex-7001.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>el-GR-Rules.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
+
 			<!-- English -->
 			<settingsForGroup name="en">
 				<nameValuePair>
@@ -700,20 +710,12 @@
 					<value>
 						<array>
 							<string>en-XX-LLex-7028.dic</string>
-				                     <!-- Disable the tokenizer rules; they just cause problems
-				                     <string>wtfrost7112.rule.en.dic</string>
-				                     -->
+							<!-- Disable the tokenizer rules; they just cause problems <string>wtfrost7112.rule.en.dic</string> -->
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>en-XX-OOV-7004.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>en-XX-OOV-7004.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -723,11 +725,11 @@
 				<nameValuePair>
 					<name>PostLemmaEntryHandling</name>
 					<value>
-					    <string>UNIQUE_LEMMA_STRING</string>
+						<string>UNIQUE_LEMMA_STRING</string>
 					</value>
 				</nameValuePair>
 			</settingsForGroup>
-			
+
 			<!-- Spanish -->
 			<settingsForGroup name="es">
 				<nameValuePair>
@@ -735,18 +737,12 @@
 					<value>
 						<array>
 							<string>es-ES-LLex-7005.dic</string>
-							 <string>wtfrost7112.rule.dic</string>
+							<string>wtfrost7112.rule.dic</string>
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>es-ES-OOV-7003.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>es-ES-OOV-7003.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -755,29 +751,21 @@
 				</nameValuePair>
 			</settingsForGroup>
 
-		 	<!-- Finnish -->
-			 <settingsForGroup name="fi">
-			    <nameValuePair>
-			       <name>LexicalDicts</name>
-			       <value>
-				  <array>
-				     <string>fi-FI-Lex.dic</string>
-				     <string>wtfrost7112.rule.dic</string>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			    <!--
-			    <nameValuePair>
-			       <name>SpellCorrectionDicts</name>
-			       <value>
-				  <array>
-				     <string>fi-FI-Rules.dic</string>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			    -->
-			 </settingsForGroup>
-			
+			<!-- Finnish -->
+			<settingsForGroup name="fi">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>fi-FI-Lex.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>fi-FI-Rules.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
+
 			<!-- French -->
 			<settingsForGroup name="fr">
 				<nameValuePair>
@@ -789,14 +777,8 @@
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>fr-XX-OOV-7002.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>fr-XX-OOV-7002.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -804,7 +786,7 @@
 					</value>
 				</nameValuePair>
 			</settingsForGroup>
-			
+
 			<!-- Italian -->
 			<settingsForGroup name="it">
 				<nameValuePair>
@@ -816,14 +798,8 @@
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>it-IT-OOV-7002.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>it-IT-OOV-7002.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -831,7 +807,7 @@
 					</value>
 				</nameValuePair>
 			</settingsForGroup>
-			
+
 			<!-- Japanese -->
 			<settingsForGroup name="ja">
 				<nameValuePair>
@@ -849,49 +825,41 @@
 						<string>ja-JP-TJpos-7000.dic</string>
 					</value>
 				</nameValuePair>
-				 <nameValuePair>
+				<nameValuePair>
 					<name>PostLemmaEntryHandling</name>
 					<value>
-					    <string>UNIQUE_LEMMA_STRING</string>
+						<string>UNIQUE_LEMMA_STRING</string>
 					</value>
-			       </nameValuePair>
+				</nameValuePair>
 			</settingsForGroup>
 
 			<!-- Korean -->
-			 <settingsForGroup name="ko">
-			    <nameValuePair>
-			       <name>LexicalDicts</name>
-			       <value>
-				  <array>
-				     <string>ko-KR-Lex-7002.dic</string>
-				     <string>wtfrost7112.rule.ja.dic</string>
-				  </array>
-			       </value>
-			    </nameValuePair>
-			 </settingsForGroup>
-		         <!-- Norwegian (Bokmal) -->
-		         <settingsForGroup name="nb">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>nb-NO-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            <!--
-		            <nameValuePair>
-		               <name>SpellCorrectionDicts</name>
-		               <value>
-		                  <array>
-		                     <string>nb-NO-Rules.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            -->
-		         </settingsForGroup>
-			
+			<settingsForGroup name="ko">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>ko-KR-Lex-7002.dic</string>
+							<string>wtfrost7112.rule.ja.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
+			<!-- Norwegian (Bokmal) -->
+			<settingsForGroup name="nb">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>nb-NO-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>nb-NO-Rules.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
+
 			<!-- Netherlandic -->
 			<settingsForGroup name="nl">
 				<nameValuePair>
@@ -903,14 +871,8 @@
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>nl-NL-OOV-7002.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>nl-NL-OOV-7002.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -918,43 +880,35 @@
 					</value>
 				</nameValuePair>
 			</settingsForGroup>
-			
-			         <!-- Norwegian (Nynorsk) -->
-		         <settingsForGroup name="nn">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>nn-NO-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		         </settingsForGroup>
 
-		         <!-- Polish -->
-		         <settingsForGroup name="pl">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>pl-PL-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            <!--
-		            <nameValuePair>
-		               <name>SpellCorrectionDicts</name>
-		               <value>
-		                  <array>
-		                     <string>pl-PL-Rules.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            -->
-		         </settingsForGroup>
-			
+			<!-- Norwegian (Nynorsk) -->
+			<settingsForGroup name="nn">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>nn-NO-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
+
+			<!-- Polish -->
+			<settingsForGroup name="pl">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>pl-PL-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>pl-PL-Rules.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
+
 			<!-- Portuguese -->
 			<settingsForGroup name="pt">
 				<nameValuePair>
@@ -966,14 +920,8 @@
 						</array>
 					</value>
 				</nameValuePair>
-				<!-- <nameValuePair>
-					<name>OOVDicts</name>
-					<value>
-						<array>
-							<string>pt-XX-OOV-7003.dic</string>
-						</array>
-					</value>
-				</nameValuePair> -->
+				<!-- <nameValuePair> <name>OOVDicts</name> <value> <array> <string>pt-XX-OOV-7003.dic</string> 
+					</array> </value> </nameValuePair> -->
 				<nameValuePair>
 					<name>PartOfSpeechDict</name>
 					<value>
@@ -981,261 +929,236 @@
 					</value>
 				</nameValuePair>
 			</settingsForGroup>
-			
-			 <!-- Russian -->
-		         <settingsForGroup name="ru">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>ru-RU-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            <!--
-		            <nameValuePair>
-		               <name>SpellCorrectionDicts</name>
-		               <value>
-		                  <array>
-		                     <string>ru-RU-Rules.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            -->
-		         </settingsForGroup>
 
-		         <!-- Swedish -->
-		         <settingsForGroup name="sv">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>sv-SE-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            <!--
-		            <nameValuePair>
-		               <name>SpellCorrectionDicts</name>
-		               <value>
-		                  <array>
-		                     <string>sv-SE-Rules.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            -->
-		         </settingsForGroup>
-		         
-		          <!-- Afrikaans -->
-		         <settingsForGroup name="af">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>af-ZA-LLex-7006.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            
-		         </settingsForGroup>
-		         
-		          <!-- Catalan -->
-		         <settingsForGroup name="ca">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>ca-CT-LLex-7002.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		            
-		         </settingsForGroup>
-		         
-			
-				<!-- Chinese -->
-				<settingsForGroup name="zh">
-					<nameValuePair>
-						<name>LexicalDicts</name>
-						<value>
-							<array>
-								<string>zh-XX-Lex-7002.dic</string>
-								<string>wtfrost7112.rule.ja.dic</string>
-							</array>
-						</value>
-					</nameValuePair>
-					<nameValuePair>
-						<name>PartOfSpeechDict</name>
-						<value>
-							<string>zh-XX-TCpos-7000.dic</string>
-						</value>
-					</nameValuePair>
-					<nameValuePair>
-				         <name>PostLemmaEntryHandling</name>
-				            	<value>
-				                	<string>UNIQUE_LEMMA_STRING</string>
-				            	</value>
-				    </nameValuePair>
-				
-				</settingsForGroup>
+			<!-- Russian -->
+			<settingsForGroup name="ru">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>ru-RU-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>ru-RU-Rules.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
 
-		         <!-- Unspecified language (e.g. Hungarian) -->
-		         <settingsForGroup name="xx">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>x-unspecified-Lex.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		         </settingsForGroup>
-		
-		         <!-- The other way of saying "unspecified language" -->
-		         <settingsForGroup name="x">
-		            <nameValuePair>
-		               <name>LexicalDicts</name>
-		               <value>
-		                  <array>
-		                     <string>x-unspecified-Lex.dic</string>
-		                     <string>wtfrost7112.rule.dic</string>
-		                  </array>
-		               </value>
-		            </nameValuePair>
-		         </settingsForGroup>
-				</configurationParameterSettings>
+			<!-- Swedish -->
+			<settingsForGroup name="sv">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>sv-SE-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<!-- <nameValuePair> <name>SpellCorrectionDicts</name> <value> <array> 
+					<string>sv-SE-Rules.dic</string> </array> </value> </nameValuePair> -->
+			</settingsForGroup>
 
-			<!-- TypeSystem Definition -->
-			<typeSystemDescription>
-				<imports>
-			   <!-- <import location="of_typesystem.xml"/> -->
-					<import location="dlt_extension_typesystem.xml"/>
-				</imports>
-			</typeSystemDescription>
-	
-			<capabilities>
-				<capability>
-					<inputs/>
-					<outputs>
-						<type>uima.tt.ParagraphAnnotation</type>
-						<type>uima.tt.SentenceAnnotation</type>
-						<type>uima.tt.TokenAnnotation</type>
-						<!--
-						  We don't need to add specific Token Types (Alpabetic, Numeric, ... etc.)
-						  As it is already covered by the TokenAnnotation type.
-						  -->
-	
-						<feature>uima.tt.TokenAnnotation:lemma</feature>
-						<feature>uima.tt.TokenAnnotation:lemmaEntries</feature>
-	
-					</outputs>
-					<languagesSupported>
-						<language>x-unspecified</language> <!-- All Languages -->
-					</languagesSupported>
-				</capability>
-				<capability>
-					<inputs/>
-					<outputs>
-						<type>uima.tt.ParagraphAnnotation</type>
-						<type>uima.tt.SentenceAnnotation</type>
-						<type>uima.tt.TokenAnnotation</type>
-						<!--
-						  We don't need to add specific Token Types (Alpabetic, Numeric, ... etc.)
-						  As it is already covered by the TokenAnnotation type.
-						  -->
-	
-						<!--
-						  com.ibm.dlt.uimatypes.MWU is the type which is described above, used at present
-						  by LanguageWare to annotate Multi Word Units
-						  -->
-				   <!-- <type>com.ibm.dlt.uimatypes.MWU</type> -->
-	
-						<!--
-						  Decomp_Analysis is the full structured analysis of a compound
-						  it is mutually exclusive with CompPartAnnotation. That is to
-						  say that they should not be used together
-						  NB!: Currently unsupported!
-						  -->
-				   <!-- <type>com.ibm.dlt.uimatypes.Decomp_Analysis</type> -->
-	
-						<!-- <type>uima.tt.CompPartAnnotation</type> -->
-						<type>uima.tt.Lemma</type>
-						<type>uima.tt.Synonym</type>
-	
-						<feature>uima.tt.ParagraphAnnotation:paragraphNumber</feature>
-						<feature>uima.tt.SentenceAnnotation:sentenceNumber</feature>
-	
-						<feature>uima.tt.TokenAnnotation:posTag</feature>
-						<feature>uima.tt.TokenAnnotation:lemma</feature>
-						<feature>uima.tt.TokenAnnotation:lemmaEntries</feature>
-						<feature>uima.tt.TokenAnnotation:dictionaryMatch</feature>
-						<feature>uima.tt.TokenAnnotation:tokenNumber</feature>
-						<feature>uima.tt.TokenAnnotation:tokenProperties</feature>
-						<feature>uima.tt.TokenAnnotation:stopwordToken</feature>
-						<feature>uima.tt.TokenAnnotation:frost_TokenType</feature>
-	
-						<feature>uima.tt.Lemma:isStopword</feature>
-						<feature>uima.tt.Lemma:frost_Constraints</feature>
-						<feature>uima.tt.Lemma:frost_MorphBitMasks</feature>
-						<feature>uima.tt.Lemma:frost_ExtendedPOS</feature>
-						<feature>uima.tt.Lemma:frost_JKom</feature>
-						<feature>uima.tt.Lemma:frost_JPStart</feature>
-	
-					</outputs>
-					<languagesSupported>
-						<language>af</language> <!-- Afrikaans -->
-						<language>ar</language> <!-- Arabic -->
-						<language>ca</language> <!-- Catalan -->
-						<language>cs</language> <!-- Czech -->
-						<language>da</language> <!-- Danish -->
-						<language>de</language> <!-- German -->
-						<language>el</language> <!-- Greek -->
-						<language>en</language> <!-- English -->
-						<language>es</language> <!-- Spanish -->
-						<language>fi</language> <!-- Finnish -->
-						<language>fr</language> <!-- French -->
-						<language>it</language> <!-- Italian -->
-						<language>ja</language> <!-- Japanese -->
-						<language>ko</language> <!-- Korean -->
-						<language>nb</language> <!-- Norwegian (Bokmal)  -->
-						<language>nl</language> <!-- Dutch -->
-						<language>nn</language> <!-- Norwegian (Nynorsk) -->
-						<language>pl</language> <!-- Polish -->
-						<language>pt</language> <!-- Portugese -->
-						<language>ru</language> <!-- Russian -->
-						<language>sv</language> <!-- Swedish -->
-						<language>zh</language> <!-- Chinese (Combined) -->
-				            </languagesSupported>
-			</capability>
+			<!-- Afrikaans -->
+			<settingsForGroup name="af">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>af-ZA-LLex-7006.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+
+			</settingsForGroup>
+
+			<!-- Catalan -->
+			<settingsForGroup name="ca">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>ca-CT-LLex-7002.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+
+			</settingsForGroup>
+
+
+			<!-- Chinese -->
+			<settingsForGroup name="zh">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>zh-XX-Lex-7002.dic</string>
+							<string>wtfrost7112.rule.ja.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+				<nameValuePair>
+					<name>PartOfSpeechDict</name>
+					<value>
+						<string>zh-XX-TCpos-7000.dic</string>
+					</value>
+				</nameValuePair>
+				<nameValuePair>
+					<name>PostLemmaEntryHandling</name>
+					<value>
+						<string>UNIQUE_LEMMA_STRING</string>
+					</value>
+				</nameValuePair>
+
+			</settingsForGroup>
+
+			<!-- Unspecified language (e.g. Hungarian) -->
+			<settingsForGroup name="xx">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>x-unspecified-Lex.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
+
+			<!-- The other way of saying "unspecified language" -->
+			<settingsForGroup name="x">
+				<nameValuePair>
+					<name>LexicalDicts</name>
+					<value>
+						<array>
+							<string>x-unspecified-Lex.dic</string>
+							<string>wtfrost7112.rule.dic</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
+		</configurationParameterSettings>
+
+		<!-- TypeSystem Definition -->
+		<typeSystemDescription>
+			<imports>
+				<!-- <import location="of_typesystem.xml"/> -->
+				<import location="dlt_extension_typesystem.xml" />
+			</imports>
+		</typeSystemDescription>
+
+		<capabilities>
 			<capability>
-			      <inputs />
-			     <outputs>
-		            <!-- For POS tagging -->
-		            <feature>uima.tt.TokenAnnotation:posTag</feature>
-		            <feature>uima.tt.TokenAnnotation:dictionaryMatch</feature>
-		            </outputs>
-		            <languagesSupported>
-			        <language>ar</language>
-			        <language>da</language>
-		            <language>en</language><!-- English -->
-			        <language>nl</language>
-		            <language>ja</language>
-		            <language>de</language>
-		            <language>fr</language>
-			        <language>pt</language>
-			        <language>it</language>
-		            <language>es</language>
-				    <language>zh</language>
+				<inputs />
+				<outputs>
+					<type>uima.tt.ParagraphAnnotation</type>
+					<type>uima.tt.SentenceAnnotation</type>
+					<type>uima.tt.TokenAnnotation</type>
+					<!-- We don't need to add specific Token Types (Alpabetic, Numeric, 
+						... etc.) As it is already covered by the TokenAnnotation type. -->
+
+					<feature>uima.tt.TokenAnnotation:lemma</feature>
+					<feature>uima.tt.TokenAnnotation:lemmaEntries</feature>
+
+				</outputs>
+				<languagesSupported>
+					<language>x-unspecified</language> <!-- All Languages -->
 				</languagesSupported>
 			</capability>
-		 </capabilities>
-		</analysisEngineMetaData>
-		<resourceManagerConfiguration>
+			<capability>
+				<inputs />
+				<outputs>
+					<type>uima.tt.ParagraphAnnotation</type>
+					<type>uima.tt.SentenceAnnotation</type>
+					<type>uima.tt.TokenAnnotation</type>
+					<!-- We don't need to add specific Token Types (Alpabetic, Numeric, 
+						... etc.) As it is already covered by the TokenAnnotation type. -->
+
+					<!-- com.ibm.dlt.uimatypes.MWU is the type which is described above, 
+						used at present by LanguageWare to annotate Multi Word Units -->
+					<!-- <type>com.ibm.dlt.uimatypes.MWU</type> -->
+
+					<!-- Decomp_Analysis is the full structured analysis of a compound it 
+						is mutually exclusive with CompPartAnnotation. That is to say that they should 
+						not be used together NB!: Currently unsupported! -->
+					<!-- <type>com.ibm.dlt.uimatypes.Decomp_Analysis</type> -->
+
+					<!-- <type>uima.tt.CompPartAnnotation</type> -->
+					<type>uima.tt.Lemma</type>
+					<type>uima.tt.Synonym</type>
+
+					<feature>uima.tt.ParagraphAnnotation:paragraphNumber</feature>
+					<feature>uima.tt.SentenceAnnotation:sentenceNumber</feature>
+
+					<feature>uima.tt.TokenAnnotation:posTag</feature>
+					<feature>uima.tt.TokenAnnotation:lemma</feature>
+					<feature>uima.tt.TokenAnnotation:lemmaEntries</feature>
+					<feature>uima.tt.TokenAnnotation:dictionaryMatch</feature>
+					<feature>uima.tt.TokenAnnotation:tokenNumber</feature>
+					<feature>uima.tt.TokenAnnotation:tokenProperties</feature>
+					<feature>uima.tt.TokenAnnotation:stopwordToken</feature>
+					<feature>uima.tt.TokenAnnotation:frost_TokenType</feature>
+
+					<feature>uima.tt.Lemma:isStopword</feature>
+					<feature>uima.tt.Lemma:frost_Constraints</feature>
+					<feature>uima.tt.Lemma:frost_MorphBitMasks</feature>
+					<feature>uima.tt.Lemma:frost_ExtendedPOS</feature>
+					<feature>uima.tt.Lemma:frost_JKom</feature>
+					<feature>uima.tt.Lemma:frost_JPStart</feature>
+
+				</outputs>
+				<languagesSupported>
+					<language>af</language> <!-- Afrikaans -->
+					<language>ar</language> <!-- Arabic -->
+					<language>ca</language> <!-- Catalan -->
+					<language>cs</language> <!-- Czech -->
+					<language>da</language> <!-- Danish -->
+					<language>de</language> <!-- German -->
+					<language>el</language> <!-- Greek -->
+					<language>en</language> <!-- English -->
+					<language>es</language> <!-- Spanish -->
+					<language>fi</language> <!-- Finnish -->
+					<language>fr</language> <!-- French -->
+					<language>it</language> <!-- Italian -->
+					<language>ja</language> <!-- Japanese -->
+					<language>ko</language> <!-- Korean -->
+					<language>nb</language> <!-- Norwegian (Bokmal) -->
+					<language>nl</language> <!-- Dutch -->
+					<language>nn</language> <!-- Norwegian (Nynorsk) -->
+					<language>pl</language> <!-- Polish -->
+					<language>pt</language> <!-- Portugese -->
+					<language>ru</language> <!-- Russian -->
+					<language>sv</language> <!-- Swedish -->
+					<language>zh</language> <!-- Chinese (Combined) -->
+				</languagesSupported>
+			</capability>
+			<capability>
+				<inputs />
+				<outputs>
+					<!-- For POS tagging -->
+					<feature>uima.tt.TokenAnnotation:posTag</feature>
+					<feature>uima.tt.TokenAnnotation:dictionaryMatch</feature>
+				</outputs>
+				<languagesSupported>
+					<language>ar</language>
+					<language>da</language>
+					<language>en</language><!-- English -->
+					<language>nl</language>
+					<language>ja</language>
+					<language>de</language>
+					<language>fr</language>
+					<language>pt</language>
+					<language>it</language>
+					<language>es</language>
+					<language>zh</language>
+				</languagesSupported>
+			</capability>
+		</capabilities>
+	</analysisEngineMetaData>
+	<resourceManagerConfiguration>
 		<externalResources>
 			<externalResource>
 				<name>ResourcesFile</name>
@@ -1252,5 +1175,5 @@
 				<resourceName>ResourcesFile</resourceName>
 			</externalResourceBinding>
 		</externalResourceBindings>
-	  </resourceManagerConfiguration>
+	</resourceManagerConfiguration>
 </taeDescription>

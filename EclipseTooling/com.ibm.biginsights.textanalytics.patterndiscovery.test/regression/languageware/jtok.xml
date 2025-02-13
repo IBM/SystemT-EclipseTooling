@@ -1,263 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<taeDescription xmlns="http://uima.apache.org/resourceSpecifier">
-  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>
-  <annotatorImplementationName>com.ibm.es.nuvo.tokenizer.annotators.ngram.NgramAnnotator</annotatorImplementationName>
+<taeDescription
+	xmlns="http://uima.apache.org/resourceSpecifier">
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>true</primitive>
+	<annotatorImplementationName>com.ibm.es.nuvo.tokenizer.annotators.ngram.NgramAnnotator</annotatorImplementationName>
 
-  <analysisEngineMetaData>
-    <name>UnicodeTokenizer</name>
-    <description>
-      This annotator extracts tokens from text based on their Unicode character properties and simple rules. It uses
-      white space separation for script ranges based on Latin characters and n-gram statistics for other script ranges.
-    </description>
-    <version>1.0</version>
-    <vendor>IBM Corporation</vendor>
+	<analysisEngineMetaData>
+		<name>UnicodeTokenizer</name>
+		<description>
+			This annotator extracts tokens from text based on their Unicode character
+			properties and simple rules. It uses
+			white space separation for script ranges based on Latin characters and
+			n-gram statistics for other script ranges.
+		</description>
+		<version>1.0</version>
+		<vendor>IBM Corporation</vendor>
 
-    <configurationParameters defaultGroup="default" searchStrategy="default_fallback">
-      <commonParameters>
-        <configurationParameter>
-          <name>NgramCount</name>
-          <description>Number of characters in a n-gram</description>
-          <type>Integer</type>
-          <multiValued>false</multiValued>
-          <mandatory>false</mandatory>
-        </configurationParameter>
+		<configurationParameters
+			defaultGroup="default" searchStrategy="default_fallback">
+			<commonParameters>
+				<configurationParameter>
+					<name>NgramCount</name>
+					<description>Number of characters in a n-gram</description>
+					<type>Integer</type>
+					<multiValued>false</multiValued>
+					<mandatory>false</mandatory>
+				</configurationParameter>
 
-        <configurationParameter>
-          <name>NgramCharacters</name>
-          <description>
-            Specify type(s) of characters which will be tokenized as n-gram. Possible values are :
+				<configurationParameter>
+					<name>NgramCharacters</name>
+					<description>
+						Specify type(s) of characters which will be tokenized as n-gram. Possible
+						values are :
 
-            alphabet: characters such as alphabet characters are tokenized as n-gram
-            number: numbers are tokenized as n-gram
-            other : other characters
-          </description>
-          <type>String</type>
-          <multiValued>true</multiValued>
-          <mandatory>false</mandatory>
-        </configurationParameter>
-        <configurationParameter>
-          <name>IgnoreWhitespace</name>
-          <description>
-            Specify type(s) of characters which whitespace characters are ignored in between. Possible values are :
+						alphabet: characters such as alphabet characters are tokenized as n-gram
+						number: numbers are tokenized as n-gram
+						other : other characters
+					</description>
+					<type>String</type>
+					<multiValued>true</multiValued>
+					<mandatory>false</mandatory>
+				</configurationParameter>
+				<configurationParameter>
+					<name>IgnoreWhitespace</name>
+					<description>
+						Specify type(s) of characters which whitespace characters are ignored in
+						between. Possible values are :
 
-            alphabet: whitespace characters between characters such as alphabet (and other characters if specified) are ignored
-            number: whitespace characters between numbers (and other characters if specified) are ignored
-            other : whitespace characters between characters (except for alphabets and numbers unless specified) are ignored
-          </description>
-          <type>String</type>
-          <multiValued>true</multiValued>
-          <mandatory>false</mandatory>
-        </configurationParameter>
+						alphabet: whitespace characters between characters such as alphabet (and
+						other characters if specified) are ignored
+						number: whitespace characters between numbers (and other characters if
+						specified) are ignored
+						other : whitespace characters between characters (except for alphabets
+						and numbers unless specified) are ignored
+					</description>
+					<type>String</type>
+					<multiValued>true</multiValued>
+					<mandatory>false</mandatory>
+				</configurationParameter>
 
-        <configurationParameter>
-          <name>IgnorePunctuationTokens</name>
-          <description>If true, punctuation tokens are ignored</description>
-          <type>Boolean</type>
-          <multiValued>false</multiValued>
-          <mandatory>true</mandatory>
-        </configurationParameter>
+				<configurationParameter>
+					<name>IgnorePunctuationTokens</name>
+					<description>If true, punctuation tokens are ignored</description>
+					<type>Boolean</type>
+					<multiValued>false</multiValued>
+					<mandatory>true</mandatory>
+				</configurationParameter>
 
-        <configurationParameter>
-          <name>IgnoreSentenceBreakers</name>
-          <description>If true, sentence breakers are handled as normal characters.</description>
-          <type>Boolean</type>
-          <multiValued>false</multiValued>
-          <mandatory>true</mandatory>
-        </configurationParameter>
+				<configurationParameter>
+					<name>IgnoreSentenceBreakers</name>
+					<description>If true, sentence breakers are handled as normal
+						characters.</description>
+					<type>Boolean</type>
+					<multiValued>false</multiValued>
+					<mandatory>true</mandatory>
+				</configurationParameter>
 
-        <configurationParameter>
-          <name>AnnotatorMode</name>
-          <description>
-            Determines annotator mode
-            
-            indexer : indexer mode
-            runtime : runtime mode
-          </description>
-          <type>String</type>
-          <multiValued>false</multiValued>
-          <mandatory>false</mandatory>
-        </configurationParameter>
-      </commonParameters>
+				<configurationParameter>
+					<name>AnnotatorMode</name>
+					<description>
+						Determines annotator mode
 
-      <configurationGroup names="default">
-        <configurationParameter>
-          <name>UseRelativeTokenAndSentenceNumbers</name>
-          <description>If true token and sentence numbers are reset to 1 for each new sentence/paragraph</description>
-          <type>Boolean</type>
-          <multiValued>false</multiValued>
-          <mandatory>true</mandatory>
-        </configurationParameter>
+						indexer : indexer mode
+						runtime : runtime mode
+					</description>
+					<type>String</type>
+					<multiValued>false</multiValued>
+					<mandatory>false</mandatory>
+				</configurationParameter>
+			</commonParameters>
 
-        <configurationParameter>
-          <name>CharMapConfigFilename</name>
-          <description>
-            File name of a configuration file with a table redefining the character classes of selcted characters
-          </description>
-          <type>String</type>
-          <multiValued>false</multiValued>
-          <mandatory>false</mandatory>
-        </configurationParameter>
-      </configurationGroup>
+			<configurationGroup names="default">
+				<configurationParameter>
+					<name>UseRelativeTokenAndSentenceNumbers</name>
+					<description>If true token and sentence numbers are reset to 1 for
+						each new sentence/paragraph</description>
+					<type>Boolean</type>
+					<multiValued>false</multiValued>
+					<mandatory>true</mandatory>
+				</configurationParameter>
 
-      <!--define language groups without using territory information, this will be ignored -->
-      <configurationGroup names="ja ko zh" />
-    </configurationParameters>
+				<configurationParameter>
+					<name>CharMapConfigFilename</name>
+					<description>
+						File name of a configuration file with a table redefining the
+						character classes of selcted characters
+					</description>
+					<type>String</type>
+					<multiValued>false</multiValued>
+					<mandatory>false</mandatory>
+				</configurationParameter>
+			</configurationGroup>
 
-    <configurationParameterSettings>
-      <settingsForGroup name="default">
-        <nameValuePair>
-          <name>AnnotatorMode</name>
-          <value>
-            <string>indexer</string>
-          </value>
-        </nameValuePair>
+			<!--define language groups without using territory information, this will 
+				be ignored -->
+			<configurationGroup names="ja ko zh" />
+		</configurationParameters>
 
-        <nameValuePair>
-          <name>UseRelativeTokenAndSentenceNumbers</name>
-          <value>
-            <boolean>false</boolean>
-          </value>
-        </nameValuePair>
+		<configurationParameterSettings>
+			<settingsForGroup name="default">
+				<nameValuePair>
+					<name>AnnotatorMode</name>
+					<value>
+						<string>indexer</string>
+					</value>
+				</nameValuePair>
 
-        <nameValuePair>
-          <name>IgnorePunctuationTokens</name>
-          <value>
-            <boolean>false</boolean>
-          </value>
-        </nameValuePair>
+				<nameValuePair>
+					<name>UseRelativeTokenAndSentenceNumbers</name>
+					<value>
+						<boolean>false</boolean>
+					</value>
+				</nameValuePair>
 
-        <nameValuePair>
-          <name>IgnoreSentenceBreakers</name>
-          <value>
-            <boolean>false</boolean>
-          </value>
-        </nameValuePair>
+				<nameValuePair>
+					<name>IgnorePunctuationTokens</name>
+					<value>
+						<boolean>false</boolean>
+					</value>
+				</nameValuePair>
 
-        <nameValuePair>
-          <name>NgramCount</name>
-          <value>
-            <integer>2</integer>
-          </value>
-        </nameValuePair>
+				<nameValuePair>
+					<name>IgnoreSentenceBreakers</name>
+					<value>
+						<boolean>false</boolean>
+					</value>
+				</nameValuePair>
 
-        <nameValuePair>
-          <name>NgramCharacters</name>
-          <value>
-            <array>
-              <string>other</string>
-            </array>
-          </value>
-        </nameValuePair>
-      </settingsForGroup>
+				<nameValuePair>
+					<name>NgramCount</name>
+					<value>
+						<integer>2</integer>
+					</value>
+				</nameValuePair>
 
-      <settingsForGroup name="ja">
-        <nameValuePair>
-          <name>IgnorePunctuationTokens</name>
-          <value>
-            <boolean>true</boolean>
-          </value>
-        </nameValuePair>
-        <nameValuePair>
-          <name>IgnoreWhitespace</name>
-          <value>
-            <array>
-              <string>other</string>
-            </array>
-          </value>
-        </nameValuePair>
-      </settingsForGroup>
+				<nameValuePair>
+					<name>NgramCharacters</name>
+					<value>
+						<array>
+							<string>other</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
 
-      <settingsForGroup name="ko">
-        <nameValuePair>
-          <name>IgnorePunctuationTokens</name>
-          <value>
-            <boolean>true</boolean>
-          </value>
-        </nameValuePair>
-        <nameValuePair>
-          <name>IgnoreWhitespace</name>
-          <value>
-            <array>
-              <string>other</string>
-            </array>
-          </value>
-        </nameValuePair>
-      </settingsForGroup>
+			<settingsForGroup name="ja">
+				<nameValuePair>
+					<name>IgnorePunctuationTokens</name>
+					<value>
+						<boolean>true</boolean>
+					</value>
+				</nameValuePair>
+				<nameValuePair>
+					<name>IgnoreWhitespace</name>
+					<value>
+						<array>
+							<string>other</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
 
-      <settingsForGroup name="zh">
-        <nameValuePair>
-          <name>IgnorePunctuationTokens</name>
-          <value>
-            <boolean>true</boolean>
-          </value>
-        </nameValuePair>
-        <nameValuePair>
-          <name>IgnoreWhitespace</name>
-          <value>
-            <array>
-              <string>other</string>
-            </array>
-          </value>
-        </nameValuePair>
-      </settingsForGroup>
+			<settingsForGroup name="ko">
+				<nameValuePair>
+					<name>IgnorePunctuationTokens</name>
+					<value>
+						<boolean>true</boolean>
+					</value>
+				</nameValuePair>
+				<nameValuePair>
+					<name>IgnoreWhitespace</name>
+					<value>
+						<array>
+							<string>other</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
 
-    </configurationParameterSettings>
+			<settingsForGroup name="zh">
+				<nameValuePair>
+					<name>IgnorePunctuationTokens</name>
+					<value>
+						<boolean>true</boolean>
+					</value>
+				</nameValuePair>
+				<nameValuePair>
+					<name>IgnoreWhitespace</name>
+					<value>
+						<array>
+							<string>other</string>
+						</array>
+					</value>
+				</nameValuePair>
+			</settingsForGroup>
 
-    <typeSystemDescription>
-      <import location="tt_core_typesystem.xml" />
-    </typeSystemDescription>
+		</configurationParameterSettings>
 
-    <fsIndexCollection />
+		<typeSystemDescription>
+			<import location="tt_core_typesystem.xml" />
+		</typeSystemDescription>
 
-    <capabilities>
-      <capability>
-        <inputs />
-        <outputs>
-          <type>uima.tt.NgramTokenAnnotation</type>
-          <type>uima.tt.TokenAnnotation</type>
-          <type>uima.tt.SentenceAnnotation</type>
-          <type>uima.tt.ParagraphAnnotation</type>
-          <feature>uima.tt.NgramTokenAnnotation:ngram_TokenType</feature>
-        </outputs>
-        <languagesSupported>
-          <!-- Since this tokenizer can deal with all scripts used in the Unicode standard it makes sense to specify that it can work with any language -->
-          <language>x-unspecified</language>
-        </languagesSupported>
-      </capability>
-    </capabilities>
+		<fsIndexCollection />
 
-    <operationalProperties>
-      <modifiesCas>true</modifiesCas>
-      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
-    </operationalProperties>
-  </analysisEngineMetaData>
+		<capabilities>
+			<capability>
+				<inputs />
+				<outputs>
+					<type>uima.tt.NgramTokenAnnotation</type>
+					<type>uima.tt.TokenAnnotation</type>
+					<type>uima.tt.SentenceAnnotation</type>
+					<type>uima.tt.ParagraphAnnotation</type>
+					<feature>uima.tt.NgramTokenAnnotation:ngram_TokenType</feature>
+				</outputs>
+				<languagesSupported>
+					<!-- Since this tokenizer can deal with all scripts used in the Unicode 
+						standard it makes sense to specify that it can work with any language -->
+					<language>x-unspecified</language>
+				</languagesSupported>
+			</capability>
+		</capabilities>
 
-  <externalResourceDependencies>
-    <externalResourceDependency>
-      <key>ExternalDictionary</key>
-      <description>External dictionary to re-define the attribute of words</description>
-      <interfaceName>com.ibm.es.nuvo.tokenizer.annotators.ngram.DictionaryResource</interfaceName>
-      <optional>false</optional>
-    </externalResourceDependency>
-  </externalResourceDependencies>
-  <resourceManagerConfiguration>
-    <externalResources>
-      <externalResource>
-        <name>ExternalDictionaryFile</name>
-        <description>External dictionary file</description>
-        <fileLanguageResourceSpecifier>
-          <fileUrlPrefix>file:</fileUrlPrefix>
-          <fileUrlSuffix>-Ngram.dic</fileUrlSuffix>
-        </fileLanguageResourceSpecifier>
-        <implementationName>com.ibm.es.nuvo.tokenizer.annotators.ngram.DictionaryResourceImpl</implementationName>
-      </externalResource>
-    </externalResources>
-    <externalResourceBindings>
-      <externalResourceBinding>
-        <key>ExternalDictionary</key>
-        <resourceName>ExternalDictionaryFile</resourceName>
-      </externalResourceBinding>
-    </externalResourceBindings>
-  </resourceManagerConfiguration>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+		</operationalProperties>
+	</analysisEngineMetaData>
+
+	<externalResourceDependencies>
+		<externalResourceDependency>
+			<key>ExternalDictionary</key>
+			<description>External dictionary to re-define the attribute of words</description>
+			<interfaceName>com.ibm.es.nuvo.tokenizer.annotators.ngram.DictionaryResource</interfaceName>
+			<optional>false</optional>
+		</externalResourceDependency>
+	</externalResourceDependencies>
+	<resourceManagerConfiguration>
+		<externalResources>
+			<externalResource>
+				<name>ExternalDictionaryFile</name>
+				<description>External dictionary file</description>
+				<fileLanguageResourceSpecifier>
+					<fileUrlPrefix>file:</fileUrlPrefix>
+					<fileUrlSuffix>-Ngram.dic</fileUrlSuffix>
+				</fileLanguageResourceSpecifier>
+				<implementationName>com.ibm.es.nuvo.tokenizer.annotators.ngram.DictionaryResourceImpl</implementationName>
+			</externalResource>
+		</externalResources>
+		<externalResourceBindings>
+			<externalResourceBinding>
+				<key>ExternalDictionary</key>
+				<resourceName>ExternalDictionaryFile</resourceName>
+			</externalResourceBinding>
+		</externalResourceBindings>
+	</resourceManagerConfiguration>
 </taeDescription>

@@ -2,19 +2,26 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="reference" />
-<meta name="DC.Title" content="Regular expression constructs and characters" />
-<meta name="abstract" content="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator." />
-<meta name="Description" content="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator." />
-<meta name="DC.subject" content="regular expressions, constructs and characters" />
-<meta name="keywords" content="regular expressions, constructs and characters" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/tool_ref/extractors/RegexBuilder.html" />
+<meta name="DC.Title"
+	content="Regular expression constructs and characters" />
+<meta name="abstract"
+	content="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator." />
+<meta name="Description"
+	content="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator." />
+<meta name="DC.subject"
+	content="regular expressions, constructs and characters" />
+<meta name="keywords"
+	content="regular expressions, constructs and characters" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/tool_ref/extractors/RegexBuilder.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_txtan_regx_constructs" />
@@ -25,250 +32,451 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
-<link rel="Start" href="../../../html/tool_ref/extractors/RegexBuilder.html" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
+<link rel="Start"
+	href="../../../html/tool_ref/extractors/RegexBuilder.html" />
 <title>Regular expression constructs and characters</title>
 </head>
 <body role="main" id="help_txtan_regx_constructs">
-<h1 class="title topictitle1">Regular expression constructs and characters</h1>
-<div class="body refbody"><p class="shortdesc">In the Eclipse tool, you can build rules in the Regular
-Expression Builder by selecting constructs and combining them. You
-can modify regular expressions, subexpressions, and the associated
-character classes in the Regular Expression Generator.</p>
-<div class="section"><h2 class="title sectiontitle">Character classes</h2><p class="p">Each character can be
-classified into one of the following character classes:</p>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Character classes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e28">Character Class</th>
-<th class="entry" valign="bottom" id="d14995e30">Shorthand</th>
-<th class="entry" valign="bottom" id="d14995e32">Meaning</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Any character</td>
-<td class="entry" valign="top" headers="d14995e30 ">.</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any character symbol</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Alphanumeric</td>
-<td class="entry" valign="top" headers="d14995e30 ">[0-9\p{L}]</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any word character or digit</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Non-Alphanumeric</td>
-<td class="entry" valign="top" headers="d14995e30 ">[^0-9\p{L}]</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any character that is not a word character or
-a digit</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Letter</td>
-<td class="entry" valign="top" headers="d14995e30 ">\p{L}</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any word character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Lowercase letters</td>
-<td class="entry" valign="top" headers="d14995e30 ">\p{Ll}</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any lowercase word character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Uppercase letters</td>
-<td class="entry" valign="top" headers="d14995e30 ">\p{Lu}</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any uppercase word character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Digit</td>
-<td class="entry" valign="top" headers="d14995e30 ">\d</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any digit (0-9)</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">White space</td>
-<td class="entry" valign="top" headers="d14995e30 ">\s</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any white space character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e28 ">Other</td>
-<td class="entry" valign="top" headers="d14995e30 ">[^0-9\s\p{L}]</td>
-<td class="entry" valign="top" headers="d14995e32 ">Any character that is not a word character,
-digit, or white space character</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="p">Some character classes comprise other character classes.
-For example, lowercase letters are also members of the Letter class.</p>
-</div>
-<div class="section"><h2 class="title sectiontitle">Construct categories</h2><p class="p">A list of Construct
-categories is provided in Regular Expression Builder.  You can select
-the required categories and modify the rule by selecting the constructs
-under that category. Constructs can be selected by clicking the button
-or by checking the check box (whichever is provided). </p>
-<div class="p">Each
-of the Construct categories is included in the following list. For
-details of each category, see the accompanying tables:<ul class="ul"><li class="li"><a class="xref" href="#help_txtan_regx_constructs__char">Character category</a></li>
-<li class="li"><a class="xref" href="#help_txtan_regx_constructs__charclass">Character classes
-category</a></li>
-<li class="li"><a class="xref" href="#help_txtan_regx_constructs__predef">Predefined character
-classes</a></li>
-<li class="li"><a class="xref" href="#help_txtan_regx_constructs__boundary">Boundary matches</a></li>
-<li class="li"><a class="xref" href="#help_txtan_regx_constructs__greedy">Greedy quantifiers</a></li>
-<li class="li"><a class="xref" href="#help_txtan_regx_constructs__logical">Logical operators</a></li>
-<li class="li"><a class="xref" href="#help_txtan_regx_constructs__match">Match flags</a></li>
-</ul>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__char" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Character category</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e137">Construct </th>
-<th class="entry" valign="bottom" id="d14995e139">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e137 ">\\</td>
-<td class="entry" valign="top" headers="d14995e139 ">The backslash character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e137 ">\t</td>
-<td class="entry" valign="top" headers="d14995e139 ">The tab character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e137 ">\n</td>
-<td class="entry" valign="top" headers="d14995e139 ">The newline (line feed) character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e137 ">\r</td>
-<td class="entry" valign="top" headers="d14995e139 ">The carriage-return character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e137 ">\e</td>
-<td class="entry" valign="top" headers="d14995e139 ">The escape character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e137 "> </td>
-<td class="entry" valign="top" headers="d14995e139 ">The space character</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__charclass" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 3. Character classes category</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e180">Construct</th>
-<th class="entry" valign="bottom" id="d14995e182">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e180 ">[abc]</td>
-<td class="entry" valign="top" headers="d14995e182 ">[abc]: a, b, or c (simple class)</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e180 ">[^abc]</td>
-<td class="entry" valign="top" headers="d14995e182 ">[^abc]: Any character except a, b, or c (negation)</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e180 ">[a-z]</td>
-<td class="entry" valign="top" headers="d14995e182 ">[a-z]: a through z, inclusive (range)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__predef" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 4. Predefined character classes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e208">Construct</th>
-<th class="entry" valign="bottom" id="d14995e210">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e208 ">.</td>
-<td class="entry" valign="top" headers="d14995e210 ">Matches any character except the newline character
-(\n)</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e208 ">\d</td>
-<td class="entry" valign="top" headers="d14995e210 ">A digit: [0-9]</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e208 ">\D</td>
-<td class="entry" valign="top" headers="d14995e210 ">A non-digit: [^0-9]</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e208 ">\s</td>
-<td class="entry" valign="top" headers="d14995e210 ">A white space character: [\t\n\x0B\f\r], any
-one of space, tab, newline, return, or newpage character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e208 ">\S</td>
-<td class="entry" valign="top" headers="d14995e210 ">A non-white space character: [^\s]</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e208 ">\w</td>
-<td class="entry" valign="top" headers="d14995e210 ">A word character: [a-zA-Z_0-9], any alphanumeric
-character</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e208 ">\W</td>
-<td class="entry" valign="top" headers="d14995e210 ">A non-word character: [^\w]</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__boundary" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 5. Boundary matches</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e256">Construct</th>
-<th class="entry" valign="bottom" id="d14995e258">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e256 ">^</td>
-<td class="entry" valign="top" headers="d14995e258 ">The beginning of a line</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e256 ">$</td>
-<td class="entry" valign="top" headers="d14995e258 ">The end of a line</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e256 ">\b</td>
-<td class="entry" valign="top" headers="d14995e258 ">A word boundary</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e256 ">\B</td>
-<td class="entry" valign="top" headers="d14995e258 ">A non-word boundary</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__greedy" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 6. Greedy quantifiers</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e289">Construct</th>
-<th class="entry" valign="bottom" id="d14995e291">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e289 ">X?</td>
-<td class="entry" valign="top" headers="d14995e291 ">Subexpression <var class="keyword varname">X</var> appears once
-or not at all</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e289 ">X*</td>
-<td class="entry" valign="top" headers="d14995e291 ">Subexpression <var class="keyword varname">X</var> appears zero
-or more times</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e289 ">X+</td>
-<td class="entry" valign="top" headers="d14995e291 ">Subexpression <var class="keyword varname">X</var> appears one
-or more times</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e289 ">X{n}</td>
-<td class="entry" valign="top" headers="d14995e291 ">Subexpression <var class="keyword varname">X</var> appears exactly <var class="keyword varname">n</var> times</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e289 ">X{n,}</td>
-<td class="entry" valign="top" headers="d14995e291 ">Subexpression <var class="keyword varname">X</var> appears at
-least <var class="keyword varname">n</var> times</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e289 ">X{n,m}</td>
-<td class="entry" valign="top" headers="d14995e291 ">Subexpression <var class="keyword varname">X</var> appears at
-least <var class="keyword varname">n</var> but not more than <var class="keyword varname">m</var> times</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__logical" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 7. Logical operators </span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e362">Construct</th>
-<th class="entry" valign="bottom" id="d14995e364">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e362 ">XY</td>
-<td class="entry" valign="top" headers="d14995e364 ">Subexpression <var class="keyword varname">X</var> followed
-by subexpression <var class="keyword varname">Y</var></td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e362 ">X|Y</td>
-<td class="entry" valign="top" headers="d14995e364 ">Subexpression <var class="keyword varname">X</var> or subexpression <var class="keyword varname">Y</var></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="help_txtan_regx_constructs__match" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 8. Match flags</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d14995e395">Construct</th>
-<th class="entry" valign="bottom" id="d14995e397">Matches</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d14995e395 ">?d</td>
-<td class="entry" valign="top" headers="d14995e397 ">Enable UNIX lines mode</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e395 ">?i</td>
-<td class="entry" valign="top" headers="d14995e397 ">Enable non case-sensitive matching</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e395 ">?x</td>
-<td class="entry" valign="top" headers="d14995e397 ">Permits white space and comments in pattern</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e395 ">?m</td>
-<td class="entry" valign="top" headers="d14995e397 ">Enables multiline mode</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e395 ">?s</td>
-<td class="entry" valign="top" headers="d14995e397 ">Enable dotall mode</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d14995e395 ">?u</td>
-<td class="entry" valign="top" headers="d14995e397 ">Enables unicode-aware case sensitivity</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/tool_ref/extractors/RegexBuilder.html" title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">Regular Expression Builder</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Regular expression constructs and
+		characters</h1>
+	<div class="body refbody">
+		<p class="shortdesc">In the Eclipse tool, you can build rules in
+			the Regular Expression Builder by selecting constructs and combining
+			them. You can modify regular expressions, subexpressions, and the
+			associated character classes in the Regular Expression Generator.</p>
+		<div class="section">
+			<h2 class="title sectiontitle">Character classes</h2>
+			<p class="p">Each character can be classified into one of the
+				following character classes:</p>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary="" class="table"
+					rules="all" frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 1. Character classes</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e28">Character
+								Class</th>
+							<th class="entry" valign="bottom" id="d14995e30">Shorthand</th>
+							<th class="entry" valign="bottom" id="d14995e32">Meaning</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Any
+								character</td>
+							<td class="entry" valign="top" headers="d14995e30 ">.</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								character symbol</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Alphanumeric</td>
+							<td class="entry" valign="top" headers="d14995e30 ">[0-9\p{L}]</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any word
+								character or digit</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Non-Alphanumeric</td>
+							<td class="entry" valign="top" headers="d14995e30 ">[^0-9\p{L}]</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								character that is not a word character or a digit</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Letter</td>
+							<td class="entry" valign="top" headers="d14995e30 ">\p{L}</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any word
+								character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Lowercase
+								letters</td>
+							<td class="entry" valign="top" headers="d14995e30 ">\p{Ll}</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								lowercase word character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Uppercase
+								letters</td>
+							<td class="entry" valign="top" headers="d14995e30 ">\p{Lu}</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								uppercase word character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Digit</td>
+							<td class="entry" valign="top" headers="d14995e30 ">\d</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								digit (0-9)</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">White
+								space</td>
+							<td class="entry" valign="top" headers="d14995e30 ">\s</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								white space character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e28 ">Other</td>
+							<td class="entry" valign="top" headers="d14995e30 ">[^0-9\s\p{L}]</td>
+							<td class="entry" valign="top" headers="d14995e32 ">Any
+								character that is not a word character, digit, or white space
+								character</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="p">Some character classes comprise other character
+				classes. For example, lowercase letters are also members of the
+				Letter class.</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Construct categories</h2>
+			<p class="p">A list of Construct categories is provided in
+				Regular Expression Builder. You can select the required categories
+				and modify the rule by selecting the constructs under that category.
+				Constructs can be selected by clicking the button or by checking the
+				check box (whichever is provided).</p>
+			<div class="p">
+				Each of the Construct categories is included in the following list.
+				For details of each category, see the accompanying tables:
+				<ul class="ul">
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__char">Character category</a></li>
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__charclass">Character
+							classes category</a></li>
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__predef">Predefined
+							character classes</a></li>
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__boundary">Boundary matches</a></li>
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__greedy">Greedy quantifiers</a></li>
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__logical">Logical operators</a></li>
+					<li class="li"><a class="xref"
+						href="#help_txtan_regx_constructs__match">Match flags</a></li>
+				</ul>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__char" class="table" rules="all"
+					frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 2. Character category</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e137">Construct
+							</th>
+							<th class="entry" valign="bottom" id="d14995e139">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e137 ">\\</td>
+							<td class="entry" valign="top" headers="d14995e139 ">The
+								backslash character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e137 ">\t</td>
+							<td class="entry" valign="top" headers="d14995e139 ">The tab
+								character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e137 ">\n</td>
+							<td class="entry" valign="top" headers="d14995e139 ">The
+								newline (line feed) character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e137 ">\r</td>
+							<td class="entry" valign="top" headers="d14995e139 ">The
+								carriage-return character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e137 ">\e</td>
+							<td class="entry" valign="top" headers="d14995e139 ">The
+								escape character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e137 "></td>
+							<td class="entry" valign="top" headers="d14995e139 ">The
+								space character</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__charclass" class="table"
+					rules="all" frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 3. Character classes category</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e180">Construct</th>
+							<th class="entry" valign="bottom" id="d14995e182">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e180 ">[abc]</td>
+							<td class="entry" valign="top" headers="d14995e182 ">[abc]:
+								a, b, or c (simple class)</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e180 ">[^abc]</td>
+							<td class="entry" valign="top" headers="d14995e182 ">[^abc]:
+								Any character except a, b, or c (negation)</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e180 ">[a-z]</td>
+							<td class="entry" valign="top" headers="d14995e182 ">[a-z]:
+								a through z, inclusive (range)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__predef" class="table" rules="all"
+					frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 4. Predefined character
+							classes</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e208">Construct</th>
+							<th class="entry" valign="bottom" id="d14995e210">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">.</td>
+							<td class="entry" valign="top" headers="d14995e210 ">Matches
+								any character except the newline character (\n)</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">\d</td>
+							<td class="entry" valign="top" headers="d14995e210 ">A
+								digit: [0-9]</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">\D</td>
+							<td class="entry" valign="top" headers="d14995e210 ">A
+								non-digit: [^0-9]</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">\s</td>
+							<td class="entry" valign="top" headers="d14995e210 ">A white
+								space character: [\t\n\x0B\f\r], any one of space, tab, newline,
+								return, or newpage character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">\S</td>
+							<td class="entry" valign="top" headers="d14995e210 ">A
+								non-white space character: [^\s]</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">\w</td>
+							<td class="entry" valign="top" headers="d14995e210 ">A word
+								character: [a-zA-Z_0-9], any alphanumeric character</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e208 ">\W</td>
+							<td class="entry" valign="top" headers="d14995e210 ">A
+								non-word character: [^\w]</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__boundary" class="table" rules="all"
+					frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 5. Boundary matches</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e256">Construct</th>
+							<th class="entry" valign="bottom" id="d14995e258">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e256 ">^</td>
+							<td class="entry" valign="top" headers="d14995e258 ">The
+								beginning of a line</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e256 ">$</td>
+							<td class="entry" valign="top" headers="d14995e258 ">The end
+								of a line</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e256 ">\b</td>
+							<td class="entry" valign="top" headers="d14995e258 ">A word
+								boundary</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e256 ">\B</td>
+							<td class="entry" valign="top" headers="d14995e258 ">A
+								non-word boundary</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__greedy" class="table" rules="all"
+					frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 6. Greedy quantifiers</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e289">Construct</th>
+							<th class="entry" valign="bottom" id="d14995e291">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e289 ">X?</td>
+							<td class="entry" valign="top" headers="d14995e291 ">Subexpression
+								<var class="keyword varname">X</var> appears once or not at all
+							</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e289 ">X*</td>
+							<td class="entry" valign="top" headers="d14995e291 ">Subexpression
+								<var class="keyword varname">X</var> appears zero or more times
+							</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e289 ">X+</td>
+							<td class="entry" valign="top" headers="d14995e291 ">Subexpression
+								<var class="keyword varname">X</var> appears one or more times
+							</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e289 ">X{n}</td>
+							<td class="entry" valign="top" headers="d14995e291 ">Subexpression
+								<var class="keyword varname">X</var> appears exactly <var
+									class="keyword varname">n</var> times
+							</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e289 ">X{n,}</td>
+							<td class="entry" valign="top" headers="d14995e291 ">Subexpression
+								<var class="keyword varname">X</var> appears at least <var
+									class="keyword varname">n</var> times
+							</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e289 ">X{n,m}</td>
+							<td class="entry" valign="top" headers="d14995e291 ">Subexpression
+								<var class="keyword varname">X</var> appears at least <var
+									class="keyword varname">n</var> but not more than <var
+									class="keyword varname">m</var> times
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__logical" class="table" rules="all"
+					frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 7. Logical operators </span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e362">Construct</th>
+							<th class="entry" valign="bottom" id="d14995e364">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e362 ">XY</td>
+							<td class="entry" valign="top" headers="d14995e364 ">Subexpression
+								<var class="keyword varname">X</var> followed by subexpression <var
+									class="keyword varname">Y</var>
+							</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e362 ">X|Y</td>
+							<td class="entry" valign="top" headers="d14995e364 ">Subexpression
+								<var class="keyword varname">X</var> or subexpression <var
+									class="keyword varname">Y</var>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary=""
+					id="help_txtan_regx_constructs__match" class="table" rules="all"
+					frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 8. Match flags</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d14995e395">Construct</th>
+							<th class="entry" valign="bottom" id="d14995e397">Matches</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e395 ">?d</td>
+							<td class="entry" valign="top" headers="d14995e397 ">Enable
+								UNIX lines mode</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e395 ">?i</td>
+							<td class="entry" valign="top" headers="d14995e397 ">Enable
+								non case-sensitive matching</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e395 ">?x</td>
+							<td class="entry" valign="top" headers="d14995e397 ">Permits
+								white space and comments in pattern</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e395 ">?m</td>
+							<td class="entry" valign="top" headers="d14995e397 ">Enables
+								multiline mode</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e395 ">?s</td>
+							<td class="entry" valign="top" headers="d14995e397 ">Enable
+								dotall mode</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d14995e395 ">?u</td>
+							<td class="entry" valign="top" headers="d14995e397 ">Enables
+								unicode-aware case sensitivity</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/tool_ref/extractors/RegexBuilder.html"
+					title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">Regular
+					Expression Builder</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

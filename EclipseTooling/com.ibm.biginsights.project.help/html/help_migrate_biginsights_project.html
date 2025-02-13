@@ -2,16 +2,20 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
-<meta name="DC.Title" content="Migrating a project to the current InfoSphere BigInsights version" />
-<meta name="abstract" content="If you have InfoSphere BigInsights projects that were created with an older version of the InfoSphere BigInsights Tools for Eclipse, you must migrate the projects to the latest version before you can use them." />
-<meta name="Description" content="If you have InfoSphere BigInsights projects that were created with an older version of the InfoSphere BigInsights Tools for Eclipse, you must migrate the projects to the latest version before you can use them." />
+<meta name="DC.Title"
+	content="Migrating a project to the current InfoSphere BigInsights version" />
+<meta name="abstract"
+	content="If you have InfoSphere BigInsights projects that were created with an older version of the InfoSphere BigInsights Tools for Eclipse, you must migrate the projects to the latest version before you can use them." />
+<meta name="Description"
+	content="If you have InfoSphere BigInsights projects that were created with an older version of the InfoSphere BigInsights Tools for Eclipse, you must migrate the projects to the latest version before you can use them." />
 <meta name="DC.subject" content="Text Analytics, AQL files" />
 <meta name="keywords" content="Text Analytics, AQL files" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
@@ -25,46 +29,90 @@
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
-<title>Migrating a project to the current InfoSphere BigInsights version</title>
+<title>Migrating a project to the current InfoSphere BigInsights
+	version</title>
 </head>
 <body role="main" id="help_migrate_biginsights_project">
-<h1 class="title topictitle1">Migrating a project to the current <span class="keyword">InfoSphere BigInsights</span> version</h1>
-<div class="body taskbody"><p class="shortdesc">If you have <span class="keyword">InfoSphere® BigInsights™</span> 
-projects that were created with an older version of the <span class="keyword">InfoSphere BigInsights</span> 
-Tools for Eclipse, you must migrate the projects to the latest version
-before you can use them. </p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">Typically, projects are migrated automatically when a
-new version of <span class="keyword">InfoSphere BigInsights</span> is
-installed. In some situations, for example, you must manually migrate
-a project after it is imported if it was created with an older version
-of the Eclipse tooling. </p>
-<p class="p">For projects that use Text Analytics,
-you want to use <span class="ph filepath">AQL</span> files in modular format,
-you must migrate the Text Analytics properties, and then manually
-migrate existing <span class="ph filepath">AQL</span> files. For more information,
-see <a class="xref" href="../../com.ibm.biginsights.textanalytics.tooling.help/html/MigratingforModularAQLCode.html">Migrating the Text Analytics properties of a project,
-for enabling the use of modular AQL code</a>.</p>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><div class="li step"><span class="ph cmd">Perform one of the following tasks: </span> 
-<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
-<thead><tr><th id="d1356e60-option" valign="bottom" align="left">Option</th>
-<th id="d1356e60-desc" valign="bottom" align="left">Description</th></tr></thead>
-<tbody><tr class="strow chrow"><td valign="top" headers="d1356e60-option" id="d1356e62" class="stentry choption"><strong>Close and restart your workspace</strong></td>
-<td valign="top" headers="d1356e60-desc d1356e62" class="stentry chdesc"> </td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d1356e60-option" id="d1356e66" class="stentry choption"><strong>Manually migrate your project</strong></td>
-<td valign="top" headers="d1356e60-desc d1356e66" class="stentry chdesc"><ol class="ol" type="a"><li class="li">Right-click the project name. </li>
-<li class="li">From the menu, select <span class="ph uicontrol">Migrate the BigInsights Project</span>. </li>
-</ol>
-</td>
-</tr>
-</tbody></table>
-<p class="p">If you are working with multiple BigInsights servers that are at different
-versions, you might want your project to use a BigInsights library from a different
-version. In the project properties, you can change the BigInsights library version to match
-your server version. To publish applications or run Java™ Map Reduce programs, ensure that the BigInsights library version
-of the project matches the version of the selected BigInsights server. </p>
-</div>
-</div>
-<div class="related-links"></div></body>
+	<h1 class="title topictitle1">
+		Migrating a project to the current <span class="keyword">InfoSphere
+			BigInsights</span> version
+	</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			If you have <span class="keyword">InfoSphere® BigInsights™</span>
+			projects that were created with an older version of the <span
+				class="keyword">InfoSphere BigInsights</span> Tools for Eclipse, you
+			must migrate the projects to the latest version before you can use
+			them.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<p class="p">
+				Typically, projects are migrated automatically when a new version of
+				<span class="keyword">InfoSphere BigInsights</span> is installed. In
+				some situations, for example, you must manually migrate a project
+				after it is imported if it was created with an older version of the
+				Eclipse tooling.
+			</p>
+			<p class="p">
+				For projects that use Text Analytics, you want to use <span
+					class="ph filepath">AQL</span> files in modular format, you must
+				migrate the Text Analytics properties, and then manually migrate
+				existing <span class="ph filepath">AQL</span> files. For more
+				information, see <a class="xref"
+					href="../../com.ibm.biginsights.textanalytics.tooling.help/html/MigratingforModularAQLCode.html">Migrating
+					the Text Analytics properties of a project, for enabling the use of
+					modular AQL code</a>.
+			</p>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<div class="li step">
+			<span class="ph cmd">Perform one of the following tasks: </span>
+			<table border="1" frame="hsides" rules="rows" cellpadding="4"
+				cellspacing="0"
+				summary="Each row in this table describes one option for a choice."
+				class="simpletable choicetable choicetableborder">
+				<thead>
+					<tr>
+						<th id="d1356e60-option" valign="bottom" align="left">Option</th>
+						<th id="d1356e60-desc" valign="bottom" align="left">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="strow chrow">
+						<td valign="top" headers="d1356e60-option" id="d1356e62"
+							class="stentry choption"><strong>Close and restart
+								your workspace</strong></td>
+						<td valign="top" headers="d1356e60-desc d1356e62"
+							class="stentry chdesc"> </td>
+					</tr>
+					<tr class="strow chrow">
+						<td valign="top" headers="d1356e60-option" id="d1356e66"
+							class="stentry choption"><strong>Manually migrate
+								your project</strong></td>
+						<td valign="top" headers="d1356e60-desc d1356e66"
+							class="stentry chdesc"><ol class="ol" type="a">
+								<li class="li">Right-click the project name.</li>
+								<li class="li">From the menu, select <span
+									class="ph uicontrol">Migrate the BigInsights Project</span>.
+								</li>
+							</ol></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="p">If you are working with multiple BigInsights servers
+				that are at different versions, you might want your project to use a
+				BigInsights library from a different version. In the project
+				properties, you can change the BigInsights library version to match
+				your server version. To publish applications or run Java™ Map Reduce
+				programs, ensure that the BigInsights library version of the project
+				matches the version of the selected BigInsights server.</p>
+		</div>
+	</div>
+	<div class="related-links"></div>
+</body>
 </html>

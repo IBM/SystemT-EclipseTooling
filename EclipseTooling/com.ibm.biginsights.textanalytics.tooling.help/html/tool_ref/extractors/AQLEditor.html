@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,11 +11,16 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="reference" />
 <meta name="DC.Title" content="AQL Editor" />
-<meta name="abstract" content="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics." />
-<meta name="Description" content="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics." />
-<meta name="DC.subject" content="Text Analytics language, extractor files, TAM files" />
-<meta name="keywords" content="Text Analytics language, extractor files, TAM files" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="abstract"
+	content="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics." />
+<meta name="Description"
+	content="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics." />
+<meta name="DC.subject"
+	content="Text Analytics language, extractor files, TAM files" />
+<meta name="keywords"
+	content="Text Analytics language, extractor files, TAM files" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="AQLEditor" />
@@ -25,108 +31,208 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
 <link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
 <title>AQL Editor</title>
 </head>
 <body role="main" id="AQLEditor">
-<h1 class="title topictitle1">AQL Editor</h1>
-<div class="body refbody"><p class="shortdesc">The AQL Editor provides a framework to develop and test
-AQL files. Annotation Query Language (AQL) is the language in the <span class="keyword">InfoSphere® BigInsights™</span> Text
-Analytics component for building extractors. An <dfn class="term">extractor</dfn>,
-sometimes referred to as annotator, is an information extraction program
-that extracts structured information from unstructured or semistructured
-text by using AQL constructs. AQL is the primary method of creating
-new extractors in <span class="keyword">InfoSphere BigInsights</span> Text
-Analytics.</p>
-<div class="section"><p class="p"> By using the AQL Editor, you can <a class="xref" href="../../dev_extractors/CreateAQLfile.html">create an AQL file
-or script</a> and develop the code to perform Text Analytics. An
-AQL script contains AQL statements. An extractor can consist of one
-or more AQL files and associated dictionaries and UDF JAR files. </p>
-</div>
-<div class="section"><h2 class="title sectiontitle">Compilation</h2><p class="p">You must compile AQL files before
-you run them. To ensure that the AQL compiler is started whenever
-you save an AQL file, select the <span class="ph uicontrol">Build Automatically</span> option
-from the Project menu.</p>
-<p class="p">The AQL code of the extractor is compiled
-by the Text Analytics Compiler into Text Analytics modules (TAM files).
-A Text Analytics Module (<span class="ph filepath">TAM</span>) file is a binary
-representation of the extractor and contains the execution plan of
-the extractor, the module metadata, and the compiled dictionaries.
-Non-modular AQL files are compiled into a <span class="ph filepath">genericModule.tam</span>,
-and modular AQL files are compiled into a file called <span class="ph filepath">&lt;<var class="keyword varname">moduleName</var>&gt;.tam</span></p>
-<p class="p">In
-its source form, an AQL module is a collection of AQL source files
-that are grouped under a folder whose name is identical to the name
-of the module. Optionally, a module can also contain dictionary files
-and binary UDF JAR files. A compiled AQL module contains the compiled
-operator graph, compiled dictionaries (if any), UDF JAR files (if
-any), and module metadata. AQL modules facilitate modularity and reusability
-of AQL code. AQL modules help build reusable text extractors that
-can be used as building blocks to compose complex Text Analytics applications. </p>
-</div>
-<div class="section"><h2 class="title sectiontitle">Problems view</h2>
-      <p class="p">The <span class="keyword wintitle">Problems</span> view displays errors and warnings with your AQL code. If an error  or warning occurs during compilation, it is displayed in the <span class="keyword wintitle">Problems</span> view with detailed information. If you double-click the error or warning, the AQL Editor shows the specific line in the AQL file where it occurred. Errors and warnings are also identified on the marker bar of that particular AQL file in the AQL Editor.</p>
-<p class="p">For projects that use non-modular AQL code, if the error or warning occurs on the main AQL file or an included file that is present in the current project, the exact file and line number is highlighted. However, if it occurs in an included file that is not a part of the workspace or is a part of a different project in the workspace, then it is highlighted in the main AQL file. </p>
-<p class="p">For projects that use modular AQL code, errors and warnings in an AQL file are marked in the file at the lines where it occurred. However, in certain cases it might not contain associated file information. An error or warning of this type is marked against the project that contains the AQL code that is being compiled. The message contains the exact details and line number of the problem file. </p>
-<div class="p">The following
-information is displayed in the <span class="keyword wintitle">Problems</span> view:<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Problems view information</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d12286e92">Column </th>
-<th class="entry" valign="bottom" id="d12286e94">Definition</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d12286e92 ">Description</td>
-<td class="entry" valign="top" headers="d12286e94 ">The compiler error description and suggestions
-for resolving the error.</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e92 ">Resource</td>
-<td class="entry" valign="top" headers="d12286e94 ">The AQL file that contains the error.</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e92 ">Path</td>
-<td class="entry" valign="top" headers="d12286e94 ">The path of the AQL file that contains the error.</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e92 ">Location</td>
-<td class="entry" valign="top" headers="d12286e94 ">The line number of the error.</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e92 ">Type</td>
-<td class="entry" valign="top" headers="d12286e94 ">The type of error that occurred.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+	<h1 class="title topictitle1">AQL Editor</h1>
+	<div class="body refbody">
+		<p class="shortdesc">
+			The AQL Editor provides a framework to develop and test AQL files.
+			Annotation Query Language (AQL) is the language in the <span
+				class="keyword">InfoSphere® BigInsights™</span> Text Analytics
+			component for building extractors. An
+			<dfn class="term">extractor</dfn>
+			, sometimes referred to as annotator, is an information extraction
+			program that extracts structured information from unstructured or
+			semistructured text by using AQL constructs. AQL is the primary
+			method of creating new extractors in <span class="keyword">InfoSphere
+				BigInsights</span> Text Analytics.
+		</p>
+		<div class="section">
+			<p class="p">
+				By using the AQL Editor, you can <a class="xref"
+					href="../../dev_extractors/CreateAQLfile.html">create an AQL
+					file or script</a> and develop the code to perform Text Analytics. An
+				AQL script contains AQL statements. An extractor can consist of one
+				or more AQL files and associated dictionaries and UDF JAR files.
+			</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Compilation</h2>
+			<p class="p">
+				You must compile AQL files before you run them. To ensure that the
+				AQL compiler is started whenever you save an AQL file, select the <span
+					class="ph uicontrol">Build Automatically</span> option from the
+				Project menu.
+			</p>
+			<p class="p">
+				The AQL code of the extractor is compiled by the Text Analytics
+				Compiler into Text Analytics modules (TAM files). A Text Analytics
+				Module (<span class="ph filepath">TAM</span>) file is a binary
+				representation of the extractor and contains the execution plan of
+				the extractor, the module metadata, and the compiled dictionaries.
+				Non-modular AQL files are compiled into a <span class="ph filepath">genericModule.tam</span>,
+				and modular AQL files are compiled into a file called <span
+					class="ph filepath">&lt;<var class="keyword varname">moduleName</var>&gt;.tam
+				</span>
+			</p>
+			<p class="p">In its source form, an AQL module is a collection of
+				AQL source files that are grouped under a folder whose name is
+				identical to the name of the module. Optionally, a module can also
+				contain dictionary files and binary UDF JAR files. A compiled AQL
+				module contains the compiled operator graph, compiled dictionaries
+				(if any), UDF JAR files (if any), and module metadata. AQL modules
+				facilitate modularity and reusability of AQL code. AQL modules help
+				build reusable text extractors that can be used as building blocks
+				to compose complex Text Analytics applications.</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Problems view</h2>
+			<p class="p">
+				The <span class="keyword wintitle">Problems</span> view displays
+				errors and warnings with your AQL code. If an error or warning
+				occurs during compilation, it is displayed in the <span
+					class="keyword wintitle">Problems</span> view with detailed
+				information. If you double-click the error or warning, the AQL
+				Editor shows the specific line in the AQL file where it occurred.
+				Errors and warnings are also identified on the marker bar of that
+				particular AQL file in the AQL Editor.
+			</p>
+			<p class="p">For projects that use non-modular AQL code, if the
+				error or warning occurs on the main AQL file or an included file
+				that is present in the current project, the exact file and line
+				number is highlighted. However, if it occurs in an included file
+				that is not a part of the workspace or is a part of a different
+				project in the workspace, then it is highlighted in the main AQL
+				file.</p>
+			<p class="p">For projects that use modular AQL code, errors and
+				warnings in an AQL file are marked in the file at the lines where it
+				occurred. However, in certain cases it might not contain associated
+				file information. An error or warning of this type is marked against
+				the project that contains the AQL code that is being compiled. The
+				message contains the exact details and line number of the problem
+				file.</p>
+			<div class="p">
+				The following information is displayed in the <span
+					class="keyword wintitle">Problems</span> view:
+				<div class="tablenoborder">
+					<table cellpadding="4" cellspacing="0" summary="" class="table"
+						rules="all" frame="border" border="1">
+						<caption>
+							<span class="tablecap">Table 1. Problems view information</span>
+						</caption>
+						<thead class="thead" align="left">
+							<tr class="row" valign="bottom">
+								<th class="entry" valign="bottom" id="d12286e92">Column</th>
+								<th class="entry" valign="bottom" id="d12286e94">Definition</th>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e92 ">Description</td>
+								<td class="entry" valign="top" headers="d12286e94 ">The
+									compiler error description and suggestions for resolving the
+									error.</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e92 ">Resource</td>
+								<td class="entry" valign="top" headers="d12286e94 ">The AQL
+									file that contains the error.</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e92 ">Path</td>
+								<td class="entry" valign="top" headers="d12286e94 ">The
+									path of the AQL file that contains the error.</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e92 ">Location</td>
+								<td class="entry" valign="top" headers="d12286e94 ">The
+									line number of the error.</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e92 ">Type</td>
+								<td class="entry" valign="top" headers="d12286e94 ">The
+									type of error that occurred.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 
-      
-   <p class="p">The <span class="keyword wintitle">Problems</span> view also provides AQL compiler warnings for slow regular expressions. These warnings identify complex regular expressions that cannot be run with the <span class="keyword">InfoSphere BigInsights</span> Text Analytics accelerated regular expression evaluation engine (SimpleRegex) because the regular expression involves advanced constructs, such as look-ahead, look-behind, and boundary matches. Such regular expressions are evaluated with the generic Java engine that can be much slower. </p>
 
-   <p class="p">In certain cases, it might be possible to simplify the regular expression to avoid the use of such advanced constructs altogether, or replace their usage with other AQL constructs with equivalent semantics. As a result, the simplified regular expression may become compatible with the accelerated engine resulting in higher extractor throughput. For details, see regular expression tips in <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_extract-perform-rules.html" target="_blank" title="(Opens in a new tab or window)">Follow the basic AQL guidelines</a>.</p>
-</div>
-<div class="section"><h2 class="title sectiontitle">Outline view</h2><div class="p">The <span class="keyword wintitle">Outline</span> view
-displays the outline of the AQL file that is open in the editor and
-lists the structural elements of the file. To add the Outline view
-to the current perspective, click <span class="ph menucascade"><span class="ph uicontrol">Window </span> &gt; <span class="ph uicontrol">Show View </span> &gt; <span class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">General </span> &gt; <span class="ph uicontrol">Outline</span></span>. In the Outline view,
-you can:<ul class="ul"><li class="li">See a list of statements that are defined in the AQL file that
-is open in the editor.</li>
-<li class="li">Navigate to the statement definitions in the AQL file by clicking
-the statement.</li>
-<li class="li">Sort the statements alphabetically.</li>
-</ul>
-</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Hyperlink navigation</h2><div class="p">Hyperlink navigation
-is similar to navigating to the declaration of a Java™ element in a Java development
-environment. The AQL editor supports hyperlink navigation for the
-following identifiers: <ul class="ul"><li class="li">Views, tables, dictionaries, and functions that are defined in
-the current file or module</li>
-<li class="li">Imported views, tables, dictionaries, and functions</li>
-<li class="li">Exported views, tables, or dictionaries and functions</li>
-</ul>
-With hyperlink navigation, you can navigate to the location where
-an AQL object is defined and open the specific dictionary or AQL file
-in an appropriate editor. The AQL editor also supports hyperlink navigation
-for names of external dictionary files and included AQL files.</div>
-<div class="p">For
-example, suppose that your <span class="ph filepath">AQL</span> script contains
-the following statements: <pre class="pre codeblock"><code>Line 1: import view MyView from module sampleModule;
+			<p class="p">
+				The <span class="keyword wintitle">Problems</span> view also
+				provides AQL compiler warnings for slow regular expressions. These
+				warnings identify complex regular expressions that cannot be run
+				with the <span class="keyword">InfoSphere BigInsights</span> Text
+				Analytics accelerated regular expression evaluation engine
+				(SimpleRegex) because the regular expression involves advanced
+				constructs, such as look-ahead, look-behind, and boundary matches.
+				Such regular expressions are evaluated with the generic Java engine
+				that can be much slower.
+			</p>
+
+			<p class="p">
+				In certain cases, it might be possible to simplify the regular
+				expression to avoid the use of such advanced constructs altogether,
+				or replace their usage with other AQL constructs with equivalent
+				semantics. As a result, the simplified regular expression may become
+				compatible with the accelerated engine resulting in higher extractor
+				throughput. For details, see regular expression tips in <a
+					class="xref"
+					href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_extract-perform-rules.html"
+					target="_blank" title="(Opens in a new tab or window)">Follow
+					the basic AQL guidelines</a>.
+			</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Outline view</h2>
+			<div class="p">
+				The <span class="keyword wintitle">Outline</span> view displays the
+				outline of the AQL file that is open in the editor and lists the
+				structural elements of the file. To add the Outline view to the
+				current perspective, click <span class="ph menucascade"><span
+					class="ph uicontrol">Window </span> &gt; <span class="ph uicontrol">Show
+						View </span> &gt; <span class="ph uicontrol">Other</span> &gt; <span
+					class="ph uicontrol">General </span> &gt; <span
+					class="ph uicontrol">Outline</span></span>. In the Outline view, you can:
+				<ul class="ul">
+					<li class="li">See a list of statements that are defined in
+						the AQL file that is open in the editor.</li>
+					<li class="li">Navigate to the statement definitions in the
+						AQL file by clicking the statement.</li>
+					<li class="li">Sort the statements alphabetically.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Hyperlink navigation</h2>
+			<div class="p">
+				Hyperlink navigation is similar to navigating to the declaration of
+				a Java™ element in a Java development environment. The AQL editor
+				supports hyperlink navigation for the following identifiers:
+				<ul class="ul">
+					<li class="li">Views, tables, dictionaries, and functions that
+						are defined in the current file or module</li>
+					<li class="li">Imported views, tables, dictionaries, and
+						functions</li>
+					<li class="li">Exported views, tables, or dictionaries and
+						functions</li>
+				</ul>
+				With hyperlink navigation, you can navigate to the location where an
+				AQL object is defined and open the specific dictionary or AQL file
+				in an appropriate editor. The AQL editor also supports hyperlink
+				navigation for names of external dictionary files and included AQL
+				files.
+			</div>
+			<div class="p">
+				For example, suppose that your <span class="ph filepath">AQL</span>
+				script contains the following statements:
+				<pre class="pre codeblock">
+					<code>Line 1: import view MyView from module sampleModule;
 
 Line 2: create view PhoneNumber as
 Line 3: extract regex /\d+(\.\d+)?/  on R.text as match
@@ -134,144 +240,224 @@ Line 4: from Document R;
 
 Line 5: output view sampleModule.MyView;
 
-Line 6: export view PhoneNumber;</code></pre>
-</div>
-<p class="p">If you place the
-cursor anywhere inside the token <span class="keyword parmname parmname">PhoneNumber</span> in
-Line 6 and click <span class="ph uicontrol">F3</span>, the action takes you to
-the definition of the view <span class="keyword parmname parmname">PhoneNumber</span> in Line
-2. Similarly, if you place the cursor anywhere inside the token <span class="keyword parmname parmname">MyView</span> in
-Line 1 or 5 and click <span class="ph uicontrol">F3</span>, the action opens
-the AQL file that contains the definition of <span class="keyword parmname parmname">MyView</span> and
-takes you to the line number in the <span class="keyword apiname">sampleModule</span> module
-where <span class="keyword parmname parmname">MyView</span> is defined. Similarly, you can navigate
-to the definition of any AQL identifier by using <span class="ph uicontrol">F3</span> navigation
-across modules and projects.  </p>
-<div class="p">When you attempt to navigate
-to the definition of a view whose source is not available or visible
-to the current build path of the project, the following message is
-displayed: <pre class="pre msgblock"><code>There is no AQL source in project's build path that contains definition of this element.</code></pre>
-</div>
-<div class="note restriction"><span class="restrictiontitle">Restriction:</span>  <ul class="ul"><li class="li">If you edit a file and want to use hyperlink navigation for new
-or changed content, save the file first.</li>
-<li class="li">Hyperlink navigation is not supported for dictionary and AQL files
-that contain leading or trailing white space in the file path that
-is mentioned in the AQL code.</li>
-</ul>
-</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Content Assistance</h2><p class="p">The Content Assist feature
-provides context-sensitive assistance to complete the current AQL
-statement. For example, when you type the statement output view in
-the AQL editor and call the Content Assist feature, the tool displays
-all of the views that can be output at the current cursor location.
-You can then choose a view from the list to complete the AQL statement.
- </p>
-<div class="p">To see a list of all valid AQL statements for a specific location
-in the file:<ol class="ol"><li class="li">Place your cursor at the location in the file where you want assistance. </li>
-<li class="li">Press <span class="ph uicontrol">Ctrl+Spacebar</span>.  </li>
-<li class="li">Select the statement that you want added to the file from the
-list of valid AQL statements. The statement is completed automatically
-and added to the file. When Content Assist is started in a new blank
-line, a template of the selected AQL statement is added to the file. </li>
-<li class="li">Modify the required information in the AQL statement or template
-that is inserted into your file. </li>
-</ol>
-</div>
-<div class="p">Content assistance is provided for the following AQL constructs: <ul class="ul"><li class="li">Export</li>
-<li class="li">Export dictionary</li>
-<li class="li">Export table</li>
-<li class="li">Export view</li>
-<li class="li">From</li>
-<li class="li">Include</li>
-<li class="li">Import</li>
-<li class="li">Import dictionary</li>
-<li class="li">Import function</li>
-<li class="li">Import module</li>
-<li class="li">Import view</li>
-<li class="li">Output view</li>
-<li class="li">Regex</li>
-</ul>
-</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Syntax highlighting</h2><div class="p">The AQL editor uses
-colors to highlight the different syntax elements in the AQL statements.
-The following table lists the colors that the AQL editor uses:<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Highlighting reference</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d12286e297">Token type</th>
-<th class="entry" valign="bottom" id="d12286e299">Color</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d12286e297 ">Comments</td>
-<td class="entry" valign="top" headers="d12286e299 ">Maroon</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e297 ">Strings</td>
-<td class="entry" valign="top" headers="d12286e299 ">Green</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e297 ">Keywords</td>
-<td class="entry" valign="top" headers="d12286e299 ">Navy blue</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e297 ">Variable type</td>
-<td class="entry" valign="top" headers="d12286e299 ">Purple</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e297 ">Regular expression</td>
-<td class="entry" valign="top" headers="d12286e299 ">Pink</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d12286e297 ">Default</td>
-<td class="entry" valign="top" headers="d12286e299 ">Black</td>
-</tr>
-</tbody>
-</table>
-</div>
-For more information about the different token types in the
-AQL syntax, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-syntax.html" target="_blank" title="(Opens in a new tab or window)">AQL Syntax</a>.</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Regular Expression Generator</h2><p class="p">The Regular
-Expression Generator wizard helps you to create and refine a regular
-expression through a list of examples of the concept. Right-click
-a regular expression between the slash (<span class="ph uicontrol">/</span>)
-characters in your AQL file, and select <span class="ph uicontrol">Regular Expression
-Generator</span> to open the Regular Expression Generator wizard.
-In the wizard, you can generate or refine a regular expression. Click <span class="ph uicontrol">Finish</span>,
-and the new expression replaces the old one.  For more information,
-see <a class="xref" href="../../dev_extractors/write_code/GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generating
-regular expressions</a>.</p>
-</div>
-<div class="section"><h2 class="title sectiontitle">Regular Expression Builder</h2><p class="p">The Regular Expression
-Builder helps you to build a regular expression by selecting constructs
-and combining them. Right-click a regular expression in your AQL file,
-and select <span class="ph uicontrol">Regular Expression Builder</span>. The
-Regular Expression Builder opens with the regular expression as a
-parameter. Modify this regular expression by using the listed constructs.
-Click <span class="ph uicontrol">Finish</span>, and the new expression replaces
-the old one.  For more information, see <a class="xref" href="../../dev_extractors/write_code/BuildRegEx.html" title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">Building regular
-expressions</a>.</p>
-</div>
-<div class="section"><h2 class="title sectiontitle">AQL Dependency and Reference Hierarchy</h2><div class="p">Similar
-to Java call hierarchy,  the
-AQL editor can visualize the dependent relationships between AQL views
-that are defined in Text Analytics projects. These relationships are
-presented in the following views: <dl class="dl"><dt class="dt dlterm"><span class="ph uicontrol">AQL Dependency Hierarchy</span></dt>
-<dd class="dd">Shows a tree structure with a selected AQL view as the root and
-its children as other AQL views on which the root is dependent. </dd>
-<dt class="dt dlterm"><span class="ph uicontrol">AQL Reference Hierarchy</span></dt>
-<dd class="dd">Shows a tree structure with a selected AQL view as the root and
-its children as other AQL views that require the root in their definitions.
- </dd>
-</dl>
-</div>
-<p class="p">When you right-click the members in the tree,
-you can open the definition of that view in the AQL editor if the
-source of the view definition is available.  </p>
-<p class="p">To start the AQL
-Dependency Hierarchy or Reference Hierarchy, select a view in the
-AQL editor, and select either <span class="ph uicontrol">Open AQL Dependency Hierarchy</span> or <span class="ph uicontrol">Open
-AQL Reference Hierarchy</span>. You can start the AQL Dependency
-Hierarchy or Reference Hierarchy only on views that are defined in
-the <span class="ph filepath">source</span> directory of a project. </p>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+Line 6: export view PhoneNumber;</code>
+				</pre>
+			</div>
+			<p class="p">
+				If you place the cursor anywhere inside the token <span
+					class="keyword parmname parmname">PhoneNumber</span> in Line 6 and
+				click <span class="ph uicontrol">F3</span>, the action takes you to
+				the definition of the view <span class="keyword parmname parmname">PhoneNumber</span>
+				in Line 2. Similarly, if you place the cursor anywhere inside the
+				token <span class="keyword parmname parmname">MyView</span> in Line
+				1 or 5 and click <span class="ph uicontrol">F3</span>, the action
+				opens the AQL file that contains the definition of <span
+					class="keyword parmname parmname">MyView</span> and takes you to
+				the line number in the <span class="keyword apiname">sampleModule</span>
+				module where <span class="keyword parmname parmname">MyView</span>
+				is defined. Similarly, you can navigate to the definition of any AQL
+				identifier by using <span class="ph uicontrol">F3</span> navigation
+				across modules and projects.
+			</p>
+			<div class="p">
+				When you attempt to navigate to the definition of a view whose
+				source is not available or visible to the current build path of the
+				project, the following message is displayed:
+				<pre class="pre msgblock">
+					<code>There is no AQL source in project's build path that contains definition of this element.</code>
+				</pre>
+			</div>
+			<div class="note restriction">
+				<span class="restrictiontitle">Restriction:</span>
+				<ul class="ul">
+					<li class="li">If you edit a file and want to use hyperlink
+						navigation for new or changed content, save the file first.</li>
+					<li class="li">Hyperlink navigation is not supported for
+						dictionary and AQL files that contain leading or trailing white
+						space in the file path that is mentioned in the AQL code.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Content Assistance</h2>
+			<p class="p">The Content Assist feature provides
+				context-sensitive assistance to complete the current AQL statement.
+				For example, when you type the statement output view in the AQL
+				editor and call the Content Assist feature, the tool displays all of
+				the views that can be output at the current cursor location. You can
+				then choose a view from the list to complete the AQL statement.</p>
+			<div class="p">
+				To see a list of all valid AQL statements for a specific location in
+				the file:
+				<ol class="ol">
+					<li class="li">Place your cursor at the location in the file
+						where you want assistance.</li>
+					<li class="li">Press <span class="ph uicontrol">Ctrl+Spacebar</span>.
+					</li>
+					<li class="li">Select the statement that you want added to the
+						file from the list of valid AQL statements. The statement is
+						completed automatically and added to the file. When Content Assist
+						is started in a new blank line, a template of the selected AQL
+						statement is added to the file.</li>
+					<li class="li">Modify the required information in the AQL
+						statement or template that is inserted into your file.</li>
+				</ol>
+			</div>
+			<div class="p">
+				Content assistance is provided for the following AQL constructs:
+				<ul class="ul">
+					<li class="li">Export</li>
+					<li class="li">Export dictionary</li>
+					<li class="li">Export table</li>
+					<li class="li">Export view</li>
+					<li class="li">From</li>
+					<li class="li">Include</li>
+					<li class="li">Import</li>
+					<li class="li">Import dictionary</li>
+					<li class="li">Import function</li>
+					<li class="li">Import module</li>
+					<li class="li">Import view</li>
+					<li class="li">Output view</li>
+					<li class="li">Regex</li>
+				</ul>
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Syntax highlighting</h2>
+			<div class="p">
+				The AQL editor uses colors to highlight the different syntax
+				elements in the AQL statements. The following table lists the colors
+				that the AQL editor uses:
+				<div class="tablenoborder">
+					<table cellpadding="4" cellspacing="0" summary="" class="table"
+						rules="all" frame="border" border="1">
+						<caption>
+							<span class="tablecap">Table 2. Highlighting reference</span>
+						</caption>
+						<thead class="thead" align="left">
+							<tr class="row" valign="bottom">
+								<th class="entry" valign="bottom" id="d12286e297">Token
+									type</th>
+								<th class="entry" valign="bottom" id="d12286e299">Color</th>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e297 ">Comments</td>
+								<td class="entry" valign="top" headers="d12286e299 ">Maroon</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e297 ">Strings</td>
+								<td class="entry" valign="top" headers="d12286e299 ">Green</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e297 ">Keywords</td>
+								<td class="entry" valign="top" headers="d12286e299 ">Navy
+									blue</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e297 ">Variable
+									type</td>
+								<td class="entry" valign="top" headers="d12286e299 ">Purple</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e297 ">Regular
+									expression</td>
+								<td class="entry" valign="top" headers="d12286e299 ">Pink</td>
+							</tr>
+							<tr class="row">
+								<td class="entry" valign="top" headers="d12286e297 ">Default</td>
+								<td class="entry" valign="top" headers="d12286e299 ">Black</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				For more information about the different token types in the AQL
+				syntax, see <a class="xref"
+					href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-syntax.html"
+					target="_blank" title="(Opens in a new tab or window)">AQL
+					Syntax</a>.
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Regular Expression Generator</h2>
+			<p class="p">
+				The Regular Expression Generator wizard helps you to create and
+				refine a regular expression through a list of examples of the
+				concept. Right-click a regular expression between the slash (<span
+					class="ph uicontrol">/</span>) characters in your AQL file, and
+				select <span class="ph uicontrol">Regular Expression
+					Generator</span> to open the Regular Expression Generator wizard. In the
+				wizard, you can generate or refine a regular expression. Click <span
+					class="ph uicontrol">Finish</span>, and the new expression replaces
+				the old one. For more information, see <a class="xref"
+					href="../../dev_extractors/write_code/GenerateRegEx.html"
+					title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generating
+					regular expressions</a>.
+			</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Regular Expression Builder</h2>
+			<p class="p">
+				The Regular Expression Builder helps you to build a regular
+				expression by selecting constructs and combining them. Right-click a
+				regular expression in your AQL file, and select <span
+					class="ph uicontrol">Regular Expression Builder</span>. The Regular
+				Expression Builder opens with the regular expression as a parameter.
+				Modify this regular expression by using the listed constructs. Click
+				<span class="ph uicontrol">Finish</span>, and the new expression
+				replaces the old one. For more information, see <a class="xref"
+					href="../../dev_extractors/write_code/BuildRegEx.html"
+					title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">Building
+					regular expressions</a>.
+			</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">AQL Dependency and Reference
+				Hierarchy</h2>
+			<div class="p">
+				Similar to Java call hierarchy, the AQL editor can visualize the
+				dependent relationships between AQL views that are defined in Text
+				Analytics projects. These relationships are presented in the
+				following views:
+				<dl class="dl">
+					<dt class="dt dlterm">
+						<span class="ph uicontrol">AQL Dependency Hierarchy</span>
+					</dt>
+					<dd class="dd">Shows a tree structure with a selected AQL view
+						as the root and its children as other AQL views on which the root
+						is dependent.</dd>
+					<dt class="dt dlterm">
+						<span class="ph uicontrol">AQL Reference Hierarchy</span>
+					</dt>
+					<dd class="dd">Shows a tree structure with a selected AQL view
+						as the root and its children as other AQL views that require the
+						root in their definitions.</dd>
+				</dl>
+			</div>
+			<p class="p">When you right-click the members in the tree, you
+				can open the definition of that view in the AQL editor if the source
+				of the view definition is available.</p>
+			<p class="p">
+				To start the AQL Dependency Hierarchy or Reference Hierarchy, select
+				a view in the AQL editor, and select either <span
+					class="ph uicontrol">Open AQL Dependency Hierarchy</span> or <span
+					class="ph uicontrol">Open AQL Reference Hierarchy</span>. You can
+				start the AQL Dependency Hierarchy or Reference Hierarchy only on
+				views that are defined in the <span class="ph filepath">source</span>
+				directory of a project.
+			</p>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

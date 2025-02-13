@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,10 +11,14 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Regular Expression Builder" />
-<meta name="abstract" content="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them." />
-<meta name="Description" content="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them." />
-<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/tool_ref/extractors/help_txtan_regx_constructs.html" />
+<meta name="abstract"
+	content="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them." />
+<meta name="Description"
+	content="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them." />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/tool_ref/extractors/help_txtan_regx_constructs.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="RegexBuilder" />
@@ -24,46 +29,78 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
 <link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
 <title>Regular Expression Builder</title>
 </head>
 <body role="main" id="RegexBuilder">
-<h1 class="title topictitle1">Regular Expression Builder</h1>
-<div class="body taskbody"><p class="shortdesc">The Regular Expression Builder helps you to build a regular
-expression rule by selecting constructs and combining them.</p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>The Regular Expression Builder is used to <a class="xref" href="../../dev_extractors/write_code/BuildRegEx.html" title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">build a regular expression</a>. <div class="note remember"><span class="remembertitle">Remember:</span> The
-generated regular expression adds an escape character to the forward
-slash character (//). This adjustment facilitates the use of the forward
-slash directly in the AQL file. If you use the regular expression
-in other tools, remove the escape character on the forward slash to
-properly capture your input examples.</div>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Select the constructs from the tab menu that is provided
-or manually type them in the <span class="ph uicontrol">Specify a regular expression
-rule</span> field.</span> For more information about constructs,
-see <a class="xref" href="help_txtan_regx_constructs.html" title="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator.">Regular expression constructs and characters</a>.</li>
-<li class="li step"><span class="ph cmd">Test the rule by using the Constructs or by manually typing
-it in the <span class="ph uicontrol">Type the text that you want to use to test the
-rule</span> field. </span></li>
-<li class="li step"><span class="ph cmd">Verify your matched results.</span> The match result
-is shown in the <span class="ph uicontrol">Matched</span> table field. It shows
-the start and stop position of the matched text and any subpatterns.
-The resulting match is also highlighted in the sample text that you
-entered.</li>
-</ol>
-</div>
-<div class="related-links">
-<ul class="ullinks">
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../html/tool_ref/extractors/help_txtan_regx_constructs.html">Regular expression constructs and characters</a></span><br />
-In the Eclipse tool, you can build rules in the Regular
-Expression Builder by selecting constructs and combining them. You
-can modify regular expressions, subexpressions, and the associated
-character classes in the Regular Expression Generator.</li>
-</ul>
+	<h1 class="title topictitle1">Regular Expression Builder</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">The Regular Expression Builder helps you to
+			build a regular expression rule by selecting constructs and combining
+			them.</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			The Regular Expression Builder is used to <a class="xref"
+				href="../../dev_extractors/write_code/BuildRegEx.html"
+				title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">build
+				a regular expression</a>.
+			<div class="note remember">
+				<span class="remembertitle">Remember:</span> The generated regular
+				expression adds an escape character to the forward slash character
+				(//). This adjustment facilitates the use of the forward slash
+				directly in the AQL file. If you use the regular expression in other
+				tools, remove the escape character on the forward slash to properly
+				capture your input examples.
+			</div>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step"><span class="ph cmd">Select the
+					constructs from the tab menu that is provided or manually type them
+					in the <span class="ph uicontrol">Specify a regular
+						expression rule</span> field.
+			</span> For more information about constructs, see <a class="xref"
+				href="help_txtan_regx_constructs.html"
+				title="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator.">Regular
+					expression constructs and characters</a>.</li>
+			<li class="li step"><span class="ph cmd">Test the rule by
+					using the Constructs or by manually typing it in the <span
+					class="ph uicontrol">Type the text that you want to use to
+						test the rule</span> field.
+			</span></li>
+			<li class="li step"><span class="ph cmd">Verify your
+					matched results.</span> The match result is shown in the <span
+				class="ph uicontrol">Matched</span> table field. It shows the start
+				and stop position of the matched text and any subpatterns. The
+				resulting match is also highlighted in the sample text that you
+				entered.</li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<ul class="ullinks">
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../../../html/tool_ref/extractors/help_txtan_regx_constructs.html">Regular
+						expression constructs and characters</a></span><br /> In the Eclipse tool,
+				you can build rules in the Regular Expression Builder by selecting
+				constructs and combining them. You can modify regular expressions,
+				subexpressions, and the associated character classes in the Regular
+				Expression Generator.</li>
+		</ul>
 
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

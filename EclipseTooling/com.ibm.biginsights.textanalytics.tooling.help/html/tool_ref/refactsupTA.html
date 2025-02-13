@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,9 +11,12 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="concept" />
 <meta name="DC.Title" content="Refactoring Support" />
-<meta name="abstract" content="The goal of refactoring support in InfoSphere BigInsights Text Analytics tools is to make system-wide code changes without affecting the behavior of the program." />
-<meta name="Description" content="The goal of refactoring support in InfoSphere BigInsights Text Analytics tools is to make system-wide code changes without affecting the behavior of the program." />
-<meta name="DC.Relation" scheme="URI" content="../../html/CreateTextAnalyticsApps.html" />
+<meta name="abstract"
+	content="The goal of refactoring support in InfoSphere BigInsights Text Analytics tools is to make system-wide code changes without affecting the behavior of the program." />
+<meta name="Description"
+	content="The goal of refactoring support in InfoSphere BigInsights Text Analytics tools is to make system-wide code changes without affecting the behavior of the program." />
+<meta name="DC.Relation" scheme="URI"
+	content="../../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="refactsupTA" />
@@ -28,96 +32,169 @@
 <title>Refactoring Support</title>
 </head>
 <body role="main" id="refactsupTA">
-<h1 class="title topictitle1">Refactoring Support</h1>
-<div class="body conbody"><p class="shortdesc">The goal of refactoring support in <span class="keyword">InfoSphere® BigInsights™</span> Text
-Analytics tools is to make system-wide code changes without affecting
-the behavior of the program.</p>
-<div class="p">The Text Analytics tools perform rename refactoring of the following
-AQL resources: <ul class="ul"><li class="li">Elements (such as views, tables, dictionaries, and functions)</li>
-<li class="li">Modules</li>
-<li class="li">Files</li>
-<li class="li">Projects including launch configurations</li>
-<li class="li">Source and build output directories</li>
-</ul>
-</div>
-<div class="p">The following table is an overview of all offered refactoring support:<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Refactoring support in Text Analytics</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d16865e42">Action 	</th>
-<th class="entry" valign="bottom" id="d16865e44">Description</th>
-<th class="entry" valign="bottom" id="d16865e46">Availability 	</th>
-<th class="entry" valign="bottom" id="d16865e48">Package Explorer View Shortcut Key</th>
-<th class="entry" valign="bottom" id="d16865e50">Project Explorer View Shortcut Key</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d16865e42 ">AQL Element Rename</td>
-<td class="entry" valign="top" headers="d16865e44 ">Renames the selected element and updates all
-of the references within the workspace. </td>
-<td class="entry" valign="top" headers="d16865e46 ">AQL Editor, Extraction plan UI</td>
-<td class="entry" valign="top" headers="d16865e48 ">Alt + Shift + R</td>
-<td class="entry" valign="top" headers="d16865e50 ">Alt + Shift + R</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d16865e42 ">AQL File Rename</td>
-<td class="entry" valign="top" headers="d16865e44 ">Renames AQL files and updates all of the references
-within the workspace. </td>
-<td class="entry" valign="top" headers="d16865e46 ">Project Explorer, Package Explorer</td>
-<td class="entry" valign="top" headers="d16865e48 ">Alt + Shift + R </td>
-<td class="entry" valign="top" headers="d16865e50 ">F2</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d16865e42 ">AQL Module Rename</td>
-<td class="entry" valign="top" headers="d16865e44 ">Renames AQL modules and updates all of the references
-within the workspace. </td>
-<td class="entry" valign="top" headers="d16865e46 ">Project Explorer, Package Explorer </td>
-<td class="entry" valign="top" headers="d16865e48 ">Alt + Shift + R</td>
-<td class="entry" valign="top" headers="d16865e50 ">F2</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d16865e42 ">AQL Source and Build output directories</td>
-<td class="entry" valign="top" headers="d16865e44 ">Renames AQL source and build output folders
-(such as <span class="ph filepath">src</span> and <span class="ph filepath">bin</span> folders
-in the default directory structure) and updates all of the valid references.<div class="note note"><span class="notetitle">Note:</span> You
-can rename the parent directories of source and build output directories,
-such as <span class="ph filepath">textAnalytics</span> in the default directory
-structure. However, the system does not update the references in the
-Text Analytics properties file. Instead, it adds an error marker on
-the project <span class="ph filepath">root</span> folder.</div>
-</td>
-<td class="entry" valign="top" headers="d16865e46 ">Project Explorer, Package Explorer </td>
-<td class="entry" valign="top" headers="d16865e48 ">Alt + Shift + R</td>
-<td class="entry" valign="top" headers="d16865e50 ">F2</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d16865e42 ">AQL Project Rename</td>
-<td class="entry" valign="top" headers="d16865e44 ">Renames AQL projects and updates all of the
-references within the workspace including the launch configurations
-for the project. <div class="cautiontitle">CAUTION:</div><div class="note caution">For proper refactoring, do not
-clear the check box next to the <span class="ph filepath">.textAnalytics</span> file
-in the Preview pane. </div>
-</td>
-<td class="entry" valign="top" headers="d16865e46 ">Project Explorer, Package Explorer</td>
-<td class="entry" valign="top" headers="d16865e48 ">Alt + Shift + R</td>
-<td class="entry" valign="top" headers="d16865e50 ">F2</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p class="p">You can preview the refactoring results before you run the refactoring
-action to see potential problems and a list of the changes that the
-refactoring performs. If you do not preview a refactoring operation,
-the change is made in its entirety, and any problems that result are
-shown. If a problem is detected that does not allow the refactoring
-to continue, the operation stops and displays a list of the problems.</p>
-<p class="p">In addition to keyboard shortcuts, refactoring commands are available
-from the menus of the AQL editor and the Package Explorer. </p>
-<div class="p">The following restrictions apply to refactoring support:<ul class="ul"><li class="li">Only Rename refactoring is supported in version 2.0 and later.
-If you attempt to perform Move refactoring, the default Eclipse <span class="keyword apiname">Move
-refactoring handler</span> is started, and it does not update all
-references to the refactored element. As a result, Move refactoring
-can result in several AQL compilation errors. You must fix them manually.</li>
-<li class="li">For proper refactoring, do not clear the check box next to the <span class="ph filepath">.textAnalytics</span> file
-in the Preview pane. </li>
-</ul>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Refactoring Support</h1>
+	<div class="body conbody">
+		<p class="shortdesc">
+			The goal of refactoring support in <span class="keyword">InfoSphere®
+				BigInsights™</span> Text Analytics tools is to make system-wide code
+			changes without affecting the behavior of the program.
+		</p>
+		<div class="p">
+			The Text Analytics tools perform rename refactoring of the following
+			AQL resources:
+			<ul class="ul">
+				<li class="li">Elements (such as views, tables, dictionaries,
+					and functions)</li>
+				<li class="li">Modules</li>
+				<li class="li">Files</li>
+				<li class="li">Projects including launch configurations</li>
+				<li class="li">Source and build output directories</li>
+			</ul>
+		</div>
+		<div class="p">
+			The following table is an overview of all offered refactoring
+			support:
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary="" class="table"
+					rules="all" frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 1. Refactoring support in Text
+							Analytics</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d16865e42">Action</th>
+							<th class="entry" valign="bottom" id="d16865e44">Description</th>
+							<th class="entry" valign="bottom" id="d16865e46">Availability
+							</th>
+							<th class="entry" valign="bottom" id="d16865e48">Package
+								Explorer View Shortcut Key</th>
+							<th class="entry" valign="bottom" id="d16865e50">Project
+								Explorer View Shortcut Key</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d16865e42 ">AQL
+								Element Rename</td>
+							<td class="entry" valign="top" headers="d16865e44 ">Renames
+								the selected element and updates all of the references within
+								the workspace.</td>
+							<td class="entry" valign="top" headers="d16865e46 ">AQL
+								Editor, Extraction plan UI</td>
+							<td class="entry" valign="top" headers="d16865e48 ">Alt +
+								Shift + R</td>
+							<td class="entry" valign="top" headers="d16865e50 ">Alt +
+								Shift + R</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d16865e42 ">AQL File
+								Rename</td>
+							<td class="entry" valign="top" headers="d16865e44 ">Renames
+								AQL files and updates all of the references within the
+								workspace.</td>
+							<td class="entry" valign="top" headers="d16865e46 ">Project
+								Explorer, Package Explorer</td>
+							<td class="entry" valign="top" headers="d16865e48 ">Alt +
+								Shift + R</td>
+							<td class="entry" valign="top" headers="d16865e50 ">F2</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d16865e42 ">AQL
+								Module Rename</td>
+							<td class="entry" valign="top" headers="d16865e44 ">Renames
+								AQL modules and updates all of the references within the
+								workspace.</td>
+							<td class="entry" valign="top" headers="d16865e46 ">Project
+								Explorer, Package Explorer</td>
+							<td class="entry" valign="top" headers="d16865e48 ">Alt +
+								Shift + R</td>
+							<td class="entry" valign="top" headers="d16865e50 ">F2</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d16865e42 ">AQL
+								Source and Build output directories</td>
+							<td class="entry" valign="top" headers="d16865e44 ">Renames
+								AQL source and build output folders (such as <span
+								class="ph filepath">src</span> and <span class="ph filepath">bin</span>
+								folders in the default directory structure) and updates all of
+								the valid references.
+								<div class="note note">
+									<span class="notetitle">Note:</span> You can rename the parent
+									directories of source and build output directories, such as <span
+										class="ph filepath">textAnalytics</span> in the default
+									directory structure. However, the system does not update the
+									references in the Text Analytics properties file. Instead, it
+									adds an error marker on the project <span class="ph filepath">root</span>
+									folder.
+								</div>
+							</td>
+							<td class="entry" valign="top" headers="d16865e46 ">Project
+								Explorer, Package Explorer</td>
+							<td class="entry" valign="top" headers="d16865e48 ">Alt +
+								Shift + R</td>
+							<td class="entry" valign="top" headers="d16865e50 ">F2</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d16865e42 ">AQL
+								Project Rename</td>
+							<td class="entry" valign="top" headers="d16865e44 ">Renames
+								AQL projects and updates all of the references within the
+								workspace including the launch configurations for the project.
+								<div class="cautiontitle">CAUTION:</div>
+								<div class="note caution">
+									For proper refactoring, do not clear the check box next to the
+									<span class="ph filepath">.textAnalytics</span> file in the
+									Preview pane.
+								</div>
+							</td>
+							<td class="entry" valign="top" headers="d16865e46 ">Project
+								Explorer, Package Explorer</td>
+							<td class="entry" valign="top" headers="d16865e48 ">Alt +
+								Shift + R</td>
+							<td class="entry" valign="top" headers="d16865e50 ">F2</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<p class="p">You can preview the refactoring results before you
+			run the refactoring action to see potential problems and a list of
+			the changes that the refactoring performs. If you do not preview a
+			refactoring operation, the change is made in its entirety, and any
+			problems that result are shown. If a problem is detected that does
+			not allow the refactoring to continue, the operation stops and
+			displays a list of the problems.</p>
+		<p class="p">In addition to keyboard shortcuts, refactoring
+			commands are available from the menus of the AQL editor and the
+			Package Explorer.</p>
+		<div class="p">
+			The following restrictions apply to refactoring support:
+			<ul class="ul">
+				<li class="li">Only Rename refactoring is supported in version
+					2.0 and later. If you attempt to perform Move refactoring, the
+					default Eclipse <span class="keyword apiname">Move
+						refactoring handler</span> is started, and it does not update all
+					references to the refactored element. As a result, Move refactoring
+					can result in several AQL compilation errors. You must fix them
+					manually.
+				</li>
+				<li class="li">For proper refactoring, do not clear the check
+					box next to the <span class="ph filepath">.textAnalytics</span>
+					file in the Preview pane.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

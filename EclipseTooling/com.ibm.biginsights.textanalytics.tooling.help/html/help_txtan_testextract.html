@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,9 +11,12 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Testing the extractor" />
-<meta name="abstract" content="After you write AQL statements to extract or filter text, you can test the extractor by running the AWL from the InfoSphere BigInsights Tools for Eclipse and viewing the results." />
-<meta name="Description" content="After you write AQL statements to extract or filter text, you can test the extractor by running the AWL from the InfoSphere BigInsights Tools for Eclipse and viewing the results." />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_wrkflow.html" />
+<meta name="abstract"
+	content="After you write AQL statements to extract or filter text, you can test the extractor by running the AWL from the InfoSphere BigInsights Tools for Eclipse and viewing the results." />
+<meta name="Description"
+	content="After you write AQL statements to extract or filter text, you can test the extractor by running the AWL from the InfoSphere BigInsights Tools for Eclipse and viewing the results." />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_wrkflow.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_txtan_testextract" />
@@ -28,56 +32,107 @@
 <title>Testing the extractor</title>
 </head>
 <body role="main" id="help_txtan_testextract">
-<h1 class="title topictitle1">Testing the extractor</h1>
-<div class="body taskbody"><p class="shortdesc">After you write AQL statements to extract or filter text,
-you can test the extractor by running the AWL from the <span class="keyword">InfoSphere® BigInsights™ Tools for Eclipse</span> and
-viewing the results.  </p>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Select how you want to run the extraction plan.</span> 
-<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
-<thead><tr><th id="d9211e21-option" valign="bottom" align="left">Option</th>
-<th id="d9211e21-desc" valign="bottom" align="left">Description</th></tr></thead>
-<tbody><tr class="strow chrow"><td valign="top" headers="d9211e21-option" id="d9211e23" class="stentry choption"><strong>On the entire data collection</strong></td>
-<td valign="top" headers="d9211e21-desc d9211e23" class="stentry chdesc"><ol class="ol" type="a"><li class="li">In the Extraction Plan, right-click the root label. </li>
-<li class="li">Select <span class="ph menucascade"><span class="ph uicontrol">Run</span> &gt; <span class="ph uicontrol">Run the
-extraction plan on the entire data collection</span></span>.</li>
-</ol>
-</td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d9211e21-option" id="d9211e38" class="stentry choption"><strong>On selected documents</strong></td>
-<td valign="top" headers="d9211e21-desc d9211e38" class="stentry chdesc"><ol class="ol" type="a"><li class="li">Select one or more documents in the list of documents from the
-entire data collection.</li>
-<li class="li">In the Extraction Plan, right-click the root label. </li>
-<li class="li">Select <span class="ph menucascade"><span class="ph uicontrol">Run</span> &gt; <span class="ph uicontrol">Run the
-extraction plan on the set of selected documents</span></span>.</li>
-</ol>
-</td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d9211e21-option" id="d9211e55" class="stentry choption"><strong>On labeled documents</strong></td>
-<td valign="top" headers="d9211e21-desc d9211e55" class="stentry chdesc"><ol class="ol" type="a"><li class="li">In the Extraction Plan, right-click the root label. </li>
-<li class="li">Select <span class="ph menucascade"><span class="ph uicontrol">Run</span> &gt; <span class="ph uicontrol">Run the
-extraction plan on the set of documents that are labeled</span></span>.</li>
-</ol>
-</td>
-</tr>
-</tbody></table>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">If you are successful, and your extractor includes an <samp class="ph codeph">output
-view</samp> statement, then you can view the results in the <span class="keyword wintitle">Annotation
-Explorer</span> pane.</span> <p class="p">The <span class="keyword wintitle">Annotation
-Explorer</span> shows each extracted field in the <span class="ph uicontrol">Span
-Attribute Value</span> column, along with text from before and
-after the extracted text, which is known as the left and right context.
-Double-click one of the rows that contains the values on which you
-filtered to see the extracted text in the original document.  The
-text and the instance that you clicked are displayed in the editor
-pane.  The Annotations tree view also opens in the extraction plan
-window.</p>
-</li>
-</ol>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/help_txtan_wrkflow.html" title="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment.">Overview of the Text Analytics Workflow perspective</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Testing the extractor</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			After you write AQL statements to extract or filter text, you can
+			test the extractor by running the AWL from the <span class="keyword">InfoSphere®
+				BigInsights™ Tools for Eclipse</span> and viewing the results.
+		</p>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Select
+					how you want to run the extraction plan.</span>
+				<table border="1" frame="hsides" rules="rows" cellpadding="4"
+					cellspacing="0"
+					summary="Each row in this table describes one option for a choice."
+					class="simpletable choicetable choicetableborder">
+					<thead>
+						<tr>
+							<th id="d9211e21-option" valign="bottom" align="left">Option</th>
+							<th id="d9211e21-desc" valign="bottom" align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="strow chrow">
+							<td valign="top" headers="d9211e21-option" id="d9211e23"
+								class="stentry choption"><strong>On the entire
+									data collection</strong></td>
+							<td valign="top" headers="d9211e21-desc d9211e23"
+								class="stentry chdesc"><ol class="ol" type="a">
+									<li class="li">In the Extraction Plan, right-click the
+										root label.</li>
+									<li class="li">Select <span class="ph menucascade"><span
+											class="ph uicontrol">Run</span> &gt; <span
+											class="ph uicontrol">Run the extraction plan on the
+												entire data collection</span></span>.
+									</li>
+								</ol></td>
+						</tr>
+						<tr class="strow chrow">
+							<td valign="top" headers="d9211e21-option" id="d9211e38"
+								class="stentry choption"><strong>On selected
+									documents</strong></td>
+							<td valign="top" headers="d9211e21-desc d9211e38"
+								class="stentry chdesc"><ol class="ol" type="a">
+									<li class="li">Select one or more documents in the list of
+										documents from the entire data collection.</li>
+									<li class="li">In the Extraction Plan, right-click the
+										root label.</li>
+									<li class="li">Select <span class="ph menucascade"><span
+											class="ph uicontrol">Run</span> &gt; <span
+											class="ph uicontrol">Run the extraction plan on the
+												set of selected documents</span></span>.
+									</li>
+								</ol></td>
+						</tr>
+						<tr class="strow chrow">
+							<td valign="top" headers="d9211e21-option" id="d9211e55"
+								class="stentry choption"><strong>On labeled
+									documents</strong></td>
+							<td valign="top" headers="d9211e21-desc d9211e55"
+								class="stentry chdesc"><ol class="ol" type="a">
+									<li class="li">In the Extraction Plan, right-click the
+										root label.</li>
+									<li class="li">Select <span class="ph menucascade"><span
+											class="ph uicontrol">Run</span> &gt; <span
+											class="ph uicontrol">Run the extraction plan on the
+												set of documents that are labeled</span></span>.
+									</li>
+								</ol></td>
+						</tr>
+					</tbody>
+				</table></li>
+			<li class="li step stepexpand"><span class="ph cmd">If
+					you are successful, and your extractor includes an <samp
+						class="ph codeph">output view</samp> statement, then you can view
+					the results in the <span class="keyword wintitle">Annotation
+						Explorer</span> pane.
+			</span>
+				<p class="p">
+					The <span class="keyword wintitle">Annotation Explorer</span> shows
+					each extracted field in the <span class="ph uicontrol">Span
+						Attribute Value</span> column, along with text from before and after the
+					extracted text, which is known as the left and right context.
+					Double-click one of the rows that contains the values on which you
+					filtered to see the extracted text in the original document. The
+					text and the instance that you clicked are displayed in the editor
+					pane. The Annotations tree view also opens in the extraction plan
+					window.
+				</p></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../html/help_txtan_wrkflow.html"
+					title="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment.">Overview
+					of the Text Analytics Workflow perspective</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

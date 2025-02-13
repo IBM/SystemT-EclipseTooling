@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,14 +11,20 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Writing extractor code" />
-<meta name="abstract" content="Write your extractor code by using Annotation Query Language (AQL)." />
-<meta name="Description" content="Write your extractor code by using Annotation Query Language (AQL)." />
+<meta name="abstract"
+	content="Write your extractor code by using Annotation Query Language (AQL)." />
+<meta name="Description"
+	content="Write your extractor code by using Annotation Query Language (AQL)." />
 <meta name="DC.subject" content="extractors, annotators, UDFs, views" />
 <meta name="keywords" content="extractors, annotators, UDFs, views" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/dev_extractors/write_code/GenerateRegEx.html" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/dev_extractors/write_code/BuildRegEx.html" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/dev_extractors/write_code/DiscoverPatterns.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/dev_extractors/write_code/GenerateRegEx.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/dev_extractors/write_code/BuildRegEx.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/dev_extractors/write_code/DiscoverPatterns.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="WriteCode" />
@@ -28,52 +35,117 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
 <link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
 <title>Writing extractor code</title>
 </head>
 <body role="main" id="WriteCode">
-<h1 class="title topictitle1">Writing extractor code</h1>
-<div class="body taskbody"><p class="shortdesc">Write your extractor code by using Annotation Query Language
-(AQL). </p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">AQL is a declarative and expressive language that offers a comprehensive set of built-in extraction primitives. These extraction primitives range from feature extraction primitives such as regular expressions, dictionaries and part-of-speech to set-level primitives such as union, join, and aggregation for manipulating and combining these features. </p>
-<p class="p">The top-level components of an AQL
-extractor are its <dfn class="term">views</dfn>, logical statements that define
-but do not necessarily compute a set of tuples. An <dfn class="term">extractor</dfn> consists
-of a collection of views, each of which defines a relation. Some of
-these views are designated as <samp class="ph codeph">output views</samp>, while
-others are <samp class="ph codeph">non-output views</samp>. An extractor is sometimes
-referred to as annotator. It is an information extraction program
-that extracts structured information from unstructured or semistructured
-text by using AQL constructs.</p>
-<p class="p">Even though AQL is a powerful language, you might want to perform operations on extracted values that are not supported by AQL. For example, you want to normalize a value by converting it to lowercase and removing multiple consecutive white spaces or make a web-service call to validate an extracted credit card number. To enable this, AQL provides custom defined functions to be used in extraction rules, called user-defined functions (UDFs). UDF JAR files are JAR files that contain these UDF classes. </p>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Use the <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html" target="_blank" title="(Opens in a new tab or window)">AQL Reference</a> to write AQL code in the <a class="xref" href="../../tool_ref/extractors/AQLEditor.html" title="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics.">AQL Editor</a>. </span></li>
-<li class="li step stepexpand"><span class="ph cmd"><span class="keyword">InfoSphere BigInsights</span> Text Analytics tools can develop specific aspects of your AQL code, including:</span> <ul class="ul choices"><li class="li choice"><a class="xref" href="GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generating</a> or <a class="xref" href="BuildRegEx.html" title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">building</a> regular expressions to include in your extractor. </li>
-<li class="li choice"><a class="xref" href="DiscoverPatterns.html" title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">Discovering patterns in input documents</a> to optimize the accuracy and coverage of your extractors.</li>
-</ul>
-</li>
-</ol>
-</div>
-<div class="related-links">
-<ul class="ullinks">
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../html/dev_extractors/write_code/GenerateRegEx.html">Generating regular expressions</a></span><br />
-The Regular Expression Generator helps you create a regular
-expression to include in your AQL extractor. Before you begin, create
-a list of examples that depict the concept behind the regular expression
-that you want to generate. Collect examples into a simple text file
-(<span class="ph filepath">*.txt</span>), one per line. Each example must be terminated
-by a newline character. If you do not have a list of examples, alternatively
-you can enter them manually into the <span class="ph uicontrol">Samples</span> table.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../html/dev_extractors/write_code/BuildRegEx.html">Building regular expressions</a></span><br />
-The Regular Expression Builder helps you to build a regular
-expression rule by selecting constructs and combining them.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../html/dev_extractors/write_code/DiscoverPatterns.html">Discovering patterns in text input</a></span><br />
-Pattern discovery, a feature included in the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span>, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.</li>
-</ul>
+	<h1 class="title topictitle1">Writing extractor code</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">Write your extractor code by using Annotation
+			Query Language (AQL).</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<p class="p">AQL is a declarative and expressive language that
+				offers a comprehensive set of built-in extraction primitives. These
+				extraction primitives range from feature extraction primitives such
+				as regular expressions, dictionaries and part-of-speech to set-level
+				primitives such as union, join, and aggregation for manipulating and
+				combining these features.</p>
+			<p class="p">
+				The top-level components of an AQL extractor are its
+				<dfn class="term">views</dfn>
+				, logical statements that define but do not necessarily compute a
+				set of tuples. An
+				<dfn class="term">extractor</dfn>
+				consists of a collection of views, each of which defines a relation.
+				Some of these views are designated as
+				<samp class="ph codeph">output views</samp>
+				, while others are
+				<samp class="ph codeph">non-output views</samp>
+				. An extractor is sometimes referred to as annotator. It is an
+				information extraction program that extracts structured information
+				from unstructured or semistructured text by using AQL constructs.
+			</p>
+			<p class="p">Even though AQL is a powerful language, you might
+				want to perform operations on extracted values that are not
+				supported by AQL. For example, you want to normalize a value by
+				converting it to lowercase and removing multiple consecutive white
+				spaces or make a web-service call to validate an extracted credit
+				card number. To enable this, AQL provides custom defined functions
+				to be used in extraction rules, called user-defined functions
+				(UDFs). UDF JAR files are JAR files that contain these UDF classes.
+			</p>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Use
+					the <a class="xref"
+					href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html"
+					target="_blank" title="(Opens in a new tab or window)">AQL
+						Reference</a> to write AQL code in the <a class="xref"
+					href="../../tool_ref/extractors/AQLEditor.html"
+					title="The AQL Editor provides a framework to develop and test AQL files. Annotation Query Language (AQL) is the language in the InfoSphere BigInsights Text Analytics component for building extractors. An extractor, sometimes referred to as annotator, is an information extraction program that extracts structured information from unstructured or semistructured text by using AQL constructs. AQL is the primary method of creating new extractors in InfoSphere BigInsights Text Analytics.">AQL
+						Editor</a>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd"><span
+					class="keyword">InfoSphere BigInsights</span> Text Analytics tools
+					can develop specific aspects of your AQL code, including:</span>
+				<ul class="ul choices">
+					<li class="li choice"><a class="xref"
+						href="GenerateRegEx.html"
+						title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generating</a>
+						or <a class="xref" href="BuildRegEx.html"
+						title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">building</a>
+						regular expressions to include in your extractor.</li>
+					<li class="li choice"><a class="xref"
+						href="DiscoverPatterns.html"
+						title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">Discovering
+							patterns in input documents</a> to optimize the accuracy and coverage
+						of your extractors.</li>
+				</ul></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<ul class="ullinks">
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../../../html/dev_extractors/write_code/GenerateRegEx.html">Generating
+						regular expressions</a></span><br /> The Regular Expression Generator helps
+				you create a regular expression to include in your AQL extractor.
+				Before you begin, create a list of examples that depict the concept
+				behind the regular expression that you want to generate. Collect
+				examples into a simple text file (<span class="ph filepath">*.txt</span>),
+				one per line. Each example must be terminated by a newline
+				character. If you do not have a list of examples, alternatively you
+				can enter them manually into the <span class="ph uicontrol">Samples</span>
+				table.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../../../html/dev_extractors/write_code/BuildRegEx.html">Building
+						regular expressions</a></span><br /> The Regular Expression Builder helps
+				you to build a regular expression rule by selecting constructs and
+				combining them.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../../../html/dev_extractors/write_code/DiscoverPatterns.html">Discovering
+						patterns in text input</a></span><br /> Pattern discovery, a feature
+				included in the <span class="keyword">InfoSphere BigInsights
+					Tools for Eclipse</span>, identifies contextual clues within documents in
+				a data collection that help you refine the accuracy and coverage of
+				an extractor.</li>
+		</ul>
 
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

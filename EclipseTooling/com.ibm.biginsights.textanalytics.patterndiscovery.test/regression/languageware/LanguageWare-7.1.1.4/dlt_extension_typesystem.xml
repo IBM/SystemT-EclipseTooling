@@ -2,199 +2,173 @@
 <typeSystemDescription>
 	<name>dlt_extension_typesystem</name>
 	<description>
-		LanguageWare extneded TypeSystem. provides annotation types for MWUs and RegEx matched tokens
-		(e.g. URLs, Addresses, ... etc.). It also has some features not utilized frequently.
+		LanguageWare extneded TypeSystem. provides annotation
+		types for MWUs and RegEx matched tokens
+		(e.g. URLs, Addresses, ...
+		etc.). It also has some features not utilized frequently.
 	</description>
 	<version>1.0</version>
 	<vendor>IBM</vendor>
-  	<imports>
-    	<import location="tt_core_typesystem.xml"/>
-  	</imports>
-	<types>	
+	<imports>
+		<import location="tt_core_typesystem.xml" />
+	</imports>
+	<types>
 		<typeDescription>
-        	<name>com.ibm.dlt.uimatypes.MWU</name>
-	        <description>
-	        	com.ibm.dlt.uimatypes.MWU is the type which is described above, used at present
-	            by LanguageWare to annotate Multi Word Units, e.g. if you have a
-				domain terms dictionary of this format then you will get recall 
+			<name>com.ibm.dlt.uimatypes.MWU</name>
+			<description>
+				com.ibm.dlt.uimatypes.MWU is the type which is described above, used at present
+				by LanguageWare to annotate Multi Word Units, e.g. if you have a
+				domain terms dictionary of this format then you will get recall
 				on all variants of the MWU
 			</description>
-	        <supertypeName>uima.tt.TokenLikeAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-		  	<name>uima.tt.Synonym</name>
-		  	<description/>
-		  	<supertypeName>uima.tt.KeyStringEntry</supertypeName>
+			<supertypeName>uima.tt.TokenLikeAnnotation</supertypeName>
 		</typeDescription>
-       	
-       	<typeDescription>
-        	<name>uima.tt.TokenLikeAnnotation</name>
-	        <description></description>
-    	    <supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-        	<features>
-                <featureDescription>
-                    <name>frost_TokenType</name>
-                    <description>Numeric type of token (abr. num. compound etc.)</description>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
-                </featureDescription>
-                <!--
-           		<featureDescription>
-				  	<name>synonymEntries</name>
-				  	<description/>
-				  	<rangeTypeName>uima.cas.FSList</rangeTypeName>
-				</featureDescription>
-                <featureDescription>
-				  	<name>inflectedForms</name>
-				  	<description/>
-				  	<rangeTypeName>uima.cas.StringList</rangeTypeName>
-				</featureDescription>
-				<featureDescription>
-				  	<name>spellAid</name>
-				  	<description/>
-				  	<rangeTypeName>uima.cas.StringList</rangeTypeName>
-				</featureDescription>
-                <featureDescription>
-                    <name>decomposition</name>
-                    <description>
-                        A set of internal analyses, typically token sequences
-                        which represent possible routes through the compound.
-                        This is created only when Config param CreateDecompStructure=true.
-                        Currently not supported.
-                    </description>
-                    <rangeTypeName>uima.cas.FSList</rangeTypeName>
-                </featureDescription>
-                -->
-         	</features>
-        </typeDescription>
 
-        <typeDescription>
-         	<name>uima.tt.Lemma</name>
-         	<description></description>
-         	<supertypeName>uima.tt.KeyStringEntry</supertypeName>
-         	<features>
-           		<featureDescription>
-             		<name>frost_MorphBitMasks</name>
-             		<description>Morphological bit mask array</description>
-             		<rangeTypeName>uima.cas.IntegerArray</rangeTypeName>
-           		</featureDescription>
-           		
-           		<featureDescription>
-             		<name>frost_ExtendedPOS</name>
-             		<description>
-             			extended part of speech information 
-             			(JPOS for Japanese, CPOS for Chinese)
-             		</description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-           		</featureDescription>
-           		
-                <!--
-                <featureDescription>
-                    <name>frost_Constraints</name>
-                    <description>constraints flags</description>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
-                </featureDescription>
-           		<featureDescription>
-             		<name>frost_JKom</name>
-             		<description>Japanese Morphology data (JKom for Japanese)</description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-           		</featureDescription>
-           		<featureDescription>
-             		<name>frost_JPStart</name>
-             		<description>Japanese data (JPStart for Japanese)</description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-           		</featureDescription>
-                <featureDescription>
-                    <name>morphID</name>
-                    <description>Internal lemma property, not documented.</description>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
-                </featureDescription>           		
-                -->
-         	</features>
-        </typeDescription>
-       	
-  
-      	<typeDescription>
-	    	<name>com.ibm.dlt.uimatypes.Decomp_Analysis</name>
-         	<description>
-         		A single route or analysis within a compound
-	         	Decomp_Analysis is the full structured analysis of a compound
-				it is mutually exclusive with CompPartAnnotation. That is to
-				say that they should not be used together 
+		<typeDescription>
+			<name>uima.tt.Synonym</name>
+			<description />
+			<supertypeName>uima.tt.KeyStringEntry</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>uima.tt.TokenLikeAnnotation</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+			<features>
+				<featureDescription>
+					<name>frost_TokenType</name>
+					<description>Numeric type of token (abr. num. compound etc.)</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+				<!-- <featureDescription> <name>synonymEntries</name> <description/> 
+					<rangeTypeName>uima.cas.FSList</rangeTypeName> </featureDescription> <featureDescription> 
+					<name>inflectedForms</name> <description/> <rangeTypeName>uima.cas.StringList</rangeTypeName> 
+					</featureDescription> <featureDescription> <name>spellAid</name> <description/> 
+					<rangeTypeName>uima.cas.StringList</rangeTypeName> </featureDescription> 
+					<featureDescription> <name>decomposition</name> <description> A set of internal 
+					analyses, typically token sequences which represent possible routes through 
+					the compound. This is created only when Config param CreateDecompStructure=true. 
+					Currently not supported. </description> <rangeTypeName>uima.cas.FSList</rangeTypeName> 
+					</featureDescription> -->
+			</features>
+		</typeDescription>
+
+		<typeDescription>
+			<name>uima.tt.Lemma</name>
+			<description></description>
+			<supertypeName>uima.tt.KeyStringEntry</supertypeName>
+			<features>
+				<featureDescription>
+					<name>frost_MorphBitMasks</name>
+					<description>Morphological bit mask array</description>
+					<rangeTypeName>uima.cas.IntegerArray</rangeTypeName>
+				</featureDescription>
+
+				<featureDescription>
+					<name>frost_ExtendedPOS</name>
+					<description>
+						extended part of speech information
+						(JPOS for Japanese, CPOS for Chinese)
+					</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+
+				<!-- <featureDescription> <name>frost_Constraints</name> <description>constraints 
+					flags</description> <rangeTypeName>uima.cas.Integer</rangeTypeName> </featureDescription> 
+					<featureDescription> <name>frost_JKom</name> <description>Japanese Morphology 
+					data (JKom for Japanese)</description> <rangeTypeName>uima.cas.Integer</rangeTypeName> 
+					</featureDescription> <featureDescription> <name>frost_JPStart</name> <description>Japanese 
+					data (JPStart for Japanese)</description> <rangeTypeName>uima.cas.Integer</rangeTypeName> 
+					</featureDescription> <featureDescription> <name>morphID</name> <description>Internal 
+					lemma property, not documented.</description> <rangeTypeName>uima.cas.Integer</rangeTypeName> 
+					</featureDescription> -->
+			</features>
+		</typeDescription>
+
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Decomp_Analysis</name>
+			<description>
+				A single route or analysis within a compound
+				Decomp_Analysis is the full structured analysis of a compound
+				it is mutually
+				exclusive with CompPartAnnotation. That is to
+				say that they should
+				not be used together
 				NB!: Currently unsupported!
 			</description>
-         	<supertypeName>uima.cas.TOP</supertypeName>
-         	<features>
-         		<featureDescription>
-             		<name>headComponentIndex</name>
-             		<description>
-             			the index of the component in this analysis 
-             			which represents the "head"
-             		</description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-	           	</featureDescription>
-	            <featureDescription>
-             		<name>route</name>
-             		<description>a list of tokens representing a single decomp route</description>
-             		<rangeTypeName>uima.cas.FSList</rangeTypeName>
-           		</featureDescription>
-         	</features>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.FilePath</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.Email</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.Number</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.URL</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.Date</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.Time</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.Tel</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-        	<name>com.ibm.dlt.uimatypes.Currency</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-       	
-       	<typeDescription>
-         	<name>com.ibm.dlt.uimatypes.Acronym</name>
-         	<description></description>
-         	<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-       	</typeDescription>
-  
-    </types>
+			<supertypeName>uima.cas.TOP</supertypeName>
+			<features>
+				<featureDescription>
+					<name>headComponentIndex</name>
+					<description>
+						the index of the component in this analysis
+						which represents the "head"
+					</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+				<featureDescription>
+					<name>route</name>
+					<description>a list of tokens representing a single decomp route</description>
+					<rangeTypeName>uima.cas.FSList</rangeTypeName>
+				</featureDescription>
+			</features>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.FilePath</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Email</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Number</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.URL</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Date</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Time</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Tel</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Currency</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+		<typeDescription>
+			<name>com.ibm.dlt.uimatypes.Acronym</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+		</typeDescription>
+
+	</types>
 </typeSystemDescription>
 

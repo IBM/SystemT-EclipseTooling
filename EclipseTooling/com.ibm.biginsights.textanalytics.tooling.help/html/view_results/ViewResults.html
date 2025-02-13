@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,11 +11,16 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Viewing results of analysis" />
-<meta name="abstract" content="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer." />
-<meta name="Description" content="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer." />
-<meta name="DC.subject" content="span type, annotation explorer, results, tuples" />
-<meta name="keywords" content="span type, annotation explorer, results, tuples" />
-<meta name="DC.Relation" scheme="URI" content="../../html/CreateTextAnalyticsApps.html" />
+<meta name="abstract"
+	content="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer." />
+<meta name="Description"
+	content="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer." />
+<meta name="DC.subject"
+	content="span type, annotation explorer, results, tuples" />
+<meta name="keywords"
+	content="span type, annotation explorer, results, tuples" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="ViewResults" />
@@ -30,62 +36,116 @@
 <title>Viewing results of analysis</title>
 </head>
 <body role="main" id="ViewResults">
-<h1 class="title topictitle1">Viewing results of analysis</h1>
-<div class="body taskbody"><p class="shortdesc">By default, all span values from all output views that
-are generated from a launch configuration are displayed in the <span class="ph uicontrol">Annotation
-Explorer</span>. </p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>From the <a class="xref" href="../tool_ref/results/AnnotationExplorer.html" title="The Annotation Explorer shows extracted fields in the Span Attribute Value column. You can also see the text from the left and right of the extracted text, which is known as the left and right context.">Annotation Explorer</a>,
-you can do the following actions:<ul class="ul"><li class="li">Navigate from the results to the input document or input document
-collection from which the results were derived. </li>
-<li class="li">Display the results in the <a class="xref" href="../tool_ref/results/TreeViewer.html">Result Tree View</a>. </li>
-<li class="li">Navigate to the <span class="ph uicontrol">View Definition</span>. </li>
-</ul>
-<p class="p">A <dfn class="term">span</dfn> is a built-in type of Text Analytics.
-The span type represents a contiguous range of characters in a text
-field of the document. For example, the Span output <samp class="ph codeph">Document.text[1665-1673]:
-'466-9196'</samp> represents <span class="keyword option">Characters 1665-1673 of the
-text field of Document</span>. This range of characters corresponds
-to the string <var class="keyword varname">466-9196</var> in the original document. </p>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Navigate to an input document from the <span class="ph uicontrol">Annotation
-Explorer</span>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">Double-click a row of output, or select a row in the output,
-and click <span class="ph uicontrol">Open Selected Span in Text Editor</span> on
-the <span class="ph uicontrol">Annotation Explorer</span> toolbar. The selected
-span is highlighted in the Result Editor, and the <span class="keyword wintitle">Result
-Tree View</span> displays the selected span. By using the <span class="keyword wintitle">Result
-Tree View</span>, you can see other spans that are extracted from
-the text.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">To display results in the <span class="keyword wintitle">Result Tree View</span> from
-the <span class="ph uicontrol">Annotation Explorer</span>, double-click a row
-of output. Each input document opens in a <span class="keyword wintitle">Result Tree View</span>,
-where you can view all of the output views and their attributes in
-a tree format for a selected input document.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">Display results in the <span class="keyword wintitle">Result Table View</span> from
-the <span class="ph uicontrol">Annotation Explorer</span>. The Result Table View
-displays the tuples of an output view in a table.</span> <p class="p">The
-data model of AQL is similar to the standard relational model used
-by SQL databases like DB2®. All
-data in AQL is stored in tuples, which are data records of one or
-more columns or fields. A collection of tuples forms a <dfn class="term">relation</dfn>.
- Similar to SQL, a tuple is like a row and relation is like a table. </p>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Click the <span class="ph uicontrol">Select Output Views to Display in
-Result Table View</span> menu on the <span class="ph uicontrol">Annotation Explorer</span> toolbar,
-and select an output view. The <span class="keyword wintitle">Result Table View</span> opens.
-You can also right-click a row of output and select <span class="ph uicontrol">Show
-Span in Result Table</span> to open the <span class="keyword wintitle">Result Table
-View</span>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">Navigate to the view definition from the <span class="ph uicontrol">Annotation
-Explorer</span>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">Right-click a row in the <span class="keyword wintitle">Annotation Explorer</span> view,
-and select <span class="ph uicontrol">Show view in AQL Editor</span>. The corresponding <span class="ph uicontrol">View
-Definition</span> opens in the AQL editor.</span></li>
-</ol>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Viewing results of analysis</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			By default, all span values from all output views that are generated
+			from a launch configuration are displayed in the <span
+				class="ph uicontrol">Annotation Explorer</span>.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			From the <a class="xref"
+				href="../tool_ref/results/AnnotationExplorer.html"
+				title="The Annotation Explorer shows extracted fields in the Span Attribute Value column. You can also see the text from the left and right of the extracted text, which is known as the left and right context.">Annotation
+				Explorer</a>, you can do the following actions:
+			<ul class="ul">
+				<li class="li">Navigate from the results to the input document
+					or input document collection from which the results were derived.</li>
+				<li class="li">Display the results in the <a class="xref"
+					href="../tool_ref/results/TreeViewer.html">Result Tree View</a>.
+				</li>
+				<li class="li">Navigate to the <span class="ph uicontrol">View
+						Definition</span>.
+				</li>
+			</ul>
+			<p class="p">
+				A
+				<dfn class="term">span</dfn>
+				is a built-in type of Text Analytics. The span type represents a
+				contiguous range of characters in a text field of the document. For
+				example, the Span output
+				<samp class="ph codeph">Document.text[1665-1673]: '466-9196'</samp>
+				represents <span class="keyword option">Characters 1665-1673
+					of the text field of Document</span>. This range of characters corresponds
+				to the string
+				<var class="keyword varname">466-9196</var>
+				in the original document.
+			</p>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Navigate
+					to an input document from the <span class="ph uicontrol">Annotation
+						Explorer</span>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Double-click
+					a row of output, or select a row in the output, and click <span
+					class="ph uicontrol">Open Selected Span in Text Editor</span> on
+					the <span class="ph uicontrol">Annotation Explorer</span> toolbar.
+					The selected span is highlighted in the Result Editor, and the <span
+					class="keyword wintitle">Result Tree View</span> displays the
+					selected span. By using the <span class="keyword wintitle">Result
+						Tree View</span>, you can see other spans that are extracted from the
+					text.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">To
+					display results in the <span class="keyword wintitle">Result
+						Tree View</span> from the <span class="ph uicontrol">Annotation
+						Explorer</span>, double-click a row of output. Each input document opens
+					in a <span class="keyword wintitle">Result Tree View</span>, where
+					you can view all of the output views and their attributes in a tree
+					format for a selected input document.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Display
+					results in the <span class="keyword wintitle">Result Table
+						View</span> from the <span class="ph uicontrol">Annotation
+						Explorer</span>. The Result Table View displays the tuples of an output
+					view in a table.
+			</span>
+				<p class="p">
+					The data model of AQL is similar to the standard relational model
+					used by SQL databases like DB2®. All data in AQL is stored in
+					tuples, which are data records of one or more columns or fields. A
+					collection of tuples forms a
+					<dfn class="term">relation</dfn>
+					. Similar to SQL, a tuple is like a row and relation is like a
+					table.
+				</p></li>
+			<li class="li step stepexpand"><span class="ph cmd">Click
+					the <span class="ph uicontrol">Select Output Views to
+						Display in Result Table View</span> menu on the <span
+					class="ph uicontrol">Annotation Explorer</span> toolbar, and select
+					an output view. The <span class="keyword wintitle">Result
+						Table View</span> opens. You can also right-click a row of output and
+					select <span class="ph uicontrol">Show Span in Result Table</span>
+					to open the <span class="keyword wintitle">Result Table View</span>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Navigate
+					to the view definition from the <span class="ph uicontrol">Annotation
+						Explorer</span>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Right-click
+					a row in the <span class="keyword wintitle">Annotation
+						Explorer</span> view, and select <span class="ph uicontrol">Show
+						view in AQL Editor</span>. The corresponding <span class="ph uicontrol">View
+						Definition</span> opens in the AQL editor.
+			</span></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

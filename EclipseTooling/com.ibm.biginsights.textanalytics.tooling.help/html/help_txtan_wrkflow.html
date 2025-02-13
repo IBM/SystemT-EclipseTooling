@@ -2,21 +2,30 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="concept" />
-<meta name="DC.Title" content="Overview of the Text Analytics Workflow perspective" />
-<meta name="abstract" content="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment." />
-<meta name="Description" content="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment." />
-<meta name="DC.Relation" scheme="URI" content="../html/CreateTextAnalyticsApps.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_cr_xenv.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_label.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_writingaql.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_testextract.html" />
+<meta name="DC.Title"
+	content="Overview of the Text Analytics Workflow perspective" />
+<meta name="abstract"
+	content="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment." />
+<meta name="Description"
+	content="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment." />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_cr_xenv.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_label.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_writingaql.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_testextract.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_txtan_wrkflow" />
@@ -32,39 +41,59 @@
 <title>Overview of the Text Analytics Workflow perspective</title>
 </head>
 <body role="main" id="help_txtan_wrkflow">
-<h1 class="title topictitle1">Overview of the <span class="ph">Text Analytics Workflow perspective</span></h1>
-<p class="shortdesc">Create, modify, or test an extractor by using the interface
-from the <span class="ph">Text Analytics Workflow perspective</span> in
-your Eclipse development environment.</p>
-<div class="related-links">
-<ul class="ullinks">
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/help_txtan_cr_xenv.html">Creating the Text Analytics extractor environment</a></span><br />
-You begin with a goal in mind, such as determining what
-sites refer to the Watson machine or conducting a financial analysis
-on IBM quarterly reports. To accomplish these goals, you must analyze
-data, frequently large amounts of it. Instead, you can create criteria
-and patterns and use Text Analytics to help with the analysis.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/help_txtan_label.html">Labeling the data</a></span><br />
-You start the extraction plan by labeling snippets of interest
-and associated clues.  <dfn class="term">Snippets</dfn> are words or phrases
-that you determine to be helpful to the goal of producing the information
-that you need.  </li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/help_txtan_writingaql.html">Writing the AQL to extract your labeled examples</a></span><br />
-You can create your AQL script from a label that you have
-already identified.  It is a good  practice to start from a lower-level
-label (or bottom-up).  For example, if you have a label that is called <kbd class="ph userinput">Amount</kbd> and
-sublabels under that label called <kbd class="ph userinput">Currency</kbd>,
- <kbd class="ph userinput">Number</kbd>, and <kbd class="ph userinput">Unit</kbd>, then
-you start creating AQL from the <span class="keyword apiname">Currency</span>, <span class="keyword apiname">Number</span>,
-and <span class="keyword apiname">Unit</span> labels.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/help_txtan_testextract.html">Testing the extractor</a></span><br />
-After you write AQL statements to extract or filter text,
-you can test the extractor by running the AWL from the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span> and
-viewing the results.  </li>
-</ul>
+	<h1 class="title topictitle1">
+		Overview of the <span class="ph">Text Analytics Workflow
+			perspective</span>
+	</h1>
+	<p class="shortdesc">
+		Create, modify, or test an extractor by using the interface from the <span
+			class="ph">Text Analytics Workflow perspective</span> in your Eclipse
+		development environment.
+	</p>
+	<div class="related-links">
+		<ul class="ullinks">
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/help_txtan_cr_xenv.html">Creating the Text
+						Analytics extractor environment</a></span><br /> You begin with a goal in
+				mind, such as determining what sites refer to the Watson machine or
+				conducting a financial analysis on IBM quarterly reports. To
+				accomplish these goals, you must analyze data, frequently large
+				amounts of it. Instead, you can create criteria and patterns and use
+				Text Analytics to help with the analysis.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/help_txtan_label.html">Labeling the data</a></span><br />
+				You start the extraction plan by labeling snippets of interest and
+				associated clues. <dfn class="term">Snippets</dfn> are words or
+				phrases that you determine to be helpful to the goal of producing
+				the information that you need.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/help_txtan_writingaql.html">Writing the AQL to
+						extract your labeled examples</a></span><br /> You can create your AQL
+				script from a label that you have already identified. It is a good
+				practice to start from a lower-level label (or bottom-up). For
+				example, if you have a label that is called <kbd
+					class="ph userinput">Amount</kbd> and sublabels under that label
+				called <kbd class="ph userinput">Currency</kbd>, <kbd
+					class="ph userinput">Number</kbd>, and <kbd class="ph userinput">Unit</kbd>,
+				then you start creating AQL from the <span class="keyword apiname">Currency</span>,
+				<span class="keyword apiname">Number</span>, and <span
+				class="keyword apiname">Unit</span> labels.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/help_txtan_testextract.html">Testing the
+						extractor</a></span><br /> After you write AQL statements to extract or
+				filter text, you can test the extractor by running the AWL from the
+				<span class="keyword">InfoSphere BigInsights Tools for
+					Eclipse</span> and viewing the results.</li>
+		</ul>
 
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

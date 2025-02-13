@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -12,7 +13,8 @@
 <meta name="DC.Title" content="Pattern Context View" />
 <meta name="abstract" content="" />
 <meta name="Description" content="" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="PatternContextViewer" />
@@ -23,60 +25,101 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
 <link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
 <title>Pattern Context View</title>
 </head>
 <body role="main" id="PatternContextViewer">
-<h1 class="title topictitle1">Pattern Context View</h1>
-<div class="body conbody"><p class="shortdesc"></p>
-<p class="p">The Pattern Context View displays results from <a class="xref" href="../../dev_extractors/write_code/DiscoverPatterns.html" title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">discovering
-patterns in text input</a>.</p>
-<p class="p">Each group can have one or more subgroups, and each subgroup can
-have a different semantic pattern. The semantic patterns of the subgroups
-are similar enough that they can be grouped under the common semantic
-pattern of the group.</p>
-<div class="p">The view displays information about a subgroup in a tabular format
-with three columns:<dl class="dl"><dt class="dt dlterm">Context</dt>
-<dd class="dd">The content of the input contexts that are represented by the
-subgroup.</dd>
-<dt class="dt dlterm">Size</dt>
-<dd class="dd">The number of input contexts that are represented by the subgroup
-(the same context value can occur multiple times in the input).</dd>
-<dt class="dt dlterm">Semantic Pattern</dt>
-<dd class="dd">The semantic pattern of the subgroup.</dd>
-</dl>
-</div>
-<div class="p">For example, consider the following group with common semantic
-pattern <dfn class="term">at</dfn>: <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Example group with common semantic
-pattern <dfn class="term">at</dfn></span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d13548e59">Context</th>
-<th class="entry" valign="bottom" id="d13548e61">Size</th>
-<th class="entry" valign="bottom" id="d13548e63">Semantic Pattern</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d13548e59 ">can be reached at</td>
-<td class="entry" valign="top" headers="d13548e61 ">3</td>
-<td class="entry" valign="top" headers="d13548e63 ">at</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" headers="d13548e59 ">please call me at</td>
-<td class="entry" valign="top" headers="d13548e61 ">4</td>
-<td class="entry" valign="top" headers="d13548e63 ">call;at</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p class="p">The group has two subgroups with different semantic patterns <dfn class="term">at</dfn> and <dfn class="term">call;at</dfn>.
-Since the two patterns are similar to each other, they are joined
-into a single group under the common pattern <dfn class="term">at</dfn>. The
-size column indicates how many times a particular context occurred
-in the input. Select a subgroup to open the Expanded Pattern Context
-View that displays the surrounding text of the corresponding context
-in the input data set. </p>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Pattern Context View</h1>
+	<div class="body conbody">
+		<p class="shortdesc"></p>
+		<p class="p">
+			The Pattern Context View displays results from <a class="xref"
+				href="../../dev_extractors/write_code/DiscoverPatterns.html"
+				title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">discovering
+				patterns in text input</a>.
+		</p>
+		<p class="p">Each group can have one or more subgroups, and each
+			subgroup can have a different semantic pattern. The semantic patterns
+			of the subgroups are similar enough that they can be grouped under
+			the common semantic pattern of the group.</p>
+		<div class="p">
+			The view displays information about a subgroup in a tabular format
+			with three columns:
+			<dl class="dl">
+				<dt class="dt dlterm">Context</dt>
+				<dd class="dd">The content of the input contexts that are
+					represented by the subgroup.</dd>
+				<dt class="dt dlterm">Size</dt>
+				<dd class="dd">The number of input contexts that are
+					represented by the subgroup (the same context value can occur
+					multiple times in the input).</dd>
+				<dt class="dt dlterm">Semantic Pattern</dt>
+				<dd class="dd">The semantic pattern of the subgroup.</dd>
+			</dl>
+		</div>
+		<div class="p">
+			For example, consider the following group with common semantic
+			pattern
+			<dfn class="term">at</dfn>
+			:
+			<div class="tablenoborder">
+				<table cellpadding="4" cellspacing="0" summary="" class="table"
+					rules="all" frame="border" border="1">
+					<caption>
+						<span class="tablecap">Table 1. Example group with common
+							semantic pattern <dfn class="term">at</dfn>
+						</span>
+					</caption>
+					<thead class="thead" align="left">
+						<tr class="row" valign="bottom">
+							<th class="entry" valign="bottom" id="d13548e59">Context</th>
+							<th class="entry" valign="bottom" id="d13548e61">Size</th>
+							<th class="entry" valign="bottom" id="d13548e63">Semantic
+								Pattern</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr class="row">
+							<td class="entry" valign="top" headers="d13548e59 ">can be
+								reached at</td>
+							<td class="entry" valign="top" headers="d13548e61 ">3</td>
+							<td class="entry" valign="top" headers="d13548e63 ">at</td>
+						</tr>
+						<tr class="row">
+							<td class="entry" valign="top" headers="d13548e59 ">please
+								call me at</td>
+							<td class="entry" valign="top" headers="d13548e61 ">4</td>
+							<td class="entry" valign="top" headers="d13548e63 ">call;at</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<p class="p">
+			The group has two subgroups with different semantic patterns
+			<dfn class="term">at</dfn>
+			and
+			<dfn class="term">call;at</dfn>
+			. Since the two patterns are similar to each other, they are joined
+			into a single group under the common pattern
+			<dfn class="term">at</dfn>
+			. The size column indicates how many times a particular context
+			occurred in the input. Select a subgroup to open the Expanded Pattern
+			Context View that displays the surrounding text of the corresponding
+			context in the input data set.
+		</p>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

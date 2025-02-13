@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,11 +11,14 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Generating regular expressions" />
-<meta name="abstract" content="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table." />
-<meta name="Description" content="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table." />
+<meta name="abstract"
+	content="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table." />
+<meta name="Description"
+	content="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table." />
 <meta name="DC.subject" content="regular expressions" />
 <meta name="keywords" content="regular expressions" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/dev_extractors/write_code/WriteCode.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/dev_extractors/write_code/WriteCode.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="GenerateRegEx" />
@@ -25,44 +29,78 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
-<link rel="Start" href="../../../html/dev_extractors/write_code/WriteCode.html" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
+<link rel="Start"
+	href="../../../html/dev_extractors/write_code/WriteCode.html" />
 <title>Generating regular expressions</title>
 </head>
 <body role="main" id="GenerateRegEx">
-<h1 class="title topictitle1">Generating regular expressions</h1>
-<div class="body taskbody"><p class="shortdesc">The Regular Expression Generator helps you create a regular
-expression to include in your AQL extractor. Before you begin, create
-a list of examples that depict the concept behind the regular expression
-that you want to generate. Collect examples into a simple text file
-(<span class="ph filepath">*.txt</span>), one per line. Each example must be terminated
-by a newline character. If you do not have a list of examples, alternatively
-you can enter them manually into the <span class="ph uicontrol">Samples</span> table.</p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">A <samp class="ph systemoutput">regular expression</samp>, also
-referred to as <span class="keyword option">regex</span> or <span class="keyword option">regexp</span>,
-provides a concise and flexible means for matching strings of text,
-such as particular characters, or words. A regular expression is written
-in a formal language that can be interpreted by a <dfn class="term">regular expression
-processor</dfn>, a program that examines text and returns matches
-to provided specifications. </p>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Generate a new regular expression:</span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Regular Expression Generator</span> on
-the <span class="keyword">InfoSphere® BigInsights™</span> Eclipse
-toolbar.     </span></li>
-<li class="li substep"><span class="ph cmd">In the <span class="keyword wintitle">Regular Expression Generator</span> wizard,
-click <span class="ph uicontrol">Load samples from file</span> to select your
-list of examples, select a regular expression to refine, and click <span class="ph uicontrol">Next</span>.
-    </span></li>
-<li class="li substep"><span class="ph cmd">Refine the expression, and click <span class="ph uicontrol">Finish</span>.
-For details about refining the expression, see <a class="xref" href="../../tool_ref/extractors/RegexGenerator.html" title="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor.">Regular Expression Generator</a>. The
-regular expression is copied to the clipboard. </span></li>
-<li class="li substep"><span class="ph cmd"> Place your cursor within an AQL statement where a regular
-expression would appear, right-click, and select <span class="ph uicontrol">Paste</span>.</span></li>
-</ol>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Generate a regular expression to replace an existing expression.</span> If you do not want to replace an expression, create an empty
-expression marker by using two slash (/) characters in an existing,
-syntactically correct AQL statement,  for example:<pre class="pre codeblock"><code>create view MyRegex as
+	<h1 class="title topictitle1">Generating regular expressions</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			The Regular Expression Generator helps you create a regular
+			expression to include in your AQL extractor. Before you begin, create
+			a list of examples that depict the concept behind the regular
+			expression that you want to generate. Collect examples into a simple
+			text file (<span class="ph filepath">*.txt</span>), one per line.
+			Each example must be terminated by a newline character. If you do not
+			have a list of examples, alternatively you can enter them manually
+			into the <span class="ph uicontrol">Samples</span> table.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<p class="p">
+				A
+				<samp class="ph systemoutput">regular expression</samp>
+				, also referred to as <span class="keyword option">regex</span> or <span
+					class="keyword option">regexp</span>, provides a concise and
+				flexible means for matching strings of text, such as particular
+				characters, or words. A regular expression is written in a formal
+				language that can be interpreted by a
+				<dfn class="term">regular expression processor</dfn>
+				, a program that examines text and returns matches to provided
+				specifications.
+			</p>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Generate
+					a new regular expression:</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep"><span class="ph cmd">Click <span
+							class="ph uicontrol">Regular Expression Generator</span> on the <span
+							class="keyword">InfoSphere® BigInsights™</span> Eclipse toolbar.
+					</span></li>
+					<li class="li substep"><span class="ph cmd">In the <span
+							class="keyword wintitle">Regular Expression Generator</span>
+							wizard, click <span class="ph uicontrol">Load samples from
+								file</span> to select your list of examples, select a regular
+							expression to refine, and click <span class="ph uicontrol">Next</span>.
+					</span></li>
+					<li class="li substep"><span class="ph cmd">Refine the
+							expression, and click <span class="ph uicontrol">Finish</span>.
+							For details about refining the expression, see <a class="xref"
+							href="../../tool_ref/extractors/RegexGenerator.html"
+							title="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor.">Regular
+								Expression Generator</a>. The regular expression is copied to the
+							clipboard.
+					</span></li>
+					<li class="li substep"><span class="ph cmd"> Place your
+							cursor within an AQL statement where a regular expression would
+							appear, right-click, and select <span class="ph uicontrol">Paste</span>.
+					</span></li>
+				</ol></li>
+			<li class="li step stepexpand"><span class="ph cmd">Generate
+					a regular expression to replace an existing expression.</span> If you do
+				not want to replace an expression, create an empty expression marker
+				by using two slash (/) characters in an existing, syntactically
+				correct AQL statement, for example:<pre class="pre codeblock">
+					<code>create view MyRegex as
 extract regex // as match
 from Document D;
 
@@ -75,28 +113,50 @@ from Document D;
 create view MyRegexFilter as
 select * 
 from Phone P
-where MatchesRegex(//, P.number);</code></pre>
-<ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Right-click a syntactically correct regular expression
-between the two slash (/) characters that surround the regular expression,
-and select <span class="ph uicontrol">Regular Expression Generator</span> from
-the pop-up menu.  If <span class="ph uicontrol">Regular Expression Generator</span> is
-not available from the pop-up menu, your cursor is not positioned
-between the two slash (/) characters that surround a syntactically
-correct regular expression.</span></li>
-<li class="li substep"><span class="ph cmd">In the <span class="keyword wintitle">Regular Expression Generator</span> wizard,
-click <span class="ph uicontrol">Load samples from file</span> to select your
-list of samples, select a regular expression to refine, and click <span class="ph uicontrol">Next</span>.</span></li>
-<li class="li substep"><span class="ph cmd">Refine the expression, and click <span class="ph uicontrol">Finish</span>.
-For details about refining the expression, see <a class="xref" href="../../tool_ref/extractors/RegexGenerator.html" title="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor.">Regular Expression Generator</a>. </span></li>
-</ol>
-</li>
-</ol>
-<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The regular expression replaces the original regular expression
-in the file.</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/dev_extractors/write_code/WriteCode.html" title="Write your extractor code by using Annotation Query Language (AQL).">Writing extractor code</a></div>
-</div>
-</div></body>
+where MatchesRegex(//, P.number);</code>
+				</pre>
+				<ol type="a" class="ol substeps">
+					<li class="li substep"><span class="ph cmd">Right-click
+							a syntactically correct regular expression between the two slash
+							(/) characters that surround the regular expression, and select <span
+							class="ph uicontrol">Regular Expression Generator</span> from the
+							pop-up menu. If <span class="ph uicontrol">Regular
+								Expression Generator</span> is not available from the pop-up menu, your
+							cursor is not positioned between the two slash (/) characters
+							that surround a syntactically correct regular expression.
+					</span></li>
+					<li class="li substep"><span class="ph cmd">In the <span
+							class="keyword wintitle">Regular Expression Generator</span>
+							wizard, click <span class="ph uicontrol">Load samples from
+								file</span> to select your list of samples, select a regular expression
+							to refine, and click <span class="ph uicontrol">Next</span>.
+					</span></li>
+					<li class="li substep"><span class="ph cmd">Refine the
+							expression, and click <span class="ph uicontrol">Finish</span>.
+							For details about refining the expression, see <a class="xref"
+							href="../../tool_ref/extractors/RegexGenerator.html"
+							title="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor.">Regular
+								Expression Generator</a>.
+					</span></li>
+				</ol></li>
+		</ol>
+		<div class="section result">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">Results</h2>
+			</div>
+			The regular expression replaces the original regular expression in
+			the file.
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/dev_extractors/write_code/WriteCode.html"
+					title="Write your extractor code by using Annotation Query Language (AQL).">Writing
+					extractor code</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

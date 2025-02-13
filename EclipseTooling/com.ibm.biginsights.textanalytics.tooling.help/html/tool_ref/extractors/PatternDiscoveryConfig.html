@@ -2,17 +2,20 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="reference" />
-<meta name="DC.Title" content="Pattern-discovery configuration: Advanced settings" />
+<meta name="DC.Title"
+	content="Pattern-discovery configuration: Advanced settings" />
 <meta name="abstract" content="" />
 <meta name="Description" content="" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/CreatePatternDiscoveryRunConfig.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/CreatePatternDiscoveryRunConfig.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="PatternDiscoveryConfig" />
@@ -23,108 +26,172 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
-<link rel="Start" href="../../../html/CreatePatternDiscoveryRunConfig.html" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
+<link rel="Start"
+	href="../../../html/CreatePatternDiscoveryRunConfig.html" />
 <title>Pattern-discovery configuration: Advanced settings</title>
 </head>
 <body role="main" id="PatternDiscoveryConfig">
-<h1 class="title topictitle1">Pattern-discovery configuration: Advanced settings</h1>
-<div class="body refbody"><p class="shortdesc"></p>
-<div class="section"><p class="p">As you <a class="xref" href="../../dev_extractors/write_code/DiscoverPatterns.html" title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">discover
-patterns in text input</a>, you can also refine your pattern-discovery
-configuration to optimize results.</p>
-</div>
-<div class="section"><h2 class="title sectiontitle">Input</h2><dl class="dl parml"><dt class="dt pt dlterm">Normalize whitespace</dt>
-<dd class="dd pd">Remove any leading and trailing white space. Multiple consecutive
-internal white space characters are replaced by a single space in
-the input contexts before processing.</dd>
-<dt class="dt pt dlterm">Normalize new lines</dt>
-<dd class="dd pd">Treat new line characters as white space. This option applies
-only if the <span class="keyword option">Normalize whitespace</span> option is in effect.</dd>
-<dt class="dt pt dlterm">Case-insensitive analysis</dt>
-<dd class="dd pd">Convert input contexts to lowercase characters before processing.</dd>
-</dl>
-</div>
-<div class="section"><h2 class="title sectiontitle">Sequence Mining</h2><div class="p">These settings define what
-is considered as a frequent sequence when you apply the Pattern Discovery
-algorithm. A <dfn class="term">sequence</dfn> is a series of consecutive tokens
-that occur in the input contexts. <dl class="dl parml"><dt class="dt pt dlterm">Minimum Sequence Length</dt>
-<dd class="dd pd">The minimum length of a sequence, in tokens, that is considered
-by the algorithm when it determines the most frequent sequences.<p class="p">For
-example, if the <span class="ph uicontrol">Minimum Sequence Length</span> is
-2, in the context <var class="keyword varname">can be reached</var>, the algorithm
-considers only the following sequences: <samp class="ph codeph">{can be; be reached;
-can be reached}</samp> (sequences are separated by ";"). The sequences <var class="keyword varname">can,
-be, and reached</var> are not considered, since their length is
-less than 2.</p>
-</dd>
-<dd class="dd pd">You can enter any integer value that is greater than 0. The default
-value is 2.</dd>
-<dt class="dt pt dlterm">Maximum Sequence Length</dt>
-<dd class="dd pd">The maximum length of a sequence, in tokens, that is considered
-by the algorithm when it determines the most frequent sequences.<p class="p">For
-example, if the <span class="ph uicontrol">Maximum Sequence Length</span> is
-2, in the context <var class="keyword varname">can be reached</var>, the algorithm
-considers only the following sequences: <samp class="ph codeph">{can; be; reached;
-can be; be reached}</samp> (sequences are separated by ";"). The
-sequence <var class="keyword varname">can be reached</var> is not considered, since
-its length is more than 2.</p>
-</dd>
-<dd class="dd pd">You can enter any integer value that is greater than 0. The default
-value is 5.</dd>
-<dt class="dt pt dlterm">Minimum Sequence Frequency</dt>
-<dd class="dd pd">The minimum number of times a sequence appears in the input contexts
-to be considered frequent.<p class="p">For example, suppose that there are two
-sequences, <var class="keyword varname">can</var> with a frequency 15, and <var class="keyword varname">he</var> with
-a frequency 5. If the <span class="ph uicontrol">Minimum Sequence Frequency</span> is
-10, the second sequence <var class="keyword varname">he</var> is disregarded.</p>
-</dd>
-<dd class="dd pd">You can enter any integer value. The following list contains the
-recommended values for various corpus sizes: <dl class="dl"><dt class="dt dlterm">5</dt>
-<dd class="dd">Recommended for small corpus (approximately 100 entries) </dd>
-<dt class="dt dlterm">10</dt>
-<dd class="dd">Recommended for medium corpus (approximately 5000 entries)</dd>
-<dt class="dt dlterm">15</dt>
-<dd class="dd">Recommended for large corpus (approximately 10,000 entries)</dd>
-<dt class="dt dlterm">50</dt>
-<dd class="dd">Recommended for very large corpus (approximately 100,000 entries)</dd>
-</dl>
-<p class="p">Sequence support is computed across the entire corpus.
-The same frequent sequence can be distributed across different groups
-in the output. Therefore, the sum of the sizes of all groups that
-contain the same frequent sequence is greater than or equal to the
-minimum support, but the size of an individual group in the output
-might be smaller than the frequency of each individual sequence in
-the group.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Rules</h2><p class="p">These settings compute statistics
-from the frequent sequences to determine the final semantic patterns. </p>
-<dl class="dl parml"><dt class="dt pt dlterm">Sequence Correlation Measure Range</dt>
-<dd class="dd pd">The Correlation Measure determines how similar two sequences are
-to each other and how important a sequence is within the entire corpus.</dd>
-<dd class="dd pd">The range specifies when two sequences are considered highly correlated,
-and when one of them is disregarded. <p class="p">Use the Rule History view
-to examine the disregarded sequences because they were highly correlated
-with other sequences.</p>
-</dd>
-<dd class="dd pd">You can enter any range between 0 and 1. The default range is
-between 0.2 and 1. The higher the value, the higher the threshold
-for two sequences to be considered correlated.</dd>
-<dd class="dd pd">Example: Sequence Correlation Measure Range between 0.2 and 1<pre class="pre codeblock"><code>Correlation between {can} and {be} = 0.7 - considered as highly correlated
+	<h1 class="title topictitle1">Pattern-discovery configuration:
+		Advanced settings</h1>
+	<div class="body refbody">
+		<p class="shortdesc"></p>
+		<div class="section">
+			<p class="p">
+				As you <a class="xref"
+					href="../../dev_extractors/write_code/DiscoverPatterns.html"
+					title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">discover
+					patterns in text input</a>, you can also refine your pattern-discovery
+				configuration to optimize results.
+			</p>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Input</h2>
+			<dl class="dl parml">
+				<dt class="dt pt dlterm">Normalize whitespace</dt>
+				<dd class="dd pd">Remove any leading and trailing white space.
+					Multiple consecutive internal white space characters are replaced
+					by a single space in the input contexts before processing.</dd>
+				<dt class="dt pt dlterm">Normalize new lines</dt>
+				<dd class="dd pd">
+					Treat new line characters as white space. This option applies only
+					if the <span class="keyword option">Normalize whitespace</span>
+					option is in effect.
+				</dd>
+				<dt class="dt pt dlterm">Case-insensitive analysis</dt>
+				<dd class="dd pd">Convert input contexts to lowercase
+					characters before processing.</dd>
+			</dl>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Sequence Mining</h2>
+			<div class="p">
+				These settings define what is considered as a frequent sequence when
+				you apply the Pattern Discovery algorithm. A
+				<dfn class="term">sequence</dfn>
+				is a series of consecutive tokens that occur in the input contexts.
+				<dl class="dl parml">
+					<dt class="dt pt dlterm">Minimum Sequence Length</dt>
+					<dd class="dd pd">
+						The minimum length of a sequence, in tokens, that is considered by
+						the algorithm when it determines the most frequent sequences.
+						<p class="p">
+							For example, if the <span class="ph uicontrol">Minimum
+								Sequence Length</span> is 2, in the context
+							<var class="keyword varname">can be reached</var>
+							, the algorithm considers only the following sequences:
+							<samp class="ph codeph">{can be; be reached; can be
+								reached}</samp>
+							(sequences are separated by ";"). The sequences
+							<var class="keyword varname">can, be, and reached</var>
+							are not considered, since their length is less than 2.
+						</p>
+					</dd>
+					<dd class="dd pd">You can enter any integer value that is
+						greater than 0. The default value is 2.</dd>
+					<dt class="dt pt dlterm">Maximum Sequence Length</dt>
+					<dd class="dd pd">
+						The maximum length of a sequence, in tokens, that is considered by
+						the algorithm when it determines the most frequent sequences.
+						<p class="p">
+							For example, if the <span class="ph uicontrol">Maximum
+								Sequence Length</span> is 2, in the context
+							<var class="keyword varname">can be reached</var>
+							, the algorithm considers only the following sequences:
+							<samp class="ph codeph">{can; be; reached; can be; be
+								reached}</samp>
+							(sequences are separated by ";"). The sequence
+							<var class="keyword varname">can be reached</var>
+							is not considered, since its length is more than 2.
+						</p>
+					</dd>
+					<dd class="dd pd">You can enter any integer value that is
+						greater than 0. The default value is 5.</dd>
+					<dt class="dt pt dlterm">Minimum Sequence Frequency</dt>
+					<dd class="dd pd">
+						The minimum number of times a sequence appears in the input
+						contexts to be considered frequent.
+						<p class="p">
+							For example, suppose that there are two sequences,
+							<var class="keyword varname">can</var>
+							with a frequency 15, and
+							<var class="keyword varname">he</var>
+							with a frequency 5. If the <span class="ph uicontrol">Minimum
+								Sequence Frequency</span> is 10, the second sequence
+							<var class="keyword varname">he</var>
+							is disregarded.
+						</p>
+					</dd>
+					<dd class="dd pd">
+						You can enter any integer value. The following list contains the
+						recommended values for various corpus sizes:
+						<dl class="dl">
+							<dt class="dt dlterm">5</dt>
+							<dd class="dd">Recommended for small corpus (approximately
+								100 entries)</dd>
+							<dt class="dt dlterm">10</dt>
+							<dd class="dd">Recommended for medium corpus (approximately
+								5000 entries)</dd>
+							<dt class="dt dlterm">15</dt>
+							<dd class="dd">Recommended for large corpus (approximately
+								10,000 entries)</dd>
+							<dt class="dt dlterm">50</dt>
+							<dd class="dd">Recommended for very large corpus
+								(approximately 100,000 entries)</dd>
+						</dl>
+						<p class="p">Sequence support is computed across the entire
+							corpus. The same frequent sequence can be distributed across
+							different groups in the output. Therefore, the sum of the sizes
+							of all groups that contain the same frequent sequence is greater
+							than or equal to the minimum support, but the size of an
+							individual group in the output might be smaller than the
+							frequency of each individual sequence in the group.</p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Rules</h2>
+			<p class="p">These settings compute statistics from the frequent
+				sequences to determine the final semantic patterns.</p>
+			<dl class="dl parml">
+				<dt class="dt pt dlterm">Sequence Correlation Measure Range</dt>
+				<dd class="dd pd">The Correlation Measure determines how
+					similar two sequences are to each other and how important a
+					sequence is within the entire corpus.</dd>
+				<dd class="dd pd">
+					The range specifies when two sequences are considered highly
+					correlated, and when one of them is disregarded.
+					<p class="p">Use the Rule History view to examine the
+						disregarded sequences because they were highly correlated with
+						other sequences.</p>
+				</dd>
+				<dd class="dd pd">You can enter any range between 0 and 1. The
+					default range is between 0.2 and 1. The higher the value, the
+					higher the threshold for two sequences to be considered correlated.</dd>
+				<dd class="dd pd">
+					Example: Sequence Correlation Measure Range between 0.2 and 1
+					<pre class="pre codeblock">
+						<code>Correlation between {can} and {be} = 0.7 - considered as highly correlated
 Correlation between {can} and {reached} = 0.1
 
 The algorithm considers disregarding one of {can} and {be}. It will not consider 
-   disregarding either of {can} and {reached}.</code></pre>
-</dd>
-</dl>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreatePatternDiscoveryRunConfig.html" title="You use a pattern-discovery configuration to identify themes and trends in a data collection. Pattern discovery identifies contextual clues within documents that helps refine the accuracy and coverage of an extractor. Your configuration settings are saved between different invocations of pattern discovery.">Creating and executing pattern-discovery configurations</a></div>
-</div>
-</div></body>
+   disregarding either of {can} and {reached}.</code>
+					</pre>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/CreatePatternDiscoveryRunConfig.html"
+					title="You use a pattern-discovery configuration to identify themes and trends in a data collection. Pattern discovery identifies contextual clues within documents that helps refine the accuracy and coverage of an extractor. Your configuration settings are saved between different invocations of pattern discovery.">Creating
+					and executing pattern-discovery configurations</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

@@ -2,18 +2,24 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
-<meta name="DC.Title" content="Creating and executing pattern-discovery configurations" />
-<meta name="abstract" content="You use a pattern-discovery configuration to identify themes and trends in a data collection. Pattern discovery identifies contextual clues within documents that helps refine the accuracy and coverage of an extractor. Your configuration settings are saved between different invocations of pattern discovery." />
-<meta name="Description" content="You use a pattern-discovery configuration to identify themes and trends in a data collection. Pattern discovery identifies contextual clues within documents that helps refine the accuracy and coverage of an extractor. Your configuration settings are saved between different invocations of pattern discovery." />
-<meta name="DC.Relation" scheme="URI" content="../html/CreateTextAnalyticsApps.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/tool_ref/extractors/PatternDiscoveryConfig.html" />
+<meta name="DC.Title"
+	content="Creating and executing pattern-discovery configurations" />
+<meta name="abstract"
+	content="You use a pattern-discovery configuration to identify themes and trends in a data collection. Pattern discovery identifies contextual clues within documents that helps refine the accuracy and coverage of an extractor. Your configuration settings are saved between different invocations of pattern discovery." />
+<meta name="Description"
+	content="You use a pattern-discovery configuration to identify themes and trends in a data collection. Pattern discovery identifies contextual clues within documents that helps refine the accuracy and coverage of an extractor. Your configuration settings are saved between different invocations of pattern discovery." />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/tool_ref/extractors/PatternDiscoveryConfig.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="CreatePatternDiscoveryRunConfig" />
@@ -29,95 +35,195 @@
 <title>Creating and executing pattern-discovery configurations</title>
 </head>
 <body role="main" id="CreatePatternDiscoveryRunConfig">
-<h1 class="title topictitle1">Creating and executing pattern-discovery configurations</h1>
-<div class="body taskbody"><p class="shortdesc">You use a pattern-discovery configuration to identify themes
-and trends in a data collection. Pattern discovery identifies contextual
-clues within documents that helps refine the accuracy and coverage
-of an extractor. Your configuration settings are saved between different
-invocations of pattern discovery.</p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><div class="p"><ul class="ul"><li class="li">Ensure that your Text Analytics project <a class="xref" href="../../com.ibm.biginsights.project.help/html/AddNatureToProj.html">is a BigInsights™ project</a>.</li>
-<li class="li">Ensure that your project properties are <a class="xref" href="SetProjProps.html" title="Projects with the BigInsights nature acquire specific properties for Text Analytics.">set to appropriate values for Text Analytics</a>.<div class="note note"><span class="notetitle">Note:</span> Changes
-to project properties are not propagated to existing launch configurations.</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Right-click a Text Analytics project, and click <span class="ph menucascade"><span class="ph uicontrol">Run As</span> &gt; <span class="ph uicontrol">Run Configurations</span></span>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">In the <span class="keyword wintitle">Run Configurations</span> window,
-right-click <span class="ph menucascade"><span class="ph uicontrol">Pattern Discovery</span> &gt; <span class="ph uicontrol">New</span></span> in the navigation pane to
-create a new configuration.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Main</span> tab, specify your settings: </span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Select the <span class="ph uicontrol">Output view</span>. </span> The <span class="ph uicontrol">Output view</span> field is pre-populated
-with the output views of the extractor. </li>
-<li class="li substep substepexpand"><span class="ph cmd">Specify a value for the <span class="ph uicontrol">Group on</span> field.
-The <span class="ph uicontrol">Group on</span> field is pre-populated with the
-type Span attributes of the selected Output view. The attribute selected
-for the <span class="ph uicontrol">Group on</span> field defines the input contexts
-on which to do Pattern Discovery.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">In the<span class="ph uicontrol"> Entities to Consider Type Only</span> field,
-select the field names, if any, to include as more information during
-pattern discovery. </span> Before doing pattern discovery, all
-occurrences of these entities in the input snippets are replaced by
-the type of the entity.<div class="note note"><span class="notetitle">Note:</span> You cannot select the same attribute
-as the one indicated in the <span class="ph uicontrol">Group on</span> field.
-See <a class="xref" href="dev_extractors/write_code/help_txtan_aboutpatdis.html" title="Given an input corpus and an initial extractor, the Pattern discovery, a feature included in the InfoSphere BigInsights Eclipse tooling, groups input contexts with similar semantics and distills patterns from them. You can then decide which of the patterns needs to be implemented in the extractor.">Pattern discovery scenarios</a> for
-an example pattern that is generated when you select this option.</div>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Snippet Field Name</span> field,
-select the attribute that contains the contexts that you want to analyze.</span> <p class="p">A <dfn class="term">snippet</dfn> is a larger region of text that contains
-each of the input contexts. Snippets are displayed in the Expanded
-Pattern Context Viewer, which allows you to examine the input contexts
-of a particular pattern in a larger context. This field is populated
-automatically with all attributes in the AQL view that are used to
-define the input contexts, along with a special value <var class="keyword varname">Default_Snippet</var>.
-The <var class="keyword varname">Default_Snippet</var> is the default selection, and
-represents 25 characters to the left and right of each input context.
-Therefore, by default, the Expanded Pattern Context Viewer displays
-snippets of text that contain the 25 characters that precede and follow
-an input context. To use a custom snippet value:</p>
-<ol class="ol" type="i"><li class="li">Specify the intended value of the snippet as an additional attribute
-in the AQL view that is used to define the input contexts. </li>
-<li class="li">Select that attribute in this field. For example, the attribute <span class="keyword parmname parmname">customSnippet</span> in
-the following AQL view defines a custom snippet of 10 tokens to the
-left and right of the input context.<pre class="pre codeblock"><code>create view PhoneCandidateContext as
+	<h1 class="title topictitle1">Creating and executing
+		pattern-discovery configurations</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">You use a pattern-discovery configuration to
+			identify themes and trends in a data collection. Pattern discovery
+			identifies contextual clues within documents that helps refine the
+			accuracy and coverage of an extractor. Your configuration settings
+			are saved between different invocations of pattern discovery.</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<div class="p">
+				<ul class="ul">
+					<li class="li">Ensure that your Text Analytics project <a
+						class="xref"
+						href="../../com.ibm.biginsights.project.help/html/AddNatureToProj.html">is
+							a BigInsights™ project</a>.
+					</li>
+					<li class="li">Ensure that your project properties are <a
+						class="xref" href="SetProjProps.html"
+						title="Projects with the BigInsights nature acquire specific properties for Text Analytics.">set
+							to appropriate values for Text Analytics</a>.
+						<div class="note note">
+							<span class="notetitle">Note:</span> Changes to project
+							properties are not propagated to existing launch configurations.
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Right-click
+					a Text Analytics project, and click <span class="ph menucascade"><span
+						class="ph uicontrol">Run As</span> &gt; <span class="ph uicontrol">Run
+							Configurations</span></span>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">In
+					the <span class="keyword wintitle">Run Configurations</span>
+					window, right-click <span class="ph menucascade"><span
+						class="ph uicontrol">Pattern Discovery</span> &gt; <span
+						class="ph uicontrol">New</span></span> in the navigation pane to create a
+					new configuration.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">In
+					the <span class="ph uicontrol">Main</span> tab, specify your
+					settings:
+			</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">Select
+							the <span class="ph uicontrol">Output view</span>.
+					</span> The <span class="ph uicontrol">Output view</span> field is
+						pre-populated with the output views of the extractor.</li>
+					<li class="li substep substepexpand"><span class="ph cmd">Specify
+							a value for the <span class="ph uicontrol">Group on</span> field.
+							The <span class="ph uicontrol">Group on</span> field is
+							pre-populated with the type Span attributes of the selected
+							Output view. The attribute selected for the <span
+							class="ph uicontrol">Group on</span> field defines the input
+							contexts on which to do Pattern Discovery.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">In
+							the<span class="ph uicontrol"> Entities to Consider Type
+								Only</span> field, select the field names, if any, to include as more
+							information during pattern discovery.
+					</span> Before doing pattern discovery, all occurrences of these entities
+						in the input snippets are replaced by the type of the entity.
+						<div class="note note">
+							<span class="notetitle">Note:</span> You cannot select the same
+							attribute as the one indicated in the <span class="ph uicontrol">Group
+								on</span> field. See <a class="xref"
+								href="dev_extractors/write_code/help_txtan_aboutpatdis.html"
+								title="Given an input corpus and an initial extractor, the Pattern discovery, a feature included in the InfoSphere BigInsights Eclipse tooling, groups input contexts with similar semantics and distills patterns from them. You can then decide which of the patterns needs to be implemented in the extractor.">Pattern
+								discovery scenarios</a> for an example pattern that is generated
+							when you select this option.
+						</div></li>
+					<li class="li substep substepexpand"><span class="ph cmd">In
+							the <span class="ph uicontrol">Snippet Field Name</span> field,
+							select the attribute that contains the contexts that you want to
+							analyze.
+					</span>
+						<p class="p">
+							A
+							<dfn class="term">snippet</dfn>
+							is a larger region of text that contains each of the input
+							contexts. Snippets are displayed in the Expanded Pattern Context
+							Viewer, which allows you to examine the input contexts of a
+							particular pattern in a larger context. This field is populated
+							automatically with all attributes in the AQL view that are used
+							to define the input contexts, along with a special value
+							<var class="keyword varname">Default_Snippet</var>
+							. The
+							<var class="keyword varname">Default_Snippet</var>
+							is the default selection, and represents 25 characters to the
+							left and right of each input context. Therefore, by default, the
+							Expanded Pattern Context Viewer displays snippets of text that
+							contain the 25 characters that precede and follow an input
+							context. To use a custom snippet value:
+						</p>
+						<ol class="ol" type="i">
+							<li class="li">Specify the intended value of the snippet as
+								an additional attribute in the AQL view that is used to define
+								the input contexts.</li>
+							<li class="li">Select that attribute in this field. For
+								example, the attribute <span class="keyword parmname parmname">customSnippet</span>
+								in the following AQL view defines a custom snippet of 10 tokens
+								to the left and right of the input context.<pre
+									class="pre codeblock">
+									<code>create view PhoneCandidateContext as
 select LeftContextTok(P.num, 4) as context,
 	CombineSpans(LeftContextTok(P.num, 10), 
  RightContextTok(P.num, 10)) as customSnippet
 from PhoneCandidate P;      
 			
-output view PhoneCandidateContext;       </code></pre>
-</li>
-</ol>
-<p class="p">The selected attribute name must be different from those selected
-in the <span class="ph uicontrol">Group On</span> and <span class="ph uicontrol">Entities to
-Consider Type Only</span> fields.</p>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">Select the language of the data collection.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Browse Workspace</span> or <span class="ph uicontrol">Browse
-File System</span> to select the location of the data collection. </span> <div class="note tip"><span class="tiptitle">Tip:</span> Select the <span class="ph uicontrol">Show All Files</span> check box to display all files in the dialog, including those that have unsupported file extensions. For example, <span class="ph filepath">.avi</span> is not a supported format for a data collection. However, if <span class="ph uicontrol">Show All Files</span> is selected, <span class="ph filepath">AVI</span> files or directories that contain <span class="ph filepath">.avi</span> files are displayed in the dialog.</div>
-Valid entries for the data collection field are provided in <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_input-coll-format.html" target="_blank" title="(Opens in a new tab or window)">Data collection formats</a>.</li>
-</ol>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">If external dictionaries and tables are required by the
-extractor, click the corresponding tabs to configure them.</span></li>
-<li class="li step stepexpand">Optional: <span class="ph cmd">Click the <span class="ph uicontrol">Advanced</span> tab
-to further customize pattern discovery.</span> <div class="note restriction"><span class="restrictiontitle">Restriction:</span> The pattern-discovery algorithm can only use the
-multilingual tokenizer. You cannot specify another tokenizer in the
-pattern-discovery configuration. For more information about the multilingual
-tokenizer, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_tokenization.html" target="_blank" title="(Opens in a new tab or window)">Tokenization</a>.</div>
-<p class="p">To rerun a recently
-launched configuration, select the configuration from the <span class="ph uicontrol">Run</span> toolbar
-button menu.</p>
-</li>
-</ol>
-</div>
-<div class="related-links">
-<ul class="ullinks">
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/tool_ref/extractors/PatternDiscoveryConfig.html">Pattern-discovery configuration: Advanced settings</a></span><br />
-</li>
-</ul>
+output view PhoneCandidateContext;       </code>
+								</pre>
+							</li>
+						</ol>
+						<p class="p">
+							The selected attribute name must be different from those selected
+							in the <span class="ph uicontrol">Group On</span> and <span
+								class="ph uicontrol">Entities to Consider Type Only</span>
+							fields.
+						</p></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Select
+							the language of the data collection.</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Click
+							<span class="ph uicontrol">Browse Workspace</span> or <span
+							class="ph uicontrol">Browse File System</span> to select the
+							location of the data collection.
+					</span>
+						<div class="note tip">
+							<span class="tiptitle">Tip:</span> Select the <span
+								class="ph uicontrol">Show All Files</span> check box to display
+							all files in the dialog, including those that have unsupported
+							file extensions. For example, <span class="ph filepath">.avi</span>
+							is not a supported format for a data collection. However, if <span
+								class="ph uicontrol">Show All Files</span> is selected, <span
+								class="ph filepath">AVI</span> files or directories that contain
+							<span class="ph filepath">.avi</span> files are displayed in the
+							dialog.
+						</div> Valid entries for the data collection field are provided in <a
+						class="xref"
+						href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_input-coll-format.html"
+						target="_blank" title="(Opens in a new tab or window)">Data
+							collection formats</a>.</li>
+				</ol></li>
+			<li class="li step stepexpand"><span class="ph cmd">If
+					external dictionaries and tables are required by the extractor,
+					click the corresponding tabs to configure them.</span></li>
+			<li class="li step stepexpand">Optional: <span class="ph cmd">Click
+					the <span class="ph uicontrol">Advanced</span> tab to further
+					customize pattern discovery.
+			</span>
+				<div class="note restriction">
+					<span class="restrictiontitle">Restriction:</span> The
+					pattern-discovery algorithm can only use the multilingual
+					tokenizer. You cannot specify another tokenizer in the
+					pattern-discovery configuration. For more information about the
+					multilingual tokenizer, see <a class="xref"
+						href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_tokenization.html"
+						target="_blank" title="(Opens in a new tab or window)">Tokenization</a>.
+				</div>
+				<p class="p">
+					To rerun a recently launched configuration, select the
+					configuration from the <span class="ph uicontrol">Run</span>
+					toolbar button menu.
+				</p>
+			</li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<ul class="ullinks">
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/tool_ref/extractors/PatternDiscoveryConfig.html">Pattern-discovery
+						configuration: Advanced settings</a></span><br /></li>
+		</ul>
 
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

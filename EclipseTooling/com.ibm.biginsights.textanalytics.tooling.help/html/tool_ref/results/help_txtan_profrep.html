@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,11 +11,14 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="concept" />
 <meta name="DC.Title" content="AQL Profiler reports" />
-<meta name="abstract" content="In some cases, the Text Analytics optimizer cannot choose the most efficient execution plan. When that is the case, you can use the AQL Profiler to identify which portion of the plan can be improved through manual tuning. The AQL Profiler is included in the InfoSphere BigInsights Eclipse Tooling." />
-<meta name="Description" content="In some cases, the Text Analytics optimizer cannot choose the most efficient execution plan. When that is the case, you can use the AQL Profiler to identify which portion of the plan can be improved through manual tuning. The AQL Profiler is included in the InfoSphere BigInsights Eclipse Tooling." />
+<meta name="abstract"
+	content="In some cases, the Text Analytics optimizer cannot choose the most efficient execution plan. When that is the case, you can use the AQL Profiler to identify which portion of the plan can be improved through manual tuning. The AQL Profiler is included in the InfoSphere BigInsights Eclipse Tooling." />
+<meta name="Description"
+	content="In some cases, the Text Analytics optimizer cannot choose the most efficient execution plan. When that is the case, you can use the AQL Profiler to identify which portion of the plan can be improved through manual tuning. The AQL Profiler is included in the InfoSphere BigInsights Eclipse Tooling." />
 <meta name="DC.subject" content="AQL logic optimization" />
 <meta name="keywords" content="AQL logic optimization" />
-<meta name="DC.Relation" scheme="URI" content="../../../html/tool_ref/results/ProfilerView.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/tool_ref/results/ProfilerView.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_txtan_profrep" />
@@ -25,64 +29,98 @@
 <!-- Use, duplication or disclosure restricted by -->
 <!-- GSA ADP Schedule Contract with IBM Corp. -->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
-<link rel="Start" href="../../../html/tool_ref/results/ProfilerView.html" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
+<link rel="Start"
+	href="../../../html/tool_ref/results/ProfilerView.html" />
 <title>AQL Profiler reports</title>
 </head>
 <body role="main" id="help_txtan_profrep">
-<h1 class="title topictitle1">AQL Profiler reports</h1>
-<div class="body conbody"><p class="shortdesc">In some cases, the Text Analytics optimizer cannot choose
-the most efficient execution plan. When that is the case, you can
-use the AQL Profiler to identify which portion of the plan can be
-improved through manual tuning. The AQL Profiler is included in the <span class="keyword">InfoSphere® BigInsights™</span> Eclipse
-Tooling.</p>
-<p class="p">The Profiler generates reports that can help you troubleshoot
-performance problems in the AQL code. For more information, see <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_extract-perform.html" target="_blank" title="(Opens in a new tab or window)"> Improving extractor performance</a> for help
-in determining if your extractor requires performance tuning, and
-how to solve common performance problems.</p>
-<p class="p">The Profiler also calculates the throughput of the extractor (in
-KB/seconds) by dividing the size of the data that was processed by
-the  total duration of the Profiler execution.  The higher the value,
-the better: more data is processed per second, and the extractor is
-faster. As you tune the AQL hot spots identified by the Profiler,
-verify that the throughput value increases the next time you rerun
-the Profiler. You may need to repeat the process until you are satisfied
-with the extractor performance.</p>
-<p class="p">The Profiler generates the following reports that can help you
-troubleshoot performance problems in the AQL code.</p>
-<div class="section"><h2 class="title sectiontitle">Top 25 Views by Execution Time report</h2><p class="p">Helps you understand which of the views took the longest
-time to run. For a moderately complex extractor, a view that takes
-more than 5% of the execution time is a potential hot spot. (In general,
-you can ignore the time taken by 'Tokenization and POS Tagging', which
-is expected to take a longer time in general.)</p>
-<div class="p">These views are
-good candidates for manual tuning in order to improve their performance.<div class="note remember"><span class="remembertitle">Remember:</span> Not all views are equal: some will take more that
-5%, some will take less. Use good judgment when you evaluate the amount
-of resource that a view takes.</div>
-<div class="note tip"><span class="tiptitle">Tip:</span> Focus on optimizing
-the most expensive views.</div>
-</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Top 25 documents by running time report</h2><div class="p">Displays the average time to annotate each document in
-the data collection. This summary can provide you with some clues
-to isolate documents that take longer to annotate and analyze deeper
-why a particular type of data content takes longer time duration.<div class="note remember"><span class="remembertitle">Remember:</span> Some documents take longer to process
-than others because they are larger, the density of results is larger,
-or the document exhibits some characteristic that makes the extractor
-slower.</div>
-</div>
-</div>
-<div class="section"><h2 class="title sectiontitle">Top 25 documents over 1KB by normalized running time
-report</h2><p class="p">Displays the normalized running time
-per MB of text for documents larger than 1 KB. A higher number means
-the extractor is slower on that document. This report also displays
-the extractor throughput, the higher the throughput, the faster the
-extractor.</p>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/tool_ref/results/ProfilerView.html">Profiler View</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">AQL Profiler reports</h1>
+	<div class="body conbody">
+		<p class="shortdesc">
+			In some cases, the Text Analytics optimizer cannot choose the most
+			efficient execution plan. When that is the case, you can use the AQL
+			Profiler to identify which portion of the plan can be improved
+			through manual tuning. The AQL Profiler is included in the <span
+				class="keyword">InfoSphere® BigInsights™</span> Eclipse Tooling.
+		</p>
+		<p class="p">
+			The Profiler generates reports that can help you troubleshoot
+			performance problems in the AQL code. For more information, see <a
+				class="xref"
+				href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_extract-perform.html"
+				target="_blank" title="(Opens in a new tab or window)">
+				Improving extractor performance</a> for help in determining if your
+			extractor requires performance tuning, and how to solve common
+			performance problems.
+		</p>
+		<p class="p">The Profiler also calculates the throughput of the
+			extractor (in KB/seconds) by dividing the size of the data that was
+			processed by the total duration of the Profiler execution. The higher
+			the value, the better: more data is processed per second, and the
+			extractor is faster. As you tune the AQL hot spots identified by the
+			Profiler, verify that the throughput value increases the next time
+			you rerun the Profiler. You may need to repeat the process until you
+			are satisfied with the extractor performance.</p>
+		<p class="p">The Profiler generates the following reports that can
+			help you troubleshoot performance problems in the AQL code.</p>
+		<div class="section">
+			<h2 class="title sectiontitle">Top 25 Views by Execution Time
+				report</h2>
+			<p class="p">Helps you understand which of the views took the
+				longest time to run. For a moderately complex extractor, a view that
+				takes more than 5% of the execution time is a potential hot spot.
+				(In general, you can ignore the time taken by 'Tokenization and POS
+				Tagging', which is expected to take a longer time in general.)</p>
+			<div class="p">
+				These views are good candidates for manual tuning in order to
+				improve their performance.
+				<div class="note remember">
+					<span class="remembertitle">Remember:</span> Not all views are
+					equal: some will take more that 5%, some will take less. Use good
+					judgment when you evaluate the amount of resource that a view
+					takes.
+				</div>
+				<div class="note tip">
+					<span class="tiptitle">Tip:</span> Focus on optimizing the most
+					expensive views.
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Top 25 documents by running time
+				report</h2>
+			<div class="p">
+				Displays the average time to annotate each document in the data
+				collection. This summary can provide you with some clues to isolate
+				documents that take longer to annotate and analyze deeper why a
+				particular type of data content takes longer time duration.
+				<div class="note remember">
+					<span class="remembertitle">Remember:</span> Some documents take
+					longer to process than others because they are larger, the density
+					of results is larger, or the document exhibits some characteristic
+					that makes the extractor slower.
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h2 class="title sectiontitle">Top 25 documents over 1KB by
+				normalized running time report</h2>
+			<p class="p">Displays the normalized running time per MB of text
+				for documents larger than 1 KB. A higher number means the extractor
+				is slower on that document. This report also displays the extractor
+				throughput, the higher the throughput, the faster the extractor.</p>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/tool_ref/results/ProfilerView.html">Profiler
+					View</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
