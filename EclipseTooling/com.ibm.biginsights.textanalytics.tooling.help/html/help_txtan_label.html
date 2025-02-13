@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,150 +11,232 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Labeling the data" />
-<meta name="abstract" content="You start the extraction plan by labeling snippets of interest and associated clues. Snippets are words or phrases that you determine to be helpful to the goal of producing the information that you need." />
-<meta name="Description" content="You start the extraction plan by labeling snippets of interest and associated clues. Snippets are words or phrases that you determine to be helpful to the goal of producing the information that you need." />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_wrkflow.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_extractplan.html" />
+<meta name="abstract"
+	content="You start the extraction plan by labeling snippets of interest and associated clues. Snippets are words or phrases that you determine to be helpful to the goal of producing the information that you need." />
+<meta name="Description"
+	content="You start the extraction plan by labeling snippets of interest and associated clues. Snippets are words or phrases that you determine to be helpful to the goal of producing the information that you need." />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_wrkflow.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_extractplan.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_txtan_label" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
 <link rel="Start" href="../html/help_txtan_wrkflow.html" />
 <title>Labeling the data</title>
 </head>
 <body role="main" id="help_txtan_label">
-<h1 class="title topictitle1">Labeling the data</h1>
-<div class="body taskbody"><p class="shortdesc">You start the extraction plan by labeling snippets of interest
-and associated clues.  <dfn class="term">Snippets</dfn> are words or phrases
-that you determine to be helpful to the goal of producing the information
-that you need.  </p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">The two primary views of the workflow, the Extraction
-Tasks and the Extraction Plan, provide the process and management
-of creating your extractor.  These views are a part of the <span class="keyword">InfoSphere® BigInsights™</span> Text
-Analytics Workflow perspective.  If you do not see these views, select
-each of them by clicking <span class="ph menucascade"><span class="ph uicontrol">Window</span> &gt; <span class="ph uicontrol">Show View</span> &gt; <span class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">Extraction Tasks</span></span> and <span class="ph menucascade"><span class="ph uicontrol">Window</span> &gt; <span class="ph uicontrol">Show View</span> &gt; <span class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">BigInsights</span> &gt; <span class="ph uicontrol">Extraction Plan</span></span>. </p>
-<p class="p">After you select the data from <span class="ph uicontrol">Step
-1</span> of the Extractor Tasks wizard, open some of the data
-in the editor to begin mining it.  </p>
-<p class="p">The labeling process is
-a way to provide clues and examples of text that are significant or
-that provide a pattern for what you want to accomplish with this extractor.
-Use the clues within and around the examples to support a positive
-or negative result. Labeling is an iterative process. </p>
-<div class="note note"><span class="notetitle">Note:</span> When
-you import a project that was created before <span class="keyword">InfoSphere BigInsights</span> Version
-2.0, and open the Extraction Plan, the old extraction plan is converted
-to the current design automatically.  The project itself remains in
-a non-modular state. </div>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Highlight a document that is in the list in the <span class="ph uicontrol">Step
-1 : Select Documents</span> wizard, and click <span class="ph uicontrol">Open</span>.
- The document opens in the AQL Editor pane.  By reading the document,
-or searching for particular phrases, you create your list of examples
-and clues.  </span></li>
-<li class="li step stepexpand"><span class="ph cmd">Find a phrase that is meaningful to the goal and that offers
-an example of either a positive or negative result.  For example,
-if your goal is to learn more about the financial growth of a company,
-you might search for the term <dfn class="term">revenue</dfn>.   When you find
-that term, highlight the term, right-click it, and click <span class="ph uicontrol">Add
-Example with New label</span>.</span> <p class="p">The root label and
-all sublabels contain four groups. These groups are based on the main
-steps in building extractors  (basic features, candidate generation,
-and  filter and consolidate) and the special group <span class="keyword parmname parmname">finals</span>,
-which contains final output and export views, tables, and dictionaries.
- You are encouraged to use this grouping to develop extractors.</p>
-<div class="p">Each
-group of a root label is linked with a module that is created together
-with the root label.  The first time that you create a root label
-(also called a top-level label), four modules are created automatically: <ul class="ul"><li class="li">&lt;root_label_name&gt;_BasicFeatures</li>
-<li class="li">&lt;root_label_name&gt;_CandidateGeneration</li>
-<li class="li">&lt;root_label_name&gt;_FilterConsolidate</li>
-<li class="li">&lt;root_label_name&gt;_Finals</li>
-</ul>
-You can see these default modules by opening the Package Explorer
-and browsing to the <span class="ph filepath">&lt;project_name&gt;\textAnalytics\src\</span> directory.
-You can create your own modules, but it is recommended that you use
-these default modules to create your AQL scripts. </div>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Add New Label</span> window, type
-a name for the label. If this label is a root label, then you can
-click <span class="ph uicontrol">Finish</span>. If this label is a sublabel,
-type or select the parent label name from the listed hierarchy of
-labels. This tree view of labels filters the labels by the text that
-you enter in the <span class="ph uicontrol">Add New Label </span> window so that
-you can more easily determine the correct parent for your label grouping.</span></li>
-<li class="li step stepexpand">Optional: <span class="ph cmd">Create a root label that is independent
-of the documents that you are editing. Navigate to an empty space
-in the input document, right-click, and select <span class="ph uicontrol">New Label</span>.
-The <span class="ph uicontrol">Create Label</span> window opens. </span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Enter the label</span> field,
-type a label name. </span> <p class="p">When you add this label separately
-from the document, all of the same structures are included in the
-project, such as &lt;new_label&gt;_BasicFeatures.</p>
-</li>
-</ol>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">For each label in the Extraction Plan view, right-click
-the label and do the following actions:</span> <dl class="dl"><dt class="dt dlterm">Mark a label complete</dt>
-<dd class="dd">Marking a label is a workflow tool that can show when you are
-done adding examples for a label. It is a visual clue as to which
-labels might need more work and which labels are done.</dd>
-<dt class="dt dlterm">Create a new label</dt>
-<dd class="dd">You can add sublabels to any existing label to refine the groupings.</dd>
-<dt class="dt dlterm">Add, edit, or view a comment</dt>
-<dd class="dd">Document your decisions or process by adding comments to your
-labels. The comment is stored with the label and can be viewed later
-by right-clicking and selecting <span class="ph uicontrol">Edit/View comment</span>.</dd>
-<dt class="dt dlterm">Add an AQL statement</dt>
-<dd class="dd">You can select a template of AQL statements by their level (Basic
-Features, Candidate Generation, Filter and Consolidate, Final).</dd>
-<dt class="dt dlterm">Go into a label</dt>
-<dd class="dd">Expand the label node, and see the hierarchy of its children or
-descendants.</dd>
-</dl>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">From the Extraction Plan, you can enhance an extractor
-with some utilities that are included in the menus. </span> <dl class="dl"><dt class="dt dlterm">Generate regular expression from examples</dt>
-<dd class="dd">Examples are nested under the labels. Right-click one or more
-examples in a label, then click <span class="ph uicontrol">Generate Regular Expression</span>.
-The <span class="keyword wintitle">Regular Expression Generator</span> opens with the
-examples already included as a sample from which to <a class="xref" href="dev_extractors/write_code/GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">generate a regular
-expression</a>. </dd>
-<dt class="dt dlterm">Create dictionary from examples</dt>
-<dd class="dd">Right-click one or more examples in a label, and click <span class="ph uicontrol">Add
-to Dictionary</span>. The <span class="keyword wintitle">Select Dictionaries</span> window
-opens. Select a file to use as your dictionary or create a dictionary
-file by typing a valid file name in the <span class="ph uicontrol">Select a file</span> field.
-The dictionary opens in the editor with the selected examples appended
-to the end of the file.</dd>
-</dl>
- <p class="p">Continue the process of finding and
-adding examples of more clues. This iterative labeling is an important
-part of the document analysis process that helps build an understanding
-of the documents you are working with and the clues you can use in
-your AQL.  When you are satisfied that you have the proper clues,
-you can begin writing the AQL statements that help filter and extract
-the information that you need.</p>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">It is recommended that you build your AQL from the bottom
-up, starting at the lowest level label and becoming more refined. </span></li>
-</ol>
-</div>
-<div class="related-links">
-<ul class="ullinks">
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/help_txtan_extractplan.html">The Extraction Plan view</a></span><br />
-The extraction plan is a view of the design of your extractor
-as you build it.  </li>
-</ul>
+	<h1 class="title topictitle1">Labeling the data</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			You start the extraction plan by labeling snippets of interest and
+			associated clues.
+			<dfn class="term">Snippets</dfn>
+			are words or phrases that you determine to be helpful to the goal of
+			producing the information that you need.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<p class="p">
+				The two primary views of the workflow, the Extraction Tasks and the
+				Extraction Plan, provide the process and management of creating your
+				extractor. These views are a part of the <span class="keyword">InfoSphere®
+					BigInsights™</span> Text Analytics Workflow perspective. If you do not see
+				these views, select each of them by clicking <span
+					class="ph menucascade"><span class="ph uicontrol">Window</span>
+					&gt; <span class="ph uicontrol">Show View</span> &gt; <span
+					class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">BigInsights</span>
+					&gt; <span class="ph uicontrol">Extraction Tasks</span></span> and <span
+					class="ph menucascade"><span class="ph uicontrol">Window</span>
+					&gt; <span class="ph uicontrol">Show View</span> &gt; <span
+					class="ph uicontrol">Other</span> &gt; <span class="ph uicontrol">BigInsights</span>
+					&gt; <span class="ph uicontrol">Extraction Plan</span></span>.
+			</p>
+			<p class="p">
+				After you select the data from <span class="ph uicontrol">Step
+					1</span> of the Extractor Tasks wizard, open some of the data in the
+				editor to begin mining it.
+			</p>
+			<p class="p">The labeling process is a way to provide clues and
+				examples of text that are significant or that provide a pattern for
+				what you want to accomplish with this extractor. Use the clues
+				within and around the examples to support a positive or negative
+				result. Labeling is an iterative process.</p>
+			<div class="note note">
+				<span class="notetitle">Note:</span> When you import a project that
+				was created before <span class="keyword">InfoSphere
+					BigInsights</span> Version 2.0, and open the Extraction Plan, the old
+				extraction plan is converted to the current design automatically.
+				The project itself remains in a non-modular state.
+			</div>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Highlight
+					a document that is in the list in the <span class="ph uicontrol">Step
+						1 : Select Documents</span> wizard, and click <span class="ph uicontrol">Open</span>.
+					The document opens in the AQL Editor pane. By reading the document,
+					or searching for particular phrases, you create your list of
+					examples and clues.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Find
+					a phrase that is meaningful to the goal and that offers an example
+					of either a positive or negative result. For example, if your goal
+					is to learn more about the financial growth of a company, you might
+					search for the term <dfn class="term">revenue</dfn>. When you find
+					that term, highlight the term, right-click it, and click <span
+					class="ph uicontrol">Add Example with New label</span>.
+			</span>
+				<p class="p">
+					The root label and all sublabels contain four groups. These groups
+					are based on the main steps in building extractors (basic features,
+					candidate generation, and filter and consolidate) and the special
+					group <span class="keyword parmname parmname">finals</span>, which
+					contains final output and export views, tables, and dictionaries.
+					You are encouraged to use this grouping to develop extractors.
+				</p>
+				<div class="p">
+					Each group of a root label is linked with a module that is created
+					together with the root label. The first time that you create a root
+					label (also called a top-level label), four modules are created
+					automatically:
+					<ul class="ul">
+						<li class="li">&lt;root_label_name&gt;_BasicFeatures</li>
+						<li class="li">&lt;root_label_name&gt;_CandidateGeneration</li>
+						<li class="li">&lt;root_label_name&gt;_FilterConsolidate</li>
+						<li class="li">&lt;root_label_name&gt;_Finals</li>
+					</ul>
+					You can see these default modules by opening the Package Explorer
+					and browsing to the <span class="ph filepath">&lt;project_name&gt;\textAnalytics\src\</span>
+					directory. You can create your own modules, but it is recommended
+					that you use these default modules to create your AQL scripts.
+				</div></li>
+			<li class="li step stepexpand"><span class="ph cmd">In
+					the <span class="ph uicontrol">Add New Label</span> window, type a
+					name for the label. If this label is a root label, then you can
+					click <span class="ph uicontrol">Finish</span>. If this label is a
+					sublabel, type or select the parent label name from the listed
+					hierarchy of labels. This tree view of labels filters the labels by
+					the text that you enter in the <span class="ph uicontrol">Add
+						New Label </span> window so that you can more easily determine the
+					correct parent for your label grouping.
+			</span></li>
+			<li class="li step stepexpand">Optional: <span class="ph cmd">Create
+					a root label that is independent of the documents that you are
+					editing. Navigate to an empty space in the input document,
+					right-click, and select <span class="ph uicontrol">New Label</span>.
+					The <span class="ph uicontrol">Create Label</span> window opens.
+			</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">In
+							the <span class="ph uicontrol">Enter the label</span> field, type
+							a label name.
+					</span>
+						<p class="p">When you add this label separately from the
+							document, all of the same structures are included in the project,
+							such as &lt;new_label&gt;_BasicFeatures.</p></li>
+				</ol>
+			</li>
+			<li class="li step stepexpand"><span class="ph cmd">For
+					each label in the Extraction Plan view, right-click the label and
+					do the following actions:</span>
+				<dl class="dl">
+					<dt class="dt dlterm">Mark a label complete</dt>
+					<dd class="dd">Marking a label is a workflow tool that can
+						show when you are done adding examples for a label. It is a visual
+						clue as to which labels might need more work and which labels are
+						done.</dd>
+					<dt class="dt dlterm">Create a new label</dt>
+					<dd class="dd">You can add sublabels to any existing label to
+						refine the groupings.</dd>
+					<dt class="dt dlterm">Add, edit, or view a comment</dt>
+					<dd class="dd">
+						Document your decisions or process by adding comments to your
+						labels. The comment is stored with the label and can be viewed
+						later by right-clicking and selecting <span class="ph uicontrol">Edit/View
+							comment</span>.
+					</dd>
+					<dt class="dt dlterm">Add an AQL statement</dt>
+					<dd class="dd">You can select a template of AQL statements by
+						their level (Basic Features, Candidate Generation, Filter and
+						Consolidate, Final).</dd>
+					<dt class="dt dlterm">Go into a label</dt>
+					<dd class="dd">Expand the label node, and see the hierarchy of
+						its children or descendants.</dd>
+				</dl></li>
+			<li class="li step stepexpand"><span class="ph cmd">From
+					the Extraction Plan, you can enhance an extractor with some
+					utilities that are included in the menus. </span>
+				<dl class="dl">
+					<dt class="dt dlterm">Generate regular expression from
+						examples</dt>
+					<dd class="dd">
+						Examples are nested under the labels. Right-click one or more
+						examples in a label, then click <span class="ph uicontrol">Generate
+							Regular Expression</span>. The <span class="keyword wintitle">Regular
+							Expression Generator</span> opens with the examples already included as
+						a sample from which to <a class="xref"
+							href="dev_extractors/write_code/GenerateRegEx.html"
+							title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">generate
+							a regular expression</a>.
+					</dd>
+					<dt class="dt dlterm">Create dictionary from examples</dt>
+					<dd class="dd">
+						Right-click one or more examples in a label, and click <span
+							class="ph uicontrol">Add to Dictionary</span>. The <span
+							class="keyword wintitle">Select Dictionaries</span> window opens.
+						Select a file to use as your dictionary or create a dictionary
+						file by typing a valid file name in the <span class="ph uicontrol">Select
+							a file</span> field. The dictionary opens in the editor with the
+						selected examples appended to the end of the file.
+					</dd>
+				</dl>
+				<p class="p">Continue the process of finding and adding examples
+					of more clues. This iterative labeling is an important part of the
+					document analysis process that helps build an understanding of the
+					documents you are working with and the clues you can use in your
+					AQL. When you are satisfied that you have the proper clues, you can
+					begin writing the AQL statements that help filter and extract the
+					information that you need.</p></li>
+			<li class="li step stepexpand"><span class="ph cmd">It is
+					recommended that you build your AQL from the bottom up, starting at
+					the lowest level label and becoming more refined. </span></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<ul class="ullinks">
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/help_txtan_extractplan.html">The Extraction Plan
+						view</a></span><br /> The extraction plan is a view of the design of your
+				extractor as you build it.</li>
+		</ul>
 
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/help_txtan_wrkflow.html" title="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment.">Overview of the Text Analytics Workflow perspective</a></div>
-</div>
-</div></body>
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../html/help_txtan_wrkflow.html"
+					title="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment.">Overview
+					of the Text Analytics Workflow perspective</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,118 +11,226 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Creating Text Analytics applications" />
-<meta name="abstract" content="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results." />
-<meta name="Description" content="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results." />
-<meta name="DC.Relation" scheme="URI" content="../html/ImportInputCollection.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/SetProjProps.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/CreateLaunchConfig.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/CreatePatternDiscoveryRunConfig.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/ExportExtractorForDeploy.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/CreateExecuteProfileConfig.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/MigratingforModularAQLCode.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/migrateprops.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/migrateworkflowperspective.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/ExTabExtDictTabs.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/compare_results/comparing_results.html" />
-<meta name="DC.Relation" scheme="URI" content="../html/Troubleshooting.html" />
+<meta name="abstract"
+	content="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results." />
+<meta name="Description"
+	content="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results." />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/ImportInputCollection.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/SetProjProps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/CreateLaunchConfig.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/CreatePatternDiscoveryRunConfig.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/ExportExtractorForDeploy.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/CreateExecuteProfileConfig.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/MigratingforModularAQLCode.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/migrateprops.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/migrateworkflowperspective.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/ExTabExtDictTabs.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/compare_results/comparing_results.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/Troubleshooting.html" />
 <meta name="DC.Relation" scheme="URI" content="../html/Glossary.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="CreateTextAnalyticsApps" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
 <title>Creating Text Analytics applications</title>
 </head>
 <body role="main" id="CreateTextAnalyticsApps">
-<h1 class="title topictitle1">Creating Text Analytics applications</h1>
-<div class="body taskbody"><p class="shortdesc">The Text Analytics <span class="keyword">InfoSphere® BigInsights™ Tools for Eclipse</span>  helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.</p>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><a class="xref" href="../../com.ibm.biginsights.project.help/html/CreateProj.html">Create a BigInsights project</a> to contain your Text
-Analytics application files.</span></li>
-<li class="li step stepexpand"><span class="ph cmd"><a class="xref" href="dev_extractors/CreateAQLfile.html">Create one
-or more AQL files</a> to contain the key code of your applications
-(extractors).</span></li>
-<li class="li step stepexpand"><span class="ph cmd">Write your AQL code by using the <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html" target="_blank" title="(Opens in a new tab or window)">AQL Reference</a>.</span> <ul class="ul choices"><li class="li choice"><a class="xref" href="dev_extractors/write_code/GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generate</a> and <a class="xref" href="dev_extractors/write_code/BuildRegEx.html" title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">build</a> regular
-expressions.</li>
-<li class="li choice"><a class="xref" href="dev_extractors/write_code/DiscoverPatterns.html" title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">Discover
-patterns in input documents</a> to optimize the accuracy and coverage
-of your extractors.</li>
-</ul>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Identify the documents that you want to analyze, and <a class="xref" href="ImportInputCollection.html" title="To run your application successfully, you must import a data collection into your InfoSphere BigInsights project."> import the documents</a>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">To identify the location of the AQL and other application
-files, <a class="xref" href="SetProjProps.html" title="Projects with the BigInsights nature acquire specific properties for Text Analytics.">set the project properties</a>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">To define one or more sets of circumstances under which
-your application runs, <a class="xref" href="CreateLaunchConfig.html" title="You can use a launch configuration to run an AQL extractor against a data collection. If you want to run the extractor against more than one collection, you can create a launch configuration for each collection and save them for future use.">create
-one or more launch configurations</a>.</span> For example,
-you might want to analyze different data collections.</li>
-<li class="li step stepexpand"><span class="ph cmd"><a class="xref" href="view_results/ViewResults.html" title="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer.">View the analysis.</a></span></li>
-<li class="li step stepexpand"><span class="ph cmd">To help you debug complex extractors, <a class="xref" href="ViewingLineageOfResults.html" title="Understanding the lineage (or provenance) of results extraction, which is the output tuple that is generated by the extractor, is helpful for debugging extractors that contain a large number of AQL statements with complex interdependencies. For example, the provenance of an incorrect result helps you understand the combination of AQL rules that are responsible for generating that result, and that should potentially be refined to remove the incorrect tuple from the result.">determine the lineage of results</a>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">To improve the processing of your extractors, <a class="xref" href="CreateExecuteProfileConfig.html" title="The Text Analytics Optimizer analyzes an extractor to identify an efficient execution plan. These plans can be further optimized. The Text Analytics Profiler measures the throughput of an extractor as it is run against a data collection and identifies potential performance bottlenecks in the extractor. These bottlenecks indicate AQL rules that might need to be manually tuned to run faster. You can use profile configurations to identify optimizations in your extractors, and you can create and save more than one configuration to profile an extractor in the context of different data collections.">measure the throughput of extractors
-and identify potential performance bottlenecks</a>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">To analyze the text in <span class="keyword">InfoSphere BigInsights</span> cluster
-nodes, <a class="xref" href="ExportExtractorForDeploy.html" title="Text Analytics Module (TAM) files are created when a module that contains AQL files is built by the project builder. To analyze the text in InfoSphere BigInsights cluster nodes, export and deploy the TAM files from your Text Analytics project and reference the TAM files from the InfoSphere BigInsights Jaql Text Analytics module.">deploy your extractor</a>.</span></li>
-</ol>
-</div>
-<div class="related-links">
-<ul class="ullinks">
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/ImportInputCollection.html">Importing a data collection</a></span><br />
-To run your application successfully, you must import a
-data collection into your <span class="keyword">InfoSphere BigInsights</span> project.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/SetProjProps.html">Setting InfoSphere BigInsights project properties</a></span><br />
-Projects with the BigInsights nature
-acquire specific properties for Text Analytics. </li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/CreateLaunchConfig.html">Creating and running launch configurations</a></span><br />
-You can use a launch configuration to run an AQL extractor
-against a data collection. If you want to run the extractor against
-more than one collection, you can create a launch configuration for
-each collection and save them for future use.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/CreatePatternDiscoveryRunConfig.html">Creating and executing pattern-discovery configurations</a></span><br />
-You use a pattern-discovery configuration to identify themes
-and trends in a data collection. Pattern discovery identifies contextual
-clues within documents that helps refine the accuracy and coverage
-of an extractor. Your configuration settings are saved between different
-invocations of pattern discovery.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/ExportExtractorForDeploy.html">Deploying and running an extractor</a></span><br />
-Text Analytics Module <span class="ph filepath">(TAM)</span> files
-are created when a module that contains AQL files is built by the
-project builder. To analyze the text in <span class="keyword">InfoSphere BigInsights</span> cluster
-nodes, export and deploy the <span class="ph filepath">TAM</span> files from your
-Text Analytics project and reference the <span class="ph filepath">TAM</span> files
-from the <span class="keyword">InfoSphere BigInsights</span> Jaql
-Text Analytics module.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/CreateExecuteProfileConfig.html">Optimizing extractors through profiling</a></span><br />
-The Text Analytics Optimizer analyzes an extractor to identify an efficient execution plan. These plans can be further optimized. The Text Analytics Profiler measures the throughput of an extractor as it is run against a data collection and identifies potential performance bottlenecks in the extractor. These bottlenecks indicate AQL rules that might need to be manually tuned to run faster. You can use profile configurations to identify optimizations in your extractors, and you can create and save more than one configuration to profile an extractor in the context of different data collections.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/MigratingforModularAQLCode.html">Migrating the Text Analytics properties of a project, for enabling the use of modular AQL code</a></span><br />
-If you want to use AQL files in modular format that you
-migrated to the current version of <span class="keyword">InfoSphere BigInsights</span> Eclipse
-environment, you must also migrate the Text Analytics properties of
-the project. </li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/migrateprops.html">Migrating the Text Analytics properties to InfoSphere BigInsights Version 2 (all releases) and moving existing AQL files</a></span><br />
-</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/migrateworkflowperspective.html">Converting the Extraction Plan after migrating to InfoSphere BigInsights Version 2 (all releases) Eclipse development environment</a></span><br />
- </li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/ExTabExtDictTabs.html">External Tables and External Dictionaries tabs in Text Analytics run configuration</a></span><br />
-When external tables and external dictionaries are defined
-in AQL code or in imported modules, the Text Analytics run configuration
-allows them to be mapped to appropriate files before you run the extractor
-over a data collection.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/compare_results/comparing_results.html">Comparing results</a></span><br />
-You can compare the extracted results from the same input
-file by using the Annotation Difference Viewer. You can also compare
-the results of one extractor run to a labeled data collection to evaluate
-the quality of an extractor.</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/Troubleshooting.html">Troubleshooting</a></span><br />
-</li>
-<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../html/Glossary.html">Glossary</a></span><br />
-Use the AQL Reference and the <span class="keyword">IBM® InfoSphere BigInsights for
-IBM PureData System for Hadoop</span> glossary as references for the <span class="keyword">InfoSphere BigInsights</span> Eclipse
-tools.  </li>
-</ul>
-</div></body>
+	<h1 class="title topictitle1">Creating Text Analytics applications</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			The Text Analytics <span class="keyword">InfoSphere®
+				BigInsights™ Tools for Eclipse</span> helps you analyze your documents,
+			view the results in different formats, discover patterns in the
+			content, and investigate the lineage of your results.
+		</p>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd"><a
+					class="xref"
+					href="../../com.ibm.biginsights.project.help/html/CreateProj.html">Create
+						a BigInsights project</a> to contain your Text Analytics application
+					files.</span></li>
+			<li class="li step stepexpand"><span class="ph cmd"><a
+					class="xref" href="dev_extractors/CreateAQLfile.html">Create
+						one or more AQL files</a> to contain the key code of your applications
+					(extractors).</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Write
+					your AQL code by using the <a class="xref"
+					href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html"
+					target="_blank" title="(Opens in a new tab or window)">AQL
+						Reference</a>.
+			</span>
+				<ul class="ul choices">
+					<li class="li choice"><a class="xref"
+						href="dev_extractors/write_code/GenerateRegEx.html"
+						title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Generate</a>
+						and <a class="xref"
+						href="dev_extractors/write_code/BuildRegEx.html"
+						title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">build</a>
+						regular expressions.</li>
+					<li class="li choice"><a class="xref"
+						href="dev_extractors/write_code/DiscoverPatterns.html"
+						title="Pattern discovery, a feature included in the InfoSphere BigInsights Tools for Eclipse, identifies contextual clues within documents in a data collection that help you refine the accuracy and coverage of an extractor.">Discover
+							patterns in input documents</a> to optimize the accuracy and coverage
+						of your extractors.</li>
+				</ul></li>
+			<li class="li step stepexpand"><span class="ph cmd">Identify
+					the documents that you want to analyze, and <a class="xref"
+					href="ImportInputCollection.html"
+					title="To run your application successfully, you must import a data collection into your InfoSphere BigInsights project.">
+						import the documents</a>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">To
+					identify the location of the AQL and other application files, <a
+					class="xref" href="SetProjProps.html"
+					title="Projects with the BigInsights nature acquire specific properties for Text Analytics.">set
+						the project properties</a>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">To
+					define one or more sets of circumstances under which your
+					application runs, <a class="xref" href="CreateLaunchConfig.html"
+					title="You can use a launch configuration to run an AQL extractor against a data collection. If you want to run the extractor against more than one collection, you can create a launch configuration for each collection and save them for future use.">create
+						one or more launch configurations</a>.
+			</span> For example, you might want to analyze different data collections.</li>
+			<li class="li step stepexpand"><span class="ph cmd"><a
+					class="xref" href="view_results/ViewResults.html"
+					title="By default, all span values from all output views that are generated from a launch configuration are displayed in the Annotation Explorer.">View
+						the analysis.</a></span></li>
+			<li class="li step stepexpand"><span class="ph cmd">To
+					help you debug complex extractors, <a class="xref"
+					href="ViewingLineageOfResults.html"
+					title="Understanding the lineage (or provenance) of results extraction, which is the output tuple that is generated by the extractor, is helpful for debugging extractors that contain a large number of AQL statements with complex interdependencies. For example, the provenance of an incorrect result helps you understand the combination of AQL rules that are responsible for generating that result, and that should potentially be refined to remove the incorrect tuple from the result.">determine
+						the lineage of results</a>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">To
+					improve the processing of your extractors, <a class="xref"
+					href="CreateExecuteProfileConfig.html"
+					title="The Text Analytics Optimizer analyzes an extractor to identify an efficient execution plan. These plans can be further optimized. The Text Analytics Profiler measures the throughput of an extractor as it is run against a data collection and identifies potential performance bottlenecks in the extractor. These bottlenecks indicate AQL rules that might need to be manually tuned to run faster. You can use profile configurations to identify optimizations in your extractors, and you can create and save more than one configuration to profile an extractor in the context of different data collections.">measure
+						the throughput of extractors and identify potential performance
+						bottlenecks</a>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">To
+					analyze the text in <span class="keyword">InfoSphere
+						BigInsights</span> cluster nodes, <a class="xref"
+					href="ExportExtractorForDeploy.html"
+					title="Text Analytics Module (TAM) files are created when a module that contains AQL files is built by the project builder. To analyze the text in InfoSphere BigInsights cluster nodes, export and deploy the TAM files from your Text Analytics project and reference the TAM files from the InfoSphere BigInsights Jaql Text Analytics module.">deploy
+						your extractor</a>.
+			</span></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<ul class="ullinks">
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/ImportInputCollection.html">Importing a data
+						collection</a></span><br /> To run your application successfully, you must
+				import a data collection into your <span class="keyword">InfoSphere
+					BigInsights</span> project.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/SetProjProps.html">Setting InfoSphere BigInsights
+						project properties</a></span><br /> Projects with the BigInsights nature
+				acquire specific properties for Text Analytics.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/CreateLaunchConfig.html">Creating and running
+						launch configurations</a></span><br /> You can use a launch configuration to
+				run an AQL extractor against a data collection. If you want to run
+				the extractor against more than one collection, you can create a
+				launch configuration for each collection and save them for future
+				use.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/CreatePatternDiscoveryRunConfig.html">Creating
+						and executing pattern-discovery configurations</a></span><br /> You use a
+				pattern-discovery configuration to identify themes and trends in a
+				data collection. Pattern discovery identifies contextual clues
+				within documents that helps refine the accuracy and coverage of an
+				extractor. Your configuration settings are saved between different
+				invocations of pattern discovery.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/ExportExtractorForDeploy.html">Deploying and
+						running an extractor</a></span><br /> Text Analytics Module <span
+				class="ph filepath">(TAM)</span> files are created when a module
+				that contains AQL files is built by the project builder. To analyze
+				the text in <span class="keyword">InfoSphere BigInsights</span>
+				cluster nodes, export and deploy the <span class="ph filepath">TAM</span>
+				files from your Text Analytics project and reference the <span
+				class="ph filepath">TAM</span> files from the <span class="keyword">InfoSphere
+					BigInsights</span> Jaql Text Analytics module.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/CreateExecuteProfileConfig.html">Optimizing
+						extractors through profiling</a></span><br /> The Text Analytics Optimizer
+				analyzes an extractor to identify an efficient execution plan. These
+				plans can be further optimized. The Text Analytics Profiler measures
+				the throughput of an extractor as it is run against a data
+				collection and identifies potential performance bottlenecks in the
+				extractor. These bottlenecks indicate AQL rules that might need to
+				be manually tuned to run faster. You can use profile configurations
+				to identify optimizations in your extractors, and you can create and
+				save more than one configuration to profile an extractor in the
+				context of different data collections.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/MigratingforModularAQLCode.html">Migrating the
+						Text Analytics properties of a project, for enabling the use of
+						modular AQL code</a></span><br /> If you want to use AQL files in modular
+				format that you migrated to the current version of <span
+				class="keyword">InfoSphere BigInsights</span> Eclipse environment,
+				you must also migrate the Text Analytics properties of the project.
+			</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/migrateprops.html">Migrating the Text Analytics
+						properties to InfoSphere BigInsights Version 2 (all releases) and
+						moving existing AQL files</a></span><br /></li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/migrateworkflowperspective.html">Converting the
+						Extraction Plan after migrating to InfoSphere BigInsights Version
+						2 (all releases) Eclipse development environment</a></span><br /></li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/ExTabExtDictTabs.html">External Tables and
+						External Dictionaries tabs in Text Analytics run configuration</a></span><br />
+				When external tables and external dictionaries are defined in AQL
+				code or in imported modules, the Text Analytics run configuration
+				allows them to be mapped to appropriate files before you run the
+				extractor over a data collection.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/compare_results/comparing_results.html">Comparing
+						results</a></span><br /> You can compare the extracted results from the same
+				input file by using the Annotation Difference Viewer. You can also
+				compare the results of one extractor run to a labeled data
+				collection to evaluate the quality of an extractor.</li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/Troubleshooting.html">Troubleshooting</a></span><br /></li>
+			<li class="link ulchildlink"><span class="ulchildlinktext"><a
+					href="../html/Glossary.html">Glossary</a></span><br /> Use the AQL
+				Reference and the <span class="keyword">IBM® InfoSphere
+					BigInsights for IBM PureData System for Hadoop</span> glossary as
+				references for the <span class="keyword">InfoSphere
+					BigInsights</span> Eclipse tools.</li>
+		</ul>
+	</div>
+</body>
 </html>

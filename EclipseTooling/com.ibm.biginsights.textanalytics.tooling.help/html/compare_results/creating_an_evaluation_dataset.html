@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,124 +11,251 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Creating a labeled data collection" />
-<meta name="abstract" content="A labeled data collection is the standard way to evaluate the accuracy and completeness of an extractor." />
-<meta name="Description" content="A labeled data collection is the standard way to evaluate the accuracy and completeness of an extractor." />
-<meta name="DC.subject" content="Labeling documents, compare, text, data collection" />
-<meta name="keywords" content="Labeling documents, compare, text, data collection" />
-<meta name="DC.Relation" scheme="URI" content="../../html/compare_results/comparing_results.html" />
+<meta name="abstract"
+	content="A labeled data collection is the standard way to evaluate the accuracy and completeness of an extractor." />
+<meta name="Description"
+	content="A labeled data collection is the standard way to evaluate the accuracy and completeness of an extractor." />
+<meta name="DC.subject"
+	content="Labeling documents, compare, text, data collection" />
+<meta name="keywords"
+	content="Labeling documents, compare, text, data collection" />
+<meta name="DC.Relation" scheme="URI"
+	content="../../html/compare_results/comparing_results.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="creatinganevaluationdataset" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../../swg_info_common.css" />
-<link rel="Start" href="../../html/compare_results/comparing_results.html" />
+<link rel="Start"
+	href="../../html/compare_results/comparing_results.html" />
 <title>Creating a labeled data collection</title>
 </head>
 <body role="main" id="creatinganevaluationdataset">
-<h1 class="title topictitle1">Creating a labeled data collection</h1>
-<div class="body taskbody"><p class="shortdesc">A <dfn class="term">labeled data collection</dfn> is the standard
-way to evaluate the accuracy and completeness of an extractor.</p>
-<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>   <p class="p">Labeled data collections are supported by Text Analytics for all data collection formats except for CSV with header and JSON. </p>
-<ol class="ol"><li class="li">Ensure that a BigInsights project exists.</li>
-<li class="li">Right-click the project, and click <span class="ph uicontrol">Labeled Data Collection</span>.</li>
-</ol>
-</div>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">You can create a labeled data collection from the results
-of an extractor or from a data collection.</p>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><div class="li step"><span class="ph cmd"></span><br /> 
-<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
-<thead><tr><th valign="bottom" align="left" id="d5407e41-option">To create a labeled data collection from:</th>
-<th valign="bottom" align="left" id="d5407e41-desc">Perform the following steps:</th></tr></thead>
-<tbody><tr class="strow chrow"><td valign="top" headers="d5407e41-option" id="d5407e48" class="stentry choption"><strong>A data collection</strong></td>
-<td valign="top" headers="d5407e41-desc d5407e48" class="stentry chdesc"><ol class="ol" type="a"><li class="li">Click <span class="ph uicontrol">Import from data collection</span>.</li>
-<li class="li">Select the data collection that you want to import, and click <span class="ph uicontrol">OK</span>.<p class="p">The
-documents are imported into the <span class="ph filepath">labeledCollections</span> directory,
-which is part of the project. For every file that is imported, a corresponding <span class="ph filepath">LC</span> file
-is created in a subdirectory of the <span class="ph filepath">labeledCollections</span> directory.</p>
-</li>
-<li class="li">Configure the labeled data collection.<p class="p">When the import is complete,
-you can configure the data collection immediately by opening the <span class="keyword wintitle">Configuration</span> page
-from the message panel. Or <a class="xref" href="configuring_the_goldstandard.html" title="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part.">configure
-the labeled data collection</a> later.</p>
-</li>
-<li class="li"><a class="xref" href="#labeling_documents_in_document_collection" title="You must label the text in the data collection so that the Text Analytics system can compare the labeled text with the extractor results. Based on this comparison, the Text Analytics system computes labeled collection measures, which you can use to evaluate the quality of your extractor.">Label
-the documents in the data collection</a>.</li>
-</ol>
-</td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d5407e41-option" id="d5407e95" class="stentry choption"><strong>Extracted results</strong></td>
-<td valign="top" headers="d5407e41-desc d5407e95" class="stentry chdesc"><ol class="ol" type="a"><li class="li">Click <span class="ph uicontrol">Import from extraction result</span>.</li>
-<li class="li"> Select the extraction result from the project that you want to
-use.<p class="p">The results are imported into the <span class="ph filepath">labeledCollections</span> directory.
-In addition to the annotated text, the annotation types and output
-views are also imported.</p>
-<div class="note restriction"><span class="restrictiontitle">Restriction:</span> A result set
-that contains values of type SPAN over any field other than Document.text
-cannot be imported.</div>
-</li>
-<li class="li"><a class="xref" href="#labeling_documents_in_document_collection" title="You must label the text in the data collection so that the Text Analytics system can compare the labeled text with the extractor results. Based on this comparison, the Text Analytics system computes labeled collection measures, which you can use to evaluate the quality of your extractor.">Label
-the documents in the data collection</a>.</li>
-</ol>
-<div class="note tip"><span class="tiptitle">Tip:</span> If you run an extractor and it produces reasonably
-good results, consider creating a labeled data collection from the
-extracted results for later use.</div>
-</td>
-</tr>
-</tbody></table>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/compare_results/comparing_results.html" title="You can compare the extracted results from the same input file by using the Annotation Difference Viewer. You can also compare the results of one extractor run to a labeled data collection to evaluate the quality of an extractor.">Comparing results</a></div>
-</div>
-</div><div class="topic task nested1" xml:lang="en-us" id="labeling_documents_in_document_collection"><h2 class="title topictitle2">Labeling documents in a data collection</h2>
-<div class="body taskbody"><p class="shortdesc">You must label the text in the data collection so that
-the Text Analytics system can compare the labeled text with the extractor
-results. Based on this comparison, the Text Analytics system computes
-labeled collection measures, which you can use to evaluate the quality
-of your extractor.</p>
-<div class="tasklabel"><h3 class="sectiontitle tasklabel">Procedure</h3></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Open each document (<span class="ph filepath">.lc</span> file) in the
-editor, and manually label the document.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Select the text that you want to label.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Right-click the selected text. From the <span class="ph uicontrol">Annotate
-As..</span> menu, choose the annotation type that you want to
-assign to the selected text.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Repeat the previous steps until you label all the text
-that is of interest in the file.</span> <div class="note restriction"><span class="restrictiontitle">Restriction:</span> If
-a view has multiple fields or attributes, you must:<ul class="ul"><li class="li">Label every field in a tuple before you can label the next tuple.</li>
-<li class="li">For a view name, label the document in the same order that the
-fields are defined in the <span class="keyword wintitle">Annotation types</span> configuration
-page.</li>
-</ul>
-</div>
-<p class="p">The <span class="ph filepath">.lc</span> file is saved automatically
-after the text is labeled.</p>
-<div class="note tip"><span class="tiptitle">Tip:</span> <p class="p">You can apply the
-default annotation type to a span of selected text by pressing Ctrl+Enter.</p>
-<p class="p">To
-add a new annotation type to the labeled data collection, you must <a class="xref" href="configuring_the_goldstandard.html" title="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part.">Configure the labeled data
-collection</a>.</p>
-</div>
-</li>
-</ol>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Mark the document as complete. In the Project Explorer,
-right-click the file, and choose <span class="ph menucascade"><span class="ph uicontrol">Labeled Data
-Collection</span> &gt; <span class="ph uicontrol">Mark as Complete</span></span>.</span> <p class="p">You can also mark the document as complete
-by placing your cursor inside the <span class="keyword wintitle">Labeled Document</span> editor,
-right-clicking, and choosing <span class="ph uicontrol">Mark as Complete</span>.</p>
-</li>
-</ol>
-</div>
-<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
-<div><a class="link" href="eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer.html" title="You can evaluate the quality of an extractor by comparing the results of one extractor run to a labeled data collection. By comparing the results, you can determine the accuracy and completeness of an extractor against a standard that you establish.">Evaluating the quality of an extractor by combining the labeled data collection with the Annotation Difference Viewer</a></div>
-</div>
-</div></div>
+	<h1 class="title topictitle1">Creating a labeled data collection</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			A
+			<dfn class="term">labeled data collection</dfn>
+			is the standard way to evaluate the accuracy and completeness of an
+			extractor.
+		</p>
+		<div class="section prereq">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">Before you begin</h2>
+			</div>
+			<p class="p">Labeled data collections are supported by Text
+				Analytics for all data collection formats except for CSV with header
+				and JSON.</p>
+			<ol class="ol">
+				<li class="li">Ensure that a BigInsights project exists.</li>
+				<li class="li">Right-click the project, and click <span
+					class="ph uicontrol">Labeled Data Collection</span>.
+				</li>
+			</ol>
+		</div>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<p class="p">You can create a labeled data collection from the
+				results of an extractor or from a data collection.</p>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<div class="li step">
+			<span class="ph cmd"></span><br />
+			<table border="1" frame="hsides" rules="rows" cellpadding="4"
+				cellspacing="0"
+				summary="Each row in this table describes one option for a choice."
+				class="simpletable choicetable choicetableborder">
+				<thead>
+					<tr>
+						<th valign="bottom" align="left" id="d5407e41-option">To
+							create a labeled data collection from:</th>
+						<th valign="bottom" align="left" id="d5407e41-desc">Perform
+							the following steps:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="strow chrow">
+						<td valign="top" headers="d5407e41-option" id="d5407e48"
+							class="stentry choption"><strong>A data collection</strong></td>
+						<td valign="top" headers="d5407e41-desc d5407e48"
+							class="stentry chdesc"><ol class="ol" type="a">
+								<li class="li">Click <span class="ph uicontrol">Import
+										from data collection</span>.
+								</li>
+								<li class="li">Select the data collection that you want to
+									import, and click <span class="ph uicontrol">OK</span>.
+									<p class="p">
+										The documents are imported into the <span class="ph filepath">labeledCollections</span>
+										directory, which is part of the project. For every file that
+										is imported, a corresponding <span class="ph filepath">LC</span>
+										file is created in a subdirectory of the <span
+											class="ph filepath">labeledCollections</span> directory.
+									</p>
+								</li>
+								<li class="li">Configure the labeled data collection.
+									<p class="p">
+										When the import is complete, you can configure the data
+										collection immediately by opening the <span
+											class="keyword wintitle">Configuration</span> page from the
+										message panel. Or <a class="xref"
+											href="configuring_the_goldstandard.html"
+											title="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part.">configure
+											the labeled data collection</a> later.
+									</p>
+								</li>
+								<li class="li"><a class="xref"
+									href="#labeling_documents_in_document_collection"
+									title="You must label the text in the data collection so that the Text Analytics system can compare the labeled text with the extractor results. Based on this comparison, the Text Analytics system computes labeled collection measures, which you can use to evaluate the quality of your extractor.">Label
+										the documents in the data collection</a>.</li>
+							</ol></td>
+					</tr>
+					<tr class="strow chrow">
+						<td valign="top" headers="d5407e41-option" id="d5407e95"
+							class="stentry choption"><strong>Extracted results</strong></td>
+						<td valign="top" headers="d5407e41-desc d5407e95"
+							class="stentry chdesc"><ol class="ol" type="a">
+								<li class="li">Click <span class="ph uicontrol">Import
+										from extraction result</span>.
+								</li>
+								<li class="li">Select the extraction result from the
+									project that you want to use.
+									<p class="p">
+										The results are imported into the <span class="ph filepath">labeledCollections</span>
+										directory. In addition to the annotated text, the annotation
+										types and output views are also imported.
+									</p>
+									<div class="note restriction">
+										<span class="restrictiontitle">Restriction:</span> A result
+										set that contains values of type SPAN over any field other
+										than Document.text cannot be imported.
+									</div>
+								</li>
+								<li class="li"><a class="xref"
+									href="#labeling_documents_in_document_collection"
+									title="You must label the text in the data collection so that the Text Analytics system can compare the labeled text with the extractor results. Based on this comparison, the Text Analytics system computes labeled collection measures, which you can use to evaluate the quality of your extractor.">Label
+										the documents in the data collection</a>.</li>
+							</ol>
+							<div class="note tip">
+								<span class="tiptitle">Tip:</span> If you run an extractor and
+								it produces reasonably good results, consider creating a labeled
+								data collection from the extracted results for later use.
+							</div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../html/compare_results/comparing_results.html"
+					title="You can compare the extracted results from the same input file by using the Annotation Difference Viewer. You can also compare the results of one extractor run to a labeled data collection to evaluate the quality of an extractor.">Comparing
+					results</a>
+			</div>
+		</div>
+	</div>
+	<div class="topic task nested1" xml:lang="en-us"
+		id="labeling_documents_in_document_collection">
+		<h2 class="title topictitle2">Labeling documents in a data
+			collection</h2>
+		<div class="body taskbody">
+			<p class="shortdesc">You must label the text in the data
+				collection so that the Text Analytics system can compare the labeled
+				text with the extractor results. Based on this comparison, the Text
+				Analytics system computes labeled collection measures, which you can
+				use to evaluate the quality of your extractor.</p>
+			<div class="tasklabel">
+				<h3 class="sectiontitle tasklabel">Procedure</h3>
+			</div>
+			<ol class="ol steps">
+				<li class="li step stepexpand"><span class="ph cmd">Open
+						each document (<span class="ph filepath">.lc</span> file) in the
+						editor, and manually label the document.
+				</span>
+					<ol type="a" class="ol substeps">
+						<li class="li substep substepexpand"><span class="ph cmd">Select
+								the text that you want to label.</span></li>
+						<li class="li substep substepexpand"><span class="ph cmd">Right-click
+								the selected text. From the <span class="ph uicontrol">Annotate
+									As..</span> menu, choose the annotation type that you want to assign
+								to the selected text.
+						</span></li>
+						<li class="li substep substepexpand"><span class="ph cmd">Repeat
+								the previous steps until you label all the text that is of
+								interest in the file.</span>
+							<div class="note restriction">
+								<span class="restrictiontitle">Restriction:</span> If a view has
+								multiple fields or attributes, you must:
+								<ul class="ul">
+									<li class="li">Label every field in a tuple before you can
+										label the next tuple.</li>
+									<li class="li">For a view name, label the document in the
+										same order that the fields are defined in the <span
+										class="keyword wintitle">Annotation types</span> configuration
+										page.
+									</li>
+								</ul>
+							</div>
+							<p class="p">
+								The <span class="ph filepath">.lc</span> file is saved
+								automatically after the text is labeled.
+							</p>
+							<div class="note tip">
+								<span class="tiptitle">Tip:</span>
+								<p class="p">You can apply the default annotation type to a
+									span of selected text by pressing Ctrl+Enter.</p>
+								<p class="p">
+									To add a new annotation type to the labeled data collection,
+									you must <a class="xref"
+										href="configuring_the_goldstandard.html"
+										title="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part.">Configure
+										the labeled data collection</a>.
+								</p>
+							</div></li>
+					</ol></li>
+				<li class="li step stepexpand"><span class="ph cmd">Mark
+						the document as complete. In the Project Explorer, right-click the
+						file, and choose <span class="ph menucascade"><span
+							class="ph uicontrol">Labeled Data Collection</span> &gt; <span
+							class="ph uicontrol">Mark as Complete</span></span>.
+				</span>
+					<p class="p">
+						You can also mark the document as complete by placing your cursor
+						inside the <span class="keyword wintitle">Labeled Document</span>
+						editor, right-clicking, and choosing <span class="ph uicontrol">Mark
+							as Complete</span>.
+					</p></li>
+			</ol>
+		</div>
+		<div class="related-links">
+			<div class="relinfo reltasks">
+				<strong>Related tasks</strong>:<br />
+				<div>
+					<a class="link"
+						href="eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer.html"
+						title="You can evaluate the quality of an extractor by comparing the results of one extractor run to a labeled data collection. By comparing the results, you can determine the accuracy and completeness of an extractor against a standard that you establish.">Evaluating
+						the quality of an extractor by combining the labeled data
+						collection with the Annotation Difference Viewer</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

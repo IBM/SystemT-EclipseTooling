@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -12,93 +13,163 @@
 <meta name="DC.Title" content="Troubleshooting" />
 <meta name="abstract" content="" />
 <meta name="Description" content="" />
-<meta name="DC.Relation" scheme="URI" content="../html/CreateTextAnalyticsApps.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="Troubleshooting" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
 <link rel="Start" href="../html/CreateTextAnalyticsApps.html" />
 <title>Troubleshooting</title>
 </head>
 <body role="main" id="Troubleshooting">
-<h1 class="title topictitle1">Troubleshooting</h1>
-<div class="body refbody"><p class="shortdesc"></p>
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Problems and corrections</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="11.458333333333332%" id="d3697e18">Problem number</th>
-<th class="entry" valign="bottom" width="29.166666666666668%" id="d3697e20">Problem</th>
-<th class="entry" valign="bottom" width="30.208333333333332%" id="d3697e22">Likely cause</th>
-<th class="entry" valign="bottom" width="29.166666666666668%" id="d3697e24">Correction</th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="11.458333333333332%" headers="d3697e18 ">1</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e20 ">The Text Analytics engine generates incorrect
-token boundaries.</td>
-<td class="entry" valign="top" width="30.208333333333332%" headers="d3697e22 ">An incorrect language value was set in the launch
-configuration.</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e24 ">Confirm the language of the data collection,
-and check the value in the launch configuration.</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" width="11.458333333333332%" headers="d3697e18 ">2</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e20 ">The highlighting for span values in the Result
-Tree View, Labeled Document Collection Viewer, or File Side-by-Side
-Differences Viewer is off by a few characters. </td>
-<td class="entry" valign="top" width="30.208333333333332%" headers="d3697e22 ">The text file encoding of the <span class="keyword">InfoSphere® BigInsights™</span> project
-is not set to UTF-8.</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e24 ">Set the text file encoding of the <span class="keyword">InfoSphere BigInsights</span> project
-to UTF-8: <ol class="ol"><li class="li">In the Project Properties, go to the <span class="ph uicontrol">Resources</span> page.</li>
-<li class="li">On the <span class="ph uicontrol">Resources</span> page, select <span class="keyword option">UTF-8</span> as
-the text file encoding.</li>
-</ol>
-</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" width="11.458333333333332%" headers="d3697e18 ">3</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e20 ">In the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span>,
-an out-of-memory error (<samp class="ph codeph">OutOfMemoryError</samp>) occurs
-when you run your extractor on a data collection or navigate through
-the extracted results. </td>
-<td class="entry" valign="top" width="30.208333333333332%" headers="d3697e22 ">Because the Text Analytics system has a document-at-a-time
-execution model, the memory utilization depends on the number of results
-that are generated for the largest document when you run an extractor
-in the Text Analytics runtime component or call Text Analytics APIs.
-However, when you run a Text Analytics extractor in the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span>,
-all the results for all documents in the data collection are loaded
-in main memory so they can be displayed in the Annotation Explorer
-and the other result viewers.</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e24 ">Choose a smaller data collection to test your
-extractor, or increase the maximum heap size for your Eclipse application.
-To increase the heap size: <ol class="ol"><li class="li">In your Eclipse installation directory, open the <span class="ph filepath">eclipse.ini</span> file.
-    </li>
-<li class="li">Modify the value of the <span class="keyword parmname parmname">-Xmx VM</span> argument,
-and save the file.     </li>
-<li class="li">Restart Eclipse.</li>
-</ol>
-</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" width="11.458333333333332%" headers="d3697e18 ">4</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e20 ">The Annotation Explorer displays zero results
-for some extractors. </td>
-<td class="entry" valign="top" width="30.208333333333332%" headers="d3697e22 ">The extractor results are non-span values and
-therefore are not shown in the Annotation Explorer. Use the Result
-Table Viewers to examine the non-span values.</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e24 ">No action is required. </td>
-</tr>
-<tr class="row"><td class="entry" valign="top" width="11.458333333333332%" headers="d3697e18 ">5</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e20 ">The Annotation Explorer displays empty spans
-of zero length such as [0-0]. When the span is opened:     <ul class="ul"><li class="li">An empty document is displayed in the Result Editor with <var class="keyword varname">Anonymous</var> as
-the source text object from which the value is extracted.</li>
-<li class="li">The Result Tree View is opened and <var class="keyword varname">Anonymous</var> is
-displayed in the title bar to indicate the source text object from
-which the value is extracted.</li>
-</ul>
-      </td>
-<td class="entry" valign="top" width="30.208333333333332%" headers="d3697e22 ">The extractor contains AQL code in which empty
-spans are created, for example:<pre class="pre codeblock"><code>-- Identify matches of a 
+	<h1 class="title topictitle1">Troubleshooting</h1>
+	<div class="body refbody">
+		<p class="shortdesc"></p>
+		<div class="tablenoborder">
+			<table cellpadding="4" cellspacing="0" summary="" class="table"
+				rules="all" frame="border" border="1">
+				<caption>
+					<span class="tablecap">Table 1. Problems and corrections</span>
+				</caption>
+				<thead class="thead" align="left">
+					<tr class="row" valign="bottom">
+						<th class="entry" valign="bottom" width="11.458333333333332%"
+							id="d3697e18">Problem number</th>
+						<th class="entry" valign="bottom" width="29.166666666666668%"
+							id="d3697e20">Problem</th>
+						<th class="entry" valign="bottom" width="30.208333333333332%"
+							id="d3697e22">Likely cause</th>
+						<th class="entry" valign="bottom" width="29.166666666666668%"
+							id="d3697e24">Correction</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr class="row">
+						<td class="entry" valign="top" width="11.458333333333332%"
+							headers="d3697e18 ">1</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e20 ">The Text Analytics engine generates
+							incorrect token boundaries.</td>
+						<td class="entry" valign="top" width="30.208333333333332%"
+							headers="d3697e22 ">An incorrect language value was set in
+							the launch configuration.</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e24 ">Confirm the language of the data
+							collection, and check the value in the launch configuration.</td>
+					</tr>
+					<tr class="row">
+						<td class="entry" valign="top" width="11.458333333333332%"
+							headers="d3697e18 ">2</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e20 ">The highlighting for span values in the
+							Result Tree View, Labeled Document Collection Viewer, or File
+							Side-by-Side Differences Viewer is off by a few characters.</td>
+						<td class="entry" valign="top" width="30.208333333333332%"
+							headers="d3697e22 ">The text file encoding of the <span
+							class="keyword">InfoSphere® BigInsights™</span> project is not
+							set to UTF-8.
+						</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e24 ">Set the text file encoding of the <span
+							class="keyword">InfoSphere BigInsights</span> project to UTF-8:
+							<ol class="ol">
+								<li class="li">In the Project Properties, go to the <span
+									class="ph uicontrol">Resources</span> page.
+								</li>
+								<li class="li">On the <span class="ph uicontrol">Resources</span>
+									page, select <span class="keyword option">UTF-8</span> as the
+									text file encoding.
+								</li>
+							</ol>
+						</td>
+					</tr>
+					<tr class="row">
+						<td class="entry" valign="top" width="11.458333333333332%"
+							headers="d3697e18 ">3</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e20 ">In the <span class="keyword">InfoSphere
+								BigInsights Tools for Eclipse</span>, an out-of-memory error (<samp
+								class="ph codeph">OutOfMemoryError</samp>) occurs when you run
+							your extractor on a data collection or navigate through the
+							extracted results.
+						</td>
+						<td class="entry" valign="top" width="30.208333333333332%"
+							headers="d3697e22 ">Because the Text Analytics system has a
+							document-at-a-time execution model, the memory utilization
+							depends on the number of results that are generated for the
+							largest document when you run an extractor in the Text Analytics
+							runtime component or call Text Analytics APIs. However, when you
+							run a Text Analytics extractor in the <span class="keyword">InfoSphere
+								BigInsights Tools for Eclipse</span>, all the results for all documents
+							in the data collection are loaded in main memory so they can be
+							displayed in the Annotation Explorer and the other result
+							viewers.
+						</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e24 ">Choose a smaller data collection to test
+							your extractor, or increase the maximum heap size for your
+							Eclipse application. To increase the heap size:
+							<ol class="ol">
+								<li class="li">In your Eclipse installation directory, open
+									the <span class="ph filepath">eclipse.ini</span> file.
+								</li>
+								<li class="li">Modify the value of the <span
+									class="keyword parmname parmname">-Xmx VM</span> argument, and
+									save the file.
+								</li>
+								<li class="li">Restart Eclipse.</li>
+							</ol>
+						</td>
+					</tr>
+					<tr class="row">
+						<td class="entry" valign="top" width="11.458333333333332%"
+							headers="d3697e18 ">4</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e20 ">The Annotation Explorer displays zero
+							results for some extractors.</td>
+						<td class="entry" valign="top" width="30.208333333333332%"
+							headers="d3697e22 ">The extractor results are non-span
+							values and therefore are not shown in the Annotation Explorer.
+							Use the Result Table Viewers to examine the non-span values.</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e24 ">No action is required.</td>
+					</tr>
+					<tr class="row">
+						<td class="entry" valign="top" width="11.458333333333332%"
+							headers="d3697e18 ">5</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e20 ">The Annotation Explorer displays empty
+							spans of zero length such as [0-0]. When the span is opened:
+							<ul class="ul">
+								<li class="li">An empty document is displayed in the Result
+									Editor with <var class="keyword varname">Anonymous</var> as the
+									source text object from which the value is extracted.
+								</li>
+								<li class="li">The Result Tree View is opened and <var
+										class="keyword varname">Anonymous</var> is displayed in the
+									title bar to indicate the source text object from which the
+									value is extracted.
+								</li>
+							</ul>
+						</td>
+						<td class="entry" valign="top" width="30.208333333333332%"
+							headers="d3697e22 ">The extractor contains AQL code in which
+							empty spans are created, for example:<pre class="pre codeblock">
+								<code>-- Identify matches of a 
 -- dictionary of common 
 -- first names
 create view FirstName as 
@@ -106,8 +177,9 @@ create view FirstName as
     'FirstNamesDict' 
      on D.text as name 
   from Document D;
-</code></pre>
-<pre class="pre codeblock"><code>-- Identify matches of a 
+</code>
+							</pre> <pre class="pre codeblock">
+								<code>-- Identify matches of a 
 -- dictionary of common last
 -- names 
 create view LastName as 
@@ -115,8 +187,9 @@ create view LastName as
   'LastNamesDict' 
    on D.text as name 
    from Document D;
-</code></pre>
-<pre class="pre codeblock"><code>-- Identify matches of a 
+</code>
+							</pre> <pre class="pre codeblock">
+								<code>-- Identify matches of a 
 -- dictionary of common 
 -- salutations, for example,
 --  'Mr.', 'Ms.', etc
@@ -126,8 +199,9 @@ create view Salutation
    'SalutationDict' 
   on D.text as name
  from Document D;
-</code></pre>
-<pre class="pre codeblock"><code>-- Person candidate 1: 
+</code>
+							</pre> <pre class="pre codeblock">
+								<code>-- Person candidate 1: 
 -- identify first name 
 -- immediately followed 
 -- within 0 tokens by a last
@@ -140,8 +214,9 @@ create view PeopleNames1
      LastName L 
  where FollowsTok
   (F.name, L.name, 0, 0);
-</code></pre>
-<pre class="pre codeblock"><code>-- Person candidate 2: 
+</code>
+							</pre> <pre class="pre codeblock">
+								<code>-- Person candidate 2: 
 -- last names immediately 
 -- preceded by a salutation
 create view PeopleNames2 
@@ -152,8 +227,9 @@ create view PeopleNames2
   LastName L
  where FollowsTok
    (S.name, L.name, 0, 0);
-</code></pre>
-<pre class="pre codeblock"><code>-- Final view of PeopleNames
+</code>
+							</pre> <pre class="pre codeblock">
+								<code>-- Final view of PeopleNames
 -- as a union of 
 -- PeopleNames1 and 
 -- PeopleNames2
@@ -167,64 +243,111 @@ create view PeopleNames
   P.lName as lName 
   from PeopleNames2 P);
 
-output view PeopleNames;</code></pre>
-</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e24 ">In the example, empty text is created in <samp class="ph codeph">PeopleNames2</samp> for
-the <span class="ph uicontrol">fName </span> field to indicate NULL or empty
-values for this field. The attributes in <samp class="ph codeph">PeopleNames1</samp>,
-however, are not empty. Later, a union all AQL construct unifies the
-tuples from <samp class="ph codeph">PeopleNames1</samp> and <samp class="ph codeph">PeopleNames2</samp> to
-create the final output view, <span class="ph uicontrol">PeopleNames</span>.
-The 2 views are not union-compatible in a strict sense. For example,
-the first view returns tuples whose first column is of type <span class="keyword option">Span
-over Document.text</span>, while the second view returns tuples
-whose first column is of type <span class="keyword option">Text</span>. However, the
-Text Analytics run time is not strict in this case and allows such
-unions, since using empty values to indicate null values is a convenient
-feature.  <p class="p">When the extractor that contains this kind of AQL code
-is run, there are empty span values of zero length <var class="keyword varname">[0-0]</var> for
-the <samp class="ph codeph">PeopleNames.fName</samp>. These empty spans correspond
-to the empty text created in <samp class="ph codeph">PeopleNames2</samp>. When one
-of these spans is opened in the Result Editor, an empty document is
-opened and contains <var class="keyword varname">Anonymous</var> in the title. This
-title indicates that the value is a span over text created in the
-AQL code and it is not a <span class="keyword option">Span over Document.text</span> or
-a <span class="keyword option">Span over other text</span> that is derived from the input
-document text, for example by using the AQL <samp class="ph codeph">detag</samp> statement.</p>
-<p class="p">For
-more information, see the <a class="xref" href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html" target="_blank" title="(Opens in a new tab or window)">AQL Reference</a> in the Information Center. </p>
-</td>
-</tr>
-<tr class="row"><td class="entry" valign="top" width="11.458333333333332%" headers="d3697e18 ">6</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e20 ">The Text Analytics Indexer is corrupted, the
-new index files must be created, and refactoring and AQL Doc Hover
-does not work.</td>
-<td class="entry" valign="top" width="30.208333333333332%" headers="d3697e22 ">Text Analytics Indexer can get corrupted in
-the following scenarios:<ul class="ul"><li class="li">When you rename a project, module, or file while the workspace
-is being indexed, the following warning message is shown: <samp class="ph systemoutput">The
-tooling workspace is being indexed. If you continue, the indexing
-might not be successful and refactoring feature won't work further.
-Cancel it and try your action again</samp>. In this case,
-if you continue, the indexer gets corrupted.</li>
-<li class="li">When you add or delete <span class="ph filepath">.aql</span> files, or update <span class="ph filepath">.aql</span> file
-content in quick succession before the indexer indexes the previous
-changes.</li>
-</ul>
-</td>
-<td class="entry" valign="top" width="29.166666666666668%" headers="d3697e24 ">Generate new index files for the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span> workspace: <ol class="ol"><li class="li">Close the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span> workspace.</li>
-<li class="li">Delete all of the existing index files (<span class="ph filepath">.idx</span>)
-in <span class="ph filepath">WorkspaceRoot\ .metadata\.plugins\com.ibm.biginsight.textanalytics.indexer</span></li>
-<li class="li">Restart the <span class="keyword">InfoSphere BigInsights Tools for Eclipse</span> workspace.</li>
-</ol>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+output view PeopleNames;</code>
+							</pre>
+						</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e24 ">In the example, empty text is created in
+							<samp class="ph codeph">PeopleNames2</samp> for the <span
+							class="ph uicontrol">fName </span> field to indicate NULL or
+							empty values for this field. The attributes in <samp
+								class="ph codeph">PeopleNames1</samp>, however, are not empty.
+							Later, a union all AQL construct unifies the tuples from <samp
+								class="ph codeph">PeopleNames1</samp> and <samp
+								class="ph codeph">PeopleNames2</samp> to create the final output
+							view, <span class="ph uicontrol">PeopleNames</span>. The 2 views
+							are not union-compatible in a strict sense. For example, the
+							first view returns tuples whose first column is of type <span
+							class="keyword option">Span over Document.text</span>, while the
+							second view returns tuples whose first column is of type <span
+							class="keyword option">Text</span>. However, the Text Analytics
+							run time is not strict in this case and allows such unions, since
+							using empty values to indicate null values is a convenient
+							feature.
+							<p class="p">
+								When the extractor that contains this kind of AQL code is run,
+								there are empty span values of zero length
+								<var class="keyword varname">[0-0]</var>
+								for the
+								<samp class="ph codeph">PeopleNames.fName</samp>
+								. These empty spans correspond to the empty text created in
+								<samp class="ph codeph">PeopleNames2</samp>
+								. When one of these spans is opened in the Result Editor, an
+								empty document is opened and contains
+								<var class="keyword varname">Anonymous</var>
+								in the title. This title indicates that the value is a span over
+								text created in the AQL code and it is not a <span
+									class="keyword option">Span over Document.text</span> or a <span
+									class="keyword option">Span over other text</span> that is
+								derived from the input document text, for example by using the
+								AQL
+								<samp class="ph codeph">detag</samp>
+								statement.
+							</p>
+							<p class="p">
+								For more information, see the <a class="xref"
+									href="http://www.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.aqlref.doc/doc/aql-overview.html"
+									target="_blank" title="(Opens in a new tab or window)">AQL
+									Reference</a> in the Information Center.
+							</p>
+						</td>
+					</tr>
+					<tr class="row">
+						<td class="entry" valign="top" width="11.458333333333332%"
+							headers="d3697e18 ">6</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e20 ">The Text Analytics Indexer is corrupted,
+							the new index files must be created, and refactoring and AQL Doc
+							Hover does not work.</td>
+						<td class="entry" valign="top" width="30.208333333333332%"
+							headers="d3697e22 ">Text Analytics Indexer can get corrupted
+							in the following scenarios:
+							<ul class="ul">
+								<li class="li">When you rename a project, module, or file
+									while the workspace is being indexed, the following warning
+									message is shown: <samp class="ph systemoutput">The
+										tooling workspace is being indexed. If you continue, the
+										indexing might not be successful and refactoring feature won't
+										work further. Cancel it and try your action again</samp>. In this
+									case, if you continue, the indexer gets corrupted.
+								</li>
+								<li class="li">When you add or delete <span
+									class="ph filepath">.aql</span> files, or update <span
+									class="ph filepath">.aql</span> file content in quick
+									succession before the indexer indexes the previous changes.
+								</li>
+							</ul>
+						</td>
+						<td class="entry" valign="top" width="29.166666666666668%"
+							headers="d3697e24 ">Generate new index files for the <span
+							class="keyword">InfoSphere BigInsights Tools for Eclipse</span>
+							workspace:
+							<ol class="ol">
+								<li class="li">Close the <span class="keyword">InfoSphere
+										BigInsights Tools for Eclipse</span> workspace.
+								</li>
+								<li class="li">Delete all of the existing index files (<span
+									class="ph filepath">.idx</span>) in <span class="ph filepath">WorkspaceRoot\
+										.metadata\.plugins\com.ibm.biginsight.textanalytics.indexer</span></li>
+								<li class="li">Restart the <span class="keyword">InfoSphere
+										BigInsights Tools for Eclipse</span> workspace.
+								</li>
+							</ol>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

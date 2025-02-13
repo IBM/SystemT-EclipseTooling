@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,97 +11,171 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Configuring the labeled data collection" />
-<meta name="abstract" content="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part." />
-<meta name="Description" content="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part." />
-<meta name="DC.Relation" scheme="URI" content="../../html/compare_results/comparing_results.html" />
+<meta name="abstract"
+	content="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part." />
+<meta name="Description"
+	content="The labeled document editor is a text editor in which you can manually label documents. Before you can label a document, you must configure the collection of which the document is a part." />
+<meta name="DC.Relation" scheme="URI"
+	content="../../html/compare_results/comparing_results.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="configuringthegoldstandard" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../../swg_info_common.css" />
-<link rel="Start" href="../../html/compare_results/comparing_results.html" />
+<link rel="Start"
+	href="../../html/compare_results/comparing_results.html" />
 <title>Configuring the labeled data collection</title>
 </head>
 <body role="main" id="configuringthegoldstandard">
-<h1 class="title topictitle1">Configuring the labeled data collection</h1>
-<div class="body taskbody"><p class="shortdesc">The <dfn class="term">labeled document editor</dfn> is a text editor
-in which you can manually label documents. Before you can label a
-document, you must configure the collection of which the document
-is a part.</p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><div class="p">You can configure a collection by specifying the following
-options:<ul class="ul"><li class="li">The annotation types (view names and field names) of the annotated
-text</li>
-<li class="li">Whether you want the editor to automatically recognize word boundaries<p class="p">The <span class="ph uicontrol">Detect
-Word boundaries automatically</span> option is enabled by default.</p>
-<div class="note tip"><span class="tiptitle">Tip:</span> If this option is enabled and you place the cursor within
-a word, the editor infers word boundaries when it applies a label
-or deletes an annotation. Even when you do not select a span of text,
-the editor correctly infers word boundaries.</div>
-</li>
-<li class="li">The language</li>
-<li class="li">The default annotation type, which simplifies the process of manually
-annotating a document</li>
-</ul>
-</div>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Right-click the appropriate labeled collection directory,
-and click <span class="ph menucascade"><span class="ph uicontrol">Labeled Data Collection</span> &gt; <span class="ph uicontrol">Configure</span></span>.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">In the <span class="keyword wintitle">Preferences</span> dialog, define
-the annotation types.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Expand the labeled collection node, and click <span class="ph uicontrol">Annotation
-types</span>.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph uicontrol">New</span>.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Type a name in the <span class="ph uicontrol">View Name</span> and <span class="ph uicontrol">Field
-Name</span> fields.</span> <div class="note remember"><span class="remembertitle">Remember:</span>  Ensure
-that the view and field (attribute) names that you specify are identical
-to the ones that are defined in your AQL code.<p class="p">For example, if you
-create a new annotation type and specify <kbd class="ph userinput">Person</kbd> as
-the view name and <kbd class="ph userinput">name</kbd> as the field name. Then,
-ensure that <kbd class="ph userinput">Person</kbd> is defined as the view name
-and <kbd class="ph userinput">name</kbd> is defined as the field name in the
-AQL code.</p>
-</div>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">Specify a shortcut key.</span> <div class="note note"><span class="notetitle">Note:</span> You can define
-keyboard shortcuts for up to 10 annotation types. A <dfn class="term">keyboard
-shortcut</dfn> is a key combination that you can use in the editor
-to quickly label selected text. For example, if the keyboard shortcut
-is 0 for annotation type <var class="keyword varname">Person.name</var>, then the
-combination <span class="ph uicontrol">Ctrl+0</span> labels the selected portion
-of text with the annotation type <var class="keyword varname">Person.name</var>.<p class="p">To
-label a span of text with an annotation type that is not assigned
-with a keyboard shortcut, use one of the following approaches:</p>
-<ul class="ul"><li class="li">Use the menu <span class="ph uicontrol">Annotate As</span> and choose the
-annotation type of your choice.</li>
-<li class="li">In the <span class="keyword wintitle">Labeled data collection configuration</span> page,
-set your choice of annotation type as the default annotation type.
-In your labeled document editor, select a span of text and press CTRL+ENTER
-to apply the default annotation type to the selected span of text.</li>
-</ul>
-</div>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">Repeat the previous steps until you define all the annotation
-types.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Save</span>.</span></li>
-</ol>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Specify the general properties.</span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">General</span> in the left navigation
-pane.</span></li>
-<li class="li substep"><span class="ph cmd">Specify whether you want the editor to recognize word
-boundaries. If you select this option, you must specify the language
-of the data collection.</span></li>
-</ol>
-</li>
-</ol>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/compare_results/comparing_results.html" title="You can compare the extracted results from the same input file by using the Annotation Difference Viewer. You can also compare the results of one extractor run to a labeled data collection to evaluate the quality of an extractor.">Comparing results</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Configuring the labeled data
+		collection</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			The
+			<dfn class="term">labeled document editor</dfn>
+			is a text editor in which you can manually label documents. Before
+			you can label a document, you must configure the collection of which
+			the document is a part.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<div class="p">
+				You can configure a collection by specifying the following options:
+				<ul class="ul">
+					<li class="li">The annotation types (view names and field
+						names) of the annotated text</li>
+					<li class="li">Whether you want the editor to automatically
+						recognize word boundaries
+						<p class="p">
+							The <span class="ph uicontrol">Detect Word boundaries
+								automatically</span> option is enabled by default.
+						</p>
+						<div class="note tip">
+							<span class="tiptitle">Tip:</span> If this option is enabled and
+							you place the cursor within a word, the editor infers word
+							boundaries when it applies a label or deletes an annotation. Even
+							when you do not select a span of text, the editor correctly
+							infers word boundaries.
+						</div>
+					</li>
+					<li class="li">The language</li>
+					<li class="li">The default annotation type, which simplifies
+						the process of manually annotating a document</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Right-click
+					the appropriate labeled collection directory, and click <span
+					class="ph menucascade"><span class="ph uicontrol">Labeled
+							Data Collection</span> &gt; <span class="ph uicontrol">Configure</span></span>.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">In
+					the <span class="keyword wintitle">Preferences</span> dialog,
+					define the annotation types.
+			</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">Expand
+							the labeled collection node, and click <span class="ph uicontrol">Annotation
+								types</span>.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Click
+							<span class="ph uicontrol">New</span>.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Type
+							a name in the <span class="ph uicontrol">View Name</span> and <span
+							class="ph uicontrol">Field Name</span> fields.
+					</span>
+						<div class="note remember">
+							<span class="remembertitle">Remember:</span> Ensure that the view
+							and field (attribute) names that you specify are identical to the
+							ones that are defined in your AQL code.
+							<p class="p">
+								For example, if you create a new annotation type and specify
+								<kbd class="ph userinput">Person</kbd>
+								as the view name and
+								<kbd class="ph userinput">name</kbd>
+								as the field name. Then, ensure that
+								<kbd class="ph userinput">Person</kbd>
+								is defined as the view name and
+								<kbd class="ph userinput">name</kbd>
+								is defined as the field name in the AQL code.
+							</p>
+						</div></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Specify
+							a shortcut key.</span>
+						<div class="note note">
+							<span class="notetitle">Note:</span> You can define keyboard
+							shortcuts for up to 10 annotation types. A
+							<dfn class="term">keyboard shortcut</dfn>
+							is a key combination that you can use in the editor to quickly
+							label selected text. For example, if the keyboard shortcut is 0
+							for annotation type
+							<var class="keyword varname">Person.name</var>
+							, then the combination <span class="ph uicontrol">Ctrl+0</span>
+							labels the selected portion of text with the annotation type
+							<var class="keyword varname">Person.name</var>
+							.
+							<p class="p">To label a span of text with an annotation type
+								that is not assigned with a keyboard shortcut, use one of the
+								following approaches:</p>
+							<ul class="ul">
+								<li class="li">Use the menu <span class="ph uicontrol">Annotate
+										As</span> and choose the annotation type of your choice.
+								</li>
+								<li class="li">In the <span class="keyword wintitle">Labeled
+										data collection configuration</span> page, set your choice of
+									annotation type as the default annotation type. In your labeled
+									document editor, select a span of text and press CTRL+ENTER to
+									apply the default annotation type to the selected span of text.
+								</li>
+							</ul>
+						</div></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Repeat
+							the previous steps until you define all the annotation types.</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Click
+							<span class="ph uicontrol">Save</span>.
+					</span></li>
+				</ol></li>
+			<li class="li step stepexpand"><span class="ph cmd">Specify
+					the general properties.</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep"><span class="ph cmd">Click <span
+							class="ph uicontrol">General</span> in the left navigation pane.
+					</span></li>
+					<li class="li substep"><span class="ph cmd">Specify
+							whether you want the editor to recognize word boundaries. If you
+							select this option, you must specify the language of the data
+							collection.</span></li>
+				</ol></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../html/compare_results/comparing_results.html"
+					title="You can compare the extracted results from the same input file by using the Annotation Difference Viewer. You can also compare the results of one extractor run to a labeled data collection to evaluate the quality of an extractor.">Comparing
+					results</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

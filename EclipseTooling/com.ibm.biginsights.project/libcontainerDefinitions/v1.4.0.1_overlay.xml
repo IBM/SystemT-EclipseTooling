@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- Copyright IBM
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
+<!-- Copyright IBM Licensed under the Apache License, Version 2.0 (the "License"); 
+	you may not use this file except in compliance with the License. You may 
+	obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
 <container version="1.4.0.1 overlay1" isdefault="false">
-	<bundles>					    
+	<bundles>
 		<bundle id="com.ibm.hadoop" version="0.20.2.o1">
 			<file>*.jar</file>
 			<file>/lib/*.jar</file>
@@ -25,28 +17,28 @@
 			<file>/lib/jaql-launcher.jar</file>
 			<file>/lib/antlr.jar</file>
 			<file>/conf/</file>
-		</bundle>		
+		</bundle>
 		<bundle id="com.ibm.hbase.core.bin" version="0.90.4.o1">
 			<file>hbase.jar</file>
 			<file>/lib/zookeeper.jar</file>
-		</bundle>		
-		<bundle id="com.ibm.biginsights.thirdparty" version="2.0.0">			
+		</bundle>
+		<bundle id="com.ibm.biginsights.thirdparty" version="2.0.0">
 			<file>/lib/commons-cli-3.0-SNAPSHOT.jar</file>
-			<file>/lib/commons-lang-2.5.jar</file>			
+			<file>/lib/commons-lang-2.5.jar</file>
 			<file>/lib/icu4j-4_8_1_1.jar</file>
 			<file>/lib/icu4j-charset-4_8_1_1.jar</file>
-			<file>/lib/icu4j-localespi-4_8_1_1.jar</file>			
+			<file>/lib/icu4j-localespi-4_8_1_1.jar</file>
 			<file>/lib/derby.jar</file>
 			<file>/lib/derbyclient.jar</file>
-			<!-- BEGIN: Text Analytics libraries-->
+			<!-- BEGIN: Text Analytics libraries -->
 			<file>/lib/text-analytics/systemT.jar</file>
 			<file>/lib/LanguageWare-7.2.0.2/an_dlt.jar</file>
 			<file>/lib/LanguageWare-7.2.0.2/dlt.jar</file>
 			<file>/lib/uima-2.3.0/uima-core.jar</file>
 			<file>/lib/htmlparser-2.0/htmllexer.jar</file>
 			<file>/lib/htmlparser-2.0/htmlparser.jar</file>
-			<!-- END: Text Analytics libraries-->
+			<!-- END: Text Analytics libraries -->
 		</bundle>
-		<bundle id="com.ibm.biginsights.bicredentials" version="1.0.0"/>
+		<bundle id="com.ibm.biginsights.bicredentials" version="1.0.0" />
 	</bundles>
 </container>

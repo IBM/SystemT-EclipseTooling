@@ -5,83 +5,83 @@
 	<version>7.2.0.2</version>
 	<vendor>IBM Corporation</vendor>
 
-    <imports>
+	<imports>
 		<!-- includes the andvanced dlt typesystem -->
-        <import location="dlt_extension_typesystem.xml"/>
+		<import location="dlt_extension_typesystem.xml" />
 	</imports>
 
-    <types>
+	<types>
 
-       	<typeDescription>
-        	<name>uima.tt.TokenLikeAnnotation</name>
-	        <description></description>
-    	    <supertypeName>uima.tt.LexicalAnnotation</supertypeName>
-        	<features>
-                <featureDescription>
-                    <name>lemmaEntries</name>
-                    <description>List of all possible lemmas for token.  The list
-                    values are of type uima.tt.Lemma.</description>
-                    <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-                </featureDescription>
-        		<featureDescription>
-	            	<name>tokenNumber</name>
-             		<description></description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-	            </featureDescription>
-           		<featureDescription>
-             		<name>stopwordToken</name>
-             		<description></description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-           		</featureDescription>
-         	</features>
-        </typeDescription>
+		<typeDescription>
+			<name>uima.tt.TokenLikeAnnotation</name>
+			<description></description>
+			<supertypeName>uima.tt.LexicalAnnotation</supertypeName>
+			<features>
+				<featureDescription>
+					<name>lemmaEntries</name>
+					<description>List of all possible lemmas for token. The list
+						values are of type uima.tt.Lemma.</description>
+					<rangeTypeName>uima.cas.FSArray</rangeTypeName>
+				</featureDescription>
+				<featureDescription>
+					<name>tokenNumber</name>
+					<description></description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+				<featureDescription>
+					<name>stopwordToken</name>
+					<description></description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+			</features>
+		</typeDescription>
 
-        <typeDescription>
-         	<name>uima.tt.Lemma</name>
-         	<description></description>
-         	<supertypeName>uima.tt.KeyStringEntry</supertypeName>
-         	<features>
-           		<featureDescription>
-             		<name>isStopword</name>
-             		<description>True if this lemma is a stopword</description>
-             		<rangeTypeName>uima.cas.Integer</rangeTypeName>
-           		</featureDescription>
-                <featureDescription>
-                    <name>partOfSpeech</name>
-                    <description>Part of speech, see documentation of lexical
-                    processor for meaning description.</description>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
-                </featureDescription>
-         	</features>
-        </typeDescription>
+		<typeDescription>
+			<name>uima.tt.Lemma</name>
+			<description></description>
+			<supertypeName>uima.tt.KeyStringEntry</supertypeName>
+			<features>
+				<featureDescription>
+					<name>isStopword</name>
+					<description>True if this lemma is a stopword</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+				<featureDescription>
+					<name>partOfSpeech</name>
+					<description>Part of speech, see documentation of lexical
+						processor for meaning description.</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+			</features>
+		</typeDescription>
 
-        <typeDescription>
-        	<name>uima.tt.ParagraphAnnotation</name>
-            <description>Text paragraphs.</description>
-            <supertypeName>uima.tt.DocStructureAnnotation</supertypeName>
-            <features>
-                <featureDescription>
-                    <name>paragraphNumber</name>
-                    <description>Some analysis engines that create paragraph
-                    annotations can optionally number the paragraphs.</description>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
-                </featureDescription>
-            </features>
-        </typeDescription>
+		<typeDescription>
+			<name>uima.tt.ParagraphAnnotation</name>
+			<description>Text paragraphs.</description>
+			<supertypeName>uima.tt.DocStructureAnnotation</supertypeName>
+			<features>
+				<featureDescription>
+					<name>paragraphNumber</name>
+					<description>Some analysis engines that create paragraph
+						annotations can optionally number the paragraphs.</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+			</features>
+		</typeDescription>
 
-        <typeDescription>
-            <name>uima.tt.SentenceAnnotation</name>
-            <description>Sentences.</description>
-            <supertypeName>uima.tt.DocStructureAnnotation</supertypeName>
-            <features>
-                <featureDescription>
-                    <name>sentenceNumber</name>
-                    <description>Some analysis engines that create paragraph
-                    annotations can optionally number the sentences.</description>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
-                </featureDescription>
-            </features>
-        </typeDescription>
+		<typeDescription>
+			<name>uima.tt.SentenceAnnotation</name>
+			<description>Sentences.</description>
+			<supertypeName>uima.tt.DocStructureAnnotation</supertypeName>
+			<features>
+				<featureDescription>
+					<name>sentenceNumber</name>
+					<description>Some analysis engines that create paragraph
+						annotations can optionally number the sentences.</description>
+					<rangeTypeName>uima.cas.Integer</rangeTypeName>
+				</featureDescription>
+			</features>
+		</typeDescription>
 
 	</types>
 </typeSystemDescription>

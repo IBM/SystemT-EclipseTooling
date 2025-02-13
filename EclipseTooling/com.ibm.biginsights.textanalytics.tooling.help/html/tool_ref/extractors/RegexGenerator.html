@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,135 +11,230 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Regular Expression Generator" />
-<meta name="abstract" content="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor." />
-<meta name="Description" content="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor." />
-<meta name="DC.Relation" scheme="URI" content="../../../html/CreateTextAnalyticsApps.html" />
+<meta name="abstract"
+	content="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor." />
+<meta name="Description"
+	content="The Regular Expression Generator helps you to create a regular expression to include in your AQL extractor." />
+<meta name="DC.Relation" scheme="URI"
+	content="../../../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="RegexGenerator" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../../../ibmdita.css" />
-<link rel="stylesheet" type="text/css" href="../../../swg_info_common.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../../swg_info_common.css" />
 <link rel="Start" href="../../../html/CreateTextAnalyticsApps.html" />
 <title>Regular Expression Generator</title>
 </head>
 <body role="main" id="RegexGenerator">
-<h1 class="title topictitle1">Regular Expression Generator</h1>
-<div class="body taskbody"><p class="shortdesc">The Regular Expression Generator helps you to create a
-regular expression to include in your AQL extractor.</p>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><div class="li step"><span class="ph cmd">Use the <a class="xref" href="../../dev_extractors/write_code/GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Regular
-Expression Generator</a>, to select a suggested expression and
-refine the expression by examining and modifying the subexpressions
-that make up the expression.</span> <div class="note remember"><span class="remembertitle">Remember:</span> The
-generated regular expression adds an escape character to the forward
-slash character (//). This adjustment facilitates the use of the forward
-slash directly in the AQL file. If you use the regular expression
-in other tools, remove the escape character on the forward slash to
-properly capture your input examples.</div>
-<dl class="dl"><dt class="dt dlterm">Regular expression selector</dt>
-<dd class="dd">The <span class="ph uicontrol">Regular Expression Generator </span> algorithm
-suggests one or more regular expressions that match example strings
-that you provide.<ol class="ol" type="a"><li class="li">Click <span class="ph uicontrol">Load samples from file</span>.</li>
-<li class="li">After you load your samples, select the expression that best matches
-your query, and click <span class="ph uicontrol">Next</span>. </li>
-<li class="li">If you are not satisfied with the results
-of this regular expression produces, click <span class="ph uicontrol">Back</span>,
-and select another expression. </li>
-<li class="li">If you want to modify the samples in the
-table, change them, and then click <span class="ph uicontrol">Generate regular expression</span> to
-refresh the regular expressions. </li>
-<li class="li">Use the slider to generate more general or specific regular expressions.</li>
-</ol>
-</dd>
-<dt class="dt dlterm">Regular expression refinement</dt>
-<dd class="dd"><ol class="ol" type="a"><li class="li">You can see the regular expression in the <span class="ph uicontrol">Regular Expression</span> text
-box at the top of the regular expression refinement page of the wizard.
-Each regular expression consists of several subexpressions. For example, <pre class="pre codeblock"><code>\d{1,2} or (N|S) </code></pre>
-are
-subexpressions of the following regular expression:<pre class="pre codeblock"><code>(\d{1,2}(-)( )\d{1,2}(')( )(N|S)(,)( )\d{1,3}(-)( )\d{2}(')( )(E|W))</code></pre>
-. </li>
-<li class="li">Refine the individual subexpressions. The subexpression that you
-refine is highlighted in the text box. </li>
-<li class="li">Click <span class="ph uicontrol">Next</span> and <span class="ph uicontrol">Back</span> to
-navigate to the next or prior subexpression within your regular expression. </li>
-</ol>
-</dd>
-<dt class="dt dlterm">Samples table</dt>
-<dd class="dd"><ol class="ol" type="a"><li class="li">View the <span class="ph uicontrol">Samples</span> table to see the examples
-that you entered in the last wizard page.<p class="p">The first column (<span class="ph uicontrol">Match</span>)
-indicates whether the current regular expression matches the example
-of this row.</p>
-</li>
-<li class="li">The part of the example that is matched by the current subexpression
-is highlighted.</li>
-</ol>
-</dd>
-<dt class="dt dlterm">Current® subexpression
-refinement</dt>
-<dd class="dd"><ol class="ol" type="a"><li class="li">The section that is labeled <span class="ph uicontrol">Refine the current subexpression</span> shows
-some information about the current subexpression and its character
-class. For more information about character classes, see the <a class="xref" href="help_txtan_regx_constructs.html" title="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator.">Regular expression constructs and characters</a>. When you refine the
-subexpression, you can:<ul class="ul"><li class="li">Make a subexpression optional.</li>
-<li class="li">Change the type of the current subexpression.</li>
-</ul>
-</li>
-</ol>
-</dd>
-<dt class="dt dlterm">Make a subexpression optional</dt>
-<dd class="dd"><p class="p">Select the <span class="ph uicontrol">This subexpression is optional</span> check
-box to make a subexpression optional. This action adds a <span class="keyword parmname parmname">?</span> after
-the current subexpression, which means <span class="keyword parmname parmname">{0, 1}</span>.
-In other words, the subexpression can occur zero or one time. Use
-caution when you make an optional subexpression a mandatory expression.
-This action might result in a regular expression that does not match
-some of your samples. </p>
-</dd>
-<dt class="dt dlterm">Change the type of the current subexpression</dt>
-<dd class="dd"><div class="p">Consider the following constraints when you refine your subexpression
-by selecting one of the following options:<dl class="dl"><dt class="dt dlterm"><span class="ph uicontrol">Any of the symbols in this character class</span></dt>
-<dd class="dd">By selecting this option, any of the symbols that belong to this
-character class can occur at this position. Each character class comprises
-certain characters. Refer to the table in <a class="xref" href="help_txtan_regx_constructs.html" title="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator.">Regular expression constructs and characters</a>. You can define the
-minimum and maximum number of characters that occur at this position,
-which adds <span class="keyword parmname parmname">{min, max}</span> after your subexpression,
-and that means that this subexpression must occur at least <var class="keyword varname">min</var> times
-and can be repeated up to <var class="keyword varname">max</var> times. Be careful
-when you increase the minimum number or decrease the maximum number
-because this action might result in a regular expression that does
-not match some of your samples. Ensure that all of your examples are
-still matching after you modify these numbers.</dd>
-<dt class="dt dlterm">One of the samples in the table must occur</dt>
-<dd class="dd">The <span class="ph uicontrol">Samples</span> of this Subexpression table
-shows all values of this subexpression that occur in the samples that
-you provided. If you select this option, one of the elements in this
-table must occur at this position. In other words, the resulting regular
-expression contains an alternation of these examples at this position.</dd>
-<dt class="dt dlterm">An integer number within a certain range can occur</dt>
-<dd class="dd">If the character class is <span class="ph uicontrol">Digit</span>, you can
-also select more options to define that an integer number can occur
-within a certain range. If you select this option, click the corresponding
-radio button and provide a minimum and maximum integer number for
-the range. You might also want to allow leading zeros.</dd>
-<dt class="dt dlterm">Test samples</dt>
-<dd class="dd">You can validate the generated regular expression by manually
-entering text into the lower right text area, or you can click <span class="ph uicontrol">Import</span> to
-load a text file (<span class="ph filepath">*.txt</span>) that contains samples.
-After some text is entered, the generator highlights the text in the
-text area that matches with the regular expression that is generated.</dd>
-</dl>
-</div>
-</dd>
-</dl>
-</div>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Regular Expression Generator</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">The Regular Expression Generator helps you to
+			create a regular expression to include in your AQL extractor.</p>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<div class="li step">
+			<span class="ph cmd">Use the <a class="xref"
+				href="../../dev_extractors/write_code/GenerateRegEx.html"
+				title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">Regular
+					Expression Generator</a>, to select a suggested expression and refine
+				the expression by examining and modifying the subexpressions that
+				make up the expression.
+			</span>
+			<div class="note remember">
+				<span class="remembertitle">Remember:</span> The generated regular
+				expression adds an escape character to the forward slash character
+				(//). This adjustment facilitates the use of the forward slash
+				directly in the AQL file. If you use the regular expression in other
+				tools, remove the escape character on the forward slash to properly
+				capture your input examples.
+			</div>
+			<dl class="dl">
+				<dt class="dt dlterm">Regular expression selector</dt>
+				<dd class="dd">
+					The <span class="ph uicontrol">Regular Expression Generator
+					</span> algorithm suggests one or more regular expressions that match
+					example strings that you provide.
+					<ol class="ol" type="a">
+						<li class="li">Click <span class="ph uicontrol">Load
+								samples from file</span>.
+						</li>
+						<li class="li">After you load your samples, select the
+							expression that best matches your query, and click <span
+							class="ph uicontrol">Next</span>.
+						</li>
+						<li class="li">If you are not satisfied with the results of
+							this regular expression produces, click <span
+							class="ph uicontrol">Back</span>, and select another expression.
+						</li>
+						<li class="li">If you want to modify the samples in the
+							table, change them, and then click <span class="ph uicontrol">Generate
+								regular expression</span> to refresh the regular expressions.
+						</li>
+						<li class="li">Use the slider to generate more general or
+							specific regular expressions.</li>
+					</ol>
+				</dd>
+				<dt class="dt dlterm">Regular expression refinement</dt>
+				<dd class="dd">
+					<ol class="ol" type="a">
+						<li class="li">You can see the regular expression in the <span
+							class="ph uicontrol">Regular Expression</span> text box at the
+							top of the regular expression refinement page of the wizard. Each
+							regular expression consists of several subexpressions. For
+							example, <pre class="pre codeblock">
+								<code>\d{1,2} or (N|S) </code>
+							</pre> are subexpressions of the following regular expression:<pre
+								class="pre codeblock">
+								<code>(\d{1,2}(-)( )\d{1,2}(')( )(N|S)(,)( )\d{1,3}(-)( )\d{2}(')( )(E|W))</code>
+							</pre> .
+						</li>
+						<li class="li">Refine the individual subexpressions. The
+							subexpression that you refine is highlighted in the text box.</li>
+						<li class="li">Click <span class="ph uicontrol">Next</span>
+							and <span class="ph uicontrol">Back</span> to navigate to the
+							next or prior subexpression within your regular expression.
+						</li>
+					</ol>
+				</dd>
+				<dt class="dt dlterm">Samples table</dt>
+				<dd class="dd">
+					<ol class="ol" type="a">
+						<li class="li">View the <span class="ph uicontrol">Samples</span>
+							table to see the examples that you entered in the last wizard
+							page.
+							<p class="p">
+								The first column (<span class="ph uicontrol">Match</span>)
+								indicates whether the current regular expression matches the
+								example of this row.
+							</p>
+						</li>
+						<li class="li">The part of the example that is matched by the
+							current subexpression is highlighted.</li>
+					</ol>
+				</dd>
+				<dt class="dt dlterm">Current® subexpression refinement</dt>
+				<dd class="dd">
+					<ol class="ol" type="a">
+						<li class="li">The section that is labeled <span
+							class="ph uicontrol">Refine the current subexpression</span>
+							shows some information about the current subexpression and its
+							character class. For more information about character classes,
+							see the <a class="xref" href="help_txtan_regx_constructs.html"
+							title="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator.">Regular
+								expression constructs and characters</a>. When you refine the
+							subexpression, you can:
+							<ul class="ul">
+								<li class="li">Make a subexpression optional.</li>
+								<li class="li">Change the type of the current
+									subexpression.</li>
+							</ul>
+						</li>
+					</ol>
+				</dd>
+				<dt class="dt dlterm">Make a subexpression optional</dt>
+				<dd class="dd">
+					<p class="p">
+						Select the <span class="ph uicontrol">This subexpression is
+							optional</span> check box to make a subexpression optional. This action
+						adds a <span class="keyword parmname parmname">?</span> after the
+						current subexpression, which means <span
+							class="keyword parmname parmname">{0, 1}</span>. In other words,
+						the subexpression can occur zero or one time. Use caution when you
+						make an optional subexpression a mandatory expression. This action
+						might result in a regular expression that does not match some of
+						your samples.
+					</p>
+				</dd>
+				<dt class="dt dlterm">Change the type of the current
+					subexpression</dt>
+				<dd class="dd">
+					<div class="p">
+						Consider the following constraints when you refine your
+						subexpression by selecting one of the following options:
+						<dl class="dl">
+							<dt class="dt dlterm">
+								<span class="ph uicontrol">Any of the symbols in this
+									character class</span>
+							</dt>
+							<dd class="dd">
+								By selecting this option, any of the symbols that belong to this
+								character class can occur at this position. Each character class
+								comprises certain characters. Refer to the table in <a
+									class="xref" href="help_txtan_regx_constructs.html"
+									title="In the Eclipse tool, you can build rules in the Regular Expression Builder by selecting constructs and combining them. You can modify regular expressions, subexpressions, and the associated character classes in the Regular Expression Generator.">Regular
+									expression constructs and characters</a>. You can define the
+								minimum and maximum number of characters that occur at this
+								position, which adds <span class="keyword parmname parmname">{min,
+									max}</span> after your subexpression, and that means that this
+								subexpression must occur at least
+								<var class="keyword varname">min</var>
+								times and can be repeated up to
+								<var class="keyword varname">max</var>
+								times. Be careful when you increase the minimum number or
+								decrease the maximum number because this action might result in
+								a regular expression that does not match some of your samples.
+								Ensure that all of your examples are still matching after you
+								modify these numbers.
+							</dd>
+							<dt class="dt dlterm">One of the samples in the table must
+								occur</dt>
+							<dd class="dd">
+								The <span class="ph uicontrol">Samples</span> of this
+								Subexpression table shows all values of this subexpression that
+								occur in the samples that you provided. If you select this
+								option, one of the elements in this table must occur at this
+								position. In other words, the resulting regular expression
+								contains an alternation of these examples at this position.
+							</dd>
+							<dt class="dt dlterm">An integer number within a certain
+								range can occur</dt>
+							<dd class="dd">
+								If the character class is <span class="ph uicontrol">Digit</span>,
+								you can also select more options to define that an integer
+								number can occur within a certain range. If you select this
+								option, click the corresponding radio button and provide a
+								minimum and maximum integer number for the range. You might also
+								want to allow leading zeros.
+							</dd>
+							<dt class="dt dlterm">Test samples</dt>
+							<dd class="dd">
+								You can validate the generated regular expression by manually
+								entering text into the lower right text area, or you can click <span
+									class="ph uicontrol">Import</span> to load a text file (<span
+									class="ph filepath">*.txt</span>) that contains samples. After
+								some text is entered, the generator highlights the text in the
+								text area that matches with the regular expression that is
+								generated.
+							</dd>
+						</dl>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

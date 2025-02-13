@@ -1,136 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?NLS TYPE="org.eclipse.help.toc"?>
-<!--
- Copyright IBM
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
-<toc label="BigInsights text analytics tooling help" link_to="../com.ibm.biginsights.project/toc.xml#biginsightsTextAnalyticsAnchor">
-   <topic href="html/CreateTextAnalyticsApps.html" label="Analyzing text in big data">
-   <topic label="Developing text analytics extractors">
-      <topic href="html/dev_extractors/CreateAQLfile.html" label="Creating AQL files">
-      </topic>
-      <topic href="html/dev_extractors/write_code/WriteCode.html" label="Writing extractor code">
-         <topic href="html/dev_extractors/write_code/GenerateRegEx.html" label="Generating regular expressions">
-         </topic>
-         <topic href="html/dev_extractors/write_code/BuildRegEx.html" label="Building regular expressions">
-         </topic>
-         <topic href="html/dev_extractors/write_code/DiscoverPatterns.html" label="Discovering patterns in text input">
-          <topic href="html/dev_extractors/write_code/help_txtan_aboutpatdis.html" label="Pattern discovery scenarios"  /> 
-         </topic>
-      </topic>
-   </topic>
-   <topic href="html/ImportInputCollection.html" label="Importing an input collection">
-   </topic>
-   <topic href="html/SetProjProps.html" label="Setting BigInsights project properties">
-   </topic>
-   <topic href="html/CreateLaunchConfig.html" label="Creating and executing launch configurations">
-   </topic>
-   <topic href="html/CreatePatternDiscoveryRunConfig.html" label="Creating and executing pattern-discovery configurations">
-      <topic href="html/tool_ref/extractors/PatternDiscoveryConfig.html" label="Pattern-discovery configuration: Advanced settings">
-      </topic>
-   </topic>
-   <topic label="Viewing results">
-      <topic href="html/view_results/ViewResults.html" label="Viewing results of analysis">
-      </topic>
-<topic href="html/view_results/OpenViewDefinition.html" label="Open view definition">
-      </topic>
-      <topic href="html/view_results/SortResults.html" label="Sorting results">
-      </topic>
-      <topic href="html/view_results/FilterResults.html" label="Filtering results">
-      </topic>
-      <topic href="html/view_results/ExportResults.html" label="Exporting results">
-      </topic>
-      <topic href="html/ViewingLineageOfResults.html" label="Viewing the lineage of analysis results">
-      </topic>
-   </topic>
-   <topic href="html/ExportExtractorForDeploy.html" label="Deploying and running an extractor">
-   </topic>
-   <topic href="html/CreateExecuteProfileConfig.html" label="Optimizing extractors through profiling">
-   </topic>
-<topic href="html/MigratingforModularAQLCode.html" label="Migrating the Text Analytics properties of a project, for enabling the use of modular AQL code">
-   </topic>
-<topic href="html/migrateprops.html" label="Migrating the text analytics properties to InfoSphere BigInsights v2.x and moving existing AQL files">
-   </topic>
-<topic href="html/migrateworkflowperspective.html" label="Converting the Extraction Plan after migrating to InfoSphere BigInsights version 2.x Eclipse environment
+<!-- Copyright IBM Licensed under the Apache License, Version 2.0 (the "License"); 
+	you may not use this file except in compliance with the License. You may 
+	obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<toc label="BigInsights text analytics tooling help"
+	link_to="../com.ibm.biginsights.project/toc.xml#biginsightsTextAnalyticsAnchor">
+	<topic href="html/CreateTextAnalyticsApps.html"
+		label="Analyzing text in big data">
+		<topic label="Developing text analytics extractors">
+			<topic href="html/dev_extractors/CreateAQLfile.html"
+				label="Creating AQL files">
+			</topic>
+			<topic href="html/dev_extractors/write_code/WriteCode.html"
+				label="Writing extractor code">
+				<topic
+					href="html/dev_extractors/write_code/GenerateRegEx.html"
+					label="Generating regular expressions">
+				</topic>
+				<topic href="html/dev_extractors/write_code/BuildRegEx.html"
+					label="Building regular expressions">
+				</topic>
+				<topic
+					href="html/dev_extractors/write_code/DiscoverPatterns.html"
+					label="Discovering patterns in text input">
+					<topic
+						href="html/dev_extractors/write_code/help_txtan_aboutpatdis.html"
+						label="Pattern discovery scenarios" />
+				</topic>
+			</topic>
+		</topic>
+		<topic href="html/ImportInputCollection.html"
+			label="Importing an input collection">
+		</topic>
+		<topic href="html/SetProjProps.html"
+			label="Setting BigInsights project properties">
+		</topic>
+		<topic href="html/CreateLaunchConfig.html"
+			label="Creating and executing launch configurations">
+		</topic>
+		<topic href="html/CreatePatternDiscoveryRunConfig.html"
+			label="Creating and executing pattern-discovery configurations">
+			<topic
+				href="html/tool_ref/extractors/PatternDiscoveryConfig.html"
+				label="Pattern-discovery configuration: Advanced settings">
+			</topic>
+		</topic>
+		<topic label="Viewing results">
+			<topic href="html/view_results/ViewResults.html"
+				label="Viewing results of analysis">
+			</topic>
+			<topic href="html/view_results/OpenViewDefinition.html"
+				label="Open view definition">
+			</topic>
+			<topic href="html/view_results/SortResults.html"
+				label="Sorting results">
+			</topic>
+			<topic href="html/view_results/FilterResults.html"
+				label="Filtering results">
+			</topic>
+			<topic href="html/view_results/ExportResults.html"
+				label="Exporting results">
+			</topic>
+			<topic href="html/ViewingLineageOfResults.html"
+				label="Viewing the lineage of analysis results">
+			</topic>
+		</topic>
+		<topic href="html/ExportExtractorForDeploy.html"
+			label="Deploying and running an extractor">
+		</topic>
+		<topic href="html/CreateExecuteProfileConfig.html"
+			label="Optimizing extractors through profiling">
+		</topic>
+		<topic href="html/MigratingforModularAQLCode.html"
+			label="Migrating the Text Analytics properties of a project, for enabling the use of modular AQL code">
+		</topic>
+		<topic href="html/migrateprops.html"
+			label="Migrating the text analytics properties to InfoSphere BigInsights v2.x and moving existing AQL files">
+		</topic>
+		<topic href="html/migrateworkflowperspective.html"
+			label="Converting the Extraction Plan after migrating to InfoSphere BigInsights version 2.x Eclipse environment
 ">
-   </topic>
-<topic href="html/ExTabExtDictTabs.html" label="External Tables and External Dictionaries tabs in Text Analytics run configuration">
-   </topic>
-   <topic href="html/compare_results/comparing_results.html" label="Comparing results">
-      <topic href="html/compare_results/comparing_results_of_one_extractor_run_to_another.html" label="Comparing the results of one extractor run to the results of another run">
-      </topic>
-      <topic href="html/compare_results/creating_an_evaluation_dataset.html" label="Creating a labeled document collection">
-      </topic>
-      <topic href="html/compare_results/configuring_the_goldstandard.html" label="Configuring the labeled document collection">
-      </topic>
-      <topic href="html/compare_results/eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer.html" label="Evaluating the quality of an extractor by combining the labeled document collection with the Annotation Difference Viewer">
-      </topic>
-      <topic href="html/compare_results/importing_a_labeled_document_collection_from_another_users_workspace.html" label="Importing a labeled document collection from the workspace of another user">
-      </topic>
-      <topic href="html/compare_results/help_txtan_imp_taresult.html" label="Importing text analytics results"></topic>
-   </topic>
-   <topic label="BigInsights Text Analytics Tooling reference">
-      <topic href="html/help_txtan_wrkflow.html" label="Overview of the Text Analytics Workflow Perspective">
-        <topic href="html/help_txtan_cr_xenv.html" label="Creating the text analytics extractor environment"></topic>
-        <topic href="html/help_txtan_label.html" label="Labeling the data">
-           <topic href="html/help_txtan_extractplan.html" label="The Extraction Plan view"></topic>  
-        </topic>
-        <topic href="html/help_txtan_writingaql.html" label="Writing the AQL to extract your labeled examples"></topic>
-        <topic href="html/help_txtan_testextract.html" label="Testing the extractor"></topic>
-      </topic>
-      <topic href="html/tool_ref/ProjProps.html" label="Project properties"></topic>
-      <topic href="html/tool_ref/ExplainModuleView.html" label="Explain Module view">
-      </topic>
-     <topic href="html/tool_ref/refactsupTA.html" label="Refactoring support"></topic>
-       <topic label="Extractors">
-         <topic href="html/tool_ref/extractors/AQLEditor.html" label="AQL editor">
-         </topic>
-         <topic href="html/tool_ref/extractors/RegexGenerator.html" label="Regular Expression Generator">
-         </topic>
-         <topic href="html/tool_ref/extractors/RegexBuilder.html" label="Regular Expression Builder">
-          <topic href="html/tool_ref/extractors/help_txtan_regx_constructs.html" label="Regular expression constructs and characters"/> 
-         </topic>
-         <topic href="html/tool_ref/extractors/PatternDiscoveryViewer.html" label="Pattern Discovery View">
-         </topic>
-         <topic href="html/tool_ref/extractors/PatternContextViewer.html" label="Pattern Context View">
-         </topic>
-         <topic href="html/tool_ref/extractors/ExpandedPatternContextViewer.html" label="Expanded Pattern Context View">
-         </topic>
-         <topic href="html/tool_ref/extractors/PatternDiscoveryConfig.html" label="Pattern-discovery configuration">
-         </topic>
-      </topic>
-      <topic label="Results">
-         <topic href="html/tool_ref/results/AnnotationExplorer.html" label="Annotation Explorer">
-         </topic>
-         <topic href="html/tool_ref/results/annotation_difference_viewer.html" label="Annotation Difference Viewer">
-         </topic>
-         <topic href="html/tool_ref/results/ResultEditor.html" label="Result Editor">
-         </topic>
-         <topic href="html/tool_ref/results/TableViewer.html" label="Result Table View">
-         </topic>
-         <topic href="html/tool_ref/results/TreeViewer.html" label="Result Tree View">
-         </topic>
-         <topic href="html/tool_ref/results/ProvenanceViewer.html" label="Provenance View">
-         </topic>
-         <topic href="html/tool_ref/results/ProfilerView.html" label="Profiler View">
-          <topic href="html/tool_ref/results/help_txtan_profrep.html" label="AQL Profiler reports"/> 
-         </topic>
-      </topic>
-   </topic>
-   <topic href="html/Troubleshooting.html" label="Troubleshooting">
-   </topic>
-   <topic href="html/Glossary.html" label="Glossary">
-   </topic>
- </topic>  
+		</topic>
+		<topic href="html/ExTabExtDictTabs.html"
+			label="External Tables and External Dictionaries tabs in Text Analytics run configuration">
+		</topic>
+		<topic href="html/compare_results/comparing_results.html"
+			label="Comparing results">
+			<topic
+				href="html/compare_results/comparing_results_of_one_extractor_run_to_another.html"
+				label="Comparing the results of one extractor run to the results of another run">
+			</topic>
+			<topic
+				href="html/compare_results/creating_an_evaluation_dataset.html"
+				label="Creating a labeled document collection">
+			</topic>
+			<topic
+				href="html/compare_results/configuring_the_goldstandard.html"
+				label="Configuring the labeled document collection">
+			</topic>
+			<topic
+				href="html/compare_results/eval_qual_extract_by_comb_evdata_set_with_ann_diff_viewer.html"
+				label="Evaluating the quality of an extractor by combining the labeled document collection with the Annotation Difference Viewer">
+			</topic>
+			<topic
+				href="html/compare_results/importing_a_labeled_document_collection_from_another_users_workspace.html"
+				label="Importing a labeled document collection from the workspace of another user">
+			</topic>
+			<topic href="html/compare_results/help_txtan_imp_taresult.html"
+				label="Importing text analytics results"></topic>
+		</topic>
+		<topic label="BigInsights Text Analytics Tooling reference">
+			<topic href="html/help_txtan_wrkflow.html"
+				label="Overview of the Text Analytics Workflow Perspective">
+				<topic href="html/help_txtan_cr_xenv.html"
+					label="Creating the text analytics extractor environment"></topic>
+				<topic href="html/help_txtan_label.html"
+					label="Labeling the data">
+					<topic href="html/help_txtan_extractplan.html"
+						label="The Extraction Plan view"></topic>
+				</topic>
+				<topic href="html/help_txtan_writingaql.html"
+					label="Writing the AQL to extract your labeled examples"></topic>
+				<topic href="html/help_txtan_testextract.html"
+					label="Testing the extractor"></topic>
+			</topic>
+			<topic href="html/tool_ref/ProjProps.html"
+				label="Project properties"></topic>
+			<topic href="html/tool_ref/ExplainModuleView.html"
+				label="Explain Module view">
+			</topic>
+			<topic href="html/tool_ref/refactsupTA.html"
+				label="Refactoring support"></topic>
+			<topic label="Extractors">
+				<topic href="html/tool_ref/extractors/AQLEditor.html"
+					label="AQL editor">
+				</topic>
+				<topic href="html/tool_ref/extractors/RegexGenerator.html"
+					label="Regular Expression Generator">
+				</topic>
+				<topic href="html/tool_ref/extractors/RegexBuilder.html"
+					label="Regular Expression Builder">
+					<topic
+						href="html/tool_ref/extractors/help_txtan_regx_constructs.html"
+						label="Regular expression constructs and characters" />
+				</topic>
+				<topic
+					href="html/tool_ref/extractors/PatternDiscoveryViewer.html"
+					label="Pattern Discovery View">
+				</topic>
+				<topic
+					href="html/tool_ref/extractors/PatternContextViewer.html"
+					label="Pattern Context View">
+				</topic>
+				<topic
+					href="html/tool_ref/extractors/ExpandedPatternContextViewer.html"
+					label="Expanded Pattern Context View">
+				</topic>
+				<topic
+					href="html/tool_ref/extractors/PatternDiscoveryConfig.html"
+					label="Pattern-discovery configuration">
+				</topic>
+			</topic>
+			<topic label="Results">
+				<topic href="html/tool_ref/results/AnnotationExplorer.html"
+					label="Annotation Explorer">
+				</topic>
+				<topic
+					href="html/tool_ref/results/annotation_difference_viewer.html"
+					label="Annotation Difference Viewer">
+				</topic>
+				<topic href="html/tool_ref/results/ResultEditor.html"
+					label="Result Editor">
+				</topic>
+				<topic href="html/tool_ref/results/TableViewer.html"
+					label="Result Table View">
+				</topic>
+				<topic href="html/tool_ref/results/TreeViewer.html"
+					label="Result Tree View">
+				</topic>
+				<topic href="html/tool_ref/results/ProvenanceViewer.html"
+					label="Provenance View">
+				</topic>
+				<topic href="html/tool_ref/results/ProfilerView.html"
+					label="Profiler View">
+					<topic href="html/tool_ref/results/help_txtan_profrep.html"
+						label="AQL Profiler reports" />
+				</topic>
+			</topic>
+		</topic>
+		<topic href="html/Troubleshooting.html" label="Troubleshooting">
+		</topic>
+		<topic href="html/Glossary.html" label="Glossary">
+		</topic>
+	</topic>
 </toc>

@@ -2,137 +2,220 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
-<meta name="DC.Title" content="Writing the AQL to extract your labeled examples" />
-<meta name="abstract" content="You can create your AQL script from a label that you have already identified. It is a good practice to start from a lower-level label (or bottom-up). For example, if you have a label that is called Amount and sublabels under that label called Currency, Number, and Unit, then you start creating AQL from the Currency, Number, and Unit labels." />
-<meta name="Description" content="You can create your AQL script from a label that you have already identified. It is a good practice to start from a lower-level label (or bottom-up). For example, if you have a label that is called Amount and sublabels under that label called Currency, Number, and Unit, then you start creating AQL from the Currency, Number, and Unit labels." />
+<meta name="DC.Title"
+	content="Writing the AQL to extract your labeled examples" />
+<meta name="abstract"
+	content="You can create your AQL script from a label that you have already identified. It is a good practice to start from a lower-level label (or bottom-up). For example, if you have a label that is called Amount and sublabels under that label called Currency, Number, and Unit, then you start creating AQL from the Currency, Number, and Unit labels." />
+<meta name="Description"
+	content="You can create your AQL script from a label that you have already identified. It is a good practice to start from a lower-level label (or bottom-up). For example, if you have a label that is called Amount and sublabels under that label called Currency, Number, and Unit, then you start creating AQL from the Currency, Number, and Unit labels." />
 <meta name="DC.subject" content="dictionary files, regular expressions" />
 <meta name="keywords" content="dictionary files, regular expressions" />
-<meta name="DC.Relation" scheme="URI" content="../html/help_txtan_wrkflow.html" />
+<meta name="DC.Relation" scheme="URI"
+	content="../html/help_txtan_wrkflow.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_txtan_writingaql" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
 <link rel="Start" href="../html/help_txtan_wrkflow.html" />
 <title>Writing the AQL to extract your labeled examples</title>
 </head>
 <body role="main" id="help_txtan_writingaql">
-<h1 class="title topictitle1">Writing the AQL to extract your labeled examples</h1>
-<div class="body taskbody"><p class="shortdesc">You can create your AQL script from a label that you have
-already identified.  It is a good  practice to start from a lower-level
-label (or bottom-up).  For example, if you have a label that is called <kbd class="ph userinput">Amount</kbd> and
-sublabels under that label called <kbd class="ph userinput">Currency</kbd>,
- <kbd class="ph userinput">Number</kbd>, and <kbd class="ph userinput">Unit</kbd>, then
-you start creating AQL from the <span class="keyword apiname">Currency</span>, <span class="keyword apiname">Number</span>,
-and <span class="keyword apiname">Unit</span> labels.</p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">Begin with simple dictionaries or regular expressions
-to identify all instances of the basic features that you are interested
-in, then you add context by using clues to generate good candidates
-and exclude false positives. Then you consolidate to achieve high-quality
-results.  </p>
-<p class="p">By this time in your analysis, you have identified
-instances of the keywords or subjects as features that you are interested
-in.  In the processing of labeling, you selected examples that might
-be positive or negative clues. </p>
-<p class="p">Begin your AQL script development
-by using simple rules to extract instances of the keywords or basic
-features.  This part of the process is <span class="ph uicontrol">Step 3</span> in
-the Extraction Tasks, <span class="ph uicontrol">Develop the Extractor</span>.</p>
-<p class="p">In
-modular <span class="keyword">InfoSphere® BigInsights™</span>,
-you package your extractor into a module that can be reused by other
-modules that need your data.</p>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Add AQL for the basic features:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Right-click the root-label (or a sublabel).</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph menucascade"><span class="ph uicontrol">New AQL Statement</span> &gt; <span class="ph uicontrol">Basic Feature AQL Statement</span></span>.
-The <span class="keyword wintitle">Create AQL Statement</span> window opens.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Complete the fields.</span> <dl class="dl"><dt class="dt dlterm">View Name</dt>
-<dd class="dd"><dfn class="term">Views</dfn> are the primary data structures that are used
-with AQL. AQL statements create views by selecting, extracting, and
-transforming information from other views.  AQL views are similar
-to the views in a relational database. They have rows and columns
-just like a database view and by default the views in AQL are not
- materialized. </dd>
-<dd class="dd">You reference input data as a special view called <span class="ph uicontrol">Document</span> with
-one column called <span class="ph uicontrol">text</span>. Each document in the
-set of  input data can be considered  as one row in the Document view
-with the document content mapped onto the text column.</dd>
-<dt class="dt dlterm">AQL Module</dt>
-<dd class="dd">If you created your own module, type that module name, otherwise,
-use the <span class="ph uicontrol">&lt;label_name&gt;_BasicFeatures</span> module
-name defaults</dd>
-<dt class="dt dlterm">AQL script</dt>
-<dd class="dd">The AQL script name that identifies this script. The name must
-have the <span class="ph filepath">AQL</span> extension. </dd>
-<dt class="dt dlterm">Type</dt>
-<dd class="dd">You can use several techniques to extract text elements. As a
-beginning script, the type is usually <span class="ph uicontrol">Dictionary</span> or <span class="ph uicontrol">Regular
-Expression</span>.<dl class="dl"><dt class="dt dlterm">Regular expression</dt>
-<dd class="dd">Use a regular expression when you want to match text that is based
-on a pattern. <p class="p">A <dfn class="term">regular expression</dfn>, also referred
-to as <span class="keyword option">regex</span> or <span class="keyword option">regexp</span>, provides
-a concise and flexible means for matching strings of text, such as
-particular characters, words, or patterns of characters. A regular
-expression is written in a formal language that can be interpreted
-by a regular expression processor, a program that examines text and
-identifies parts that match the provided specification. For more information,
-see <a class="xref" href="dev_extractors/write_code/GenerateRegEx.html" title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">generating
-a regular expression</a> and <a class="xref" href="dev_extractors/write_code/BuildRegEx.html" title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">building a regular
-expression</a>. </p>
-</dd>
-<dt class="dt dlterm">Dictionary</dt>
-<dd class="dd">Dictionaries are the most efficient extraction technique. Use
-a dictionary when you can match on defined words. <dfn class="term">Dictionaries</dfn> are
-lists or enumerations of terms. The template creates a dictionary
-from an external file, but you can also code the dictionary in-line,
- for example, <pre class="pre codeblock"><code>create dictionary MyDict as ('Finance');</code></pre>
-<p class="p">This
-statement creates a dictionary with one entry, ‘Finance’. </p>
-<p class="p">You
-can use an external dictionary file when you have many entries. The
-external file makes it easier to add and change entries without having
-to edit the code. For example, if you are developing an extractor
-that extracts given names and family names, you can collect given
-names and family names and group them together in one or more dictionary
-(<span class="ph filepath">.dict</span>) files. These dictionary files can then
-be referenced in the extractor program to identify occurrences of
-each of these entries in the input documents.  </p>
-<p class="p">By default,
-dictionaries are tokenized and internalized at compile time, but you
-can use the <samp class="ph codeph">external dictionary</samp> statement to switch
-dictionaries at run time.</p>
-</dd>
-<dt class="dt dlterm">Part of speech</dt>
-<dd class="dd">You can identify locations of different parts of speech across
-the input text.</dd>
-</dl>
-</dd>
-</dl>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">If you want to show the view, click <span class="ph uicontrol">Output
-View</span>.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">If you want to export this view to make it available
-for other modules, click <span class="ph uicontrol">Export View</span>.</span></li>
-</ol>
- When you click <span class="ph uicontrol">OK</span>, the AQL script
-in which you created the view is opened in the editor pane. The appropriate
-templates for the type of statement that you selected are appended
-to the file. For example, if you selected the <span class="keyword parmname parmname">Dictionary</span> type,
-you see the <samp class="ph codeph">create dictionary</samp> and <samp class="ph codeph">create
-view from dictionary </samp> statement templates.<pre class="pre codeblock"><code>create dictionary &lt;same_name_as_viewDict&gt; 
+	<h1 class="title topictitle1">Writing the AQL to extract your
+		labeled examples</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			You can create your AQL script from a label that you have already
+			identified. It is a good practice to start from a lower-level label
+			(or bottom-up). For example, if you have a label that is called
+			<kbd class="ph userinput">Amount</kbd>
+			and sublabels under that label called
+			<kbd class="ph userinput">Currency</kbd>
+			,
+			<kbd class="ph userinput">Number</kbd>
+			, and
+			<kbd class="ph userinput">Unit</kbd>
+			, then you start creating AQL from the <span class="keyword apiname">Currency</span>,
+			<span class="keyword apiname">Number</span>, and <span
+				class="keyword apiname">Unit</span> labels.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			<p class="p">Begin with simple dictionaries or regular
+				expressions to identify all instances of the basic features that you
+				are interested in, then you add context by using clues to generate
+				good candidates and exclude false positives. Then you consolidate to
+				achieve high-quality results.</p>
+			<p class="p">By this time in your analysis, you have identified
+				instances of the keywords or subjects as features that you are
+				interested in. In the processing of labeling, you selected examples
+				that might be positive or negative clues.</p>
+			<p class="p">
+				Begin your AQL script development by using simple rules to extract
+				instances of the keywords or basic features. This part of the
+				process is <span class="ph uicontrol">Step 3</span> in the
+				Extraction Tasks, <span class="ph uicontrol">Develop the
+					Extractor</span>.
+			</p>
+			<p class="p">
+				In modular <span class="keyword">InfoSphere® BigInsights™</span>,
+				you package your extractor into a module that can be reused by other
+				modules that need your data.
+			</p>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Add
+					AQL for the basic features:</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">Right-click
+							the root-label (or a sublabel).</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Click
+							<span class="ph menucascade"><span class="ph uicontrol">New
+									AQL Statement</span> &gt; <span class="ph uicontrol">Basic
+									Feature AQL Statement</span></span>. The <span class="keyword wintitle">Create
+								AQL Statement</span> window opens.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Complete
+							the fields.</span>
+						<dl class="dl">
+							<dt class="dt dlterm">View Name</dt>
+							<dd class="dd">
+								<dfn class="term">Views</dfn>
+								are the primary data structures that are used with AQL. AQL
+								statements create views by selecting, extracting, and
+								transforming information from other views. AQL views are similar
+								to the views in a relational database. They have rows and
+								columns just like a database view and by default the views in
+								AQL are not materialized.
+							</dd>
+							<dd class="dd">
+								You reference input data as a special view called <span
+									class="ph uicontrol">Document</span> with one column called <span
+									class="ph uicontrol">text</span>. Each document in the set of
+								input data can be considered as one row in the Document view
+								with the document content mapped onto the text column.
+							</dd>
+							<dt class="dt dlterm">AQL Module</dt>
+							<dd class="dd">
+								If you created your own module, type that module name,
+								otherwise, use the <span class="ph uicontrol">&lt;label_name&gt;_BasicFeatures</span>
+								module name defaults
+							</dd>
+							<dt class="dt dlterm">AQL script</dt>
+							<dd class="dd">
+								The AQL script name that identifies this script. The name must
+								have the <span class="ph filepath">AQL</span> extension.
+							</dd>
+							<dt class="dt dlterm">Type</dt>
+							<dd class="dd">
+								You can use several techniques to extract text elements. As a
+								beginning script, the type is usually <span class="ph uicontrol">Dictionary</span>
+								or <span class="ph uicontrol">Regular Expression</span>.
+								<dl class="dl">
+									<dt class="dt dlterm">Regular expression</dt>
+									<dd class="dd">
+										Use a regular expression when you want to match text that is
+										based on a pattern.
+										<p class="p">
+											A
+											<dfn class="term">regular expression</dfn>
+											, also referred to as <span class="keyword option">regex</span>
+											or <span class="keyword option">regexp</span>, provides a
+											concise and flexible means for matching strings of text, such
+											as particular characters, words, or patterns of characters. A
+											regular expression is written in a formal language that can
+											be interpreted by a regular expression processor, a program
+											that examines text and identifies parts that match the
+											provided specification. For more information, see <a
+												class="xref"
+												href="dev_extractors/write_code/GenerateRegEx.html"
+												title="The Regular Expression Generator helps you create a regular expression to include in your AQL extractor. Before you begin, create a list of examples that depict the concept behind the regular expression that you want to generate. Collect examples into a simple text file (*.txt), one per line. Each example must be terminated by a newline character. If you do not have a list of examples, alternatively you can enter them manually into the Samples table.">generating
+												a regular expression</a> and <a class="xref"
+												href="dev_extractors/write_code/BuildRegEx.html"
+												title="The Regular Expression Builder helps you to build a regular expression rule by selecting constructs and combining them.">building
+												a regular expression</a>.
+										</p>
+									</dd>
+									<dt class="dt dlterm">Dictionary</dt>
+									<dd class="dd">
+										Dictionaries are the most efficient extraction technique. Use
+										a dictionary when you can match on defined words.
+										<dfn class="term">Dictionaries</dfn>
+										are lists or enumerations of terms. The template creates a
+										dictionary from an external file, but you can also code the
+										dictionary in-line, for example,
+										<pre class="pre codeblock">
+											<code>create dictionary MyDict as ('Finance');</code>
+										</pre>
+										<p class="p">This statement creates a dictionary with one
+											entry, ‘Finance’.</p>
+										<p class="p">
+											You can use an external dictionary file when you have many
+											entries. The external file makes it easier to add and change
+											entries without having to edit the code. For example, if you
+											are developing an extractor that extracts given names and
+											family names, you can collect given names and family names
+											and group them together in one or more dictionary (<span
+												class="ph filepath">.dict</span>) files. These dictionary
+											files can then be referenced in the extractor program to
+											identify occurrences of each of these entries in the input
+											documents.
+										</p>
+										<p class="p">
+											By default, dictionaries are tokenized and internalized at
+											compile time, but you can use the
+											<samp class="ph codeph">external dictionary</samp>
+											statement to switch dictionaries at run time.
+										</p>
+									</dd>
+									<dt class="dt dlterm">Part of speech</dt>
+									<dd class="dd">You can identify locations of different
+										parts of speech across the input text.</dd>
+								</dl>
+							</dd>
+						</dl></li>
+					<li class="li substep substepexpand"><span class="ph cmd">If
+							you want to show the view, click <span class="ph uicontrol">Output
+								View</span>.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">If
+							you want to export this view to make it available for other
+							modules, click <span class="ph uicontrol">Export View</span>.
+					</span></li>
+				</ol> When you click <span class="ph uicontrol">OK</span>, the AQL script
+				in which you created the view is opened in the editor pane. The
+				appropriate templates for the type of statement that you selected
+				are appended to the file. For example, if you selected the <span
+				class="keyword parmname parmname">Dictionary</span> type, you see
+				the <samp class="ph codeph">create dictionary</samp> and <samp
+					class="ph codeph">create view from dictionary </samp> statement
+				templates.<pre class="pre codeblock">
+					<code>create dictionary &lt;same_name_as_viewDict&gt; 
 from file  '&lt;path to your dictionary here&gt;'
 with language as 'en';
 
@@ -141,194 +224,338 @@ extract dictionary '&lt;same_name_as_viewDict&gt;'
 on  R.&lt;input column&gt; as match
 from &lt;input view&gt; R;
 
-output view &lt;view_name&gt;;</code></pre>
- <p class="p">These
-define the statements in the example above. </p>
-<dl class="dl"><dt class="dt dlterm"><samp class="ph codeph">create dictionary</samp></dt>
-<dd class="dd">Creates a dictionary from a file. </dd>
-<dt class="dt dlterm"><samp class="ph codeph">create view</samp></dt>
-<dd class="dd">Receive matches between the dictionary and the input data by using
-an extract expression.</dd>
-<dt class="dt dlterm">input column and input view</dt>
-<dd class="dd">The template uses <span class="keyword parmname parmname">input column</span> and <span class="keyword parmname parmname">input
-view</span> that must be edited.  When you work with text documents
-from a file system, use the special view <samp class="ph codeph">Document</samp> to
-reference an input document. This view has a special column <samp class="ph codeph">text</samp> that
-references the text of the input documents.  Use <span class="keyword parmname parmname">Document.text</span> 
-to refer to the contents of any input documents.</dd>
-<dt class="dt dlterm"><samp class="ph codeph">output view</samp></dt>
-<dd class="dd">Materializes the view. By default, views are not materialized.
-During development you might want to use this statement to look at
-the contents of intermediate views for debugging purposes. You can
-comment out or delete the <samp class="ph codeph">output view</samp> statements
-when they are no longer needed.</dd>
-</dl>
-<p class="p">If your input documents are of XML or HTML type,
-you might need to remove tags, in which case you can use the <samp class="ph codeph">detag</samp> AQL
-statement to leave only the bare text.  Put this statement at the
-top of your <span class="ph filepath">*.aql</span> file, below the <samp class="ph codeph">module</samp> statement.
- If you do use the <samp class="ph codeph">detag</samp> statement, you <samp class="ph codeph">detag</samp> from
-the <span class="keyword parmname parmname">Document.text</span> and  put the results in a <var class="keyword varname">&lt;file_that_is_detagged&gt;</var>.
-  Then you must change the AQL template to extract from the detagged
-file.</p>
-</li>
-<li class="li step stepexpand">Optional: <span class="ph cmd">If your input documents are of XML
-or HTML type, you might need to remove tags, in which case you can
-use the <samp class="ph codeph">detag</samp> AQL statement to leave only the bare
-text.  Put this statement at the top of your <span class="ph filepath">*.aql</span> file,
-below the <samp class="ph codeph">module</samp> statement.  If you do use the <samp class="ph codeph">detag</samp> statement,
-you <samp class="ph codeph">detag</samp> from the <span class="keyword parmname parmname">Document.text</span> and
- put the results in a <var class="keyword varname">&lt;file_that_is_detagged&gt;</var>.
-  Then you must change the AQL template to extract from the detagged
-file.</span></li>
-<li class="li step stepexpand"><span class="ph cmd">Add AQL for generate candidates.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Right-click on the root-label (or a sub-label).</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph menucascade"><span class="ph uicontrol">New AQL Statement</span> &gt; <span class="ph uicontrol">Candidate Generation AQL Statement</span></span>.
-The Create AQL Statement window opens.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Complete the fields.</span> <dl class="dl"><dt class="dt dlterm">View Name</dt>
-<dd class="dd"><dfn class="term">Views</dfn> are the primary data structures used with AQL.
-AQL statements create views by selecting, extracting, and transforming
-information from other views.  AQL views are similar to the views
-in a relational database. They have rows and columns just like a database
-view and, by default, the views in AQL are not  materialized. </dd>
-<dd class="dd">You reference input data as a special view called Document with
-one column called <span class="ph uicontrol">text</span>. Each document in the
-set of  input data can be considered  as one row in the Document view
-with the document content mapped onto the text column.</dd>
-<dt class="dt dlterm">AQL Module</dt>
-<dd class="dd">If you created your own module, type that module name; otherwise,
-use the <span class="ph uicontrol">&lt;label_name&gt;_CandidateFeatures</span> module
-name defaults.</dd>
-<dt class="dt dlterm">AQL Script</dt>
-<dd class="dd">The file name that identifies this script.</dd>
-<dt class="dt dlterm">Type</dt>
-<dd class="dd"><ul class="ul"><li class="li">Select</li>
-<li class="li">Union All</li>
-<li class="li">Block</li>
-<li class="li">Pattern</li>
-</ul>
-For more information on the syntax, see the AQL Reference.</dd>
-</dl>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">If you want to show the view, click <span class="ph uicontrol">Output
-View</span>.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">If you want to export this view to make it available
-to other modules click <span class="ph uicontrol">Export View</span>.</span></li>
-</ol>
-The AQL script that you created (<span class="ph filepath">&lt;file_name&gt;.aql</span>),
- opens in the editor pane, with templates for the type that you selected.</li>
-<li class="li step stepexpand"><span class="ph cmd">Add AQL statements to remove duplicates, and refine the
-output.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Right-click on the root-label (or a sub-label).</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph menucascade"><span class="ph uicontrol">New AQL Statement</span> &gt; <span class="ph uicontrol">Filter and Consolidate AQL Statement</span></span>. The Create AQL Statement window opens.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Complete the fields.</span> <dl class="dl"><dt class="dt dlterm">View Name</dt>
-<dd class="dd">Views are the primary data structures used with AQL. AQL statements
-create views by selecting, extracting and transforming information
-from other views.  AQL views are similar to the views in a relational
-database. They have rows and columns just like a database view and
-by default the views in AQL are not  materialized. </dd>
-<dd class="dd">You reference input data through a special view called <span class="ph uicontrol">Document</span> with
-one column called <span class="ph uicontrol">text</span>. Each document in the
-set of  input data can be considered  as one row in the Document view
-with the document content mapped onto the text column.</dd>
-<dt class="dt dlterm">AQL Module</dt>
-<dd class="dd">If you created your own module, type that module name, otherwise,
-use the <span class="ph uicontrol">&lt;label_name&gt;_CandidateFeatures</span> module
-name defaults.</dd>
-<dt class="dt dlterm">AQL script</dt>
-<dd class="dd">The file name that is used to identify this script.</dd>
-<dt class="dt dlterm">Type</dt>
-<dd class="dd"><ul class="ul"><li class="li">Consolidate</li>
-<li class="li">Predicate-based Filter</li>
-<li class="li">Set-based Filter</li>
-</ul>
-For more information on the syntax, see the AQL Reference.</dd>
-</dl>
-</li>
-</ol>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Finalize AQL, and create the run configuration.</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Remove any output views from the <span class="ph filepath">*.aql</span> files
-that you included by adding a comment (<span class="ph uicontrol">--</span>)
-or deleting the <samp class="ph codeph">output view</samp> statements.</span> At
-this level, you are building a module for others to use. They can
-add <samp class="ph codeph">output view</samp> statements to their local code.</li>
-<li class="li substep substepexpand"><span class="ph cmd">Externalize any local dictionaries so consumers of your
-module can customize this dictionary using their own terms. The best
-way to do this is to put the external dictionary definition in a separate
-module and <span class="ph filepath">*.aql</span> file.</span> <ol class="ol" type="i"><li class="li">Click <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">Other</span></span> to create a module.</li>
-<li class="li">In the <span class="ph uicontrol">New</span> window, select <span class="ph uicontrol">AQL
-Module</span>, and click <span class="ph uicontrol">Next</span>.</li>
-<li class="li">In the <span class="keyword wintitle">New AQL Module</span> window, specify the
-project name and the module name, and click <span class="ph uicontrol">Finish</span>.</li>
-</ol>
-<p class="p">In the Project Explorer, you see an additional module in this
-path: <span class="ph filepath">&lt;<var class="keyword varname">project_name</var>&gt;\textAnalytics\src\&lt;<var class="keyword varname">new_module</var>&gt;</span>.</p>
-<ol class="ol" type="i"><li class="li">Add a script to your new module to contain the external dictionary
-declaration. In Project Explorer, right-click the new module name,
-and select <span class="ph menucascade"><span class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">Other</span></span>.</li>
-<li class="li">In the <span class="keyword wintitle">New</span> window, select <span class="ph uicontrol">AQL
-script</span>, and select <span class="ph uicontrol">Next</span>.</li>
-<li class="li">In the <span class="keyword wintitle">New AQL Script</span> window, specify the
-project name, the new module name, and a name for the script <span class="ph filepath">&lt;<var class="keyword varname">new_name</var>.aql&gt;</span>,
-then click <span class="ph uicontrol">Finish</span>.</li>
-</ol>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">Create the external dictionary and complete the AQL
-file with an <samp class="ph codeph">export statement</samp>. The export statement
-exports the dictionary so that is visible outside the current module.
-A dictionary file is associated with the external dictionary at run
-time.</span> <div class="p">Return to your consolidated level of AQL, and
-edit the AQL file to refer to the external dictionary.<pre class="pre codeblock"><code>import dictionary &lt;external dictionary name&gt; from module &lt;module name that contains the external dictionary&gt; as &lt;some name that can be used as an alias in local aql files&gt;;</code></pre>
-</div>
-</li>
-<li class="li substep substepexpand"><span class="ph cmd">In the AQL file in the consolidate level, change any
-dictionary references to the alias name that you are importing.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Now create the run configuration.</span></li>
-<li class="li substep substepexpand"><span class="ph cmd">Export the module and set up a library of reusable modules.</span> <ol class="ol" type="i"><li class="li">Create a run configuration to associate a file with the external
-dictionary. From the file menu, click <span class="ph menucascade"><span class="ph uicontrol">Run</span> &gt; <span class="ph uicontrol">Run Configurations</span></span>. Right-click <span class="ph uicontrol">Text
-Analytics</span>, and select <span class="ph uicontrol">New</span>.</li>
-<li class="li">In the <span class="ph uicontrol">Name</span> field, specify a name for this
-configuration.</li>
-<li class="li">In the <span class="ph uicontrol">Main</span> page, specify the project name
-in the <span class="ph uicontrol">Project</span> field.</li>
-<li class="li">In the <span class="ph uicontrol">Select Modules</span> field, you see all
-the modules that are created in the current project. Select the module
-where you have your AQL statements for the consolidation work. </li>
-<li class="li">In the <span class="ph uicontrol">Location for the data collection</span> field,
-browse the workspace to find the data that you used in your project.</li>
-<li class="li">Open the <span class="ph uicontrol">External Dictionaries</span> page. Browse
-the workspace to find the original dictionary file that you used in
-your AQL file, and click <span class="ph uicontrol">OK</span>. This associates
-the dictionary that contains your text with an external dictionary
-declaration.</li>
-<li class="li">Click <span class="ph uicontrol">Run</span> to process this configuration.
-You might get errors because there are no enabled outputs, but this
-is acceptable for the purposes of exporting a module.</li>
-</ol>
- <ol class="ol" type="i"><li class="li">In Project Explorer, right-click your project, and select <span class="ph uicontrol">Export</span>.</li>
-<li class="li">In the <span class="ph uicontrol">Export</span> window, expand <span class="ph uicontrol">BigInsights</span>,
-click <span class="ph uicontrol">Export Text Analytics Extractor</span>, and
-click <span class="ph uicontrol">Next</span></li>
-<li class="li">In the <span class="ph uicontrol">Export Extractor</span> window, select
-the working module, and select the <span class="ph uicontrol">Export dependent modules</span> check
-box. to ensure that you include the external dictionary module along
-with your working module. </li>
-<li class="li">In the <span class="ph uicontrol">Select the export destination directory</span>,
-browse the file system or your workspace, and select a destination
-for the export. </li>
-<li class="li">Specify whether to export to the destination directory or to a
-jar or zip file in the destination directory. </li>
-<li class="li">If you select the <span class="ph uicontrol">Export to a jar or zip archive under
-the destination directory</span> radio button, provide a file
-name for the archive. </li>
-<li class="li">Click <span class="ph uicontrol">Finish</span>. </li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html/help_txtan_wrkflow.html" title="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment.">Overview of the Text Analytics Workflow perspective</a></div>
-</div>
-</div></body>
+output view &lt;view_name&gt;;</code>
+				</pre>
+				<p class="p">These define the statements in the example above.</p>
+				<dl class="dl">
+					<dt class="dt dlterm">
+						<samp class="ph codeph">create dictionary</samp>
+					</dt>
+					<dd class="dd">Creates a dictionary from a file.</dd>
+					<dt class="dt dlterm">
+						<samp class="ph codeph">create view</samp>
+					</dt>
+					<dd class="dd">Receive matches between the dictionary and the
+						input data by using an extract expression.</dd>
+					<dt class="dt dlterm">input column and input view</dt>
+					<dd class="dd">
+						The template uses <span class="keyword parmname parmname">input
+							column</span> and <span class="keyword parmname parmname">input
+							view</span> that must be edited. When you work with text documents from
+						a file system, use the special view
+						<samp class="ph codeph">Document</samp>
+						to reference an input document. This view has a special column
+						<samp class="ph codeph">text</samp>
+						that references the text of the input documents. Use <span
+							class="keyword parmname parmname">Document.text</span> to refer
+						to the contents of any input documents.
+					</dd>
+					<dt class="dt dlterm">
+						<samp class="ph codeph">output view</samp>
+					</dt>
+					<dd class="dd">
+						Materializes the view. By default, views are not materialized.
+						During development you might want to use this statement to look at
+						the contents of intermediate views for debugging purposes. You can
+						comment out or delete the
+						<samp class="ph codeph">output view</samp>
+						statements when they are no longer needed.
+					</dd>
+				</dl>
+				<p class="p">
+					If your input documents are of XML or HTML type, you might need to
+					remove tags, in which case you can use the
+					<samp class="ph codeph">detag</samp>
+					AQL statement to leave only the bare text. Put this statement at
+					the top of your <span class="ph filepath">*.aql</span> file, below
+					the
+					<samp class="ph codeph">module</samp>
+					statement. If you do use the
+					<samp class="ph codeph">detag</samp>
+					statement, you
+					<samp class="ph codeph">detag</samp>
+					from the <span class="keyword parmname parmname">Document.text</span>
+					and put the results in a
+					<var class="keyword varname">&lt;file_that_is_detagged&gt;</var>
+					. Then you must change the AQL template to extract from the
+					detagged file.
+				</p></li>
+			<li class="li step stepexpand">Optional: <span class="ph cmd">If
+					your input documents are of XML or HTML type, you might need to
+					remove tags, in which case you can use the <samp class="ph codeph">detag</samp>
+					AQL statement to leave only the bare text. Put this statement at
+					the top of your <span class="ph filepath">*.aql</span> file, below
+					the <samp class="ph codeph">module</samp> statement. If you do use
+					the <samp class="ph codeph">detag</samp> statement, you <samp
+						class="ph codeph">detag</samp> from the <span
+					class="keyword parmname parmname">Document.text</span> and put the
+					results in a <var class="keyword varname">&lt;file_that_is_detagged&gt;</var>.
+					Then you must change the AQL template to extract from the detagged
+					file.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">Add
+					AQL for generate candidates.</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">Right-click
+							on the root-label (or a sub-label).</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Click
+							<span class="ph menucascade"><span class="ph uicontrol">New
+									AQL Statement</span> &gt; <span class="ph uicontrol">Candidate
+									Generation AQL Statement</span></span>. The Create AQL Statement window
+							opens.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Complete
+							the fields.</span>
+						<dl class="dl">
+							<dt class="dt dlterm">View Name</dt>
+							<dd class="dd">
+								<dfn class="term">Views</dfn>
+								are the primary data structures used with AQL. AQL statements
+								create views by selecting, extracting, and transforming
+								information from other views. AQL views are similar to the views
+								in a relational database. They have rows and columns just like a
+								database view and, by default, the views in AQL are not
+								materialized.
+							</dd>
+							<dd class="dd">
+								You reference input data as a special view called Document with
+								one column called <span class="ph uicontrol">text</span>. Each
+								document in the set of input data can be considered as one row
+								in the Document view with the document content mapped onto the
+								text column.
+							</dd>
+							<dt class="dt dlterm">AQL Module</dt>
+							<dd class="dd">
+								If you created your own module, type that module name;
+								otherwise, use the <span class="ph uicontrol">&lt;label_name&gt;_CandidateFeatures</span>
+								module name defaults.
+							</dd>
+							<dt class="dt dlterm">AQL Script</dt>
+							<dd class="dd">The file name that identifies this script.</dd>
+							<dt class="dt dlterm">Type</dt>
+							<dd class="dd">
+								<ul class="ul">
+									<li class="li">Select</li>
+									<li class="li">Union All</li>
+									<li class="li">Block</li>
+									<li class="li">Pattern</li>
+								</ul>
+								For more information on the syntax, see the AQL Reference.
+							</dd>
+						</dl></li>
+					<li class="li substep substepexpand"><span class="ph cmd">If
+							you want to show the view, click <span class="ph uicontrol">Output
+								View</span>.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">If
+							you want to export this view to make it available to other
+							modules click <span class="ph uicontrol">Export View</span>.
+					</span></li>
+				</ol> The AQL script that you created (<span class="ph filepath">&lt;file_name&gt;.aql</span>),
+				opens in the editor pane, with templates for the type that you
+				selected.</li>
+			<li class="li step stepexpand"><span class="ph cmd">Add
+					AQL statements to remove duplicates, and refine the output.</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">Right-click
+							on the root-label (or a sub-label).</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Click
+							<span class="ph menucascade"><span class="ph uicontrol">New
+									AQL Statement</span> &gt; <span class="ph uicontrol">Filter and
+									Consolidate AQL Statement</span></span>. The Create AQL Statement window
+							opens.
+					</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Complete
+							the fields.</span>
+						<dl class="dl">
+							<dt class="dt dlterm">View Name</dt>
+							<dd class="dd">Views are the primary data structures used
+								with AQL. AQL statements create views by selecting, extracting
+								and transforming information from other views. AQL views are
+								similar to the views in a relational database. They have rows
+								and columns just like a database view and by default the views
+								in AQL are not materialized.</dd>
+							<dd class="dd">
+								You reference input data through a special view called <span
+									class="ph uicontrol">Document</span> with one column called <span
+									class="ph uicontrol">text</span>. Each document in the set of
+								input data can be considered as one row in the Document view
+								with the document content mapped onto the text column.
+							</dd>
+							<dt class="dt dlterm">AQL Module</dt>
+							<dd class="dd">
+								If you created your own module, type that module name,
+								otherwise, use the <span class="ph uicontrol">&lt;label_name&gt;_CandidateFeatures</span>
+								module name defaults.
+							</dd>
+							<dt class="dt dlterm">AQL script</dt>
+							<dd class="dd">The file name that is used to identify this
+								script.</dd>
+							<dt class="dt dlterm">Type</dt>
+							<dd class="dd">
+								<ul class="ul">
+									<li class="li">Consolidate</li>
+									<li class="li">Predicate-based Filter</li>
+									<li class="li">Set-based Filter</li>
+								</ul>
+								For more information on the syntax, see the AQL Reference.
+							</dd>
+						</dl></li>
+				</ol></li>
+			<li class="li step stepexpand"><span class="ph cmd">Finalize
+					AQL, and create the run configuration.</span>
+				<ol type="a" class="ol substeps">
+					<li class="li substep substepexpand"><span class="ph cmd">Remove
+							any output views from the <span class="ph filepath">*.aql</span>
+							files that you included by adding a comment (<span
+							class="ph uicontrol">--</span>) or deleting the <samp
+								class="ph codeph">output view</samp> statements.
+					</span> At this level, you are building a module for others to use. They
+						can add <samp class="ph codeph">output view</samp> statements to
+						their local code.</li>
+					<li class="li substep substepexpand"><span class="ph cmd">Externalize
+							any local dictionaries so consumers of your module can customize
+							this dictionary using their own terms. The best way to do this is
+							to put the external dictionary definition in a separate module
+							and <span class="ph filepath">*.aql</span> file.
+					</span>
+						<ol class="ol" type="i">
+							<li class="li">Click <span class="ph menucascade"><span
+									class="ph uicontrol">File</span> &gt; <span
+									class="ph uicontrol">New</span> &gt; <span class="ph uicontrol">Other</span></span>
+								to create a module.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">New</span>
+								window, select <span class="ph uicontrol">AQL Module</span>, and
+								click <span class="ph uicontrol">Next</span>.
+							</li>
+							<li class="li">In the <span class="keyword wintitle">New
+									AQL Module</span> window, specify the project name and the module
+								name, and click <span class="ph uicontrol">Finish</span>.
+							</li>
+						</ol>
+						<p class="p">
+							In the Project Explorer, you see an additional module in this
+							path: <span class="ph filepath">&lt;<var
+									class="keyword varname">project_name</var>&gt;\textAnalytics\src\&lt;<var
+									class="keyword varname">new_module</var>&gt;
+							</span>.
+						</p>
+						<ol class="ol" type="i">
+							<li class="li">Add a script to your new module to contain
+								the external dictionary declaration. In Project Explorer,
+								right-click the new module name, and select <span
+								class="ph menucascade"><span class="ph uicontrol">New</span>
+									&gt; <span class="ph uicontrol">Other</span></span>.
+							</li>
+							<li class="li">In the <span class="keyword wintitle">New</span>
+								window, select <span class="ph uicontrol">AQL script</span>, and
+								select <span class="ph uicontrol">Next</span>.
+							</li>
+							<li class="li">In the <span class="keyword wintitle">New
+									AQL Script</span> window, specify the project name, the new module
+								name, and a name for the script <span class="ph filepath">&lt;<var
+										class="keyword varname">new_name</var>.aql&gt;
+							</span>, then click <span class="ph uicontrol">Finish</span>.
+							</li>
+						</ol></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Create
+							the external dictionary and complete the AQL file with an <samp
+								class="ph codeph">export statement</samp>. The export statement
+							exports the dictionary so that is visible outside the current
+							module. A dictionary file is associated with the external
+							dictionary at run time.
+					</span>
+						<div class="p">
+							Return to your consolidated level of AQL, and edit the AQL file
+							to refer to the external dictionary.
+							<pre class="pre codeblock">
+								<code>import dictionary &lt;external dictionary name&gt; from module &lt;module name that contains the external dictionary&gt; as &lt;some name that can be used as an alias in local aql files&gt;;</code>
+							</pre>
+						</div></li>
+					<li class="li substep substepexpand"><span class="ph cmd">In
+							the AQL file in the consolidate level, change any dictionary
+							references to the alias name that you are importing.</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Now
+							create the run configuration.</span></li>
+					<li class="li substep substepexpand"><span class="ph cmd">Export
+							the module and set up a library of reusable modules.</span>
+						<ol class="ol" type="i">
+							<li class="li">Create a run configuration to associate a
+								file with the external dictionary. From the file menu, click <span
+								class="ph menucascade"><span class="ph uicontrol">Run</span>
+									&gt; <span class="ph uicontrol">Run Configurations</span></span>.
+								Right-click <span class="ph uicontrol">Text Analytics</span>,
+								and select <span class="ph uicontrol">New</span>.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">Name</span>
+								field, specify a name for this configuration.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">Main</span>
+								page, specify the project name in the <span class="ph uicontrol">Project</span>
+								field.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">Select
+									Modules</span> field, you see all the modules that are created in the
+								current project. Select the module where you have your AQL
+								statements for the consolidation work.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">Location
+									for the data collection</span> field, browse the workspace to find the
+								data that you used in your project.
+							</li>
+							<li class="li">Open the <span class="ph uicontrol">External
+									Dictionaries</span> page. Browse the workspace to find the original
+								dictionary file that you used in your AQL file, and click <span
+								class="ph uicontrol">OK</span>. This associates the dictionary
+								that contains your text with an external dictionary declaration.
+							</li>
+							<li class="li">Click <span class="ph uicontrol">Run</span>
+								to process this configuration. You might get errors because
+								there are no enabled outputs, but this is acceptable for the
+								purposes of exporting a module.
+							</li>
+						</ol>
+						<ol class="ol" type="i">
+							<li class="li">In Project Explorer, right-click your
+								project, and select <span class="ph uicontrol">Export</span>.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">Export</span>
+								window, expand <span class="ph uicontrol">BigInsights</span>,
+								click <span class="ph uicontrol">Export Text Analytics
+									Extractor</span>, and click <span class="ph uicontrol">Next</span></li>
+							<li class="li">In the <span class="ph uicontrol">Export
+									Extractor</span> window, select the working module, and select the <span
+								class="ph uicontrol">Export dependent modules</span> check box.
+								to ensure that you include the external dictionary module along
+								with your working module.
+							</li>
+							<li class="li">In the <span class="ph uicontrol">Select
+									the export destination directory</span>, browse the file system or
+								your workspace, and select a destination for the export.
+							</li>
+							<li class="li">Specify whether to export to the destination
+								directory or to a jar or zip file in the destination directory.
+							</li>
+							<li class="li">If you select the <span class="ph uicontrol">Export
+									to a jar or zip archive under the destination directory</span> radio
+								button, provide a file name for the archive.
+							</li>
+							<li class="li">Click <span class="ph uicontrol">Finish</span>.
+							</li>
+						</ol></li>
+				</ol></li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../html/help_txtan_wrkflow.html"
+					title="Create, modify, or test an extractor by using the interface from the Text Analytics Workflow perspective in your Eclipse development environment.">Overview
+					of the Text Analytics Workflow perspective</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
@@ -10,89 +11,163 @@
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
 <meta name="DC.Title" content="Filtering results" />
-<meta name="abstract" content="Analyze the specific results you want by filtering results in the Annotation Explorer." />
-<meta name="Description" content="Analyze the specific results you want by filtering results in the Annotation Explorer." />
-<meta name="DC.Relation" scheme="URI" content="../../html/CreateTextAnalyticsApps.html" />
+<meta name="abstract"
+	content="Analyze the specific results you want by filtering results in the Annotation Explorer." />
+<meta name="Description"
+	content="Analyze the specific results you want by filtering results in the Annotation Explorer." />
+<meta name="DC.Relation" scheme="URI"
+	content="../../html/CreateTextAnalyticsApps.html" />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="FilterResults" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../../swg_info_common.css" />
 <link rel="Start" href="../../html/CreateTextAnalyticsApps.html" />
 <title>Filtering results</title>
 </head>
 <body role="main" id="FilterResults">
-<h1 class="title topictitle1">Filtering results</h1>
-<div class="body taskbody"><p class="shortdesc">Analyze the specific results you want by filtering results
-in the <span class="keyword wintitle">Annotation Explorer</span>.</p>
-<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>Results are displayed in the <span class="keyword wintitle">Annotation Explorer</span> in
-five columns on which the filters are based:<dl class="dl"><dt class="dt dlterm">Input Document </dt>
-<dd class="dd">The file name of the data collection, which can be the actual
-name of the file or an internally used identifier.    </dd>
-<dt class="dt dlterm">Left Context</dt>
-<dd class="dd">The 50 characters immediately before the span value.  </dd>
-<dt class="dt dlterm">Span Attribute Value</dt>
-<dd class="dd">The actual text of the span. </dd>
-<dt class="dt dlterm">Right Context</dt>
-<dd class="dd">The first 50 characters that follow the span value. </dd>
-<dt class="dt dlterm">Span Attribute Name</dt>
-<dd class="dd">The name of the output view and the field name of the span, which
-is separated by a period.</dd>
-</dl>
-</div>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Click the <span class="ph uicontrol">Select Filters for the Annotation
-Explorer</span> menu on the <span class="keyword wintitle">Annotation Explorer</span> toolbar.
-Click <span class="ph uicontrol">Show hide filter view</span>, which is a toggle
-switch. </span></li>
-<li class="li step stepexpand"><span class="ph cmd">In the Filter Criteria dialog, click <span class="ph uicontrol">Configure
-Filter</span> to specify the optional filter criteria for every
-column on which you want to filter on.</span> 
-<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
-<thead><tr><th id="d19963e62-option" valign="bottom" align="left">Option</th>
-<th id="d19963e62-desc" valign="bottom" align="left">Description</th></tr></thead>
-<tbody><tr class="strow chrow"><td valign="top" headers="d19963e62-option" id="d19963e64" class="stentry choption"><strong>Span Attribute Name</strong></td>
-<td valign="top" headers="d19963e62-desc d19963e64" class="stentry chdesc"><p class="p">Highlight the span columns that you want to display. Click <span class="ph uicontrol">Add</span> and
-then click <span class="ph uicontrol">OK</span>.</p>
-</td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d19963e62-option" id="d19963e76" class="stentry choption"><strong>Span Attribute Value</strong></td>
-<td valign="top" headers="d19963e62-desc d19963e76" class="stentry chdesc">        <p class="p">Enter the text pattern that you want to match,
-and click <span class="ph uicontrol">OK</span>.</p>
- </td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d19963e62-option" id="d19963e87" class="stentry choption"><strong>Input Document</strong></td>
-<td valign="top" headers="d19963e62-desc d19963e87" class="stentry chdesc"><p class="p">Select the documents that you want to display. Click <span class="ph uicontrol">Add</span>and
-then click <span class="ph uicontrol">OK</span>.</p>
-</td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d19963e62-option" id="d19963e99" class="stentry choption"><strong>Left Context</strong></td>
-<td valign="top" headers="d19963e62-desc d19963e99" class="stentry chdesc"><p class="p">Enter the text pattern that you want to match, and click <span class="ph uicontrol">OK</span>.</p>
-</td>
-</tr>
-<tr class="strow chrow"><td valign="top" headers="d19963e62-option" id="d19963e108" class="stentry choption"><strong>Right Context</strong></td>
-<td valign="top" headers="d19963e62-desc d19963e108" class="stentry chdesc"><p class="p">Enter the text pattern that you want to match, and click <span class="ph uicontrol">OK</span>.</p>
-</td>
-</tr>
-</tbody></table>
-</li>
-<li class="li step stepexpand"><span class="ph cmd">Click the <span class="ph uicontrol">Select Filters for the Annotation
-Explorer</span> menu on the <span class="keyword wintitle">Annotation Explorer</span> toolbar,
-and click <span class="ph uicontrol">Show hide filter view</span>.</span> The<span class="keyword wintitle"> Filter Criteria</span> dialog closes.
-Filter criteria is saved across sessions, so there is no need to reenter
-the criteria the next time you start the <span class="keyword">InfoSphere® BigInsights™</span> Eclipse
-Tools. Of course, you can remove existing criteria for any column
-by clicking <span class="ph uicontrol">Clear Filter</span>. </li>
-</ol>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../html/CreateTextAnalyticsApps.html" title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating Text Analytics applications</a></div>
-</div>
-</div></body>
+	<h1 class="title topictitle1">Filtering results</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			Analyze the specific results you want by filtering results in the <span
+				class="keyword wintitle">Annotation Explorer</span>.
+		</p>
+		<div class="section context">
+			<div class="tasklabel">
+				<h2 class="sectiontitle tasklabel">About this task</h2>
+			</div>
+			Results are displayed in the <span class="keyword wintitle">Annotation
+				Explorer</span> in five columns on which the filters are based:
+			<dl class="dl">
+				<dt class="dt dlterm">Input Document</dt>
+				<dd class="dd">The file name of the data collection, which can
+					be the actual name of the file or an internally used identifier.</dd>
+				<dt class="dt dlterm">Left Context</dt>
+				<dd class="dd">The 50 characters immediately before the span
+					value.</dd>
+				<dt class="dt dlterm">Span Attribute Value</dt>
+				<dd class="dd">The actual text of the span.</dd>
+				<dt class="dt dlterm">Right Context</dt>
+				<dd class="dd">The first 50 characters that follow the span
+					value.</dd>
+				<dt class="dt dlterm">Span Attribute Name</dt>
+				<dd class="dd">The name of the output view and the field name
+					of the span, which is separated by a period.</dd>
+			</dl>
+		</div>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step stepexpand"><span class="ph cmd">Click
+					the <span class="ph uicontrol">Select Filters for the
+						Annotation Explorer</span> menu on the <span class="keyword wintitle">Annotation
+						Explorer</span> toolbar. Click <span class="ph uicontrol">Show
+						hide filter view</span>, which is a toggle switch.
+			</span></li>
+			<li class="li step stepexpand"><span class="ph cmd">In
+					the Filter Criteria dialog, click <span class="ph uicontrol">Configure
+						Filter</span> to specify the optional filter criteria for every column on
+					which you want to filter on.
+			</span>
+				<table border="1" frame="hsides" rules="rows" cellpadding="4"
+					cellspacing="0"
+					summary="Each row in this table describes one option for a choice."
+					class="simpletable choicetable choicetableborder">
+					<thead>
+						<tr>
+							<th id="d19963e62-option" valign="bottom" align="left">Option</th>
+							<th id="d19963e62-desc" valign="bottom" align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="strow chrow">
+							<td valign="top" headers="d19963e62-option" id="d19963e64"
+								class="stentry choption"><strong>Span Attribute
+									Name</strong></td>
+							<td valign="top" headers="d19963e62-desc d19963e64"
+								class="stentry chdesc"><p class="p">
+									Highlight the span columns that you want to display. Click <span
+										class="ph uicontrol">Add</span> and then click <span
+										class="ph uicontrol">OK</span>.
+								</p></td>
+						</tr>
+						<tr class="strow chrow">
+							<td valign="top" headers="d19963e62-option" id="d19963e76"
+								class="stentry choption"><strong>Span Attribute
+									Value</strong></td>
+							<td valign="top" headers="d19963e62-desc d19963e76"
+								class="stentry chdesc">
+								<p class="p">
+									Enter the text pattern that you want to match, and click <span
+										class="ph uicontrol">OK</span>.
+								</p>
+							</td>
+						</tr>
+						<tr class="strow chrow">
+							<td valign="top" headers="d19963e62-option" id="d19963e87"
+								class="stentry choption"><strong>Input Document</strong></td>
+							<td valign="top" headers="d19963e62-desc d19963e87"
+								class="stentry chdesc"><p class="p">
+									Select the documents that you want to display. Click <span
+										class="ph uicontrol">Add</span>and then click <span
+										class="ph uicontrol">OK</span>.
+								</p></td>
+						</tr>
+						<tr class="strow chrow">
+							<td valign="top" headers="d19963e62-option" id="d19963e99"
+								class="stentry choption"><strong>Left Context</strong></td>
+							<td valign="top" headers="d19963e62-desc d19963e99"
+								class="stentry chdesc"><p class="p">
+									Enter the text pattern that you want to match, and click <span
+										class="ph uicontrol">OK</span>.
+								</p></td>
+						</tr>
+						<tr class="strow chrow">
+							<td valign="top" headers="d19963e62-option" id="d19963e108"
+								class="stentry choption"><strong>Right Context</strong></td>
+							<td valign="top" headers="d19963e62-desc d19963e108"
+								class="stentry chdesc"><p class="p">
+									Enter the text pattern that you want to match, and click <span
+										class="ph uicontrol">OK</span>.
+								</p></td>
+						</tr>
+					</tbody>
+				</table></li>
+			<li class="li step stepexpand"><span class="ph cmd">Click
+					the <span class="ph uicontrol">Select Filters for the
+						Annotation Explorer</span> menu on the <span class="keyword wintitle">Annotation
+						Explorer</span> toolbar, and click <span class="ph uicontrol">Show
+						hide filter view</span>.
+			</span> The<span class="keyword wintitle"> Filter Criteria</span> dialog
+				closes. Filter criteria is saved across sessions, so there is no
+				need to reenter the criteria the next time you start the <span
+				class="keyword">InfoSphere® BigInsights™</span> Eclipse Tools. Of
+				course, you can remove existing criteria for any column by clicking
+				<span class="ph uicontrol">Clear Filter</span>.</li>
+		</ol>
+	</div>
+	<div class="related-links">
+		<div class="familylinks">
+			<div class="parentlink">
+				<strong>Parent topic:</strong> <a class="link"
+					href="../../html/CreateTextAnalyticsApps.html"
+					title="The Text Analytics InfoSphere BigInsights Tools for Eclipse helps you analyze your documents, view the results in different formats, discover patterns in the content, and investigate the lineage of your results.">Creating
+					Text Analytics applications</a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

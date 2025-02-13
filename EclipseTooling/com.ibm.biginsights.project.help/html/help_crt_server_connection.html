@@ -2,57 +2,95 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <meta name="copyright" content="© Copyright IBM Corporation 2014" />
 <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
 <meta name="security" content="public" />
 <meta name="Robots" content="index,follow" />
 <meta name="DC.Type" content="task" />
-<meta name="DC.Title" content="Creating an InfoSphere BigInsights server connection" />
-<meta name="abstract" content="Connect to the InfoSphere BigInsights server to enhance your Eclipse development environment with capabilities for developing and deploying applications to the InfoSphere BigInsights server and writing programs using Java MapReduce, JAQL, Pig and Hive. They also support developing Text Analytics programs, such as extractors, that run on IBM InfoSphere BigInsights." />
-<meta name="Description" content="Connect to the InfoSphere BigInsights server to enhance your Eclipse development environment with capabilities for developing and deploying applications to the InfoSphere BigInsights server and writing programs using Java MapReduce, JAQL, Pig and Hive. They also support developing Text Analytics programs, such as extractors, that run on IBM InfoSphere BigInsights." />
+<meta name="DC.Title"
+	content="Creating an InfoSphere BigInsights server connection" />
+<meta name="abstract"
+	content="Connect to the InfoSphere BigInsights server to enhance your Eclipse development environment with capabilities for developing and deploying applications to the InfoSphere BigInsights server and writing programs using Java MapReduce, JAQL, Pig and Hive. They also support developing Text Analytics programs, such as extractors, that run on IBM InfoSphere BigInsights." />
+<meta name="Description"
+	content="Connect to the InfoSphere BigInsights server to enhance your Eclipse development environment with capabilities for developing and deploying applications to the InfoSphere BigInsights server and writing programs using Java MapReduce, JAQL, Pig and Hive. They also support developing Text Analytics programs, such as extractors, that run on IBM InfoSphere BigInsights." />
 <meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
 <meta name="DC.Format" content="XHTML" />
 <meta name="DC.Identifier" content="help_crt_server_connection" />
 <meta name="DC.Language" content="en-us" />
 <meta name="IBM.Country" content="ZZ" />
-<!-- Licensed Materials - Property of IBM -->
-<!-- US Government Users Restricted Rights -->
-<!-- Use, duplication or disclosure restricted by -->
-<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<!--Copyright IBM-->
+<!--Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--you may not use this file except in compliance with the License.-->
+<!--You may obtain a copy of the License at-->
+<!--http://www.apache.org/licenses/LICENSE-2.0-->
+<!--Unless required by applicable law or agreed to in writing, software-->
+<!--distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--See the License for the specific language governing permissions and-->
+<!--limitations under the License.-->
 <link rel="stylesheet" type="text/css" href="../ibmdita.css" />
 <link rel="stylesheet" type="text/css" href="../swg_info_common.css" />
 <title>Creating an InfoSphere BigInsights server connection</title>
 </head>
 <body role="main" id="help_crt_server_connection">
-<h1 class="title topictitle1">Creating an <span class="keyword">InfoSphere BigInsights</span> server
-connection</h1>
-<div class="body taskbody"><p class="shortdesc">Connect to the <span class="keyword">InfoSphere® BigInsights™</span> server
-to enhance your Eclipse development environment with capabilities
-for developing and deploying applications to the <span class="keyword">InfoSphere BigInsights</span> server
-and writing programs using Java MapReduce, JAQL, Pig and Hive. They
-also support developing Text Analytics programs, such as extractors,
-that run on IBM InfoSphere BigInsights.</p>
-<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Open the <span class="keyword">InfoSphere BigInsights</span> server
-view by clicking <span class="ph menucascade"><span class="ph uicontrol">Window</span> &gt; <span class="ph uicontrol">Show
-View</span> &gt; <span class="ph uicontrol">Other</span></span>. </span></li>
-<li class="li step"><span class="ph cmd">Under the BigInsights category, select <span class="ph uicontrol">BigInsights
-Servers</span>.</span></li>
-<li class="li step"><span class="ph cmd">In the<span class="keyword wintitle">BigInsights Servers</span> view, right-click <span class="ph uicontrol">BigInsights
-Servers</span>, and click <span class="ph uicontrol">New</span>. The <span class="keyword wintitle">Create
-a new BigInsights server</span> window opens.</span></li>
-<li class="li step"><span class="ph cmd">Copy the URL of your <span class="keyword">InfoSphere BigInsights Console</span> into
-the URL field. The name of the server defaults to the host name of
-the <span class="keyword">InfoSphere BigInsights Console</span>,
-but you can change it. </span></li>
-<li class="li step"><span class="ph cmd">If your server is set up for security, enter your credentials
-in the <span class="ph uicontrol">User ID</span> and <span class="ph uicontrol">Password</span> fields.
-    </span></li>
-<li class="li step">Optional: <span class="ph cmd">Click <span class="ph uicontrol">Test connection</span> to
-verify that you can connect to the server.     </span></li>
-<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Finish</span>.</span></li>
-</ol>
-</div>
-<div class="related-links"></div></body>
+	<h1 class="title topictitle1">
+		Creating an <span class="keyword">InfoSphere BigInsights</span> server
+		connection
+	</h1>
+	<div class="body taskbody">
+		<p class="shortdesc">
+			Connect to the <span class="keyword">InfoSphere® BigInsights™</span>
+			server to enhance your Eclipse development environment with
+			capabilities for developing and deploying applications to the <span
+				class="keyword">InfoSphere BigInsights</span> server and writing
+			programs using Java MapReduce, JAQL, Pig and Hive. They also support
+			developing Text Analytics programs, such as extractors, that run on
+			IBM InfoSphere BigInsights.
+		</p>
+		<div class="tasklabel">
+			<h2 class="sectiontitle tasklabel">Procedure</h2>
+		</div>
+		<ol class="ol steps">
+			<li class="li step"><span class="ph cmd">Open the <span
+					class="keyword">InfoSphere BigInsights</span> server view by
+					clicking <span class="ph menucascade"><span
+						class="ph uicontrol">Window</span> &gt; <span class="ph uicontrol">Show
+							View</span> &gt; <span class="ph uicontrol">Other</span></span>.
+			</span></li>
+			<li class="li step"><span class="ph cmd">Under the
+					BigInsights category, select <span class="ph uicontrol">BigInsights
+						Servers</span>.
+			</span></li>
+			<li class="li step"><span class="ph cmd">In the<span
+					class="keyword wintitle">BigInsights Servers</span> view,
+					right-click <span class="ph uicontrol">BigInsights Servers</span>,
+					and click <span class="ph uicontrol">New</span>. The <span
+					class="keyword wintitle">Create a new BigInsights server</span>
+					window opens.
+			</span></li>
+			<li class="li step"><span class="ph cmd">Copy the URL of
+					your <span class="keyword">InfoSphere BigInsights Console</span>
+					into the URL field. The name of the server defaults to the host
+					name of the <span class="keyword">InfoSphere BigInsights
+						Console</span>, but you can change it.
+			</span></li>
+			<li class="li step"><span class="ph cmd">If your server
+					is set up for security, enter your credentials in the <span
+					class="ph uicontrol">User ID</span> and <span class="ph uicontrol">Password</span>
+					fields.
+			</span></li>
+			<li class="li step">Optional: <span class="ph cmd">Click
+					<span class="ph uicontrol">Test connection</span> to verify that
+					you can connect to the server.
+			</span></li>
+			<li class="li step"><span class="ph cmd">Click <span
+					class="ph uicontrol">Finish</span>.
+			</span></li>
+		</ol>
+	</div>
+	<div class="related-links"></div>
+</body>
 </html>
