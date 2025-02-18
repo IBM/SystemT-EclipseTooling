@@ -11,7 +11,7 @@ For support and reporting issues on AQL Developer Tooling:
 
 ``cd EclipseTooling``
 
-``mvn clean install``
+``mvn clean install -f EclipseTooling/pom.xml -s build/maven-settings.xml``
 
 ## Installing the AQL Developer Tooling
 
