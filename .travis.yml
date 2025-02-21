@@ -1,0 +1,25 @@
+language: java
+sudo: required
+dist: trusty
+
+jdk:
+- openjdk11
+
+cache:
+  directories:
+  - "${HOME}/.m2/repository"
+env:
+  global:
+  - PS1=">"
+before_install:
+- wget https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.6.3/apache-maven-3.6.3-bin.tar.gz
+- tar -zxvf apache-maven-3.6.3-bin.tar.gz
+- export MAVEN_HOME=`pwd`"/apache-maven-3.6.3"
+- export PATH=${MAVEN_HOME}/bin:$PATH
+- mvn --version
+
+install: true
+script:
+- travis_wait 120 bash ./travis-build.sh
+before_cache:
+- rm -fr ${HOME}/.m2/repository/com/ibm/ai/devtooling
