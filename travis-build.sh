@@ -18,7 +18,7 @@ echo "dry_run: ${dry_run}"
 
 flag="-U -B"
 
-if [ "${TRAVIS_BRANCH}" = "master" ]; then
+if [ "${TRAVIS_BRANCH}" = "main" ]; then
     if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
         # build of master, run tests and push artifacts
         maven_goal=deploy
@@ -52,5 +52,5 @@ echo "skip_test: ${skip_test}"
 echo "flag: ${flag}"
 
 if [[ ${dry_run} == "false" ]];then
-    mvn clean ${maven_goal} ${flag} -f EclipseTooling/pom.xml -s build/maven-settings.xml -Dmaven.test.skip=${skip_test} -Dartifactory.username=${ARTIFACTORY_USERNAME} -Dartifactory.password=${ARTIFACTORY_PASSWORD} -Dghe.username=${GHE_USERNAME} -Dghe.accesstoken=${GHE_ACCESSTOKEN}
+    mvn clean ${maven_goal} ${flag} -f EclipseTooling/pom.xml -s build/maven-settings.xml -Dmaven.test.skip=${skip_test} -Dghe.username=${GHE_USERNAME} -Dghe.accesstoken=${GHE_ACCESSTOKEN}
 fi
