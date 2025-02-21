@@ -61,11 +61,9 @@
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
       <import plugin="com.ibm.biginsights.textanalytics.aqleditor" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.expressions"/>
-      <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.swt"/>
       <import plugin="com.ibm.biginsights.textanalytics.provenance" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.expressions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jdt.core"/>
       <import plugin="org.eclipse.ui.navigator"/>
       <import plugin="org.eclipse.ui.navigator.resources"/>
@@ -73,56 +71,24 @@
       <import plugin="org.eclipse.jdt.ui"/>
       <import plugin="org.eclipse.equinox.security" version="1.0.1" match="greaterOrEqual"/>
       <import plugin="com.ibm.icu" version="3.8.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.core" version="3.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.console"/>
       <import plugin="org.eclipse.search"/>
       <import plugin="org.eclipse.ui.browser" version="3.2.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.expressions" version="3.4.1" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.project.help" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jdt.debug.ui" version="3.3.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help"/>
       <import plugin="org.eclipse.help.ui" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.ui" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface.text" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.resources" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.core" version="3.4.4" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.nature" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.core" version="3.4.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.ui" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.launching" version="3.4.1" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.goldstandard" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.workflow" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.migration" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface.text" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.console" version="3.3.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.4.0" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.regex" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.ui" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.core" version="3.4.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.search" version="3.4.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.console" version="3.3.1" match="greaterOrEqual"/>
       <import plugin="com.ibm.bigdata.tasklauncher" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.indexer" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="com.ibm.biginsights.textanalytics.refactor" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.resources" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.editors" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.browser" version="3.3.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.core" version="3.6.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.debug.ui" version="3.5.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.compare"/>
-      <import plugin="org.eclipse.jface" version="3.6.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.resources" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.forms" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.cheatsheets" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface.databinding" version="1.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface.text" version="3.6.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ltk.core.refactoring" version="3.5.100" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ltk.ui.refactoring" version="3.5.0" match="greaterOrEqual"/>
       <import feature="com.ibm.bigdata.biginsights.platform.feature" version="1.0.0" match="greaterOrEqual"/>
