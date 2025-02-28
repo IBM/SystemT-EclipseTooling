@@ -11,31 +11,45 @@
  See the License for the specific language governing permissions and \
  limitations under the License.
 -->
-<container version="4.0.1.0" isdefault="false">
+<container version="5.0.0.0" isdefault="true">
 	<bundles>
 		<bundle id="com.ibm.biginsights.thirdparty" version="5.0.1">
 			<file>/lib/commons-cli*.jar</file>
 			<file>/lib/commons-lang*.jar</file>
-			<file>/lib/icu4j*.jar</file>
 			<file>/lib/derby.jar</file>
 			<file>/lib/derbyclient.jar</file>
 			<file>/lib/bigsheets/bigsheets.jar</file>
-			<file>/lib/machine-learning/SystemML.jar</file>
 			<file>/lib/credstore.jar</file>
-			<file>/lib/JSON4J.jar</file>
 			<file>/lib/jaql.jar</file>
-			<file>/lib/opencsv-2.3/opencsv-2.3.jar</file>
 			<!-- BEGIN: Text Analytics libraries-->
+			<file>/lib/icu4j*.jar</file>
+			<file>/lib/JSON4J.jar</file>
+			<file>/lib/opencsv-2.3/opencsv-2.3.jar</file>
 			<file>/lib/text-analytics/action-api-esg.jar</file>
 			<file>/lib/text-analytics/commons-pool2.jar</file>
 			<file>/lib/text-analytics/systemT.jar</file>
-			<file>/lib/multilingual/an_dlt.jar</file>
-			<file>/lib/multilingual/dlt.jar</file>
-			<file>/lib/multilingual/tokenizer.jar</file>
+			<file>/lib/text-analytics/simple-regex.jar</file>
+			<!-- dlt.jar is included in Izumo -->
+			<!-- <file>/lib/multilingual/dlt.jar</file> -->
 			<file>/lib/uima/uima-core.jar</file>
 			<file>/lib/htmlparser-2.0/htmllexer.jar</file>
 			<file>/lib/htmlparser-2.0/htmlparser.jar</file>
 			<!-- END: Text Analytics libraries-->
+			<!-- Izumo libraries -->
+			<file>/lib/multilingualuniversal/commons-csv.jar</file>
+			<file>/lib/multilingualuniversal/diffutils.jar</file>
+			<file>/lib/multilingualuniversal/guava.jar</file>
+			<file>/lib/multilingualuniversal/guice.jar</file>
+			<file>/lib/multilingualuniversal/jackson-annotations.jar</file>
+			<file>/lib/multilingualuniversal/jackson-core.jar</file>
+			<file>/lib/multilingualuniversal/jackson-databind.jar</file>
+			<file>/lib/multilingualuniversal/java-uuid-generator.jar</file>
+			<file>/lib/multilingualuniversal/javax.inject.jar</file>
+			<!-- JAXB for OpenJDK 11 -->
+			<file>/lib/jaxb/javax.activation-api.jar</file>
+			<file>/lib/jaxb/jaxb-api.jar</file>
+			<file>/lib/jaxb/jaxb-core.jar</file>
+			<file>/lib/jaxb/jaxb-impl.jar</file>
 		</bundle>
 	</bundles>
 </container>
