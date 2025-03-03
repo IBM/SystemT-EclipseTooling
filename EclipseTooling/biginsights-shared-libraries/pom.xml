@@ -153,7 +153,7 @@
                 <artifactItem>
                   <groupId>org.htmlparser</groupId>
                   <artifactId>htmllexer</artifactId>
-                  <version>2.0</version>
+                  <version>2.1</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib/htmlparser-2.0</outputDirectory>
                   <destFileName>htmllexer.jar</destFileName>
