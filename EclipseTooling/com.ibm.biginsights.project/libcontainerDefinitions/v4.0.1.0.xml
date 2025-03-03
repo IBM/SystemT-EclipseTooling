@@ -29,13 +29,8 @@
 			<file>/lib/jaql.jar</file>
 			<file>/lib/opencsv-2.3/opencsv-2.3.jar</file>
 			<!-- BEGIN: Text Analytics libraries-->
-			<file>/lib/text-analytics/action-api-esg.jar</file>
 			<file>/lib/text-analytics/commons-pool2.jar</file>
 			<file>/lib/text-analytics/systemT.jar</file>
-			<file>/lib/multilingual/an_dlt.jar</file>
-			<file>/lib/multilingual/dlt.jar</file>
-			<file>/lib/multilingual/tokenizer.jar</file>
-			<file>/lib/uima/uima-core.jar</file>
 			<file>/lib/htmlparser-2.0/htmllexer.jar</file>
 			<file>/lib/htmlparser-2.0/htmlparser.jar</file>
 			<!-- END: Text Analytics libraries-->
