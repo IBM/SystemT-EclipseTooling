@@ -77,8 +77,8 @@ import com.ibm.biginsights.project.locations.wizard.PasswordDialog;
 import com.ibm.biginsights.project.util.Authenticator;
 import com.ibm.biginsights.project.util.BIConnectionException;
 import com.ibm.biginsights.project.util.BIConstants;
-import com.ibm.json.java.JSON;
-import com.ibm.json.java.JSONObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class BigInsightsLocation implements IBigInsightsLocation {
   
@@ -1523,9 +1523,10 @@ public class BigInsightsLocation implements IBigInsightsLocation {
 			int statusCode = httpClient.executeMethod(getMethod);	
 			if (statusCode==HttpStatus.SC_OK)
 			{				
-				String jsonText = getMethod.getResponseBodyAsString();				
-				JSONObject obj = (JSONObject) JSON.parse(jsonText);
-				String jsonValue = (String)obj.get("nodeUrl");				
+				String jsonText = getMethod.getResponseBodyAsString();
+				ObjectMapper mapper = new ObjectMapper();
+				JsonNode obj = (JsonNode) mapper.readTree(jsonText);
+				String jsonValue = (String)obj.asText("nodeUrl");				
 				//json returned from this api call; url value is "nodeUrl":"svltest143.svl.ibm.com:10000"				
 				String[] values = jsonValue.split(":");
 				if (values.length==2) {					
@@ -1565,8 +1566,9 @@ public class BigInsightsLocation implements IBigInsightsLocation {
 			if (statusCode==HttpStatus.SC_OK)
 			{				
 				String jsonText = getMethod.getResponseBodyAsString();
-				JSONObject obj = (JSONObject) JSON.parse(jsonText);
-				String jsonValue = (String)obj.get("url");				
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode obj = (JsonNode) mapper.readTree(jsonText);
+				String jsonValue = (String)obj.asText("url");				
 				//json returned from this api call; url value is bdvm335.svl.ibm.com:7052				
 				String[] values = jsonValue.split(":");
 				if (values.length==2) {
@@ -1578,7 +1580,7 @@ public class BigInsightsLocation implements IBigInsightsLocation {
 				}
 				if (this.isVersion3000orAbove()) {
 					// for 3.0 and later also retrieve the BigSQL2 host and server
-					String jsonValue2 = (String)obj.get("jdbcUrl2");
+					String jsonValue2 = (String)obj.asText("jdbcUrl2");
 					//json returned from this api call; url value is jdbc:db2://hdtest085.svl.ibm.com:51000/bigsql
 					if (jsonValue2!=null && !jsonValue2.isEmpty()) {
 						jsonValue2 = jsonValue2.substring(jsonValue2.indexOf("//")+2, jsonValue2.lastIndexOf("/"));

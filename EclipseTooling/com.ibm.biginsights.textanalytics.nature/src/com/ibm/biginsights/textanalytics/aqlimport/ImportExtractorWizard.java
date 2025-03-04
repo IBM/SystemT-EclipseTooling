@@ -53,7 +53,7 @@ import com.ibm.biginsights.textanalytics.nature.Messages;
 import com.ibm.biginsights.textanalytics.util.common.Constants;
 import com.ibm.biginsights.textanalytics.util.common.ProjectUtils;
 import com.ibm.biginsights.textanalytics.util.log.LogUtil;
-import com.ibm.json.java.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 @SuppressWarnings("unused")
 public class ImportExtractorWizard extends Wizard implements IImportWizard

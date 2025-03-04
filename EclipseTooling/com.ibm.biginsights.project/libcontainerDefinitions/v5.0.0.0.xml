@@ -26,7 +26,7 @@
 			<file>/lib/jaql.jar</file>
 			<!-- BEGIN: Text Analytics libraries-->
 			<file>/lib/icu4j*.jar</file>
-			<file>/lib/JSON4J.jar</file>
+			<file>/lib/jackson-databind.jar</file>
 			<file>/lib/opencsv-2.3/opencsv-2.3.jar</file>
 			<file>/lib/text-analytics/action-api-esg.jar</file>
 			<file>/lib/text-analytics/commons-pool2.jar</file>

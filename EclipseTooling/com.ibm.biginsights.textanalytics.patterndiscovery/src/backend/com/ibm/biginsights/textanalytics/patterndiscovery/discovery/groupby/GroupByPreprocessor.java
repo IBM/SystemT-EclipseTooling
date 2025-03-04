@@ -430,7 +430,7 @@ public class GroupByPreprocessor
   }
 
   /**
-   * Returns JSONArray where AQL query was performed on given dataset
+   * Returns ArrayNode where AQL query was performed on given dataset
    * 
    * @return
    * @throws Exception
@@ -511,7 +511,7 @@ public class GroupByPreprocessor
       	return false;
       }
 
-      // JSONObject ob = new JSONObject();
+      // JsonNode ob = new JsonNode();
       Tuple doc = docs.next ();
 
       // If docSchema contains 'label' field, use its content as doc name; otherwise, use docId as doc name.
@@ -571,7 +571,7 @@ public class GroupByPreprocessor
       // ob.put(viewNameProp, ""); //store viewName in json
 
       TLIter itr = tups.iterator ();
-      // JSONArray jtupAr = new JSONArray(); //store each tup specific
+      // ArrayNode jtupAr = new ArrayNode(); //store each tup specific
       // value
 
       // Iterate through each tuple in document for the specified view
@@ -996,7 +996,7 @@ public class GroupByPreprocessor
     // Process the documents one at a time.
     while (docs.hasNext ()) {
 
-      // JSONObject ob = new JSONObject();
+      // JsonNode ob = new JsonNode();
       Tuple doc = docs.next ();
 
       // Index of document within the collection, AKA "document ID"
