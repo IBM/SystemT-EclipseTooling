@@ -24,11 +24,11 @@ import org.eclipse.swt.widgets.MessageBox;
 import com.ibm.biginsights.project.Activator;
 import com.ibm.biginsights.project.Messages;
 import com.ibm.biginsights.project.locations.IBigInsightsLocation;
-import com.ibm.json.java.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 public class SampleProjectsProvider {
 
-	public JSONArray getSampleProjects(IBigInsightsLocation location, String projectSuffix){
+	public ArrayNode getSampleProjects(IBigInsightsLocation location, String projectSuffix){
 		
 		final SampleProjectsJob job = new SampleProjectsJob(location);		
 		

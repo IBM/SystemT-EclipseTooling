@@ -75,7 +75,7 @@
 			<file>/lib/bigsheets/bigsheets.jar</file>
 			<file>/lib/machine-learning/SystemML.jar</file>
 			<file>/lib/credstore.jar</file>
-			<file>/lib/JSON4J.jar</file>
+			<file>/lib/jackson-databind.jar</file>
 			<file>/lib/opencsv-2.3/opencsv-2.3.jar</file>
 			<!-- BEGIN: Text Analytics libraries -->
 			<file>/lib/text-analytics/systemT.jar</file>

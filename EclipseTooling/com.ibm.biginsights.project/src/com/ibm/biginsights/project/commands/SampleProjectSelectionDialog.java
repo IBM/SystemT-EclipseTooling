@@ -33,27 +33,27 @@ import com.ibm.biginsights.project.Messages;
 import com.ibm.biginsights.project.locations.IBigInsightsLocation;
 import com.ibm.biginsights.project.locations.LocationSelectionDialog;
 import com.ibm.biginsights.project.sampleProjects.SampleProjectsProvider;
-import com.ibm.json.java.JSONArray;
-import com.ibm.json.java.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class SampleProjectSelectionDialog extends LocationSelectionDialog {
 
-	private JSONObject _project;
+	private JsonNode _project;
 	private Combo _cbProjects;
 	private Label lblDesc;	
 	private String _projectSuffix;
 	private String _projectType;
 	private SampleProjectsProvider _projectsProvider;
-	private HashMap<IBigInsightsLocation, JSONArray>locationProjectsMappingList;
+	private HashMap<IBigInsightsLocation, ArrayNode>locationProjectsMappingList;
 	
-	public SampleProjectSelectionDialog(Shell parent, IBigInsightsLocation initialLocation, JSONObject initialProject, String projectSuffix, String projectType) {
+	public SampleProjectSelectionDialog(Shell parent, IBigInsightsLocation initialLocation, JsonNode initialProject, String projectSuffix, String projectType) {
 		super(parent, Messages.APPSELECTIONDIALOG_TITLE,
 				projectType==null ? Messages.SAMPLEPROJECTSELECTIONDIALOG_DESC:Messages.bind(Messages.SAMPLEPROJECTSELECTIONDIALOG_DESC_TYPE, projectType), initialLocation);
 		this._project = initialProject;		
 		this._projectSuffix = projectSuffix;
 		this._projectType = projectType;
 		_projectsProvider = new SampleProjectsProvider();
-		locationProjectsMappingList = new HashMap<IBigInsightsLocation, JSONArray>();
+		locationProjectsMappingList = new HashMap<IBigInsightsLocation, ArrayNode>();
 	}
 	
     protected void configureShell(Shell shell) {
@@ -111,13 +111,13 @@ public class SampleProjectSelectionDialog extends LocationSelectionDialog {
     
     private void retrieveProjectsForLocation(IBigInsightsLocation location) {
 		_cbProjects.removeAll();
-		JSONArray projects = _projectsProvider.getSampleProjects(location, this._projectSuffix);
+		ArrayNode projects = _projectsProvider.getSampleProjects(location, this._projectSuffix);
 		if (projects!=null) {
 			ArrayList<String> projArray = new ArrayList<String>();
 			locationProjectsMappingList.put(location, projects);		
 			for (Object obj:projects) {
-				JSONObject project = (JSONObject)obj;
-				String projFile = (String)project.get("name"); //$NON-NLS-1$
+				JsonNode project = (JsonNode)obj;
+				String projFile = (String)project.asText("name"); //$NON-NLS-1$
 				if (projFile.endsWith(this._projectSuffix))
 					projArray.add(projFile);
 			}
@@ -142,10 +142,10 @@ public class SampleProjectSelectionDialog extends LocationSelectionDialog {
     private void updateSelectedProject() {
     	if (_cbProjects.getSelectionIndex()>-1) {
     		String selectedProjName = _cbProjects.getItem(_cbProjects.getSelectionIndex()); 
-    		JSONArray projects = locationProjectsMappingList.get(this.getSelectedLocation());
+    		ArrayNode projects = locationProjectsMappingList.get(this.getSelectedLocation());
     		if (projects!=null && !projects.isEmpty()) {    
     			for (Object obj:projects) {    			
-    				JSONObject project = (JSONObject)obj;
+    				JsonNode project = (JsonNode)obj;
     				if (project.get("name").equals(selectedProjName)) { //$NON-NLS-1$
     					this._project = project;
     					break;

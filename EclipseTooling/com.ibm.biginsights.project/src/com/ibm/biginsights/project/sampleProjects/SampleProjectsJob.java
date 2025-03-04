@@ -33,13 +33,14 @@ import com.ibm.biginsights.project.locations.IBigInsightsLocation;
 import com.ibm.biginsights.project.util.Authenticator;
 import com.ibm.biginsights.project.util.BIConnectionException;
 import com.ibm.biginsights.project.util.BIConstants;
-import com.ibm.json.java.JSONArray;
-import com.ibm.json.java.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class SampleProjectsJob extends Job {
 
 	private IBigInsightsLocation _location;		
-	private JSONArray _projects = null;
+	private ArrayNode _projects = null;
 
 	public SampleProjectsJob(IBigInsightsLocation location) {
 		super(Messages.SAMPLEPROJECTSJOB_RETRIEVING_PROJECTS_JOB_NAME);
@@ -67,9 +68,10 @@ public class SampleProjectsJob extends Job {
 							 Messages.Error_AppJob_1+ " " + Messages.LOCATIONSERVERAUTHFAILED); //$NON-NLS-1$
 				}
 				InputStream response = method.getResponseBodyAsStream();	
-				JSONObject returnJson = JSONObject.parse(response);	
+				ObjectMapper mapper = new ObjectMapper();
+				JsonNode returnJson = mapper.readTree(response);
 				if (returnJson.get("status").equals("SUCCESS")) { //$NON-NLS-1$ //$NON-NLS-2$
-					_projects = (JSONArray)returnJson.get("sampleapps");	 //$NON-NLS-1$
+					_projects = (ArrayNode)returnJson.get("sampleapps");	 //$NON-NLS-1$
 					return Status.OK_STATUS;
 				}
 				else return new Status(IStatus.ERROR, Activator.PLUGIN_ID, 
@@ -96,7 +98,7 @@ public class SampleProjectsJob extends Job {
 		}
 	}
 	
-	public JSONArray getProjects() {
+	public ArrayNode getProjects() {
 		return _projects;
 	}	
 
