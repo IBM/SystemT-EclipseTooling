@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
@@ -64,6 +65,7 @@ import com.ibm.biginsights.textanalytics.workflow.Activator;
 import com.ibm.biginsights.textanalytics.workflow.messages.Messages;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ImportJsonRecordsWizard extends Wizard implements IImportWizard
 {
@@ -131,11 +133,13 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
 
       // If this is new type of result output -- a list of JSON records --
       // continue parsing the file as the new type output.
+      ObjectMapper mapper = new ObjectMapper();
       if (aLine != null && aLine.trim ().startsWith ("{")) {    //$NON-NLS-1$
-        jsonResultArray = new ArrayNode ();
+       
+        jsonResultArray = mapper.createArrayNode();
 
         while (aLine != null) {
-          JsonNode obj = JsonNode.parse (aLine);
+          JsonNode obj = (JsonNode) mapper.readTree(aLine);
           jsonResultArray.add (obj);
           aLine = rdr.readLine (); 
         }
@@ -144,7 +148,7 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
       // Re-parse from the beginning as the old type output.
       else {
         inJsonSR = getInputStreamReader(inJson);
-        jsonResultArray = ArrayNode.parse (inJsonSR);
+        jsonResultArray.add(mapper.readTree (inJsonSR));
       }
 
       convert2SystemTCompResult (jsonResultArray, resultFolder);
@@ -300,15 +304,17 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
       model.setOutputViews (duplicateOV (outputViews));
 
       int new_base_txt_id = base_txt_id;
-      for (Object elemId : results4doc.keySet () ) {
-        String elemName = (String)elemId;
-
+      Iterator<String> fieldNames = results4doc.fieldNames();
+      while (fieldNames.hasNext()) {
+        String elemName = fieldNames.next();
+        Object elemId = (Object) results4doc.get (elemName);
+        
         // string_table [..]
         if (elemName.equals (STRING_TABLE_FIELD)) {
           ArrayNode stringTable = (ArrayNode)results4doc.get (STRING_TABLE_FIELD);
           if (stringTable != null && !stringTable.isEmpty ()) {
             for (int docIdx = 0; docIdx < stringTable.size (); docIdx++) {
-              model.addText (new_base_txt_id++, (String)stringTable.get (docIdx));
+              model.addText (new_base_txt_id++, stringTable.get (docIdx).asText());
             }
           }
         }
@@ -354,9 +360,11 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
       //   3. an array named string_table that keeps an
       //      indexed list of texts used in spans.
       //----------------------------------------------------------
-      for (Object elemId : results4doc.keySet () ) {
-        String elemName = (String)elemId;
-
+      Iterator<String> fieldNames = results4doc.fieldNames();
+      while (fieldNames.hasNext()) {
+        String elemName = fieldNames.next();
+        Object elemId = (Object) results4doc.get (elemName);
+        
         // If it is a new output view
         if ( !elemName.equals (STRING_TABLE_FIELD) &&
              results4doc.get (elemName) instanceof ArrayNode &&
@@ -371,12 +379,13 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
             List<FieldType> fieldTypeList = new ArrayList<FieldType> ();
 
             // Loop thru each field of the result
-            for (Object fn : jsonRecord.keySet ()) {
-              String fieldName = (String) fn;
-
+            Iterator<String> fns = jsonRecord.fieldNames();
+            while (fns.hasNext()) {
+              String fieldName = fns.next();
+              Object fv = (Object) results4doc.get (fieldName);
+              
               FieldType fieldType = null;
-              Object fv = jsonRecord.get (fn);
-
+     
               // JSON value is a JSON-able object which is one of : String, Boolean, Number, JsonNode, ArrayNode
               // Based on the value, the field type will be STRING, BOOL, INT or FLOAT, SPAN, LIST.
               if (fv instanceof String)
@@ -445,14 +454,17 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
 
       // Loop thru each field of the result
       List<FieldValue> fieldValueList = new ArrayList<FieldValue> ();
-      for (Object fn : jsonRecord.keySet ()) {
-        Object fv = jsonRecord.get (fn);
-        FieldValue fieldValue = getFieldValue (base_txt_id, fv);
+      
+      Iterator<String> fieldNames = jsonRecord.fieldNames();
+      while (fieldNames.hasNext()) {
+          String fn = fieldNames.next();
+          Object fv = (Object) jsonRecord.get (fn);
+          FieldValue fieldValue = getFieldValue (base_txt_id, fv);
 
-        if (fieldValue != null)
-          fieldValueList.add (fieldValue);
+          if (fieldValue != null)
+            fieldValueList.add (fieldValue);
       }
-
+      
       row.fieldValues = fieldValueList.toArray (new FieldValue[0]);
       ovRowList.add (row);
     }
@@ -484,9 +496,9 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
     }
     else if (fv instanceof JsonNode) {
       JsonNode spanValue = (JsonNode) fv;
-      Long begin = (Long)spanValue.get (BEGIN_OFFSET_FIELD);
-      Long end = (Long)spanValue.get (END_OFFSET_FIELD);
-      Long srcId = (Long)spanValue.get (DOC_ID_FIELD) + base_txt_id;
+      Long begin = (Long)spanValue.get (BEGIN_OFFSET_FIELD).asLong();
+      Long end = (Long)spanValue.get (END_OFFSET_FIELD).asLong();
+      Long srcId = (Long)spanValue.get (DOC_ID_FIELD).asLong() + base_txt_id;
       fieldValue = new SpanVal (begin.intValue (), end.intValue (), srcId.intValue ());
       ((SpanVal)fieldValue).parentSpanName = "Document.text"; // Hard code for now        //$NON-NLS-N$
     }
