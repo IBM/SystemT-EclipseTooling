@@ -52,5 +52,5 @@ echo "skip_test: ${skip_test}"
 echo "flag: ${flag}"
 
 if [[ ${dry_run} == "false" ]];then
-    mvn clean ${maven_goal} ${flag} -f EclipseTooling/pom.xml -s build/maven-settings.xml -Dmaven.test.skip=${skip_test} -Dartifactory.username=${ARTIFACTORY_USERNAME} -Dartifactory.password=${ARTIFACTORY_PASSWORD} -Dghe.username=${GHE_USERNAME} -Dghe.accesstoken=${GHE_ACCESSTOKEN}
+    mvn clean ${maven_goal} ${flag} -f EclipseTooling/pom.xml -s build/maven-settings.xml -Dmaven.test.skip=${skip_test}
 fi
