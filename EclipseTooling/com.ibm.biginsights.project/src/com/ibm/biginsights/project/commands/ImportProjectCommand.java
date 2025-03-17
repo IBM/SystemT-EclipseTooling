@@ -25,7 +25,7 @@ import com.ibm.biginsights.project.Messages;
 import com.ibm.biginsights.project.locations.IBigInsightsLocation;
 import com.ibm.biginsights.project.sampleProjects.SampleProjectsProvider;
 import com.ibm.biginsights.project.util.BIConstants;
-import com.ibm.json.java.JSONObject;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class ImportProjectCommand extends AbstractHandler  {
 
@@ -50,10 +50,10 @@ public class ImportProjectCommand extends AbstractHandler  {
 			
 			SampleProjectsProvider _projectsProvider = new SampleProjectsProvider();			
 			IBigInsightsLocation loc = (IBigInsightsLocation)dlg.getResult()[0];
-			JSONObject selectedProject = (JSONObject)dlg.getResult()[1];			
+			JsonNode selectedProject = (JsonNode)dlg.getResult()[1];			
 			
-			_projectsProvider.importSampleProject(loc, (String)selectedProject.get("name"),  //$NON-NLS-1$
-													projectSuffix, (String)selectedProject.get("path")); //$NON-NLS-1$ //$NON-NLS-2$
+			_projectsProvider.importSampleProject(loc, (String)selectedProject.asText("name"),  //$NON-NLS-1$
+													projectSuffix, (String)selectedProject.asText("path")); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		return null;
 	}

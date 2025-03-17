@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
@@ -62,8 +63,9 @@ import com.ibm.biginsights.textanalytics.util.common.ProjectUtils;
 import com.ibm.biginsights.textanalytics.util.log.LogUtil;
 import com.ibm.biginsights.textanalytics.workflow.Activator;
 import com.ibm.biginsights.textanalytics.workflow.messages.Messages;
-import com.ibm.json.java.JSONArray;
-import com.ibm.json.java.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ImportJsonRecordsWizard extends Wizard implements IImportWizard
 {
@@ -124,18 +126,20 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
         return false;
 
       BufferedReader rdr = new BufferedReader (inJsonSR);
-      JSONArray jsonResultArray = null;
+      ArrayNode jsonResultArray = null;
 
       // Read one line to find out what type of output, old or new format.
       String aLine = rdr.readLine (); 
 
       // If this is new type of result output -- a list of JSON records --
       // continue parsing the file as the new type output.
+      ObjectMapper mapper = new ObjectMapper();
       if (aLine != null && aLine.trim ().startsWith ("{")) {    //$NON-NLS-1$
-        jsonResultArray = new JSONArray ();
+       
+        jsonResultArray = mapper.createArrayNode();
 
         while (aLine != null) {
-          JSONObject obj = JSONObject.parse (aLine);
+          JsonNode obj = (JsonNode) mapper.readTree(aLine);
           jsonResultArray.add (obj);
           aLine = rdr.readLine (); 
         }
@@ -144,7 +148,7 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
       // Re-parse from the beginning as the old type output.
       else {
         inJsonSR = getInputStreamReader(inJson);
-        jsonResultArray = JSONArray.parse (inJsonSR);
+        jsonResultArray.add(mapper.readTree (inJsonSR));
       }
 
       convert2SystemTCompResult (jsonResultArray, resultFolder);
@@ -274,7 +278,7 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
     srlzr.writeModelToFile(outputFile, scrModel);
   }
 
-  private void convert2SystemTCompResult (JSONArray jsonResultArray, IFolder outputFolder)
+  private void convert2SystemTCompResult (ArrayNode jsonResultArray, IFolder outputFolder)
   {
     //------------------------------------------------------------------------
     // Create a SystemTComputationResult model for each doc.
@@ -292,7 +296,7 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
     // and fill out the output views.
     int base_txt_id = 0;  // this value is used to create a unique id for each doc
     for (int i = 0; i < jsonResultArray.size (); i++) {
-      JSONObject results4doc = (JSONObject)jsonResultArray.get (i);
+      JsonNode results4doc = (JsonNode)jsonResultArray.get (i);
 
       SystemTComputationResult model = new SystemTComputationResult();
       model.setInputTextID (i);
@@ -300,22 +304,24 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
       model.setOutputViews (duplicateOV (outputViews));
 
       int new_base_txt_id = base_txt_id;
-      for (Object elemId : results4doc.keySet () ) {
-        String elemName = (String)elemId;
-
+      Iterator<String> fieldNames = results4doc.fieldNames();
+      while (fieldNames.hasNext()) {
+        String elemName = fieldNames.next();
+        Object elemId = (Object) results4doc.get (elemName);
+        
         // string_table [..]
         if (elemName.equals (STRING_TABLE_FIELD)) {
-          JSONArray stringTable = (JSONArray)results4doc.get (STRING_TABLE_FIELD);
+          ArrayNode stringTable = (ArrayNode)results4doc.get (STRING_TABLE_FIELD);
           if (stringTable != null && !stringTable.isEmpty ()) {
             for (int docIdx = 0; docIdx < stringTable.size (); docIdx++) {
-              model.addText (new_base_txt_id++, (String)stringTable.get (docIdx));
+              model.addText (new_base_txt_id++, stringTable.get (docIdx).asText());
             }
           }
         }
 
         // Output view
-        else if (results4doc.get (elemName) instanceof JSONArray) {
-          JSONArray ovResults = (JSONArray)results4doc.get (elemName);
+        else if (results4doc.get (elemName) instanceof ArrayNode) {
+          ArrayNode ovResults = (ArrayNode)results4doc.get (elemName);
           processOutputViewResult (elemName, ovResults, model, base_txt_id);
         }
       }
@@ -336,13 +342,13 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
     return newOVs;
   }
 
-  private OutputView[] getOutputViews (JSONArray jsonResultArray)
+  private OutputView[] getOutputViews (ArrayNode jsonResultArray)
   {
     List<String> allOVNames = new ArrayList<String> ();
     List<OutputView> allOVs = new ArrayList<OutputView> ();
 
     for (int i = 0; i < jsonResultArray.size (); i++) {
-      JSONObject results4doc = (JSONObject)jsonResultArray.get (i);
+      JsonNode results4doc = (JsonNode)jsonResultArray.get (i);
 
       //----------------------------------------------------------
       // A Json result object corresponding to a document contains
@@ -354,30 +360,33 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
       //   3. an array named string_table that keeps an
       //      indexed list of texts used in spans.
       //----------------------------------------------------------
-      for (Object elemId : results4doc.keySet () ) {
-        String elemName = (String)elemId;
-
+      Iterator<String> fieldNames = results4doc.fieldNames();
+      while (fieldNames.hasNext()) {
+        String elemName = fieldNames.next();
+        Object elemId = (Object) results4doc.get (elemName);
+        
         // If it is a new output view
         if ( !elemName.equals (STRING_TABLE_FIELD) &&
-             results4doc.get (elemName) instanceof JSONArray &&
+             results4doc.get (elemName) instanceof ArrayNode &&
              !allOVNames.contains (elemName) ) {
 
           // we know elemName is the name of an output view; however, if
           // there is no output we can't get the view structure.
-          JSONArray ovResults = (JSONArray)results4doc.get (elemName);
+          ArrayNode ovResults = (ArrayNode)results4doc.get (elemName);
           if (ovResults.size () > 0) {
-            JSONObject jsonRecord = (JSONObject) ovResults.get (0);
+            JsonNode jsonRecord = (JsonNode) ovResults.get (0);
             List<String> fieldNameList = new ArrayList<String> ();
             List<FieldType> fieldTypeList = new ArrayList<FieldType> ();
 
             // Loop thru each field of the result
-            for (Object fn : jsonRecord.keySet ()) {
-              String fieldName = (String) fn;
-
+            Iterator<String> fns = jsonRecord.fieldNames();
+            while (fns.hasNext()) {
+              String fieldName = fns.next();
+              Object fv = (Object) results4doc.get (fieldName);
+              
               FieldType fieldType = null;
-              Object fv = jsonRecord.get (fn);
-
-              // JSON value is a JSON-able object which is one of : String, Boolean, Number, JSONObject, JSONArray
+     
+              // JSON value is a JSON-able object which is one of : String, Boolean, Number, JsonNode, ArrayNode
               // Based on the value, the field type will be STRING, BOOL, INT or FLOAT, SPAN, LIST.
               if (fv instanceof String)
                 fieldType = FieldType.STRING;
@@ -387,9 +396,9 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
                   fieldType = FieldType.INT;
               else if (fv instanceof Float || fv instanceof Double)
                  fieldType = FieldType.FLOAT;
-              else if (fv instanceof JSONObject)
+              else if (fv instanceof JsonNode)
                 fieldType = FieldType.SPAN;
-              else if (fv instanceof JSONArray)
+              else if (fv instanceof ArrayNode)
                 fieldType = FieldType.LIST;
 
               if (fieldType != null) {
@@ -420,7 +429,7 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
    * Output view results = an array of records, each of them has
    * following structure: { field1 : value1, field2 : value2, ... }
    ****************************************************************/
-  private void processOutputViewResult (String ovName, JSONArray ovResults, SystemTComputationResult model, int base_txt_id)
+  private void processOutputViewResult (String ovName, ArrayNode ovResults, SystemTComputationResult model, int base_txt_id)
   {
     if (ovResults == null || ovResults.size () == 0)
       return;
@@ -440,19 +449,22 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
 
     // Loop thru each output view result
     for (int i = 0; i < ovResults.size (); i++) {
-      JSONObject jsonRecord = (JSONObject) ovResults.get (i);
+      JsonNode jsonRecord = (JsonNode) ovResults.get (i);
       OutputViewRow row = new OutputViewRow();
 
       // Loop thru each field of the result
       List<FieldValue> fieldValueList = new ArrayList<FieldValue> ();
-      for (Object fn : jsonRecord.keySet ()) {
-        Object fv = jsonRecord.get (fn);
-        FieldValue fieldValue = getFieldValue (base_txt_id, fv);
+      
+      Iterator<String> fieldNames = jsonRecord.fieldNames();
+      while (fieldNames.hasNext()) {
+          String fn = fieldNames.next();
+          Object fv = (Object) jsonRecord.get (fn);
+          FieldValue fieldValue = getFieldValue (base_txt_id, fv);
 
-        if (fieldValue != null)
-          fieldValueList.add (fieldValue);
+          if (fieldValue != null)
+            fieldValueList.add (fieldValue);
       }
-
+      
       row.fieldValues = fieldValueList.toArray (new FieldValue[0]);
       ovRowList.add (row);
     }
@@ -465,7 +477,7 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
   {
     FieldValue fieldValue = null;
 
-    // JSON value is a JSON-able object which is one of : String, Boolean, Number, JSONObject, JSONArray
+    // JSON value is a JSON-able object which is one of : String, Boolean, Number, JsonNode, ArrayNode
     // Based on the value, the field type will be STRING, BOOL, INT or FLOAT, SPAN, LIST.
     if (fv instanceof String) {
       fieldValue = new StringVal ((String)fv);
@@ -482,16 +494,16 @@ private static final String _COPYRIGHT = "Copyright IBM\n"+
         fieldValue = new FloatVal (numberValue.floatValue ());
       }
     }
-    else if (fv instanceof JSONObject) {
-      JSONObject spanValue = (JSONObject) fv;
-      Long begin = (Long)spanValue.get (BEGIN_OFFSET_FIELD);
-      Long end = (Long)spanValue.get (END_OFFSET_FIELD);
-      Long srcId = (Long)spanValue.get (DOC_ID_FIELD) + base_txt_id;
+    else if (fv instanceof JsonNode) {
+      JsonNode spanValue = (JsonNode) fv;
+      Long begin = (Long)spanValue.get (BEGIN_OFFSET_FIELD).asLong();
+      Long end = (Long)spanValue.get (END_OFFSET_FIELD).asLong();
+      Long srcId = (Long)spanValue.get (DOC_ID_FIELD).asLong() + base_txt_id;
       fieldValue = new SpanVal (begin.intValue (), end.intValue (), srcId.intValue ());
       ((SpanVal)fieldValue).parentSpanName = "Document.text"; // Hard code for now        //$NON-NLS-N$
     }
-    else if (fv instanceof JSONArray) {
-      JSONArray fvArray = (JSONArray)fv;
+    else if (fv instanceof ArrayNode) {
+      ArrayNode fvArray = (ArrayNode)fv;
 
       fieldValue = new ListVal();
       List<FieldValue> fvList = new ArrayList<FieldValue> ();
