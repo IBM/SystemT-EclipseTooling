@@ -313,7 +313,7 @@
                 <artifactItem>
                   <groupId>com.fasterxml.jackson.jr</groupId>
                   <artifactId>jackson-jr-objects</artifactId>
-                  <version>2.10.1</version>
+                  <version>2.19.2</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib/multilingualuniversal</outputDirectory>
                   <destFileName>jackson-jr-objects.jar</destFileName>
