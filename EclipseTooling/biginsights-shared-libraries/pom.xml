@@ -359,7 +359,7 @@
                 <artifactItem>
                   <groupId>com.sun.xml.bind</groupId>
                   <artifactId>jaxb-impl</artifactId>
-                  <version>2.3.2</version>
+                  <version>2.3.9</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib/jaxb</outputDirectory>
                   <destFileName>jaxb-impl.jar</destFileName>
