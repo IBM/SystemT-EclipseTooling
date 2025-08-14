@@ -107,7 +107,7 @@
                 <artifactItem>
                   <groupId>org.apache.derby</groupId>
                   <artifactId>derbyclient</artifactId>
-                  <version>10.8.2.2</version>
+                  <version>10.17.1.0</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib</outputDirectory>
                   <destFileName>derbyclient.jar</destFileName>
