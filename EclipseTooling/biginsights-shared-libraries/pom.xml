@@ -331,7 +331,7 @@
                 <artifactItem>
                   <groupId>com.googlecode.java-diff-utils</groupId>
                   <artifactId>diffutils</artifactId>
-                  <version>1.2.1</version>
+                  <version>1.3.0</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib/multilingualuniversal</outputDirectory>
                   <destFileName>diffutils.jar</destFileName>
