@@ -322,7 +322,7 @@
                 <artifactItem>
                   <groupId>org.apache.commons</groupId>
                   <artifactId>commons-csv</artifactId>
-                  <version>1.6</version>
+                  <version>1.14.1</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib/multilingualuniversal</outputDirectory>
                   <destFileName>commons-csv.jar</destFileName>
