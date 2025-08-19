@@ -231,7 +231,7 @@
                 <artifactItem>
                   <groupId>org.apache.lucene</groupId>
                   <artifactId>lucene-core</artifactId>
-                  <version>3.3.0</version>
+                  <version>10.2.2</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib/lucene-3.3.0</outputDirectory>
                 </artifactItem>
