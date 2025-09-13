@@ -59,9 +59,9 @@
 
                 <!-- commons-lang -->
                 <artifactItem>
-                  <groupId>commons-lang</groupId>
-                  <artifactId>commons-lang</artifactId>
-                  <version>2.5</version>
+                  <groupId>org.apache.commons</groupId>
+                  <artifactId>commons-lang3</artifactId>
+                  <version>3.18.0</version>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/lib</outputDirectory>
                 </artifactItem>
