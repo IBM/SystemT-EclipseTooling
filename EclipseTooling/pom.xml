@@ -64,7 +64,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 
-		<tycho-version>2.7.0</tycho-version>
+		<tycho-version>2.7.5</tycho-version>
 
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss z</maven.build.timestamp.format>
 
